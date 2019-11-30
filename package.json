@@ -1,11 +1,11 @@
 {
-  "name": "codeevan",
+  "name": "evanblog",
   "version": "1.0.0",
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:list": "node utils/getFilenames.js",
     "docs:build": "vuepress build docs && node utils/bd_hm.js",
-    "docs:build:gitpage": "export VUEPRESS_BASE=/codingyang/|| set VUEPRESS_BASE=/codingyang/&&vuepress build docs && node utils/bd_hm.js",
+    "docs:build:gitpage": "export VUEPRESS_BASE=/evanblog/|| set VUEPRESS_BASE=/evanblog/&&vuepress build docs && node utils/bd_hm.js",
     "docs:push:gitpage": "push-dir --dir=docs/.vuepress/dist --branch=gh-pages --allow-unclean"
   },
   "license": "MIT",
