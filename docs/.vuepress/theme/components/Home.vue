@@ -15,7 +15,7 @@
     <div class="features" v-if="data.features && data.features.length">
       <div class="feature" v-for="(feature, index) in data.features" :key="index">
         <a :href="$withBase(feature.url)">
-          <img class="image_title" :src="$withBase('/pic'+feature.imgname)" :alt="feature.title" />
+          <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
           <h2>{{ feature.title }}</h2>
           <p>{{ feature.details }}</p>
         </a>
