@@ -1,23 +1,11 @@
-# Codingyang Blog
+# Evan Blog
 
-## Intro 介绍
-
-Use vuepress build static personal Blog.
-
-Just create or edit \*.md markdown document,
-
-quickly build it to static html site with good SEO.
+## 介绍
 
 使用 vuepress 创建 SEO 友好的静态博客站。一键发布到 github page，内置 github action 自动部署脚本。
 
 vuepress 通过一定*号称简单*的配置之后，为每一个 md 文件生成静态 html 脚本，并通过主题挂接起来。
 用来写文档是非常不错的。写博客就要做一点工作，踩**一点**坑。
-
-[demo 演示](http://www.codingyang.com/)
-
-[document 文档](http://www.codingyang.com/article_tech/)
-
-[github 源码](https://github.com/Rackar/codingyang)
 
 ## 相关技术
 
@@ -25,7 +13,7 @@ vuepress 通过一定*号称简单*的配置之后，为每一个 md 文件生�
 
 Github Aciton
 
-## how to use 使用
+## 使用
 
 1. 克隆项目后进入
 
