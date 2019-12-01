@@ -1,21 +1,31 @@
 ---
 home: true
-# heroImage: /img/logo.jpg
-heroText: Evan博客
-tagline: web前端工程师，热衷于学习与总结。
+heroImage: /img/logo.png
+heroText: Evan Blog
+tagline: web前端工程师，热衷于学习与总结
 
 features:
   - title: 前端
-    details: 前端技术。
+    details: web前端开发相关技术
     url: /web/
-    imgname: /img/article.jpg
+    imgname: /img/web.jpg
   - title: python
-    details: 人生苦短，我学python。
+    details: 人生苦短，我学python
     url: /python/
-    imgname: /img/code.jpg
+    imgname: /img/python.jpg
   - title: 关于我
-    details: 前端界的小学生。
+    details: 前端界的小学生
     url: /about/
-    imgname: /img/code.jpg
+    imgname: /img/about.jpg
 footer: Copyright © 2019-present evanblog
 ---
+
+
+
+## :email: 联系
+
+- **Github**: <https://github.com/xugaoyi>
+- **Email**: <a href="mailto:894072666@qq.com">894072666@qq.com</a>
+- **QQ**: 8940726696
+
+

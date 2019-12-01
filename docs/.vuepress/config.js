@@ -1,27 +1,27 @@
 var nav = require('./config/nav.js');
-var sidebar = require('./config/sidebar.json');
+var sidebar = require('./config/sidebar.js');
 module.exports = {
-  title: 'Evan 博客', // 标题
+  title: 'Evan Blog', // 标题
   description: 'Evan Blog 个人博客，基于vuepress构建，专注前端学习与总结', // 描述，以 <meta> 标签渲染到当前页面的 HTML 中
   // process.env.VUEPRESS_BASE 在package.json生成
   base: process.env.VUEPRESS_BASE || '/', // 基础路径，默认'/',如果放到github pages要改成仓库名
   head: [ // 注入到当前页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
-    ['link', { rel: 'icon', href: '/img/logo.jpg' }] //favicons，资源放在public文件夹
+    ['link', { rel: 'icon', href: '/img/logo.png' }] //favicons，资源放在public文件夹
   ],
   markdown: {
     lineNumbers: true // 代码行号
   },
   plugins: ['@vuepress/back-to-top','@vuepress/medium-zoom'], // 插件
   themeConfig: { // 主题配置
-    logo: '/img/logo.jpg', // 导航栏logo
+    logo: '/img/logo.png', // 导航栏logo
     nav: nav,
     repo: 'xugaoyi/evanblog', // 导航栏生成Github链接
-    editLinks: true, // 编辑链接
-    editLinkText: '在 Github 上编辑此页',
+    // editLinks: true, // 编辑链接
+    // editLinkText: '在 Github 上编辑此页',
     lastUpdated: '上次更新', // 上次更新时间，及前缀文字   string | boolean
     // displayAllHeaders: true // 默认值：false
-    // sidebar: 'auto', //自动侧边栏
-    sidebar: sidebar,
+    sidebar: 'auto', //自动侧边栏
+    //sidebar: sidebar,
   },
   // locales: {
   //   // 键名是该语言所属的子路径
