@@ -26,6 +26,6 @@ footer: Copyright © 2019-present evanblog
 
 - **Github**: <https://github.com/xugaoyi>
 - **Email**: <a href="mailto:894072666@qq.com">894072666@qq.com</a>
-- **QQ**: 8940726696
+- **QQ**: <a>8940726696</a>
 
 

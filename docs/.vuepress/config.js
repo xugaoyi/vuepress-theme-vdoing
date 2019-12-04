@@ -11,7 +11,7 @@ module.exports = {
   markdown: {
     lineNumbers: true // 代码行号
   },
-  plugins: ['@vuepress/back-to-top','@vuepress/medium-zoom'], // 插件
+  plugins: ['@vuepress/back-to-top', '@vuepress/medium-zoom'], // 插件
   themeConfig: { // 主题配置
     logo: '/img/logo.png', // 导航栏logo
     nav: nav,
@@ -41,10 +41,19 @@ module.exports = {
   // },
   plugins: [ // 插件
     'vuepress-plugin-baidu-autopush',
+    '@vuepress/back-to-top', // 返回顶部
+    [
+      '@vuepress/medium-zoom',
+      {
+        options: {
+          background: 'rgba(0,0,0,0.8)'
+        }
+      }
+    ], // 缩放图片
     [
       'vuepress-plugin-baidu-tongji',
       {
-        hm: '19a1f669e77c8a8c0bf92f95cca4c782'
+        hm: '8a59017a97d9fc47d607481723b7815d'
       }
     ]
   ],

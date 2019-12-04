@@ -17,9 +17,9 @@ Github Aciton
 
 1. 克隆项目后进入
 
-`git clone https://github.com/Rackar/codingyang`
+`git clone https://github.com/xugaoyi/evanblog`
 
-`cd codingyang`
+`cd evanblog`
 
 2. 安装依赖并运行开发服务：
 
@@ -47,7 +47,7 @@ yarn built
 
 5. 或者利用自动持续集成发布到 github page
 
-这里需要：开启项目 action，开启 page，设置 secret，修改脚本中的/codingyang/为自己的项目名。然后 git push 就好，CI 脚本自动发布。
+这里需要：开启项目 action，开启 page，设置 secret，修改脚本中的/evanblog/为自己的项目名。然后 git push 就好，CI 脚本自动发布。
 
 ## 小提示
 

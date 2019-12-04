@@ -10,6 +10,8 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.2.0",
+    "@vuepress/plugin-medium-zoom": "^1.2.0",
     "push-dir": "^0.4.1",
     "vuepress": "^1.1.0",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
