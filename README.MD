@@ -51,7 +51,7 @@ yarn built
 
 
 
-## 自定义域名以及解析
+## 自定义域名以及解析(可选)
 
 #### 1、申请域名
 
@@ -69,11 +69,11 @@ yarn built
 
 * 域名列表中点击`解析`
 
-
+![dns1](https://raw.githubusercontent.com/xugaoyi/image_store/master/blogdns1.png)
 
 * 进入解析页面后，点击`添加记录`。填入，记录类型：`CNAME`，主机记录：`www`，解析线路：默认，记录值：你的github pages地址`<userName>.github.io`，TTL：默认的10分钟，确定。
 
-
+![](https://raw.githubusercontent.com/xugaoyi/image_store/master/blogdns2.png)
 
 #### 3、使github pages与域名关联
 
@@ -95,7 +95,7 @@ npm run chame:gitpage
 
 
 
-## 小提示
+## 提示
 
 #### 注意 yaml
 
