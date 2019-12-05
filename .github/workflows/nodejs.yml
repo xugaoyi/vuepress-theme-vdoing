@@ -1,26 +1,32 @@
 name: Node CI
 
 on: [push]
+# 在master分支发生push事件时触发。
+# on: 
+#   push:
+#     branches:
+#       - master
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+jobs: # 工作流
+  build: # 自定义名称
+    runs-on: ubuntu-latest #运行在虚拟机环境ubuntu-latest
 
     strategy:
       matrix:
         node-version: [10.x]
 
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+    steps: # 步骤
+      - name: Checkout # 步骤1
+        uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
+      - name: Use Node.js ${{ matrix.node-version }} # 步骤2
+        uses: actions/setup-node@v1 # 作用：安装nodejs
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Build and Deploy
-        uses: JamesIves/github-pages-deploy-action@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BASE_BRANCH: master # The branch the action should deploy from.
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: docs/.vuepress/dist # The folder the action should deploy.
-          BUILD_SCRIPT: npm install && npm run list && npm run build:gitpage # The build script the action should run prior to deploying.
+          node-version: ${{ matrix.node-version }} # 版本
+      - name: Build and Deploy # 步骤3
+        uses: JamesIves/github-pages-deploy-action@master # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
+        env: # 设置变量
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
+          BASE_BRANCH: master # 要部署的文件夹所在的分支.
+          BRANCH: gh-pages # 部署到的分支
+          FOLDER: docs/.vuepress/dist # 要部署的文件夹.
+          BUILD_SCRIPT: npm install && npm run list && npm run build:gitpage # 部署前要执行的命令

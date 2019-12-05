@@ -1,4 +1,4 @@
-# Evan Blog
+Evan Blog
 
 ## 介绍
 
@@ -48,6 +48,55 @@ yarn built
 5. 或者利用自动持续集成发布到 github page
 
 这里需要：开启项目 action，开启 page，设置 secret，修改脚本中的/evanblog/为自己的项目名。然后 git push 就好，CI 脚本自动发布。
+
+
+
+## 自定义域名以及解析
+
+#### 1、申请域名
+
+申请域名当然去哪都行。 国内的[阿里云](https://link.zhihu.com/?target=https%3A//wanwang.aliyun.com/domain/)，腾讯云，国外的[freenom](https://link.zhihu.com/?target=http%3A//www.freenom.com/)，namecheap什么的 。 操作大同小异，都是
+
+* 注册账号，登录
+
+* 搜索并找到可用的域名，买下来。比如我在阿里云买的一个域名：`evanblogweb.com`
+
+#### 2、DNS解析
+
+想要在浏览器里面输入`evanblogweb.com`就能跳到博客页面。我们首先需要做的就是将`evanblogweb.com` 与固定的ip地址绑定起来(A)，或者是与某已有域名绑定起来（CNAME）。
+
+这里以阿里云操作为例，步骤如下：
+
+* 域名列表中点击`解析`
+
+
+
+* 进入解析页面后，点击`添加记录`。填入，记录类型：`CNAME`，主机记录：`www`，解析线路：默认，记录值：你的github pages地址`<userName>.github.io`，TTL：默认的10分钟，确定。
+
+
+
+#### 3、使github pages与域名关联
+
+进入github pages设置，在`Custom domain`中填入域名`evanblogweb.com`，Save保存。这时你会在gh-pages分支中看到新增了一个`CNAME`文件，内容为刚刚填入的域名。到这，你就可以通过域名愉快的访问博客啦
+
+
+
+#### 4、提交代码会自动删除`CNAME`文件的问题
+
+```bash
+echo 'www.evanblogweb.com' > CNAME # 新建CNAME文件,并输入内容为域名
+
+# 一顿git操作提交到博客仓库的deployment分支
+git init
+git add -A
+git commit -m 'create CNAME'
+git push -f git@github.com:<USERNAME>/<REPONAME>.git master:deployment
+
+```
+
+
+
+
 
 ## 小提示
 
