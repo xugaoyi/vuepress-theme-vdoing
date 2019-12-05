@@ -6,7 +6,8 @@
     "list": "node utils/getFilenames.js",
     "build": "vuepress build docs && node utils/bd_hm.js",
     "build:gitpage": "export VUEPRESS_BASE=/evanblog/|| set VUEPRESS_BASE=/evanblog/&&vuepress build docs && node utils/bd_hm.js",
-    "push:gitpage": "push-dir --dir=docs/.vuepress/dist --branch=gh-pages --allow-unclean"
+    "push:gitpage": "push-dir --dir=docs/.vuepress/dist --branch=gh-pages --allow-unclean",
+    "chame:gitpage": "cd docs/.vuepress/dist && echo 'www.evanblogweb.com' > CNAME"
   },
   "license": "MIT",
   "devDependencies": {
