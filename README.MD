@@ -81,7 +81,7 @@ yarn built
 
 
 
-#### 4、提交代码会自动删除`CNAME`文件的问题
+#### 4、提交代码会自动删除`CNAME`文件的问题（有问题待修改）
 
 ```bash
 echo 'www.evanblogweb.com' > CNAME # 新建CNAME文件,并输入内容为域名
