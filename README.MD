@@ -77,22 +77,19 @@ yarn built
 
 #### 3、使github pages与域名关联
 
-进入github pages设置，在`Custom domain`中填入域名`evanblogweb.com`，Save保存。这时你会在gh-pages分支中看到新增了一个`CNAME`文件，内容为刚刚填入的域名。到这，你就可以通过域名愉快的访问博客啦
+在pageage.json文件scripts中添加如下脚本
 
-
-
-#### 4、提交代码会自动删除`CNAME`文件的问题（有问题待修改）
-
-```bash
-echo 'www.evanblogweb.com' > CNAME # 新建CNAME文件,并输入内容为域名
-
-# 一顿git操作提交到博客仓库的deployment分支
-git init
-git add -A
-git commit -m 'create CNAME'
-git push -f git@github.com:<USERNAME>/<REPONAME>.git master:deployment
-
+```js
+"chame:gitpage": "cd docs/.vuepress/dist && echo 'www.evanblogweb.com' > CNAME"
+// 域名替换成你的
 ```
+
+在自动部署配置文件ci.yml中jobs.build.steps.<Build and Deploy\>.env.BUILD_SCRIPT添加脚本
+
+```sh
+npm run chame:gitpage
+```
+
 
 
 
