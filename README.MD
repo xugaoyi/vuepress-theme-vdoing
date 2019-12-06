@@ -2,30 +2,22 @@
 
 ## 介绍
 
-使用 VuePress 创建 SEO 友好的静态博客站。一键发布到 GitHub Pages，内置 GitHub Action 自动部署脚本。
+使用 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 创建 SEO 友好的静态博客站。一键发布到 GitHub Pages，内置 [GitHub Action](https://github.com/features/actions) 自动部署脚本。
 
 **您不需要在本地进行打包，只需要把代码push到GitHub，Action将自动为您打包和部署。**
 
 
 
-VuePress 是一款使用 Vue 驱动的静态网站生成器，通过一定的配置之后，为每一个 md 文件生成静态 html，并通过主题挂接起来。用来写文档是非常不错的，写博客就要做一点工作。
-
-## 相关技术
-
-[VuePress](https://v1.vuepress.vuejs.org/zh/guide/)
-
-[Github Aciton](https://github.com/features/actions)
-
 ## 使用
 
-1. ##### 克隆项目后进入
+#### 1、克隆项目后进入
 
 ```bash
 git clone https://github.com/xugaoyi/evanblog
 cd evanblog
 ```
 
-2. ##### 安装依赖并运行开发服务
+#### 2、安装依赖并运行开发服务
 
 >  使用yarn的可以把以下`npm run`命令替换为`yarn`
 
@@ -34,43 +26,40 @@ npm install # or yarn install
 npm run dev
 ```
 
-3. ##### 编辑
+#### 3、编辑
 
 编辑或新增\*.md，以及修改 docs/.vuepress/config.js 中的 nav 导航栏等信息。具体可查看上面的 vuepress 文档，重新运行`npm run dev`并 ctrl+f5 刷新浏览器查看更改。
 
-4. ##### 打包和部署
+#### 4、打包和部署
 
-   * **手动打包和部署**
+* **手动打包和部署**
 
-    ```bash
-     npm run list # 将文章栏目下三个文件夹中的文件加入侧边栏（文章索引）
-     npm run built # 打包
-     # 把打包好的代码提交到github仓库，并设置github pages
- ```
-   
+```bash
+npm run list # 将文章栏目下三个文件夹中的文件加入侧边栏（文章索引）
+npm run built # 打包
+# 把打包好的代码提交到github仓库，并设置github pages
+```
+
 * **或利用GitHub Action自动持续集成（推荐）**
-   
-     第一步，这个项目需要将构建成果发到 GitHub 仓库，因此需要 GitHub 密钥。按照[官方文档](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)，生成一个密钥。
-   
-     第二步，将这个密钥储存到当前仓库的`Settings/Secrets`里面。
-   
-     `Settings/Secrets`是储存秘密的环境变量的地方。环境变量的名字可以随便起，这里用的是`ACCESS_TOKEN`。如果你不用这个名字，后面脚本里的变量名也要跟着改。
-   
-     第三步，设置GitHub Pages为gh-pages分支。
-   
-     
-   
-     因为本项目已经内置 GitHub Action 自动部署脚本，您只需要 push 代码到github，
-   
-     ，CI 脚本将自动为您打包和部署。
-   
-     参考 [教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
-   
-     
-   
-     > 注意：您需要在package.json中修改`/evanblog/`为自己的项目名。
-     >
-     > 如果您有自定义域名，一并修改`www.evanblogweb.com`为你的域名。
+
+第一步，这个项目需要将构建成果发到 GitHub 仓库，因此需要 GitHub 密钥。按照[官方文档](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)，生成一个密钥。
+
+第二步，将这个密钥储存到当前仓库的`Settings/Secrets`里面。
+`Settings/Secrets`是储存秘密的环境变量的地方。环境变量的名字可以随便起，这里用的是`ACCESS_TOKEN`。如果你不用这个名字，后面脚本里的变量名也要跟着改。
+
+第三步，设置GitHub Pages为gh-pages分支。
+
+
+
+
+因为本项目已经内置 GitHub Action 自动部署脚本`.github/workflows/ci.yml` ，您不需要在本地进行打包，只需要 push 代码到github，Action将自动为您打包和部署。
+
+参考 [教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+
+
+> 注意：您需要在package.json中修改`/evanblog/`为自己的项目名。
+>
+> 如果您有自定义域名，一并修改`www.evanblogweb.com`为你的域名。
 
 
 
@@ -107,13 +96,11 @@ npm run dev
 // 域名替换成你的
 ```
 
-在自动部署配置文件ci.yml中jobs.build.steps.<Build and Deploy\>.env.BUILD_SCRIPT添加脚本
+在自动部署配置文件ci.yml的jobs.build.steps.<Build and Deploy\>.env.BUILD_SCRIPT中添加脚本
 
 ```sh
 npm run chame:gitpage
 ```
-
-
 
 
 
