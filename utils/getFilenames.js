@@ -3,9 +3,9 @@ const {readdir, readFile, writeFile} = require('fs')
 
 // const FOLDERPATH = './docs/article'
 const PathsIn = [
-  // './docs/web/',
-  // './docs/article_self/',
-  './docs/web/'
+   './docs/web/',
+   './docs/python/',
+   './docs/other/'
 ]
 
 function pReadFile(filepath) {
@@ -37,8 +37,8 @@ Promise.all([
     console.log(arr)
     var params = {
       '/web/': arr[0],
-      // '/article_self/': arr[1],
-      // '/article_tech/': arr[2]
+      '/python/': arr[1],
+      '/other/': arr[2]
     }
     writeJson(params)
   },

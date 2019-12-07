@@ -14,9 +14,12 @@ module.exports = [
       {text: 'python', link: '/python/'}
     ]
   },
-  {text: 'git使用文档', link: '/other/git'},
-  {text: 'github使用技巧', link: '/other/github'},
-  {text: 'markdown使用教程', link: '/other/markdown'},
-  {text: '学习网站分享', link: '/other/study'},
+  {text: '其他',items:[
+    {text: 'Git使用文档', link: '/other/git'},
+    {text: 'GitHub使用技巧', link: '/other/github'},
+    {text: 'Markdown使用教程', link: '/other/markdown'},
+    {text: '学习网站分享', link: '/other/study'},
+    {text: '面试问答集锦', link: '/other/interview'}
+  ]},
   {text: '关于我',link: '/about/'}
 ]

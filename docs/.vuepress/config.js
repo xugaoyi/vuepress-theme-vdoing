@@ -1,5 +1,5 @@
-var nav = require('./config/nav.js');
-var sidebar = require('./config/sidebar.js');
+const nav = require('./config/nav.js');
+const sidebar = require('./config/sidebar.js');
 module.exports = {
   title: 'Evan Blog', // 标题
   description: 'Evan Blog 个人博客，基于vuepress构建，专注前端学习与总结', // 描述，以 <meta> 标签渲染到当前页面的 HTML 中
@@ -14,14 +14,14 @@ module.exports = {
   plugins: ['@vuepress/back-to-top', '@vuepress/medium-zoom'], // 插件
   themeConfig: { // 主题配置
     logo: '/img/logo.png', // 导航栏logo
-    nav: nav,
-    repo: 'xugaoyi/evanblog', // 导航栏生成Github链接
+    nav,
+    repo: 'xugaoyi/evanblog', // 导航栏右侧生成Github链接
     // editLinks: true, // 编辑链接
     // editLinkText: '在 Github 上编辑此页',
-    lastUpdated: '上次更新', // 上次更新时间，及前缀文字   string | boolean
+    lastUpdated: '更新于', // 更新的时间，及前缀文字   string | boolean
     // displayAllHeaders: true // 默认值：false
-    sidebar: 'auto', //自动侧边栏
-    //sidebar: sidebar,
+    //sidebar: 'auto', //自动侧边栏
+    sidebar
   },
   // locales: {
   //   // 键名是该语言所属的子路径
