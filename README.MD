@@ -26,7 +26,7 @@ npm run dev # or yarn dev
 
 #### 3、编辑
 
-编辑或新增\*.md，以及修改 docs/.vuepress/config.js 中的 nav 导航栏等信息。具体可查看上面的 vuepress 文档，重新运行`npm run dev`并 ctrl+f5 刷新浏览器查看更改。
+编辑或新增 \*.md文件，以及修改 `docs/.vuepress/config.js` 中的 nav 导航栏等信息（具体可查看 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 文档），需重新运行·`npm run dev`并刷新浏览器查看更改。
 
 #### 4、部署
 
@@ -74,9 +74,9 @@ npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
 参考 [教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
 
 
-> 注意：您需要在package.json中修改`/evanblog/`为自己的项目名，如果您有自定义域名，一并修改`www.evanblogweb.com`为你的域名。
+> 注意：如果您有自定义域名，需要在package.json修改`www.evanblogweb.com`为你的域名。
 >
-> 如没有自定义域名，需去掉`.github/workflows/ci.yml`脚本的`npm run chame:gitpage`命令
+> 如没有自定义域名，需去掉`.github/workflows/ci.yml`脚本的`npm run chame`命令
 
 
 
@@ -130,15 +130,16 @@ npm run chame
 
 ## 提示
 
-#### 注意 yaml
+#### md的yaml代码
 
 必须放在 md 文件在最上方才能生效
 
-#### 想要自动发现新 md 文件并加入侧边栏索引列表？
 
-BLOG 的最基本功能，需要加一点 node 的脚本来更新 sidebar:[]的配置。
-放在了 utils/getFilenames.js 了。
-脚本运行时会查找/article_child/等 3 个文件夹下的所有目录和文件，将名称列表置入.vuepress/config/sidebar.json。
+
+#### 想要自动发现新 md 文件并加入侧边栏索引列表？（待修改）
+
+博客的最基本功能，需要加一点 node 的脚本来更新 sidebar:[]的配置。放在了 utils/getFilenames.js 了。
+脚本运行时会查找/web/等 3 个文件夹下的所有目录和文件，将名称列表置入.vuepress/config/sidebar.json。
 之后重新 npm run list，列表更新
 
 
