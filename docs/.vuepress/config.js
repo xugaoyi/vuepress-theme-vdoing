@@ -2,16 +2,18 @@ const nav = require('./config/nav.js');
 const sidebar = require('./config/sidebar.js');
 module.exports = {
   title: 'Evan Blog', // 标题
-  description: 'Evan Blog 个人博客，基于vuepress构建，专注前端学习与总结', // 描述，以 <meta> 标签渲染到当前页面的 HTML 中
+  description: 'Evan Blog个人技术博客,基于vuepress构建,专注前端学习与总结。JavaScript,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到当前页面的 HTML 中
   // process.env.VUEPRESS_BASE 在package.json生成
  // base: process.env.VUEPRESS_BASE || '/', // 基础路径，默认'/',如果放到github pages要改成仓库名
   head: [ // 注入到当前页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
-    ['link', { rel: 'icon', href: '/img/logo.png' }] //favicons，资源放在public文件夹
+    ['link', { rel: 'icon', href: '/img/logo.png' }], //favicons，资源放在public文件夹
+    ['meta', { name: 'keywords', content: 'Evan Blog,个人博客,技术博客,vuepress,技术文档,web前端,前端学习,技术总结与分享,JavaScript,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown,面试问答集锦'}],
+    ['meta', { name: 'baidu-site-verification', content: 'YwUALncFiI'}],
+    // ['script', { src: 'https://hm.baidu.com/hm.js?837775213e724293b4af2b9526e238b4'}]
   ],
   markdown: {
     lineNumbers: true // 代码行号
   },
-  plugins: ['@vuepress/back-to-top', '@vuepress/medium-zoom'], // 插件
   themeConfig: { // 主题配置
     logo: '/img/logo.png', // 导航栏logo
     nav,
@@ -40,7 +42,7 @@ module.exports = {
   //   }
   // },
   plugins: [ // 插件
-    'vuepress-plugin-baidu-autopush',
+    'vuepress-plugin-baidu-autopush', // 百度自动推送，作用：加快将页面推送给百度搜索
     '@vuepress/back-to-top', // 返回顶部
     [
       '@vuepress/medium-zoom',
@@ -51,9 +53,9 @@ module.exports = {
       }
     ], // 缩放图片
     [
-      'vuepress-plugin-baidu-tongji',
+      'vuepress-plugin-baidu-tongji', // 百度统计，https://tongji.baidu.com
       {
-        hm: '8a59017a97d9fc47d607481723b7815d'
+        hm: '837775213e724293b4af2b9526e238b4'
       }
     ]
   ],

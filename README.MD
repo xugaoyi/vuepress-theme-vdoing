@@ -2,9 +2,7 @@
 
 ## 介绍
 
-使用 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 创建 SEO 友好的静态博客站。一键发布到 GitHub Pages，内置 [GitHub Action](https://github.com/features/actions) 自动部署脚本。
-
-**您不需要在本地进行打包，只需要把代码push到GitHub，Action将自动为您打包和部署。**
+使用 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 创建 SEO 友好的静态博客站。一键发布到 GitHub Pages，内置 `deploy.sh` 和 [GitHub Action](https://github.com/features/actions) 两种自动部署脚本。
 
 
 
@@ -19,47 +17,66 @@ cd evanblog
 
 #### 2、安装依赖并运行开发服务
 
->  使用yarn的可以把以下`npm run`命令替换为`yarn`
-
 ```bash
 npm install # or yarn install
-npm run dev
+npm run dev # or yarn dev
 ```
+
+> 使用yarn的可以把以下`npm run`命令替换为`yarn`
 
 #### 3、编辑
 
 编辑或新增\*.md，以及修改 docs/.vuepress/config.js 中的 nav 导航栏等信息。具体可查看上面的 vuepress 文档，重新运行`npm run dev`并 ctrl+f5 刷新浏览器查看更改。
 
-#### 4、打包和部署
+#### 4、部署
 
-* **手动打包和部署**
+本项目包含两种部署方式：
+
+##### 1）、使用deploy.sh脚本部署
+
+第一步，修改deploy.sh脚本内的仓库地址为你的仓库，如有自定义域名则一并修改，没有则注释
 
 ```bash
-npm run list # 将文章栏目下三个文件夹中的文件加入侧边栏（文章索引）
-npm run built # 打包
-# 把打包好的代码提交到github仓库，并设置github pages
+# 如果是发布到自定义域名
+echo 'www.evanblogweb.com' > CNAME
+
+# 如果发布到 https://<USERNAME>.github.io
+# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
+
+# 如果发布到 https://<USERNAME>.github.io/<REPO>
+# git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 ```
 
-* **或利用GitHub Action自动持续集成（推荐）**
+第二步，执行如下命令
 
-第一步，这个项目需要将构建成果发到 GitHub 仓库，因此需要 GitHub 密钥。按照[官方文档](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)，生成一个密钥。
-
-第二步，将这个密钥储存到当前仓库的`Settings/Secrets`里面。
-`Settings/Secrets`是储存秘密的环境变量的地方。环境变量的名字可以随便起，这里用的是`ACCESS_TOKEN`。如果你不用这个名字，后面脚本里的变量名也要跟着改。
+```bash
+npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
+```
+> windows系统下使用bash命令窗
 
 第三步，设置GitHub Pages为gh-pages分支。
 
 
 
+##### 2）、使用GitHub Action自动持续集成
 
-因为本项目已经内置 GitHub Action 自动部署脚本`.github/workflows/ci.yml` ，您不需要在本地进行打包，只需要 push 代码到github，Action将自动为您打包和部署。
+第一步，按照[官方文档](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)，生成一个GitHub 密钥。
+
+第二步，将这个密钥储存到当前仓库的`Settings/Secrets`里面。
+> `Settings/Secrets`是储存秘密的环境变量的地方。环境变量的名字可以随便起，这里用的是`ACCESS_TOKEN`。如果你不用这个名字，`.github/workflows/ci.yml`脚本里的变量名也要跟着改。
+
+第三步，提交代码到GitHub仓库master分支。
+
+第四步，设置GitHub Pages为gh-pages分支。
+
+
 
 参考 [教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
 
 
-> 注意：您需要在package.json中修改`/evanblog/`为自己的项目名。
+> 注意：您需要在package.json中修改`/evanblog/`为自己的项目名，如果您有自定义域名，一并修改`www.evanblogweb.com`为你的域名。
 >
-> 如果您有自定义域名，一并修改`www.evanblogweb.com`为你的域名。
+> 如没有自定义域名，需去掉`.github/workflows/ci.yml`脚本的`npm run chame:gitpage`命令
 
 
 
@@ -89,17 +106,23 @@ npm run built # 打包
 
 #### 3、使github pages与域名关联
 
-在pageage.json文件scripts中添加如下脚本
+deploy.sh添加如下脚本
+
+```bash
+echo 'www.evanblogweb.com' > CNAME # // 域名替换成你的
+```
+
+pageage.json文件scripts中添加如下脚本
 
 ```js
-"chame:gitpage": "cd docs/.vuepress/dist && echo 'www.evanblogweb.com' > CNAME"
+"chame": "cd docs/.vuepress/dist && echo 'www.evanblogweb.com' > CNAME"
 // 域名替换成你的
 ```
 
 在自动部署配置文件ci.yml的jobs.build.steps.<Build and Deploy\>.env.BUILD_SCRIPT中添加脚本
 
 ```sh
-npm run chame:gitpage
+npm run chame
 ```
 
 
@@ -111,32 +134,28 @@ npm run chame:gitpage
 
 必须放在 md 文件在最上方才能生效
 
-#### 无法热更新
-
-修改 config.js 后，是没办法热更新的，只能 ctrl+c 结束任务然后重新 yarn dev
-
 #### 想要自动发现新 md 文件并加入侧边栏索引列表？
 
 BLOG 的最基本功能，需要加一点 node 的脚本来更新 sidebar:[]的配置。
 放在了 utils/getFilenames.js 了。
 脚本运行时会查找/article_child/等 3 个文件夹下的所有目录和文件，将名称列表置入.vuepress/config/sidebar.json。
-之后重新 yarn list，列表更新
+之后重新 npm run list，列表更新
 
-#### 百度统计代码
 
-加入了
-"vuepress-plugin-baidu-autopush"
-"vuepress-plugin-baidu-tongji"
-两个包，统计功能虽然正常，但是首页检测代码失败。所以增加了一个 utils/db_hm.js 脚本，在 build 之后手动复制统计代码到首页。
 
-#### 如何打包为部署到非根目录下
+#### 百度自动推送和统计
 
+加入了自动推送和统计插件
+
+```js
+'vuepress-plugin-baidu-autopush', // 百度自动推送，作用：加快将页面推送给百度搜索，https://ziyuan.baidu.com/
+
+[
+    'vuepress-plugin-baidu-tongji', // 百度统计，https://tongji.baidu.com
+    {
+        hm: '8a59017a97d9fc47d607481723b7815d'
+    }
+]
 ```
-build:gitpage
-push:gitpage
-```
 
-使用这两条命令，编译为 github page 或其他部署到非根目录下的 html。
-
-要 **修改** package.json 中 build:gitpage 命令里的： VUEPRESS_BASE=/evanblog/为自己要部署的子目录名，
-其中 github page 即为项目名，发布方式为分支名 gh-pages 方式推送。
+> 如果你也需要百度统计功能，请把hm参数该为你自己的，请到https://tongji.baidu.com获取你自己的hm参数

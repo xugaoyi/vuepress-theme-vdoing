@@ -4,7 +4,6 @@
 set -e
 
 # 生成静态文件
-#npm run docs:build
 npm run build
 
 # 进入生成的文件夹
