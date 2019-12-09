@@ -2,7 +2,7 @@
 
 ## 介绍
 
-使用 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 创建 SEO 友好的静态博客站。一键发布到 GitHub Pages，内置 `deploy.sh` 和 [GitHub Action](https://github.com/features/actions) 两种自动部署脚本。
+使用 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 构建 SEO 友好的静态博客站。内置 `deploy.sh` 和 [GitHub Action](https://github.com/features/actions) 两种自动部署脚本，一键发布到 GitHub Pages。
 
 
 
@@ -26,7 +26,7 @@ npm run dev # or yarn dev
 
 #### 3、编辑
 
-编辑或新增 \*.md文件，以及修改 `docs/.vuepress/config.js` 中的 nav 导航栏等信息（具体可查看 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 文档），需重新运行·`npm run dev`并刷新浏览器查看更改。
+编辑或新增 \*.md文件，以及修改 `docs/.vuepress/config.js` 中的 nav 导航栏等信息（具体可查看 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 文档），需重新运行·`npm run dev`并刷新浏览器查看更新。
 
 #### 4、部署
 
@@ -34,7 +34,7 @@ npm run dev # or yarn dev
 
 ##### 1）、使用deploy.sh脚本部署
 
-第一步，修改deploy.sh脚本内的仓库地址为你的仓库，如有自定义域名则一并修改，没有则注释
+第一步，修改`deploy.sh`脚本内的仓库地址为你的仓库，如有自定义域名则一并修改，没有则注释
 
 ```bash
 # 如果是发布到自定义域名
@@ -47,7 +47,7 @@ echo 'www.evanblogweb.com' > CNAME
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 ```
 
-第二步，执行如下命令
+第二步，一键部署命令
 
 ```bash
 npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
@@ -102,7 +102,7 @@ npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
 
 * 进入解析页面后，点击`添加记录`。填入，记录类型：`CNAME`，主机记录：`www`，解析线路：默认，记录值：你的github pages地址`<userName>.github.io`，TTL：默认的10分钟，确定。
 
-![](https://raw.githubusercontent.com/xugaoyi/image_store/master/blogdns2.png)
+![dns2](https://raw.githubusercontent.com/xugaoyi/image_store/master/blogdns2.png)
 
 #### 3、使github pages与域名关联
 
@@ -130,7 +130,7 @@ npm run chame
 
 ## 提示
 
-#### md的yaml代码
+#### md文件的yaml代码
 
 必须放在 md 文件在最上方才能生效
 
