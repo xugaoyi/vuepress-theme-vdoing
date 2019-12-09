@@ -22,14 +22,13 @@
 
 ```bash
 cd evanblog
-git remote add coding https://e.coding.net/username/username.git
+git remote add coding https://e.coding.net/username/username.git # 关联远程仓库
 git checkout -b coding-pages
 git checkout master
 git branch
 >  coding-pages
 >  * master
-git push coding master/coding-pages
+git push coding master/coding-pages # 提交代码到远程仓库的指定分支
 ```
 
 > 关于git操作可查阅：[Git使用文档](./git.md)
-
