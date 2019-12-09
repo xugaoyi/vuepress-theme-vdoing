@@ -18,7 +18,7 @@
 
 3、配置 SSH 公钥，配置方法请查看[帮助](https://help.coding.net/docs/project/features/ssh.html)
 
-4、在终端下进入本地博客目录evanblog（假设目录名为evanblog），添加coding.net的远程地址，并且新建分支。
+4、在终端下进入本地博客目录evanblog（假设目录名为evanblog），添加coding.net的远程地址，新建分支，提交代码到coding.net
 
 ```bash
 cd evanblog
