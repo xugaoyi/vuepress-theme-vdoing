@@ -13,10 +13,10 @@ features:
     details: 人生苦短，我学python
     url: /python/
     imgname: /img/python.jpg
-  - title: 关于我
-    details: 前端界的小学生
-    url: /about/
-    imgname: /img/about.jpg
+  - title: 技术杂谈
+    details: 各种技术文档、教程、技巧分享、学习笔记等
+    url: /other/git
+    imgname: /img/article.jpg
 footer: Copyright © 2019-present evanblog
 ---
 

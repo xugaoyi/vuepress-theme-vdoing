@@ -1,34 +1,39 @@
 module.exports = { // 侧边栏
   '/other/': [// 针对不同页面设置不同侧边栏
     {
-      title: 'Git使用文档',
-      path: 'git',
-      collapsable: false
+      title: '技术',
+      collapsable: false, //是否可折叠，可选的，默认true
+      sidebarDepth: 2, // 深度，可选的, 默认值是 1
+      children: [
+        ['git','Git使用文档'], // 同 {title: 'Git使用文档',path: 'git'}
+        ['github','GitHub高级搜索技巧'],
+        ['markdown','Markdown使用教程'],
+        ['npm','npm使用教程'],
+      ]
+    },
+
+    {
+      title: '学习',
+      collapsable: false,
+      children: [
+        ['LearningAndMemory','学习网学习效果低，忘性很大怎么办？'],
+        ['study','学习网站分享'],
+      ]
+    },
+
+    {
+      title: '面试',
+      collapsable: false,
+      children: [
+        ['interview','面试问题集锦'],
+      ]
     },
     {
-      title: 'GitHub高级搜索技巧',
-      path: 'github',
-      collapsable: false
-    },
-    {
-      title: 'Markdown使用教程',
-      path: 'markdown',
-      collapsable: false
-    },
-    {
-      title: 'npm使用教程',
-      path: 'npm',
-      collapsable: false
-    },
-    {
-      title: '学习网站分享',
-      path: 'study',
-      collapsable: false
-    },
-    {
-      title: '面试问题集锦',
-      path: 'interview',
-      collapsable: false
+      title: '其他',
+      collapsable: false,
+      children: [
+        ['https://github.com/xugaoyi/evanblog','关于本博客搭建'],
+      ]
     },
   ],
   // '/': [ // 在最后定义，在没有单独设置侧边栏时统一使用这个侧边栏

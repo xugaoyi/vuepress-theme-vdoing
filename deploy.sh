@@ -10,7 +10,7 @@ npm run build
 cd docs/.vuepress/dist
 
 # 如果是发布到自定义域名
-echo 'www.evanblogweb.com' > CNAME
+echo 'b.evanblogweb.com' > CNAME
 
 git init
 git add -A
@@ -22,8 +22,15 @@ git commit -m 'deploy'
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 
-# git push -f git@github.com:xugaoyi/evanblog.git master:gh-pages
-git push -f https://e.coding.net/xgy/xgy.git master:gh-pages
+# 发布到github
+git push -f git@github.com:xugaoyi/evanblog.git master:gh-pages
+
+# coding
+echo 'evanblogweb.com' > CNAME
+git add -A
+git commit -m 'deploy'
+git push -f git@git.dev.tencent.com:xugaoyi/xugaoyi.git master # 发布到coding.net
 
 
 cd -
+rm -rf docs/.vuepress/dist
