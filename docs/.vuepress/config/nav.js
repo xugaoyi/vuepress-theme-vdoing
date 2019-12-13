@@ -3,9 +3,11 @@ module.exports = [
   {
     text: '前端',
     items: [
-      {text: 'JavaScript', link: '/web/'},
-      {text: 'TypeScript', link: '/web/'},
-      {text: 'vue', link: '/web/'}
+      {text: 'JavaScript', link: '/web/JavaScript/01.JavaScript中的名词概念'},
+      //{text: 'vue', link: '/web/vue/'},
+      //{text: 'TypeScript', link: '/web/TypeScript/'},
+      //{text: 'ES6', link: '/web/ES6/'},
+      {text: 'CSS/HTML', link: '/web/CSS-HTML/01.flex布局基础'},
     ]
   },
   {
