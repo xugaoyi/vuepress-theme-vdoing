@@ -38,7 +38,7 @@ npm run dev # or yarn dev
 
 ```bash
 # 如果是发布到自定义域名
-echo 'www.evanblogweb.com' > CNAME
+echo 'evanblogweb.com' > CNAME
 
 # 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
@@ -74,9 +74,9 @@ npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
 参考 [教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
 
 
-> 注意：如果您有自定义域名，需要在package.json修改`www.evanblogweb.com`为你的域名。
+> 注意：如果您有自定义域名，需要在`.github/workflows/ci.yml`中修改`evanblogweb.com`为你的域名。
 >
-> 如没有自定义域名，需去掉`.github/workflows/ci.yml`脚本的`npm run chame`命令
+> 如没有自定义域名，需要在`.github/workflows/ci.yml`中去掉`cd docs/.vuepress/dist && echo 'evanblogweb.com' > CNAME`命令
 
 
 
@@ -109,20 +109,14 @@ npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
 deploy.sh添加如下脚本
 
 ```bash
-echo 'www.evanblogweb.com' > CNAME # // 域名替换成你的
-```
-
-pageage.json文件scripts中添加如下脚本
-
-```js
-"chame": "cd docs/.vuepress/dist && echo 'www.evanblogweb.com' > CNAME"
-// 域名替换成你的
+echo 'evanblogweb.com' > CNAME # // 域名替换成你的
 ```
 
 在自动部署配置文件ci.yml的jobs.build.steps.<Build and Deploy\>.env.BUILD_SCRIPT中添加脚本
 
 ```sh
-npm run chame
+"cd docs/.vuepress/dist && echo 'evanblogweb.com' > CNAME"
+# 域名替换成你的
 ```
 
 

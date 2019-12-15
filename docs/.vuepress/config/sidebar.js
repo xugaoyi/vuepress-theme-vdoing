@@ -59,6 +59,7 @@ module.exports = { // 侧边栏
       title: '其他',
       collapsable: false,
       children: [
+        ['utils','在线工具'],
         ['https://github.com/xugaoyi/evanblog','关于本博客搭建'],
       ]
     },

@@ -31,6 +31,7 @@ module.exports = [
       {text: '面试问答集锦', link: '/other/interview'},
     ]},
     {text: '其他',items:[
+      {text: '在线工具', link: '/other/utils'},
       {text: '关于本博客搭建', link: 'https://github.com/xugaoyi/evanblog'},
     ]},
   ]},

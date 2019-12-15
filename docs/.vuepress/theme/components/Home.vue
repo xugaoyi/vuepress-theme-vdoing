@@ -63,7 +63,7 @@ export default {
       max-width: 100%;
       max-height: 280px;
       display: block;
-      margin: 3rem auto 1.5rem;
+      margin: 2rem auto 1.5rem;
     }
 
     h1 {
@@ -100,7 +100,7 @@ export default {
 
   .features {
     border-top: 1px solid $borderColor;
-    padding: 1.2rem 0;
+    padding: 2rem 0;
     margin-top: 2.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -113,11 +113,12 @@ export default {
     flex-grow: 1;
     flex-basis: 30%;
     max-width: 30%;
+    text-align: center;
 
     .image_title {
       width: 14rem;
-      height: 10rem;
-      border-radius: 15px;
+      height: 14rem;
+      transition: all .3s;
     }
 
     h2 {
@@ -130,6 +131,12 @@ export default {
 
     p {
       color: lighten($textColor, 25%);
+    }
+  }
+
+  .feature:hover {
+    .image_title {
+      transform:scale(1.1,1.1)
     }
   }
 

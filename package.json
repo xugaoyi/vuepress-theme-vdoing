@@ -5,7 +5,6 @@
     "dev": "vuepress dev docs",
     "list": "node utils/getFilenames.js",
     "build": "vuepress build docs",
-    "chame": "cd docs/.vuepress/dist && echo 'b.evanblogweb.com' > CNAME",
     "deploy": "bash deploy.sh"
   },
   "license": "MIT",

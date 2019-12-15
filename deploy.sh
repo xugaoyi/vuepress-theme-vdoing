@@ -26,7 +26,7 @@ git commit -m 'deploy'
 git push -f git@github.com:xugaoyi/evanblog.git master:gh-pages
 
 # coding
-echo 'evanblogweb.com' > CNAME
+echo 'evanblogweb.com\nwww.evanblogweb.com' > CNAME
 git add -A
 git commit -m 'deploy'
 git push -f git@git.dev.tencent.com:xugaoyi/xugaoyi.git master # 发布到coding.net

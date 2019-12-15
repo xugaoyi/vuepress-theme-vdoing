@@ -6,7 +6,7 @@ module.exports = {
   // process.env.VUEPRESS_BASE 在package.json生成
  // base: process.env.VUEPRESS_BASE || '/', // 基础路径，默认'/',如果放到github pages要改成仓库名
   head: [ // 注入到当前页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
-    ['link', { rel: 'icon', href: '/img/logo.png' }], //favicons，资源放在public文件夹
+    ['link', { rel: 'icon', href: '/img/logo2.png' }], //favicons，资源放在public文件夹
     ['meta', { name: 'keywords', content: 'Evan Blog,个人博客,技术博客,vuepress,技术文档,web前端,前端学习,技术总结与分享,JavaScript,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown,面试问答集锦'}],
     ['meta', { name: 'baidu-site-verification', content: 'YwUALncFiI'}],
     // ['script', { src: 'https://hm.baidu.com/hm.js?837775213e724293b4af2b9526e238b4'}]
@@ -15,7 +15,7 @@ module.exports = {
     lineNumbers: true // 代码行号
   },
   themeConfig: { // 主题配置
-    logo: '/img/logo.png', // 导航栏logo
+    logo: '/img/logo2.png', // 导航栏logo
     nav,
     repo: 'xugaoyi/evanblog', // 导航栏右侧生成Github链接
     // editLinks: true, // 编辑链接

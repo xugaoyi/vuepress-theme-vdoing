@@ -8,15 +8,15 @@ features:
   - title: 前端
     details: web前端开发相关技术
     url: /web/JavaScript/01.JavaScript中的名词概念
-    imgname: /img/web.jpg
+    imgname: /img/web.png
   - title: python
     details: 人生苦短，我学python
     url: /python/
-    imgname: /img/python.jpg
+    imgname: /img/python.png
   - title: 技术杂谈
-    details: 各种技术文档、教程、技巧分享、学习笔记等
+    details: 技术文档、教程、技巧、学习笔记等
     url: /other/git
-    imgname: /img/article.jpg
+    imgname: /img/other.png
 footer: Copyright © 2019-present evanblog
 ---
 
@@ -56,6 +56,7 @@ footer: Copyright © 2019-present evanblog
 * 面试
   * [面试问题集锦](other/interview)
 * 其他
+  * [在线工具](other/utils)
   * [关于本博客搭建](https://github.com/xugaoyi/evanblog)
 
 * [更多... 👉](other/git)
