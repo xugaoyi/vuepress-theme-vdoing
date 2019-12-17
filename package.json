@@ -5,7 +5,8 @@
     "dev": "vuepress dev docs",
     "list": "node utils/getFilenames.js",
     "build": "vuepress build docs",
-    "deploy": "bash deploy.sh"
+    "deploy": "bash deploy.sh",
+    "deployToCoding": "bash deployToCoding.sh"
   },
   "license": "MIT",
   "devDependencies": {
