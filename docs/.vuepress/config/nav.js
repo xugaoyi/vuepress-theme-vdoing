@@ -29,6 +29,7 @@ module.exports = [
     ]},
     {text: '学习笔记',items:[
       {text: '小程序笔记',link: '/other/note/01.小程序笔记'},
+      {text: '《Python语言程序设计》基础课程学习',link: 'https://github.com/xugaoyi/python-learn'},
     ]},
     {text: '面试',items:[
       {text: '面试问答集锦', link: '/other/interview'},
@@ -36,6 +37,7 @@ module.exports = [
     {text: '其他',items:[
       {text: '在线工具', link: '/other/utils'},
       {text: '关于本博客搭建', link: 'https://github.com/xugaoyi/evanblog'},
+      {text: '解决百度无法收录搭建在GitHub上的个人博客的问题', link: '/other/baidushoulu'}
     ]},
   ]},
   {text: '关于我',link: '/about/'}

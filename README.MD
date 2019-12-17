@@ -76,7 +76,7 @@ npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
 
 > 注意：如果您有自定义域名，需要在`.github/workflows/ci.yml`中修改`evanblogweb.com`为你的域名。
 >
-> 如没有自定义域名，需要在`.github/workflows/ci.yml`中去掉`cd docs/.vuepress/dist && echo 'evanblogweb.com' > CNAME`命令
+> 如没有自定义域名，需要在`.github/workflows/ci.yml`中去掉`cd docs/.vuepress/dist && echo 'evanblogweb.com' > CNAME && cd -`命令
 
 
 
@@ -115,7 +115,7 @@ echo 'evanblogweb.com' > CNAME # // 域名替换成你的
 在自动部署配置文件ci.yml的jobs.build.steps.<Build and Deploy\>.env.BUILD_SCRIPT中添加脚本
 
 ```sh
-"cd docs/.vuepress/dist && echo 'evanblogweb.com' > CNAME"
+"cd docs/.vuepress/dist && echo 'evanblogweb.com' > CNAME" && cd -
 # 域名替换成你的
 ```
 
@@ -127,15 +127,6 @@ echo 'evanblogweb.com' > CNAME # // 域名替换成你的
 #### md文件的yaml代码
 
 必须放在 md 文件在最上方才能生效
-
-
-
-#### 想要自动发现新 md 文件并加入侧边栏索引列表？（待修改）
-
-博客的最基本功能，需要加一点 node 的脚本来更新 sidebar:[]的配置。放在了 utils/getFilenames.js 了。
-脚本运行时会查找/web/等 3 个文件夹下的所有目录和文件，将名称列表置入.vuepress/config/sidebar.json。
-之后重新 npm run list，列表更新
-
 
 
 #### 百度自动推送和统计

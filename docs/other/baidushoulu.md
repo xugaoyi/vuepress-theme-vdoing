@@ -1,34 +1,69 @@
-# 解决百度爬虫无法爬取搭建在GitHub上的个人博客的问题
+# 解决百度无法收录搭建在GitHub上的个人博客的问题
 
 
 
 ## 背景
 
-由于GitHub禁止百度爬虫访问，造成托管在GitHub Pages上的博客无法被百度收录。相关问题可以通过百度站长平台的抓取诊断再现，每次都是403 Forbidden的错误…
+由于GitHub禁止百度爬虫访问，造成托管在GitHub Pages上的博客无法被百度收录。相关问题可以通过百度站长平台的`抓取诊断`再现，每次都是403 Forbidden的错误。
 
 ## 解决方案
 
-将博客同时同步托管到GitHub Pages和[coding.net](https://coding.net/)上，解决百度不收录问题。
+同时将博客同时同步托管到GitHub Pages和[coding pages](https://dev.tencent.com/)上，解决百度不收录问题。最后发现在国内使用coding pages打开速度特别快，而且还会被百度收录，因此我把coding pages的站点作为主站点，原本在github pages的作为分站点。
+
+> 注意：我使用的是coding个人版，即腾讯云开发者平台。
 
 步骤：
 
-1、注册[coding.net](https://coding.net/)账号
+1、注册[coding](https://dev.tencent.com/)账号，创建仓库，把代码推送到coding仓库，并开启pages服务。
 
-2、创建一个跟账号用户名同名的仓库，例如：https://e.coding.net/username/username.git
+> git 操作部分和使用github的差不多，不了解git操作的可以看我的另一篇文章：[Git使用文档](./git.md)
 
-3、配置 SSH 公钥，配置方法请查看[帮助](https://help.coding.net/docs/project/features/ssh.html)
+2、我的博客项目使用vuepress搭建的，使用的是如下自动部署脚本，同时将代码推送到github和conding。
 
-4、在终端下进入本地博客目录evanblog（假设目录名为evanblog），添加coding.net的远程地址，新建分支，提交代码到coding.net
+```sh
+#!/usr/bin/env sh
 
-```bash
-cd evanblog
-git remote add coding https://e.coding.net/username/username.git # 关联远程仓库
-git checkout -b coding-pages
-git checkout master
-git branch
->  coding-pages
->  * master
-git push coding master/coding-pages # 提交代码到远程仓库的指定分支
+# 确保脚本抛出遇到的错误
+set -e
+
+# 生成静态文件
+npm run build
+
+# 进入生成的文件夹
+cd docs/.vuepress/dist
+
+# github
+echo 'b.evanblogweb.com' > CNAME
+git init
+git add -A
+git commit -m 'deploy'
+git push -f git@github.com:xugaoyi/evanblog.git master:gh-pages # 发布到github
+
+# coding
+echo 'evanblogweb.com' > CNAME
+git add -A
+git commit -m 'deploy'
+git push -f git@git.dev.tencent.com:xugaoyi/xugaoyi.git master # 发布到coding
+
+cd - # 退回开始所在目录
+rm -rf docs/.vuepress/dist
 ```
 
-> 关于git操作可查阅：[Git使用文档](./git.md)
+> 因为我想给两个平台上绑定不同的自定义域名，因此我分开创建了CNAME文件。
+
+3、有自定义域名的，也可以在coding pages绑定自定义域名，域名DNS解析中添加CNAME记录指向coding pages的站点地址即可。（没有自定义域名的可忽略，同时把自动部署脚本中的创建CNAME文件的脚本去掉）
+
+
+
+最后，使用百度站长的抓取诊断，发现抓取成功啦，再使用百度站长的[链接提交](https://ziyuan.baidu.com/linksubmit/index)功能，把链接提交给百度，过一段时间就可能在百度搜索中搜索到啦。
+
+
+
+### 如何知道百度有没有收录？
+
+在百度搜索框中使用site:<链接地址\>，如：
+
+```
+site:evanblogweb.com
+```
+

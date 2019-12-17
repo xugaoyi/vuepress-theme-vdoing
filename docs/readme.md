@@ -46,13 +46,13 @@ footer: Copyright © 2019-present evanblog
   * [更多... 👉](other/git)
 * 学习
   * [学习效果低，忘性很大怎么办？](other/LearningAndMemory)
-  * [学习网站分享](other/study)
-  * [更多... 👉](other/LearningAndMemory)
+  * [学习网站分享](other/study) 
 * 面试
   * [面试问题集锦](other/interview)
 * 其他
   * [在线工具](other/utils)
   * [关于本博客搭建](https://github.com/xugaoyi/evanblog)
+  * [解决百度无法收录搭建在GitHub上的个人博客的问题](other/baidushoulu)
 
 ## :email: 联系
 

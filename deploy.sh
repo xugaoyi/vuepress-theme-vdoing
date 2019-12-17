@@ -32,5 +32,5 @@ git commit -m 'deploy'
 git push -f git@git.dev.tencent.com:xugaoyi/xugaoyi.git master # 发布到coding.net
 
 
-cd -
+cd - # 退回开始所在目录
 rm -rf docs/.vuepress/dist

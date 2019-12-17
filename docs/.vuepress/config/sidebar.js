@@ -55,6 +55,7 @@ module.exports = { // 侧边栏
       collapsable: false,
       children: [
         ['note/01.小程序笔记','小程序笔记'],
+        ['https://github.com/xugaoyi/python-learn','《Python语言程序设计》基础课程学习'],
       ]
     },
     {
@@ -70,6 +71,7 @@ module.exports = { // 侧边栏
       children: [
         ['utils','在线工具'],
         ['https://github.com/xugaoyi/evanblog','关于本博客搭建'],
+        ['baidushoulu','解决百度无法收录搭建在GitHub上的个人博客的问题']
       ]
     },
   ],
