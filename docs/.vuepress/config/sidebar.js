@@ -12,21 +12,24 @@ module.exports = { // 侧边栏
         ['JavaScript/06.多种数组去重性能对比','多种数组去重性能对比'],
       ]
     },
+  ],
+  '/ui/': [
     {
-      title: 'CSS/HTML',
+      title: 'HTML/CSS',
       collapsable: false,
       children: [
-        ['CSS-HTML/01.flex布局基础','flex布局基础'], 
-        ['CSS-HTML/02.flex布局案例-骰子','flex布局案例-骰子'],
-        ['CSS-HTML/03.flex布局案例-网格布局','flex布局案例-网格布局'],
-        ['CSS-HTML/04.flex布局案例-圣杯布局','flex布局案例-圣杯布局'],
-        ['CSS-HTML/05.flex布局案例-输入框布局','flex布局案例-输入框布局'], 
-        ['CSS-HTML/06.CSS3之transform过渡','CSS3之transform过渡'], 
-        ['CSS-HTML/07.CSS3之animation动画','CSS3之animation动画'], 
+        ['00.flex布局语法','flex布局语法'],
+        ['01.flex布局案例-基础','flex布局案例-基础'], 
+        ['02.flex布局案例-骰子','flex布局案例-骰子'],
+        ['03.flex布局案例-网格布局','flex布局案例-网格布局'],
+        ['04.flex布局案例-圣杯布局','flex布局案例-圣杯布局'],
+        ['05.flex布局案例-输入框布局','flex布局案例-输入框布局'], 
+        ['06.CSS3之transform过渡','CSS3之transform过渡'], 
+        ['07.CSS3之animation动画','CSS3之animation动画'], 
       ]
     },
   ],
-  '/other/': [// 针对不同页面设置不同侧边栏
+  '/other/': [
     {
       title: '技术',
       collapsable: false, //是否可折叠，可选的，默认true
@@ -36,9 +39,9 @@ module.exports = { // 侧边栏
         ['github','GitHub高级搜索技巧'],
         ['markdown','Markdown使用教程'],
         ['npm','npm使用教程'],
+        ['yaml','yaml教程'],
       ]
     },
-
     {
       title: '学习',
       collapsable: false,
@@ -47,7 +50,13 @@ module.exports = { // 侧边栏
         ['study','学习网站分享'],
       ]
     },
-
+    {
+      title: '学习笔记',
+      collapsable: false,
+      children: [
+        ['note/01.小程序笔记','小程序笔记'],
+      ]
+    },
     {
       title: '面试',
       collapsable: false,

@@ -6,13 +6,13 @@ tagline: web前端工程师，热衷于学习与总结
 
 features:
   - title: 前端
-    details: web前端开发相关技术
+    details: JavaScript、ES6、vue框架等相关技术
     url: /web/JavaScript/01.JavaScript中的名词概念
     imgname: /img/web.png
-  - title: python
-    details: 人生苦短，我学python
-    url: /python/
-    imgname: /img/python.png
+  - title: 页面
+    details: html(5)/css(3)，前端页面相关技术
+    url: /ui/00.flex布局语法
+    imgname: /img/ui.png
   - title: 技术杂谈
     details: 技术文档、教程、技巧、学习笔记等
     url: /other/git
@@ -28,19 +28,12 @@ footer: Copyright © 2019-present evanblog
   * [多种数组去重性能对比](web/JavaScript/06.多种数组去重性能对比)
   * [更多... 👉](web/JavaScript/01.JavaScript中的名词概念)
 
-
-
-* CSS/HTML
-  * [flex布局基础](web/CSS-HTML/01.flex布局基础)
-  * [flex布局案例-圣杯布局](web/CSS-HTML/04.flex布局案例-圣杯布局)
-  * [CSS3之animation动画](web/CSS-HTML/07.CSS3之animation动画)
-  * [更多... 👉](web/CSS-HTML/01.flex布局基础)
-
-
-
-## 🐍python
-
-> 敬请期待
+## 🎨 页面
+* HTML/CSS
+  * [flex布局语法](ui/00.flex布局语法)
+  * [flex布局案例-圣杯布局](ui/04.flex布局案例-圣杯布局)
+  * [CSS3之animation动画](ui/07.CSS3之animation动画)
+  * [更多... 👉](ui/00.flex布局语法)
 
 
 
@@ -50,16 +43,16 @@ footer: Copyright © 2019-present evanblog
   * [Git使用文档](other/git)
   * [GitHub高级搜索技巧](other/github)
   * [Markdown使用教程](other/markdown)
+  * [更多... 👉](other/git)
 * 学习
   * [学习效果低，忘性很大怎么办？](other/LearningAndMemory)
   * [学习网站分享](other/study)
+  * [更多... 👉](other/LearningAndMemory)
 * 面试
   * [面试问题集锦](other/interview)
 * 其他
   * [在线工具](other/utils)
   * [关于本博客搭建](https://github.com/xugaoyi/evanblog)
-
-* [更多... 👉](other/git)
 
 ## :email: 联系
 

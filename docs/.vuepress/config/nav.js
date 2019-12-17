@@ -7,13 +7,12 @@ module.exports = [
       //{text: 'vue', link: '/web/vue/'},
       //{text: 'TypeScript', link: '/web/TypeScript/'},
       //{text: 'ES6', link: '/web/ES6/'},
-      {text: 'CSS/HTML', link: '/web/CSS-HTML/01.flex布局基础'},
     ]
   },
   {
-    text: 'python',
+    text: '页面',
     items: [
-      {text: 'python', link: '/python/'}
+      {text: 'HTML/CSS', link: '/ui/00.flex布局语法'},
     ]
   },
   {text: '技术杂谈',items:[
@@ -22,10 +21,14 @@ module.exports = [
       {text: 'GitHub高级搜索技巧', link: '/other/github'},
       {text: 'Markdown使用教程', link: '/other/markdown'},
       {text: 'npm使用教程', link: '/other/npm'},
+      {text: 'yaml教程', link: '/other/yaml'},
     ]},
     {text: '学习',items:[
       {text: '学习效果低，忘性很大怎么办？',link: '/other/LearningAndMemory'},
       {text: '学习网站分享', link: '/other/study'},
+    ]},
+    {text: '学习笔记',items:[
+      {text: '小程序笔记',link: '/other/note/01.小程序笔记'},
     ]},
     {text: '面试',items:[
       {text: '面试问答集锦', link: '/other/interview'},
