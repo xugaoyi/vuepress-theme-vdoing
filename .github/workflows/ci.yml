@@ -29,4 +29,4 @@ jobs: # 工作流
           BASE_BRANCH: master # 要部署的文件夹所在的分支.
           BRANCH: gh-pages # 部署到的分支
           FOLDER: docs/.vuepress/dist # 要部署的文件夹.
-          BUILD_SCRIPT: npm install && npm run build && && ls && cd docs/.vuepress/dist && echo 'b.evanblogweb.com' > CNAME # 部署前要执行的命令 #&& npm run list
+          BUILD_SCRIPT: npm install && npm run build && ls && cd docs/.vuepress/dist && echo 'b.evanblogweb.com' > CNAME # 部署前要执行的命令 #&& npm run list
