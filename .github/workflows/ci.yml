@@ -26,7 +26,7 @@ jobs: # 工作流
         env: # 设置环境变量
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
           CODING_TOKEN: ${{ secrets.CODING_TOKEN }} # 腾讯云开发者平台（coding）私密token
-        run: npm intall && npm run deploy
+        run: npm install && npm run deploy
 
       # - name: Build and Deploy # 步骤3
       #   uses: JamesIves/github-pages-deploy-action@master # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
