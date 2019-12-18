@@ -9,21 +9,31 @@ npm run build
 # 进入生成的文件夹
 cd docs/.vuepress/dist
 
-# 如果是发布到自定义域名
+# 自定义域名
 echo 'b.evanblogweb.com' > CNAME
 
 git init
 git add -A
-git commit -m 'deploy'
-
-# 发布到github
-git push -f git@github.com:xugaoyi/evanblog.git master:gh-pages
+if [ !$GITHUB_TOKEN ]; then
+  msg='deploy'
+  githubUrl=git@github.com:xugaoyi/evanblog.git
+else
+  msg='GitHub Action deploy'
+  githubUrl=https://xugaoyi:$GITHUB_TOKEN@github.com/xugaoyi/evanblog.git
+fi
+git commit -m $msg
+git push -f $githubUrl master:gh-pages # 发布到github
 
 # coding
 echo 'evanblogweb.com\nwww.evanblogweb.com' > CNAME
 git add -A
-git commit -m 'deploy'
-git push -f git@git.dev.tencent.com:xugaoyi/xugaoyi.git master # 发布到coding.net
+if [ !$CODING_TOKEN ]; then
+  codingUrl=git@git.dev.tencent.com:xugaoyi/xugaoyi.git
+else
+  codingUrl=https://xugaoyi:${CODING_TOKEN}@git.dev.tencent.com/xugaoyi/xugaoyi.git
+fi
+git commit -m $msg
+git push -f $codingUrl master # 发布到coding
 
 
 cd - # 退回开始所在目录

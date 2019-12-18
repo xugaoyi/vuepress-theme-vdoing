@@ -22,13 +22,19 @@ jobs: # 工作流
         uses: actions/setup-node@v1 # 作用：安装nodejs
         with:
           node-version: ${{ matrix.node-version }} # 版本
-      - name: Build and Deploy # 步骤3
-        uses: JamesIves/github-pages-deploy-action@master # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
+      - name: run deploy.sh
         env: # 设置环境变量
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
           CODING_TOKEN: ${{ secrets.CODING_TOKEN }} # 腾讯云开发者平台（coding）私密token
-          BASE_BRANCH: master # 要部署的文件夹所在的分支.
-          BRANCH: gh-pages # 部署到的分支
-          FOLDER: docs/.vuepress/dist # 要部署的文件夹.
-          BUILD_SCRIPT: npm install && npm run build && npm run deployToCoding && cd docs/.vuepress/dist && echo 'b.evanblogweb.com' > CNAME && cd - # 部署前要执行的命令,记得进入某个目录后要后面要退回开始的目录
-          # npm run deployToCoding 此命令是部署到腾讯云开发者平台（coding）
+        run: npm intall && npm run deploy
+
+      # - name: Build and Deploy # 步骤3
+      #   uses: JamesIves/github-pages-deploy-action@master # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
+      #   env: # 设置环境变量
+      #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
+      #     CODING_TOKEN: ${{ secrets.CODING_TOKEN }} # 腾讯云开发者平台（coding）私密token
+      #     BASE_BRANCH: master # 要部署的文件夹所在的分支.
+      #     BRANCH: gh-pages # 部署到的分支
+      #     FOLDER: docs/.vuepress/dist # 要部署的文件夹.
+      #     BUILD_SCRIPT: npm install && npm run build && npm run deployToCoding && cd docs/.vuepress/dist && echo 'b.evanblogweb.com' > CNAME && cd - # 部署前要执行的命令,记得进入某个目录后要后面要退回开始的目录
+      #     # npm run deployToCoding 此命令是部署到腾讯云开发者平台（coding）

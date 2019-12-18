@@ -9,6 +9,7 @@
 | emoji表情备忘单   | <https://www.webfx.com/tools/emoji-cheat-sheet> |                            |
 | processon在线作图 | <https://www.ecma-international.org>            | 流程图、思维导图、原型图等 |
 | 百度脑图          | <https://naotu.baidu.com>                       | 思维导图                   |
+| Linux命令手册     | <https://ipcmen.com/>                           | 包含shell命令教程          |
 
 
 
