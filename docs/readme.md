@@ -2,7 +2,7 @@
 home: true
 heroImage: /img/logo.png
 heroText: Evan Blog
-tagline: web前端工程师，热衷于学习与总结
+tagline: web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
 
 features:
   - title: 前端

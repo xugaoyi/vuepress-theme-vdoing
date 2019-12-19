@@ -20,6 +20,7 @@ if [ !$GITHUB_TOKEN ]; then
 else
   msg='GitHub Action deploy'
   githubUrl=https://xugaoyi:$GITHUB_TOKEN@github.com/xugaoyi/evanblog.git
+  echo githubUrl
 fi
 git commit -m $msg
 git push -f $githubUrl master:gh-pages # 发布到github

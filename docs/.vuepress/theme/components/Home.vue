@@ -75,8 +75,8 @@ export default {
     }
 
     .description {
-      max-width: 35rem;
-      font-size: 1.6rem;
+      max-width: 40rem;
+      font-size: 1.4rem;
       line-height: 1.3;
       color: lighten($textColor, 40%);
     }
@@ -116,8 +116,8 @@ export default {
     text-align: center;
 
     .image_title {
-      width: 14rem;
-      height: 14rem;
+      width: 13rem;
+      height: 13rem;
       transition: all .3s;
     }
 
