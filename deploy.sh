@@ -12,14 +12,14 @@ cd docs/.vuepress/dist
 # github
 echo 'b.evanblogweb.com' > CNAME # 自定义域名
 if [ -z "$GITHUB_TOKEN" ]; then # -z 字符串 长度为0则为true
-  echo '没有token'
-  msg='deploy'
+  echo "没有token"
+  msg="deploy"
   githubUrl=git@github.com:xugaoyi/evanblog.git
 else
-  echo '有token'
-  msg='GitHub Action deploy'
-  githubUrl=https://xugaoyi:$GITHUB_TOKEN@github.com/xugaoyi/evanblog.git
-  echo githubUrl
+  echo "有token"
+  msg="GitHub Action deploy"
+  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/evanblog.git
+  echo $githubUrl
   git config --global user.name "xugaoyi"
   git config --global user.email "894072666@qq.com"
 fi
