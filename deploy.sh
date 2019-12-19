@@ -12,8 +12,6 @@ cd docs/.vuepress/dist
 # 自定义域名
 echo 'b.evanblogweb.com' > CNAME
 
-git init
-git add -A
 if [ !$GITHUB_TOKEN ]; then
   msg='deploy'
   githubUrl=git@github.com:xugaoyi/evanblog.git
@@ -21,7 +19,11 @@ else
   msg='GitHub Action deploy'
   githubUrl=https://xugaoyi:$GITHUB_TOKEN@github.com/xugaoyi/evanblog.git
   echo githubUrl
+  git config --global user.name "xugaoyi"
+  git config --global user.email "894072666@qq.com"
 fi
+git init
+git add -A
 git commit -m $msg
 git push -f $githubUrl master:gh-pages # 发布到github
 
