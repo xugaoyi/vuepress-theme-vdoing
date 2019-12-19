@@ -1,4 +1,4 @@
-## 《Evan Blog》
+# web前端技术博客
 
 ## 介绍
 
@@ -109,7 +109,7 @@ else
 fi
 git init
 git add -A
-git commit -m ${msg}
+git commit -m "${msg}"
 git push -f $codingUrl master # 推送到coding
 
 # deploy to github
@@ -120,7 +120,7 @@ else
   githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/evanblog.git
 fi
 git add -A
-git commit -m ${msg}
+git commit -m "${msg}"
 git push -f $githubUrl master:gh-pages # 推送到github
 
 cd - # 退回开始所在目录
