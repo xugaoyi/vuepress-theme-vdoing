@@ -60,23 +60,137 @@ npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
 
 ##### 2）、使用GitHub Action自动持续集成
 
-第一步，按照[官方文档](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)，生成一个GitHub 密钥。
+第一步，按照[官方文档](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)，生成一个github token (令牌)。
 
 第二步，将这个密钥储存到当前仓库的`Settings/Secrets`里面。
 > `Settings/Secrets`是储存秘密的环境变量的地方。环境变量的名字可以随便起，这里用的是`ACCESS_TOKEN`。如果你不用这个名字，`.github/workflows/ci.yml`脚本里的变量名也要跟着改。
 
-第三步，提交代码到GitHub仓库master分支。
+第三步，push提交代码到GitHub仓库master分支。
 
 第四步，设置GitHub Pages为gh-pages分支。
 
 
 
-参考 [教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
-
 
 > 注意：如果您有自定义域名，需要在`.github/workflows/ci.yml`中修改`evanblogweb.com`为你的域名。
 >
 > 如没有自定义域名，需要在`.github/workflows/ci.yml`中去掉`cd docs/.vuepress/dist && echo 'evanblogweb.com' > CNAME && cd -`命令
+>
+> 参考 [GitHub Action教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+
+
+
+#### 5、部署升级：同时部署到github和[coding](https://dev.tencent.com/)
+
+为了让博客站能够让百度收录，因此我把博客部署到了coding（腾讯云开发者平台），相关[文章](https://evanblogweb.com/other/baidushoulu.html)。
+
+在原有部署方式上做了升级，同时部署到github和coding。
+
+`deploy.sh`文件：
+
+> 看不懂代码shell代码？ 参考：<https://ipcmen.com/>
+
+```sh
+#!/usr/bin/env sh
+set -e # 确保脚本抛出遇到的错误
+npm run build # 生成静态文件
+cd docs/.vuepress/dist # 进入生成的文件夹
+
+# deploy to coding
+echo 'www.evanblogweb.com\nevanblogweb.com' > CNAME  # 自定义域名
+if [ -z "$CODING_TOKEN" ]; then  # -z <字符串> 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
+  msg='deploy'
+  codingUrl=git@git.dev.tencent.com:xugaoyi/xugaoyi.git
+else
+  msg='来自github action的自动部署'
+  codingUrl=https://xugaoyi:${CODING_TOKEN}@git.dev.tencent.com/xugaoyi/xugaoyi.git
+  git config --global user.name "xugaoyi"
+  git config --global user.email "894072666@qq.com"
+fi
+git init
+git add -A
+git commit -m ${msg}
+git push -f $codingUrl master # 推送到coding
+
+# deploy to github
+echo 'b.evanblogweb.com' > CNAME
+if [ -z "$GITHUB_TOKEN" ]; then
+  githubUrl=git@github.com:xugaoyi/evanblog.git
+else
+  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/evanblog.git
+fi
+git add -A
+git commit -m ${msg}
+git push -f $githubUrl master:gh-pages # 推送到github
+
+cd - # 退回开始所在目录
+rm -rf docs/.vuepress/dist
+```
+
+
+
+`ci.yml`文件：
+
+> 看不懂yaml代码？ 参考：<https://evanblogweb.com/other/yaml.html>
+
+```yaml
+name: CI
+
+# 在master分支发生push事件时触发。
+on: 
+  push:
+    branches:
+      - master
+jobs: # 工作流
+  build:
+    runs-on: ubuntu-latest #运行在虚拟机环境ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps: # 步骤
+      - name: Checkout # 步骤1
+        uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
+      - name: Use Node.js ${{ matrix.node-version }} # 步骤2
+        uses: actions/setup-node@v1 # 作用：安装nodejs
+        with:
+          node-version: ${{ matrix.node-version }} # 版本
+      - name: run deploy.sh # 步骤3 （同时部署到github和coding）
+        env: # 设置环境变量
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
+          CODING_TOKEN: ${{ secrets.CODING_TOKEN }} # 腾讯云开发者平台（coding）私密token
+        run: npm install && npm run deploy
+
+      # - name: Build and Deploy # 步骤3 （只部署到github可以使用这个步骤）
+      #   uses: JamesIves/github-pages-deploy-action@master # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
+      #   env: # 设置环境变量
+      #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
+      #     BASE_BRANCH: master # 要部署的文件夹所在的分支.
+      #     BRANCH: gh-pages # 部署到的分支
+      #     FOLDER: docs/.vuepress/dist # 要部署的文件夹.
+      #     BUILD_SCRIPT: npm install && npm run build && cd docs/.vuepress/dist && echo 'b.evanblogweb.com' > CNAME && cd - # 部署前要执行的命令（记得cd进入某个目录后，后面要cd -退回开始的目录）
+```
+
+使用前先将[github token (令牌) ](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)和[coding token (令牌)](https://dev.tencent.com/help/doc/account/access-token) 同时设置到github仓库的`Settings/Secrets`位置。
+
+![token设置](https://raw.githubusercontent.com/xugaoyi/image_store/master/blog/token.jpg)
+
+##### 部署方式有两种：
+
+##### 1) 、使用如下命令一键部署到github和coding
+
+```sh
+npm run deploy
+```
+
+##### 2）、使用GitHub Action自动部署到github和coding
+
+只需要push提交代码到github仓库master分支即可。
+
+>  参考 [GitHub Action教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+
+
 
 
 
@@ -98,11 +212,11 @@ npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
 
 * 域名列表中点击`解析`
 
-![dns1](https://raw.githubusercontent.com/xugaoyi/image_store/master/blogdns1.png)
+![dns1](https://raw.githubusercontent.com/xugaoyi/image_store/master/blog/dns1.png)
 
 * 进入解析页面后，点击`添加记录`。填入，记录类型：`CNAME`，主机记录：`www`，解析线路：默认，记录值：你的github pages地址`<userName>.github.io`，TTL：默认的10分钟，确定。
 
-![dns2](https://raw.githubusercontent.com/xugaoyi/image_store/master/blogdns2.png)
+![dns2](https://raw.githubusercontent.com/xugaoyi/image_store/master/blog/dns2.png)
 
 #### 3、使github pages与域名关联
 

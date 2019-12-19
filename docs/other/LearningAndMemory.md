@@ -61,7 +61,7 @@
 
 ——以上内容摘自《认知天性》，结合本人的个人理解，更多内容请查看该书籍。
 
-![认知天性](https://raw.githubusercontent.com/xugaoyi/image_store/master/blogrztx.png)
+![认知天性](https://raw.githubusercontent.com/xugaoyi/image_store/master/blog/rztx.png)
 
 
 

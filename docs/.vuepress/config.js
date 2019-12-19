@@ -15,15 +15,14 @@ module.exports = {
     lineNumbers: true // 代码行号
   },
   themeConfig: { // 主题配置
-    logo: '/img/logo2.png', // 导航栏logo
     nav,
+    sidebar, // 侧边栏    'auto' | 自定义
+    logo: '/img/logo2.png', // 导航栏logo
     repo: 'xugaoyi/evanblog', // 导航栏右侧生成Github链接
+    lastUpdated: '更新于', // 更新的时间，及前缀文字   string | boolean
     // editLinks: true, // 编辑链接
     // editLinkText: '在 Github 上编辑此页',
-    lastUpdated: '更新于', // 更新的时间，及前缀文字   string | boolean
-    // displayAllHeaders: true // 默认值：false
-    //sidebar: 'auto', //自动侧边栏
-    sidebar
+    // displayAllHeaders: true, // 默认值：false
   },
   // locales: {
   //   // 键名是该语言所属的子路径

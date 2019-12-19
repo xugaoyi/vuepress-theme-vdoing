@@ -2,7 +2,7 @@
 
 web前端工程师，喜欢唱、跳、rap、篮球，写程序。 本人↓↓↓
 
-<img src='https://raw.githubusercontent.com/xugaoyi/image_store/master/bloglogo.jpg' width=300 alian=center alt='本人照片' >
+<img src='https://raw.githubusercontent.com/xugaoyi/image_store/master/blog/logo.jpg' width=300 alian=center alt='本人照片' >
 
 ## :email: 联系
 
