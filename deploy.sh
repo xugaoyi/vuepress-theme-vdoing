@@ -9,13 +9,14 @@ npm run build
 # 进入生成的文件夹
 cd docs/.vuepress/dist
 
-# 自定义域名
-echo 'b.evanblogweb.com' > CNAME
-
-if [ !$GITHUB_TOKEN ]; then
+# github
+echo 'b.evanblogweb.com' > CNAME # 自定义域名
+if [ -z "$GITHUB_TOKEN" ]; then # -z 字符串 长度为0则为true
+  echo '没有token'
   msg='deploy'
   githubUrl=git@github.com:xugaoyi/evanblog.git
 else
+  echo '有token'
   msg='GitHub Action deploy'
   githubUrl=https://xugaoyi:$GITHUB_TOKEN@github.com/xugaoyi/evanblog.git
   echo githubUrl
@@ -29,12 +30,12 @@ git push -f $githubUrl master:gh-pages # 发布到github
 
 # coding
 echo 'evanblogweb.com\nwww.evanblogweb.com' > CNAME
-git add -A
-if [ !$CODING_TOKEN ]; then
+if [ -z "$CODING_TOKEN" ]; then
   codingUrl=git@git.dev.tencent.com:xugaoyi/xugaoyi.git
 else
   codingUrl=https://xugaoyi:${CODING_TOKEN}@git.dev.tencent.com/xugaoyi/xugaoyi.git
 fi
+git add -A
 git commit -m $msg
 git push -f $codingUrl master # 发布到coding
 
