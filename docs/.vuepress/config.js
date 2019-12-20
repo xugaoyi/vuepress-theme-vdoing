@@ -44,17 +44,31 @@ module.exports = {
     'vuepress-plugin-baidu-autopush', // 百度自动推送，作用：加快将页面推送给百度搜索
     '@vuepress/back-to-top', // 返回顶部
     [
-      '@vuepress/medium-zoom',
+      '@vuepress/medium-zoom', // 缩放图片
       {
         options: {
           background: 'rgba(0,0,0,0.8)'
         }
       }
-    ], // 缩放图片
+    ], 
     [
       'vuepress-plugin-baidu-tongji', // 百度统计，https://tongji.baidu.com
       {
         hm: '837775213e724293b4af2b9526e238b4'
+      }
+    ],
+    [
+      'vuepress-plugin-comment', // 评论
+      {
+        choosen: 'gitalk', 
+        options: {
+          clientID: 'a6e1355287947096b88b',
+          clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
+          repo: 'blog', // GitHub 仓库
+          owner: 'xugaoyi', // GitHub仓库所有者
+          admin: ['xugaoyi'], // 对仓库有写权限的人
+          distractionFreeMode: false 
+        }
       }
     ]
   ],

@@ -14,5 +14,8 @@
     "vuepress": "^1.1.0",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-baidu-tongji": "^1.0.1"
+  },
+  "dependencies": {
+    "vuepress-plugin-comment": "^0.7.2"
   }
 }

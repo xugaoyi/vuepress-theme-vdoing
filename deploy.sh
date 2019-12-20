@@ -28,9 +28,9 @@ git push -f $codingUrl master # 推送到coding
 # deploy to github
 echo 'b.evanblogweb.com' > CNAME
 if [ -z "$GITHUB_TOKEN" ]; then
-  githubUrl=git@github.com:xugaoyi/evanblog.git
+  githubUrl=git@github.com:xugaoyi/blog.git
 else
-  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/evanblog.git
+  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/blog.git
 fi
 git add -A
 git commit -m "${msg}"

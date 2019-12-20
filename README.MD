@@ -11,8 +11,8 @@
 #### 1、克隆项目后进入
 
 ```bash
-git clone https://github.com/xugaoyi/evanblog
-cd evanblog
+git clone https://github.com/xugaoyi/blog
+cd blog
 ```
 
 #### 2、安装依赖并运行开发服务
@@ -80,11 +80,11 @@ npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
 
 
 
-#### 5、部署升级：同时部署到github和[coding](https://dev.tencent.com/)
+#### 4.1、部署升级：同时部署到github和[coding](https://dev.tencent.com/)
 
 为了让博客站能够让百度收录，因此我把博客部署到了coding（腾讯云开发者平台），相关[文章](https://evanblogweb.com/other/baidushoulu.html)。
 
-在原有部署方式上做了升级，同时部署到github和coding。
+在原有部署方式上做了升级，实现同时部署到github和coding。
 
 `deploy.sh`文件：
 
@@ -115,9 +115,9 @@ git push -f $codingUrl master # 推送到coding
 # deploy to github
 echo 'b.evanblogweb.com' > CNAME
 if [ -z "$GITHUB_TOKEN" ]; then
-  githubUrl=git@github.com:xugaoyi/evanblog.git
+  githubUrl=git@github.com:xugaoyi/blog.git
 else
-  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/evanblog.git
+  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/blog.git
 fi
 git add -A
 git commit -m "${msg}"
@@ -149,7 +149,7 @@ jobs: # 工作流
       matrix:
         node-version: [10.x]
 
-    steps: # 步骤
+    steps: 
       - name: Checkout # 步骤1
         uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
       - name: Use Node.js ${{ matrix.node-version }} # 步骤2
