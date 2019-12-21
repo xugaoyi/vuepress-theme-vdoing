@@ -46,7 +46,7 @@ module.exports = { // 侧边栏
       title: '学习',
       collapsable: false,
       children: [
-        ['LearningAndMemory','学习网学习效果低，忘性很大怎么办？'],
+        ['LearningAndMemory','学习效果低，忘性很大怎么办？'],
         ['study','学习网站分享'],
       ]
     },

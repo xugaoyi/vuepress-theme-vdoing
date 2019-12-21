@@ -24,22 +24,6 @@ module.exports = {
     // editLinkText: '在 Github 上编辑此页',
     // displayAllHeaders: true, // 默认值：false
   },
-  // locales: {
-  //   // 键名是该语言所属的子路径
-  //   // 作为特例，默认语言可以使用 '/' 作为其路径。
-  //   '/': {
-  //     lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
-  //     title: 'Evan 博客',
-  //     description:
-  //       '博客文章列表，包括儿童编程、儿童教育及程序开发、个人感悟等主题 '
-  //   },
-  //   '/en/': {
-  //     lang: 'en-US',
-  //     title: 'Evan Blog',
-  //     description:
-  //       "children's programming, children's education and program development"
-  //   }
-  // },
   plugins: [ // 插件
     'vuepress-plugin-baidu-autopush', // 百度自动推送，作用：加快将页面推送给百度搜索
     '@vuepress/back-to-top', // 返回顶部
@@ -68,20 +52,20 @@ module.exports = {
           owner: 'xugaoyi', // GitHub仓库所有者
           admin: ['xugaoyi'], // 对仓库有写权限的人
           distractionFreeMode: false,
-          id: "<%- md5(window.location.origin + window.location.pathname) %>", //  页面的唯一标识,长度不能超过50
-          title: "「评论」<%- document.title %>", // GitHub issue 的标题
+          id: "<%- (window.location.origin + (frontmatter.to.path || window.location.pathname)).slice(-50) %>", //  页面的唯一标识,长度不能超过50
+          title: "「评论」来自 <%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的标题
           labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-          body:"<%- document.title %>：<%- window.location.origin + window.location.pathname %>" // GitHub issue 的内容
+          body:"<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
         }
       }
     ]
   ],
-  configureWebpack: {
-    //webpack别名 如![Image from alias](~@alias/image.png)
-    resolve: {
-      alias: {
-        '@alias': 'path/to/some/dir'
-      }
-    }
-  }
+  // configureWebpack: {
+  //   //webpack别名 如![Image from alias](~@alias/image.png)
+  //   resolve: {
+  //     alias: {
+  //       '@alias': 'path/to/some/dir'
+  //     }
+  //   }
+  // }
 }

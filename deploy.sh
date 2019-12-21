@@ -9,32 +9,32 @@ npm run build
 # 进入生成的文件夹
 cd docs/.vuepress/dist
 
-# deploy to coding
-echo 'www.evanblogweb.com\nevanblogweb.com' > CNAME  # 自定义域名
-if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
+# deploy to github
+echo 'b.evanblogweb.com' > CNAME
+if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
-  codingUrl=git@git.dev.tencent.com:xugaoyi/xugaoyi.git
+  githubUrl=git@github.com:xugaoyi/blog.git
 else
   msg='来自github action的自动部署'
-  codingUrl=https://xugaoyi:${CODING_TOKEN}@git.dev.tencent.com/xugaoyi/xugaoyi.git
+  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/blog.git
   git config --global user.name "xugaoyi"
   git config --global user.email "894072666@qq.com"
 fi
 git init
 git add -A
 git commit -m "${msg}"
-git push -f $codingUrl master # 推送到coding
+git push -f $githubUrl master:gh-pages # 推送到github
 
-# deploy to github
-echo 'b.evanblogweb.com' > CNAME
-if [ -z "$GITHUB_TOKEN" ]; then
-  githubUrl=git@github.com:xugaoyi/blog.git
+# deploy to coding
+echo 'www.evanblogweb.com\nevanblogweb.com' > CNAME  # 自定义域名
+if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
+  codingUrl=git@git.dev.tencent.com:xugaoyi/xugaoyi.git
 else
-  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/blog.git
+  codingUrl=https://xugaoyi:${CODING_TOKEN}@git.dev.tencent.com/xugaoyi/xugaoyi.git
 fi
 git add -A
 git commit -m "${msg}"
-git push -f $githubUrl master:gh-pages # 推送到github
+git push -f $codingUrl master # 推送到coding
 
 
 cd - # 退回开始所在目录
