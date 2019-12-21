@@ -67,7 +67,11 @@ module.exports = {
           repo: 'blog', // GitHub 仓库
           owner: 'xugaoyi', // GitHub仓库所有者
           admin: ['xugaoyi'], // 对仓库有写权限的人
-          distractionFreeMode: false 
+          distractionFreeMode: false,
+          id: "<%- md5(window.location.origin + window.location.pathname) %>", //  页面的唯一标识,长度不能超过50
+          title: "「评论」<%- document.title %>", // GitHub issue 的标题
+          labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+          body:"<%- document.title %>：<%- window.location.origin + window.location.pathname %>" // GitHub issue 的内容
         }
       }
     ]
