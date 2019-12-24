@@ -2,9 +2,8 @@
   "name": "evanblog",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "list": "node utils/getFilenames.js",
-    "build": "vuepress build docs",
+    "dev": "node utils/sidebarAndNav.js && vuepress dev docs",
+    "build": "node utils/sidebarAndNav.js && vuepress build docs",
     "deploy": "bash deploy.sh"
   },
   "license": "MIT",
@@ -12,6 +11,7 @@
     "@vuepress/plugin-back-to-top": "^1.2.0",
     "@vuepress/plugin-medium-zoom": "^1.2.0",
     "ejs": "^3.0.1",
+    "tracer": "^1.0.1",
     "vuepress": "^1.1.0",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-baidu-tongji": "^1.0.1"

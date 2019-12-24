@@ -1,5 +1,7 @@
 const nav = require('./config/nav.js');
-const sidebar = require('./config/sidebar.js');
+// const sidebar = require('./config/sidebar.js');
+const sidebar = require('./config/sidebar-auto.js');
+
 module.exports = {
   title: 'Evan Blog', // 标题
   description: 'Evan Blog,web前端技术博客,基于vuepress构建,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到当前页面的 HTML 中
