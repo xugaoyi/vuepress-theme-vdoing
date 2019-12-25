@@ -54,10 +54,12 @@ module.exports = {
           owner: 'xugaoyi', // GitHub仓库所有者
           admin: ['xugaoyi'], // 对仓库有写权限的人
           distractionFreeMode: false,
-          id: "<%- (window.location.origin + (frontmatter.to.path || window.location.pathname)).slice(-50) %>", //  页面的唯一标识,长度不能超过50
-          title: "「评论」来自 <%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的标题
+          id: "<%- frontmatter.permalink.slice(-16) %>", //  页面的唯一标识,长度不能超过50
+          title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
+          // id: "<%- (window.location.origin + (frontmatter.to.path || window.location.pathname)).slice(-50) %>", 
+          // title: "「评论」<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", 
           labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-          body:"<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
+          body:"页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
         }
       }
     ]

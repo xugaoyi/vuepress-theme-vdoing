@@ -8,6 +8,7 @@ const MD5 = require('md5.js');
 const arg = process.argv.splice(2)[0]; // 获取命令行 传入参数
 
 const docsRoot = path.join(__dirname, '..', 'docs'); // docs文件路径
+const PREFIX = '/pages/'; // 链接前缀
 
 main();
 
@@ -38,8 +39,8 @@ function main() {
         logger.warn(`此文件FrontMatter更新失败${file.filePath}，因为它的FrontMatter格式并非自动生成的。`)
       }
     }
-
   })
+
 }
 
 // 写入FrontMatter
@@ -47,7 +48,8 @@ function writeFrontMatter(file, dataStr) {
   const stat = fs.statSync(file.filePath);
   const date = stat.birthtime; // 创建时间
   const dateStr = `${date.getFullYear()}-${zero(date.getMonth()+1)}-${zero(date.getDate())}`;
-  const newData = `---\r\ntitle: ${file.name}\r\ndate: ${dateStr}\r\npermalink: /pages/${new MD5().update(file.name).digest('hex').substring(0,16)}\r\n---\r\n` + dataStr;
+  const permalink = `${PREFIX}${new MD5().update(file.name).digest('hex').substring(0,16)}`;
+  const newData = `---\r\ntitle: ${file.name}\r\ndate: ${dateStr}\r\npermalink: ${permalink}\r\n---\r\n` + dataStr;
   fs.writeFileSync(file.filePath, newData); // 写入
 }
 
@@ -81,21 +83,27 @@ function readFileList(dir, filesList = []) {
   return filesList;
 }
 
+// 抛出给baiduPush.js调用
+module.exports = {
+  readFileList,
+  docsRoot,
+  PREFIX
+}; 
 
 /**
  * 读取指定目录下的文件绝对路径
  * @param {String} root 指定的目录
 */
-function readTocs(root){
-  const result = [];
-  const files = fs.readdirSync(root); // 方法：读取目录,返回数组，成员是root底下所有的目录名 (包含文件文件夹和文件)
-  files.forEach(name => {
-    const file = path.resolve(root, name); // 方法：将路径或路径片段的序列解析为绝对路径
-    if (fs.statSync(file).isDirectory() && name !== '.vuepress') { // 是否为文件夹目录，并排除.vuepress文件
-      result.push(file);
-    }
-  })
-  return result;
-}
+// function readTocs(root){
+//   const result = [];
+//   const files = fs.readdirSync(root); // 方法：读取目录,返回数组，成员是root底下所有的目录名 (包含文件文件夹和文件)
+//   files.forEach(name => {
+//     const file = path.resolve(root, name); // 方法：将路径或路径片段的序列解析为绝对路径
+//     if (fs.statSync(file).isDirectory() && name !== '.vuepress') { // 是否为文件夹目录，并排除.vuepress文件
+//       result.push(file);
+//     }
+//   })
+//   return result;
+// }
 
 
