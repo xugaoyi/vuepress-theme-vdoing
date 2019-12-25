@@ -3,10 +3,10 @@ name: CI
 #on: [push]
 
 # 在master分支发生push事件时触发。
-# on: 
-#   push:
-#     branches:
-#       - master
+on: 
+  push:
+    branches:
+      - master
 
 jobs: # 工作流
   build: # 自定义名称
