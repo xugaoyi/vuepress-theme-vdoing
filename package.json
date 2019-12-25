@@ -2,15 +2,17 @@
   "name": "evanblog",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node utils/sidebarAndNav.js && vuepress dev docs",
-    "build": "node utils/sidebarAndNav.js && vuepress build docs",
-    "deploy": "bash deploy.sh"
+    "dev": "node utils/frontmatter.js && node utils/sidebarAndNav.js && vuepress dev docs",
+    "build": "node utils/frontmatter.js && node utils/sidebarAndNav.js && vuepress build docs",
+    "deploy": "bash deploy.sh",
+    "updateFM": "node utils/frontmatter.js -update"
   },
   "license": "MIT",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.2.0",
     "@vuepress/plugin-medium-zoom": "^1.2.0",
     "ejs": "^3.0.1",
+    "md5.js": "^1.3.5",
     "tracer": "^1.0.1",
     "vuepress": "^1.1.0",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
