@@ -1,19 +1,19 @@
 module.exports = [
   {text: '首页', link: '/'},
 
-  {text: '前端', link: '/70d1485bb4e5754b/'},
-  {text: '页面', link: '/0a83b083bdf257cb/'},
-  {text: '技术杂谈', link: '/9a7ee40fc232253e/'},
+  {text: '前端', link: '/pages/70d1485bb4e5754b/'},
+  {text: '页面', link: '/pages/0a83b083bdf257cb/'},
+  {text: '技术杂谈', link: '/pages/9a7ee40fc232253e/'},
   {text: '其他', 
     items: [
-      {text: '学习', link: '/2e9ba3fa6e1ed0e9/'},
-      {text: '学习笔记', link: '/236ec09c26876b59/'},
-      {text: '面试', link: '/aea6571b7a8bae86/'},
-      {text: '在线工具', link: '/9c2232288caaa8ec/'},
-      {text: '友情链接', link: '/844eea1b2387fb96/'},
+      {text: '学习', link: '/pages/2e9ba3fa6e1ed0e9/'},
+      {text: '学习笔记', link: '/pages/236ec09c26876b59/'},
+      {text: '面试', link: '/pages/aea6571b7a8bae86/'},
+      {text: '在线工具', link: '/pages/9c2232288caaa8ec/'},
+      {text: '友情链接', link: '/pages/844eea1b2387fb96/'},
     ]
   },
-  {text: '关于我', link: '/6483e31017cf298b/'},
+  {text: '关于我', link: '/pages/6483e31017cf298b/'},
 
   // {text: '前端', link: '/01.前端/01.JavaScript/01.JavaScript中的名词概念'},
   // {text: '页面', link: '/02.页面/01.html-css/00.flex布局语法'},

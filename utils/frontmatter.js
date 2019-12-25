@@ -47,7 +47,7 @@ function writeFrontMatter(file, dataStr) {
   const stat = fs.statSync(file.filePath);
   const date = stat.birthtime; // 创建时间
   const dateStr = `${date.getFullYear()}-${zero(date.getMonth()+1)}-${zero(date.getDate())}`;
-  const newData = `---\r\ntitle: ${file.name}\r\ndate: ${dateStr}\r\npermalink: ${new MD5().update(file.name).digest('hex').substring(0,16)}\r\n---\r\n` + dataStr;
+  const newData = `---\r\ntitle: ${file.name}\r\ndate: ${dateStr}\r\npermalink: /pages/${new MD5().update(file.name).digest('hex').substring(0,16)}\r\n---\r\n` + dataStr;
   fs.writeFileSync(file.filePath, newData); // 写入
 }
 
