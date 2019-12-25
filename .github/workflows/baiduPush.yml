@@ -14,4 +14,4 @@ jobs:
       - name: 'Checkout codes' # 步骤一，获取仓库代码
         uses: actions/checkout@v1
       - name: 'Run baiduPush.sh' # 步骤二，执行sh命令文件
-        run: bash ./baiduPush.sh # 注意，运行目录和文件是同一目录
+        run: npm install && bash ./baiduPush.sh # 注意，运行目录是仓库根目录
