@@ -2,12 +2,12 @@
 
 ## 简介
 
-使用 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 构建静态博客站。内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种自动部署脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。还内置了自动百度链接推送，以及结合GitHub Actions[每天定时推送](https://github.com/xugaoyi/blog/blob/master/.github/workflows/baiduPush.yml)
+使用 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 构建静态博客站。内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种自动部署脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
 
 * **简洁至上**
   * 继承了[VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 简洁至上的特性，以 Markdown 为中心的项目结构，让你专注于写作
 * **高自动化**
-  * 项目结合了各种自动化技术，[自动生成侧边栏](https://github.com/xugaoyi/blog/issues/113)，自动部署，自动百度链接推送，每天定时百度链接推送
+  * 项目结合了各种自动化技术，[自动生成侧边栏](https://github.com/xugaoyi/blog/issues/113)，[CI持续集成部署](#4部署)，[自动百度链接推送](#百度自动推送和统计)，结合GitHub Actions开发的自动化[每天定时推送](https://github.com/xugaoyi/blog/blob/master/.github/workflows/baiduPush.yml)
 * **SEO友好**
   * 让你的博客给更多人看到
 
