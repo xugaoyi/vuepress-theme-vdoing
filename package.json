@@ -2,8 +2,8 @@
   "name": "evanblog",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node utils/frontmatter.js && node utils/sidebarAndNav.js && vuepress dev docs",
-    "build": "node utils/frontmatter.js && node utils/sidebarAndNav.js && vuepress build docs",
+    "dev": "node utils/frontmatter.js && node utils/sidebar.js && vuepress dev docs",
+    "build": "node utils/frontmatter.js && node utils/sidebar.js && vuepress build docs",
     "deploy": "bash deploy.sh",
     "updateFM": "node utils/frontmatter.js -update"
   },
