@@ -27,6 +27,7 @@ jobs: # 工作流
         env: # 设置环境变量
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
           CODING_TOKEN: ${{ secrets.CODING_TOKEN }} # 腾讯云开发者平台（coding）私密token
+          BAIDU_TONGJI: ${{ secrets.BAIDU_TONGJI}} # 百度统计
         run: npm install && npm run deploy
 
       # - name: Build and Deploy # 步骤3 （只提交到github可以使用这个步骤）
@@ -36,4 +37,4 @@ jobs: # 工作流
       #     BASE_BRANCH: master # 要部署的文件夹所在的分支.
       #     BRANCH: gh-pages # 部署到的分支
       #     FOLDER: docs/.vuepress/dist # 要部署的文件夹.
-      #     BUILD_SCRIPT: npm install && npm run build && cd docs/.vuepress/dist && echo 'b.evanblogweb.com' > CNAME && cd - # 部署前要执行的命令（记得cd进入某个目录后，后面要cd -退回开始的目录）
+      #     BUILD_SCRIPT: npm install && npm run build && cd docs/.vuepress/dist && echo 'xugaoyi.com' > CNAME && cd - # 部署前要执行的命令（记得cd进入某个目录后，后面要cd -退回开始的目录）

@@ -7,7 +7,7 @@ const path = require('path');
 const readFileList = require('./modules/readFileList');
 const urlsRoot = path.join(__dirname, '..', 'urls.txt'); // 百度链接推送文件
 
-const DOMAIN = 'https://evanblogweb.com'
+const DOMAIN = 'https://xugaoyi.com'
 
 main();
 

@@ -50,7 +50,7 @@ module.exports = [
   //   ]},
   //   {text: '其他',items:[
   //     {text: '在线工具', link: '/other/utils'},
-  //     {text: '关于本博客搭建', link: 'https://github.com/xugaoyi/evanblog'},
+  //     {text: '关于本博客搭建', link: 'https://github.com/xugaoyi/blog'},
   //     {text: '解决百度无法收录搭建在GitHub上的个人博客的问题', link: '/other/baidushoulu'}
   //   ]},
   // ]},

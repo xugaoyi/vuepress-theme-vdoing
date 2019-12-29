@@ -17,7 +17,7 @@ features:
     details: 技术文档、教程、技巧、学习笔记等
     url: /pages/9a7ee40fc232253e/
     imgname: /img/other.png
-footer: Copyright © 2019-present evanblog
+footer: Copyright © 2019-present xugaoyi
 ---
 
 ## :earth_americas:前端
@@ -53,7 +53,7 @@ footer: Copyright © 2019-present evanblog
   * [面试问题集锦](/pages/aea6571b7a8bae86/)
 * 其他
   * [在线工具](/pages/9c2232288caaa8ec/)
-  * [关于本博客搭建](https://github.com/xugaoyi/evanblog)
+  * [关于本博客搭建](https://github.com/xugaoyi/blog)
 
 ## :email: 联系
 

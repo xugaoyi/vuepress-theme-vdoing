@@ -45,7 +45,7 @@ npm run dev # or yarn dev
 
 ```bash
 # 如果是发布到自定义域名
-echo 'evanblogweb.com' > CNAME
+echo 'xugaoyi.com' > CNAME
 
 # 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
@@ -79,17 +79,17 @@ npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
 
 
 
-> 注意：如果您有自定义域名，需要在`.github/workflows/ci.yml`中修改`evanblogweb.com`为你的域名。
+> 注意：如果您有自定义域名，需要在`.github/workflows/ci.yml`中修改`xugaoyi.com`为你的域名。
 >
-> 如没有自定义域名，需要在`.github/workflows/ci.yml`中去掉`cd docs/.vuepress/dist && echo 'evanblogweb.com' > CNAME && cd -`命令
+> 如没有自定义域名，需要在`.github/workflows/ci.yml`中去掉`cd docs/.vuepress/dist && echo 'xugaoyi.com' > CNAME && cd -`命令
 >
-> 参考 [GitHub Action教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+> 参考 [GitHub Action实现自动部署静态博客](http://xugaoyi.com/pages/6b9d359ec5aa5019/)
 
 
 
 #### 4.1、部署升级：同时部署到github和[coding](https://dev.tencent.com/)
 
-为了让博客站能够让百度收录，因此我把博客部署到了coding（腾讯云开发者平台），相关[文章](https://evanblogweb.com/other/baidushoulu.html)。
+为了让博客站能够让百度收录，因此我把博客部署到了coding相关[文章](https://xugaoyi.com/pages/41f87d890d0a02af/)。
 
 在原有部署方式上做了升级，实现同时部署到github和coding。
 
@@ -104,7 +104,7 @@ npm run build # 生成静态文件
 cd docs/.vuepress/dist # 进入生成的文件夹
 
 # deploy to github
-echo 'b.evanblogweb.com' > CNAME
+echo 'blog.xugaoyi.com' > CNAME
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
   githubUrl=git@github.com:xugaoyi/blog.git
@@ -120,7 +120,7 @@ git commit -m "${msg}"
 git push -f $githubUrl master:gh-pages # 推送到github
 
 # deploy to coding
-echo 'www.evanblogweb.com\nevanblogweb.com' > CNAME  # 自定义域名
+echo 'www.xugaoyi.com\nxugaoyi.com' > CNAME  # 自定义域名
 if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
   codingUrl=git@git.dev.tencent.com:xugaoyi/xugaoyi.git
 else
@@ -138,7 +138,7 @@ rm -rf docs/.vuepress/dist
 
 `ci.yml`文件：
 
-> 看不懂yaml代码？ 参考：<https://evanblogweb.com/other/yaml.html>
+> 看不懂yaml代码？ 参考：<https://xugaoyi.com/pages/4e8444e2d534d14f/>
 
 ```yaml
 name: CI
@@ -176,7 +176,7 @@ jobs: # 工作流
       #     BASE_BRANCH: master # 要部署的文件夹所在的分支.
       #     BRANCH: gh-pages # 部署到的分支
       #     FOLDER: docs/.vuepress/dist # 要部署的文件夹.
-      #     BUILD_SCRIPT: npm install && npm run build && cd docs/.vuepress/dist && echo 'b.evanblogweb.com' > CNAME && cd - # 部署前要执行的命令（记得cd进入某个目录后，后面要cd -退回开始的目录）
+      #     BUILD_SCRIPT: npm install && npm run build && cd docs/.vuepress/dist && echo 'xugaoyi.com' > CNAME && cd - # 部署前要执行的命令（记得cd进入某个目录后，后面要cd -退回开始的目录）
 ```
 
 使用前先将[github token (令牌) ](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)和[coding token (令牌)](https://dev.tencent.com/help/doc/account/access-token) 同时设置到github仓库的`Settings/Secrets`位置。
@@ -195,7 +195,7 @@ npm run deploy
 
 只需要push提交代码到github仓库master分支即可。
 
->  参考 [GitHub Action教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+>  参考 [GitHub Action实现自动部署静态博客](http://xugaoyi.com/pages/6b9d359ec5aa5019/)
 
 
 
@@ -205,38 +205,38 @@ npm run deploy
 
 #### 1、申请域名
 
-申请域名当然去哪都行。 国内的[阿里云](https://link.zhihu.com/?target=https%3A//wanwang.aliyun.com/domain/)，腾讯云，国外的[freenom](https://link.zhihu.com/?target=http%3A//www.freenom.com/)，namecheap什么的 。 操作大同小异，都是
+申请域名当然去哪都行。 国内的[阿里云](https://link.zhihu.com/?target=https%3A//wanwang.aliyun.com/domain/)，[腾讯云](https://cloud.tencent.com/)，国外的[freenom](https://link.zhihu.com/?target=http%3A//www.freenom.com/)，namecheap什么的 。 操作大同小异，都是
 
 * 注册账号，登录
 
-* 搜索并找到可用的域名，买下来。比如我在阿里云买的一个域名：`evanblogweb.com`
+* 搜索并找到可用的域名，买下来。比如我在腾讯云买的一个域名：`xugaoyi.com`
 
 #### 2、DNS解析
 
-想要在浏览器里面输入`evanblogweb.com`就能跳到博客页面。我们首先需要做的就是将`evanblogweb.com` 与固定的ip地址绑定起来(A)，或者是与某已有域名绑定起来（CNAME）。
+想要在浏览器里面输入`xugaoyi.com`就能跳到博客页面。我们首先需要做的就是通过DNS解析将`xugaoyi.com` 与某已有域名绑定起来（CNAME），或者是固定的ip地址绑定起来(A)。
 
-这里以阿里云操作为例，步骤如下：
+这里以腾讯云操作为例，步骤如下：
 
 * 域名列表中点击`解析`
 
-![dns1](https://raw.githubusercontent.com/xugaoyi/image_store/master/blog/dns1.png)
+![解析](https://raw.githubusercontent.com/xugaoyi/image_store/master/blog/20191228212829.png)
 
-* 进入解析页面后，点击`添加记录`。填入，记录类型：`CNAME`，主机记录：`www`，解析线路：默认，记录值：你的github pages地址`<userName>.github.io`，TTL：默认的10分钟，确定。
+* 进入解析页面后，点击`添加记录`。填入，记录类型：`CNAME`，主机记录：`www`或`@`，解析线路：默认，记录值：你的github pages地址`<userName>.github.io`，TTL：默认的10分钟，确定。
 
-![dns2](https://raw.githubusercontent.com/xugaoyi/image_store/master/blog/dns2.png)
+![解析2](https://raw.githubusercontent.com/xugaoyi/image_store/master/blog/20191228213125.png)
 
 #### 3、使github pages与域名关联
 
 deploy.sh添加如下脚本
 
 ```bash
-echo 'evanblogweb.com' > CNAME # // 域名替换成你的
+echo 'xugaoyi.com' > CNAME # // 域名替换成你的
 ```
 
 在自动部署配置文件ci.yml的jobs.build.steps.<Build and Deploy\>.env.BUILD_SCRIPT中添加脚本
 
 ```sh
-"cd docs/.vuepress/dist && echo 'evanblogweb.com' > CNAME" && cd -
+"cd docs/.vuepress/dist && echo 'xugaoyi.com' > CNAME" && cd -
 # 域名替换成你的
 ```
 
@@ -256,9 +256,9 @@ echo 'evanblogweb.com' > CNAME # // 域名替换成你的
 [
     'vuepress-plugin-baidu-tongji', // 百度统计，https://tongji.baidu.com
     {
-        hm: '8a59017a97d9fc47d607481723b7815d'
+        hm: '8a5**************47d607481723b7815d'
     }
 ]
 ```
 
-> 如果你也需要百度统计功能，请把hm参数该为你自己的，请到https://tongji.baidu.com获取你自己的hm参数
+> 如果你也需要百度统计功能，请把hm参数该为你自己的，请到<https://tongji.baidu.com>获取你自己的hm参数
