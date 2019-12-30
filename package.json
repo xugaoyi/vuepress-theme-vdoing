@@ -5,7 +5,8 @@
     "dev": "node utils/frontmatter.js && node utils/sidebar.js && vuepress dev docs",
     "build": "node utils/frontmatter.js && node utils/sidebar.js && vuepress build docs",
     "deploy": "bash deploy.sh",
-    "updateFM": "node utils/frontmatter.js -update"
+    "updateFM": "node utils/frontmatter.js -update",
+    "baiduPush": "node utils/baiduPush.js && bash baiduPush.sh"
   },
   "license": "MIT",
   "devDependencies": {

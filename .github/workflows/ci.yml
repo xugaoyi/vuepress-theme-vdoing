@@ -27,7 +27,6 @@ jobs: # 工作流
         env: # 设置环境变量
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
           CODING_TOKEN: ${{ secrets.CODING_TOKEN }} # 腾讯云开发者平台（coding）私密token
-          BAIDU_TONGJI: ${{ secrets.BAIDU_TONGJI}} # 百度统计
         run: npm install && npm run deploy
 
       # - name: Build and Deploy # 步骤3 （只提交到github可以使用这个步骤）

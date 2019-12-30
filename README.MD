@@ -1,4 +1,4 @@
-# Evan Blog —— web前端技术博客
+# Evan Blog —— 前端技术博客
 
 ## 简介
 
@@ -7,7 +7,7 @@
 * **简洁至上**
   * 继承了[VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 简洁至上的特性，以 Markdown 为中心的项目结构，让你专注于写作
 * **高自动化**
-  * 项目结合了各种自动化技术，[自动生成侧边栏](https://github.com/xugaoyi/blog/issues/113)，[CI持续集成部署](#4部署)，[自动百度链接推送](#百度自动推送和统计)，结合GitHub Actions开发的自动化[每天定时推送](https://github.com/xugaoyi/blog/blob/master/.github/workflows/baiduPush.yml)
+  * 项目结合了各种自动化技术，[自动生成侧边栏](https://github.com/xugaoyi/blog/issues/113)，[CI持续集成部署](https://xugaoyi.com/pages/6b9d359ec5aa5019/)，[自动百度链接推送](#百度自动推送和统计)，结合GitHub Actions开发的自动化[每天定时推送](https://xugaoyi.com/pages/f44d2f9ad04ab8d3/)
 * **SEO友好**
   * 让你的博客给更多人看到
 
@@ -261,4 +261,4 @@ echo 'xugaoyi.com' > CNAME # // 域名替换成你的
 ]
 ```
 
-> 如果你也需要百度统计功能，请把hm参数该为你自己的，请到<https://tongji.baidu.com>获取你自己的hm参数
+> 如果你也需要百度统计功能，请把hm参数改为你自己的，请到<https://tongji.baidu.com>获取你自己的hm参数

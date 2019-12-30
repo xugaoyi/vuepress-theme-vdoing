@@ -3,11 +3,6 @@ const nav = require('./config/nav.js');
 const sidebar = require('./config/sidebar-auto.js');
 const logger = require('tracer').colorConsole();
 
-const BAIDU_TONGJI = process.env.BAIDU_TONGJI || '';
-if (!BAIDU_TONGJI) {
-  logger.warn('未配置百度统计参数，将无法使用百度统计');
-}
-
 module.exports = {
   title: 'Evan Blog', // 标题
   description: 'web前端技术博客,基于vuepress构建,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到当前页面的 HTML 中
@@ -45,7 +40,7 @@ module.exports = {
     [
       'vuepress-plugin-baidu-tongji', // 百度统计，https://tongji.baidu.com
       {
-        hm: BAIDU_TONGJI
+        hm: '503f098e7e5b3a5b5d8c5fc2938af002'
       }
     ],
     [
