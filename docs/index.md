@@ -41,11 +41,14 @@ footer: Copyright © 2019-present xugaoyi
 
 * 技术
   * [Git使用手册](/pages/9a7ee40fc232253e/)
-  * [GitHub高级搜索技巧](/pages/4c778760be26d8b3/)
   * [Markdown使用教程](/pages/ad247c4332211551/)
   * [解决百度无法收录搭建在GitHub上的静态博客的问题](/pages/41f87d890d0a02af/)
   * [使用Gitalk实现静态博客无后台评论系统](/pages/1da0bf9a988eafe5/)
   * [更多... 👉](/pages/9a7ee40fc232253e/)
+* GitHub
+  * [GitHub高级搜索技巧](/pages/4c778760be26d8b3/)
+  * [GitHub Actions 实现自动部署静态博客](/pages/6b9d359ec5aa5019/) 
+  * [GitHub Actions 定时运行代码：每天定时百度链接推送](/pages/6b9d359ec5aa5019/) 
 * 学习
   * [学习网站分享](/pages/2e9ba3fa6e1ed0e9/) 
   * [学习效果低，忘性很大怎么办？](/pages/839158575e5c4866/)
@@ -61,4 +64,10 @@ footer: Copyright © 2019-present xugaoyi
 - **Email**: <a href="mailto:894072666@qq.com">894072666@qq.com</a>
 - **QQ**: <a>8940726696</a>
 
-
+<!-- <script>
+export default {
+  mounted() {
+    console.log(this.$site.pages) // 所有页面数据
+  },
+}
+</script> -->

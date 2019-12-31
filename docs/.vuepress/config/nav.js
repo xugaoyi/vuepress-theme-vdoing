@@ -3,7 +3,14 @@ module.exports = [
 
   {text: '前端', link: '/pages/d039d42572a97b66/'},
   {text: '页面', link: '/pages/0a83b083bdf257cb/'},
-  {text: '技术杂谈', link: '/pages/9a7ee40fc232253e/'},
+  {text: '技术杂谈',
+    items: [
+      {text: '技术', link: '/pages/9a7ee40fc232253e/'},
+      {text: 'GitHub', link: '/pages/4c778760be26d8b3/'},
+      {text: 'Nodejs', link: '/pages/117708e0af7f0bd9/'},
+      {text: '博客搭建', link: '/pages/41f87d890d0a02af/'},
+    ]
+  },
   {text: '其他', 
     items: [
       {text: '学习', link: '/pages/2e9ba3fa6e1ed0e9/'},
@@ -14,7 +21,8 @@ module.exports = [
     ]
   },
   {text: '关于我', link: '/pages/6483e31017cf298b/'},
-
+  {text: '最新', link: '/pages/8818d4830dac5e2a/'},
+  
   // {text: '前端', link: '/01.前端/01.JavaScript/01.JavaScript中的名词概念'},
   // {text: '页面', link: '/02.页面/01.html-css/00.flex布局语法'},
   // {text: '技术杂谈', link: '/03.技术杂谈/01.技术杂谈/01.Git使用手册'},
