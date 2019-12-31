@@ -1,8 +1,8 @@
-# Evan Blog —— 前端技术博客
+# 基于VuePress构建的静态博客
 
 ## 简介
 
-使用 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 构建静态博客站。内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种自动部署脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
+基于 [VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 构建静态博客站。内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种自动部署脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
 
 * **简洁至上**
   * 继承了[VuePress](https://v1.vuepress.vuejs.org/zh/guide/) 简洁至上的特性，以 Markdown 为中心的项目结构，让你专注于写作
@@ -89,95 +89,22 @@ npm run deploy # 运行部署脚本deploy.sh,并发布到仓库的gh-pages分支
 
 #### 4.1、部署升级：同时部署到github和[coding](https://dev.tencent.com/)
 
-为了让博客站能够让百度收录，因此我把博客部署到了coding相关[文章](https://xugaoyi.com/pages/41f87d890d0a02af/)。
+为了让博客站能够让百度收录，因此我把博客部署到了coding。相关[文章](https://xugaoyi.com/pages/41f87d890d0a02af/)。
 
-在原有部署方式上做了升级，实现同时部署到github和coding。
+在原有部署方式上做了升级，主要修改代码文件有下面这两个：
 
-`deploy.sh`文件：
+`deploy.sh`文件看 [这里](https://github.com/xugaoyi/blog/blob/master/deploy.sh)
 
-> 看不懂代码shell代码？ 参考：<https://ipcmen.com/>
-
-```sh
-#!/usr/bin/env sh
-set -e # 确保脚本抛出遇到的错误
-npm run build # 生成静态文件
-cd docs/.vuepress/dist # 进入生成的文件夹
-
-# deploy to github
-echo 'blog.xugaoyi.com' > CNAME
-if [ -z "$GITHUB_TOKEN" ]; then
-  msg='deploy'
-  githubUrl=git@github.com:xugaoyi/blog.git
-else
-  msg='来自github action的自动部署'
-  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/blog.git
-  git config --global user.name "xugaoyi"
-  git config --global user.email "894072666@qq.com"
-fi
-git init
-git add -A
-git commit -m "${msg}"
-git push -f $githubUrl master:gh-pages # 推送到github
-
-# deploy to coding
-echo 'www.xugaoyi.com\nxugaoyi.com' > CNAME  # 自定义域名
-if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
-  codingUrl=git@git.dev.tencent.com:xugaoyi/xugaoyi.git
-else
-  codingUrl=https://xugaoyi:${CODING_TOKEN}@git.dev.tencent.com/xugaoyi/xugaoyi.git
-fi
-git add -A
-git commit -m "${msg}"
-git push -f $codingUrl master # 推送到coding
-
-cd - # 退回开始所在目录
-rm -rf docs/.vuepress/dist
-```
+> 看不懂代码shell代码？ 参考：[shell教程](https://ipcmen.com/)
 
 
 
-`ci.yml`文件：
 
-> 看不懂yaml代码？ 参考：<https://xugaoyi.com/pages/4e8444e2d534d14f/>
+`ci.yml`文件看 [这里](https://github.com/xugaoyi/blog/blob/master/.github/workflows/ci.yml)
 
-```yaml
-name: CI
+> 看不懂yaml代码？ 参考：[yaml教程](https://xugaoyi.com/pages/4e8444e2d534d14f/)
 
-# 在master分支发生push事件时触发。
-on: 
-  push:
-    branches:
-      - master
-jobs: # 工作流
-  build:
-    runs-on: ubuntu-latest #运行在虚拟机环境ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x]
-
-    steps: 
-      - name: Checkout # 步骤1
-        uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
-      - name: Use Node.js ${{ matrix.node-version }} # 步骤2
-        uses: actions/setup-node@v1 # 作用：安装nodejs
-        with:
-          node-version: ${{ matrix.node-version }} # 版本
-      - name: run deploy.sh # 步骤3 （同时部署到github和coding）
-        env: # 设置环境变量
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
-          CODING_TOKEN: ${{ secrets.CODING_TOKEN }} # 腾讯云开发者平台（coding）私密token
-        run: npm install && npm run deploy
-
-      # - name: Build and Deploy # 步骤3 （只部署到github可以使用这个步骤）
-      #   uses: JamesIves/github-pages-deploy-action@master # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
-      #   env: # 设置环境变量
-      #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
-      #     BASE_BRANCH: master # 要部署的文件夹所在的分支.
-      #     BRANCH: gh-pages # 部署到的分支
-      #     FOLDER: docs/.vuepress/dist # 要部署的文件夹.
-      #     BUILD_SCRIPT: npm install && npm run build && cd docs/.vuepress/dist && echo 'xugaoyi.com' > CNAME && cd - # 部署前要执行的命令（记得cd进入某个目录后，后面要cd -退回开始的目录）
-```
 
 使用前先将[github token (令牌) ](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)和[coding token (令牌)](https://dev.tencent.com/help/doc/account/access-token) 同时设置到github仓库的`Settings/Secrets`位置。
 
@@ -195,7 +122,7 @@ npm run deploy
 
 只需要push提交代码到github仓库master分支即可。
 
->  参考 [GitHub Action实现自动部署静态博客](http://xugaoyi.com/pages/6b9d359ec5aa5019/)
+>  参考 [《GitHub Action实现自动部署静态博客》](http://xugaoyi.com/pages/6b9d359ec5aa5019/)
 
 
 
