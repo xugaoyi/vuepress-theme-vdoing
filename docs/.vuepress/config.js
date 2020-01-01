@@ -21,7 +21,7 @@ module.exports = {
     sidebar, // 侧边栏    'auto' | 自定义
     logo: '/img/logo2.png', // 导航栏logo
     repo: 'xugaoyi/blog', // 导航栏右侧生成Github链接
-    lastUpdated: '更新于', // 更新的时间，及前缀文字   string | boolean
+    lastUpdated: '上次更新', // 更新的时间，及前缀文字   string | boolean
     // editLinks: true, // 编辑链接
     // editLinkText: '在 Github 上编辑此页',
     // displayAllHeaders: true, // 默认值：false
