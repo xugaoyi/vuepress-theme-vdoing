@@ -14,12 +14,14 @@
     "@vuepress/plugin-medium-zoom": "^1.2.0",
     "ejs": "^3.0.1",
     "md5.js": "^1.3.5",
+    "moment": "^2.24.0",
     "tracer": "^1.0.1",
     "vuepress": "^1.1.0",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-baidu-tongji": "^1.0.1"
   },
   "dependencies": {
-    "vuepress-plugin-comment": "^0.7.2"
+    "vuepress-plugin-comment": "^0.7.2",
+    "vuepress-plugin-zooming": "^1.1.7"
   }
 }

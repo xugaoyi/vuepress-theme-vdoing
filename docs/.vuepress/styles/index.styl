@@ -1,3 +1,13 @@
+// 表格宽度
+table
+  width: 100%;
+  display: inline-table;
+
+// 首页描述
+.description 
+  color: lighten($textColor, 20%)!important;
+
+// 评论区样式
 #vuepress-plugin-comment
   max-width $contentWidth
   margin 0 auto
@@ -7,13 +17,9 @@
   @media (max-width: $MQMobileNarrow)
     padding 1.5rem
 
+// 侧边栏高出评论区
 .sidebar
   z-index 11
-
-// 首页描述
-.description 
-  color: lighten($textColor, 20%)!important;
-    
 
 // 评论区颜色重置
 .gt-container
@@ -27,3 +33,18 @@
     color $accentColor!important
   .gt-svg svg
     fill $accentColor!important
+
+// qq徽章
+.qq{position: relative;}
+.qq::after{
+    content: "单身可撩";
+    background: $accentColor;
+    color:#fff;
+    padding: 0 5px;
+    border-radius: 10px;
+    font-size:12px;
+    position: absolute;
+    top: -4px;
+    right: -56px;
+    transform:scale(0.85);
+}

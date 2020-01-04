@@ -6,7 +6,7 @@ tagline: web前端技术博客，积跬步以至千里，致敬每个爱学习�
 
 features:
   - title: 前端
-    details: JavaScript、ES6、vue框架等相关技术
+    details: JavaScript、ES6、vue框架等前端技术
     url: /pages/d039d42572a97b66/
     imgname: /img/web.png
   - title: 页面
@@ -54,13 +54,16 @@ footer: Copyright © 2019-present xugaoyi
 * 博客搭建
   * [解决百度无法收录搭建在GitHub上的静态博客的问题](/pages/41f87d890d0a02af/)
   * [使用Gitalk实现静态博客无后台评论系统](/pages/1da0bf9a988eafe5/)
+  * [GitHub + jsDelivr + TinyPNG+ PicGo 打造稳定快速、高效免费图床](/pages/a5f73af5185fdf0a/)
   * [博客源码](https://github.com/xugaoyi/blog)
 
 
 ## 👾其他
 * 学习
-  * [学习网站分享](/pages/2e9ba3fa6e1ed0e9/) 
-  * [学习效果低，忘性很大怎么办？](/pages/839158575e5c4866/)
+  * [提高学习效率的策略](/pages/a8692ab3bdcb4588/)
+  * [提高记忆的技巧](/pages/996822b2a2ca6e3b/)
+  * [自律小建议](/pages/c3f302a03c8daf79/)
+  * [更多... 👈](/pages/a8692ab3bdcb4588/)
 * 面试
   * [面试问题集锦](/pages/aea6571b7a8bae86/)
 * 其他
@@ -69,9 +72,25 @@ footer: Copyright © 2019-present xugaoyi
 
 ## :email: 联系
 
-- **Github**: <https://github.com/xugaoyi>
+- **QQ**: <a :href="qqUrl" class='qq'>894072666</a>
 - **Email**: <a href="mailto:894072666@qq.com">894072666@qq.com</a>
-- **QQ**: <a>8940726696</a>
+- **Github**: <https://github.com/xugaoyi>
+
+<script>
+  export default {
+    data(){
+      return {
+        qqUrl: 'tencent://message/?uin=894072666&Site=&Menu=yes' 
+      }
+    },
+    mounted(){
+      const flag =  navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+      if(flag){
+        this.qqUrl = 'mqqwpa://im/chat?chat_type=wpa&uin=894072666&version=1&src_type=web&web_src=oicqzone.com'
+      }
+    }
+  }
+</script>
 
 <img src="/img/panda-waving.png" class="panda">
 <style scoped lang="stylus" rel="stylesheet/stylus">
