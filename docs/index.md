@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /img/logo.png
+heroImage: /img/EB-logo.png
 heroText: Evan Blog
 tagline: web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
 

@@ -8,7 +8,7 @@ module.exports = {
   description: 'web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到当前页面的 HTML 中
   // base: '/blog/', //默认'/' || github仓库名'/<仓库名>/',
   head: [ // 注入到当前页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
-    ['link', { rel: 'icon', href: '/img/logo2.png' }], //favicons，资源放在public文件夹
+    ['link', { rel: 'icon', href: '/img/EB-logo.png' }], //favicons，资源放在public文件夹
     ['meta', { name: 'keywords', content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown'}],
     ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc'}],
     // ['script', { src: 'https://hm.baidu.com/hm.js?837775213e724293b4af2b9526e238b4'}]
@@ -19,7 +19,7 @@ module.exports = {
   themeConfig: { // 主题配置
     nav,
     sidebar, // 侧边栏    'auto' | 自定义
-    logo: '/img/logo2.png', // 导航栏logo
+    logo: '/img/EB-logo.png', // 导航栏logo
     repo: 'xugaoyi/blog', // 导航栏右侧生成Github链接
     lastUpdated: '上次更新', // 更新的时间，及前缀文字   string | boolean (取值为git提交时间)
 

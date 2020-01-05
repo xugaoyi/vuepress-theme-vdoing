@@ -1,7 +1,15 @@
 module.exports = [
   {text: '首页', link: '/'},
 
-  {text: '前端', link: '/pages/d039d42572a97b66/'},
+  {text: '前端',
+    items: [
+      {text: 'JavaScript', link: '/pages/d039d42572a97b66/'},
+      {text: 'TypeScript',items:[
+        {text: '《TypeScript 从零实现 axios》', link: '/pages/e05dce83e5129785/'},
+      ]},
+
+    ]
+  },
   {text: '页面', link: '/pages/0a83b083bdf257cb/'},
   {text: '技术',
     items: [
