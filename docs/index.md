@@ -27,6 +27,8 @@ footer: Copyright © 2019-present xugaoyi
   * [new命令原理](/pages/8143cc480faf9a11/)
   * [多种数组去重性能对比](/pages/e808fba1fa8fbab2/)
   * [更多... 👈](/pages/70d1485bb4e5754b/)
+* TypeScript
+  * [《TypeScript 从零实现 axios》全集](/pages/e05dce83e5129785/)
 
 ## 🗺️页面
 * HTML/CSS
@@ -72,43 +74,8 @@ footer: Copyright © 2019-present xugaoyi
 
 ## :email: 联系
 
-- **QQ**: <a :href="qqUrl" class='qq'>894072666</a>
+- **QQ**: <a href="tencent://message/?uin=894072666&Site=&Menu=yesUrl" class='qq'>894072666</a>
 - **Email**: <a href="mailto:894072666@qq.com">894072666@qq.com</a>
 - **Github**: <https://github.com/xugaoyi>
 
-<script>
-  export default {
-    data(){
-      return {
-        qqUrl: 'tencent://message/?uin=894072666&Site=&Menu=yes' 
-      }
-    },
-    mounted(){
-      const flag =  navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-      if(flag){
-        this.qqUrl = 'mqqwpa://im/chat?chat_type=wpa&uin=894072666&version=1&src_type=web&web_src=oicqzone.com'
-      }
-    }
-  }
-</script>
-
-<img src="/img/panda-waving.png" class="panda">
-<style scoped lang="stylus" rel="stylesheet/stylus">
-  .panda{
-    /* width:278px;
-    height:248px; */
-    width: 250px;
-    height: 223px;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    opacity: 0.85;
-  }
-  @media (max-width: 719px){
-    .panda {
-      /* display: none; */
-      width: 83px;
-      height: 74px;
-    }
-  }
-</style>
+<img src="/img/panda-waving.png" class="panda" style="width: 250px;height: 223px;opacity: 0.85;margin-bottom: -4px;">

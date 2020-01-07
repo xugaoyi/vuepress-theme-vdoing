@@ -1,7 +1,5 @@
 const nav = require('./config/nav.js');
-// const sidebar = require('./config/sidebar.js');
 const sidebar = require('./config/sidebar-auto.js');
-const logger = require('tracer').colorConsole();
 
 module.exports = {
   title: 'Evan Blog', // 标题
@@ -32,24 +30,13 @@ module.exports = {
     require('./plugins/love_me'), // 鼠标点击爱心特效
     'vuepress-plugin-baidu-autopush', // 百度自动推送，作用：加快将页面推送给百度搜索
     '@vuepress/back-to-top', // 返回顶部
-    // [
-    //   '@vuepress/medium-zoom', // 缩放图片
-    //   {
-    //     options: {
-    //       background: 'rgba(0,0,0,0.8)'
-    //     }
-    //   }
-    // ], 
     [
-      'vuepress-plugin-zooming',
-      // {
-      //   selector: '.my-wrapper .my-img',
-      //   delay: 1000,
-      //   options: {
-      //     bgColor: 'black',
-      //     zIndex: 10000,
-      //   },
-      // },
+      'vuepress-plugin-zooming', // 缩放图片
+      {
+        options: {
+          bgColor: 'rgba(0,0,0,0.6)'
+        },
+      },
     ],
     [
       'vuepress-plugin-baidu-tongji', // 百度统计，https://tongji.baidu.com
