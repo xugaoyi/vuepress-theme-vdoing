@@ -89,7 +89,7 @@ function mapTocToSidebar(root, prefix){
     if(stat.isDirectory()){ // 是否为文件夹目录
       sidebar[order] = {
         title,
-        collapsable: false,
+        collapsable: false, // 是否可折叠，默认true
         children: mapTocToSidebar(file, prefix + filename + '/') // 子栏路径添加前缀
       }
     } else { // 是文件

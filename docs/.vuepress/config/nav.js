@@ -3,9 +3,15 @@ module.exports = [
 
   {text: '前端',
     items: [
-      {text: 'JavaScript', link: '/pages/d039d42572a97b66/'},
+      {text: 'JavaScript', items:[
+        {text: '《JavaScript教程》笔记', link: '/pages/72432ae86d5405aa/'},
+        {text: 'JavaScript相关文章', link: '/pages/d039d42572a97b66/'},
+      ]},
+      {text: 'ES6', items:[
+        {text: '《ES6 教程》笔记', link: '/pages/5966e7c94628d277/'},
+      ]},
       {text: 'TypeScript',items:[
-        {text: '《TypeScript 从零实现 axios》', link: '/pages/e05dce83e5129785/'},
+        {text: '《TypeScript 从零实现 axios》', link: '/pages/943193f9d25bc5fb/'},
       ]},
 
     ]
