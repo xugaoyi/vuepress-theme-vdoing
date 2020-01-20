@@ -4,14 +4,14 @@ module.exports = [
   {text: '前端',
     items: [
       {text: 'JavaScript', items:[
-        {text: '《JavaScript教程》笔记', link: '/pages/72432ae86d5405aa/'},
+        {text: '《JavaScript教程》笔记', link: '/pages/0796ba76b4b55368/'},
         {text: 'JavaScript相关文章', link: '/pages/d039d42572a97b66/'},
       ]},
       {text: 'ES6', items:[
-        {text: '《ES6 教程》笔记', link: '/pages/5966e7c94628d277/'},
+        {text: '《ES6 教程》笔记', link: '/pages/f344d070a1031ef7/'},
       ]},
       {text: 'TypeScript',items:[
-        {text: '《TypeScript 从零实现 axios》', link: '/pages/943193f9d25bc5fb/'},
+        {text: '《TypeScript 从零实现 axios》', link: '/pages/e05dce83e5129785/'},
       ]},
 
     ]
@@ -22,7 +22,6 @@ module.exports = [
       {text: '技术文档', link: '/pages/9a7ee40fc232253e/'},
       {text: 'GitHub', link: '/pages/4c778760be26d8b3/'},
       {text: 'Nodejs', link: '/pages/117708e0af7f0bd9/'},
-      // {text: '代码段', link: '/pages/40f623be692cf8bc/'},
       {text: '博客搭建', link: '/pages/41f87d890d0a02af/'},
     ]
   },
@@ -31,6 +30,7 @@ module.exports = [
       {text: '学习', link: '/pages/2e9ba3fa6e1ed0e9/'},
       {text: '笔记', link: '/pages/236ec09c26876b59/'},
       {text: '面试', link: '/pages/aea6571b7a8bae86/'},
+      {text: '心情杂货铺', link: '/pages/2d615df9a36a98ed/'},
       {text: '在线工具', link: '/pages/9c2232288caaa8ec/'},
       {text: '友情链接', link: '/pages/844eea1b2387fb96/'},
     ]
