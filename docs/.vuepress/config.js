@@ -24,7 +24,7 @@ module.exports = {
 
     docsDir: 'docs', // 编辑的文件夹
     editLinks: true, // 编辑链接
-    editLinkText: '在 Github 上编辑此页',
+    editLinkText: '在 GitHub 上编辑此页',
     // displayAllHeaders: true, // 默认值：false
   },
   plugins: [ // 插件
