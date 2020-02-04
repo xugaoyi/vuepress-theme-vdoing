@@ -10,6 +10,9 @@ module.exports = [
       {text: 'ES6', items:[
         {text: '《ES6 教程》笔记', link: '/pages/f344d070a1031ef7/'},
       ]},
+      {text: 'Vue', items:[
+        {text: '《Vue》笔记', link: '/pages/114158caa9e96df0/'},
+      ]},
       {text: 'TypeScript',items:[
         {text: '《TypeScript 从零实现 axios》', link: '/pages/e05dce83e5129785/'},
       ]},
