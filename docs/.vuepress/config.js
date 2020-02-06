@@ -10,9 +10,13 @@ module.exports = {
     ['meta', { name: 'keywords', content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown'}],
     ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc'}],
     // ['script', { src: 'https://hm.baidu.com/hm.js?837775213e724293b4af2b9526e238b4'}]
+
+    // 以下是vuepress-plugin-demo-block插件所需依赖
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
   ],
   markdown: {
-    lineNumbers: true // 代码行号
+    // lineNumbers: true // 代码行号
   },
   themeConfig: { // 主题配置
     nav,
@@ -31,6 +35,16 @@ module.exports = {
     require('./plugins/love_me'), // 鼠标点击爱心特效
     'vuepress-plugin-baidu-autopush', // 百度自动推送，作用：加快将页面推送给百度搜索
     '@vuepress/back-to-top', // 返回顶部
+    ['demo-block', { // demo演示模块
+      settings: {
+        // jsLib: ['http://xxx'], // 在线示例(jsfiddle, codepen)中的js依赖
+        // cssLib: ['http://xxx'], // 在线示例中的css依赖
+        // vue: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js', // 在线示例中的vue依赖
+        jsfiddle: false, // 是否显示 jsfiddle 链接
+        codepen: true, // 是否显示 codepen 链接
+        horizontal: false // 是否展示为横向样式
+      }
+    }],
     [
       'vuepress-plugin-zooming', // 缩放图片
       {

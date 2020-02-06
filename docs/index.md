@@ -6,7 +6,7 @@ tagline: web前端技术博客，积跬步以至千里，致敬每个爱学习�
 
 features:
   - title: 前端
-    details: JavaScript、ES6、vue框架等前端技术
+    details: JavaScript、ES6、Vue框架等前端技术
     url: /pages/d039d42572a97b66/
     imgname: /img/web.png
   - title: 页面
@@ -28,7 +28,7 @@ footer: Copyright © 2019-present xugaoyi
   * [多种数组去重性能对比](/pages/e808fba1fa8fbab2/)
   * [更多... 👈](/pages/70d1485bb4e5754b/)
 * TypeScript
-  * [《TypeScript 从零实现 axios》全集](/pages/e05dce83e5129785/)
+  * [《TypeScript 从零实现 axios》](/pages/e05dce83e5129785/)
 
 ## 🗺️页面
 * HTML/CSS
@@ -68,8 +68,11 @@ footer: Copyright © 2019-present xugaoyi
   * [更多... 👈](/pages/a8692ab3bdcb4588/)
 * 面试
   * [面试问题集锦](/pages/aea6571b7a8bae86/)
+* 心情杂货铺
+  * [一个完美主义者的自我救赎](/pages/2d615df9a36a98ed/)
 * 其他
   * [在线工具](/pages/9c2232288caaa8ec/)
+  * [友情链接](/pages/844eea1b2387fb96/)
   * [更多... 👈](/pages/2e9ba3fa6e1ed0e9/)
 
 ## :email: 联系

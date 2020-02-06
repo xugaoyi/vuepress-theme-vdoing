@@ -18,6 +18,7 @@
     "vuepress": "^1.1.0",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-baidu-tongji": "^1.0.1",
+    "vuepress-plugin-demo-block": "^0.7.2",
     "vuepress-plugin-zooming": "^1.1.7"
   },
   "dependencies": {
