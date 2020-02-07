@@ -47,8 +47,9 @@ module.exports = {
       }
     }],
     [
-      'vuepress-plugin-zooming', // 缩放图片
+      'vuepress-plugin-zooming', // 放大图片
       {
+        selector:'.theme-default-content :not(h1) img',
         options: {
           bgColor: 'rgba(0,0,0,0.6)'
         },

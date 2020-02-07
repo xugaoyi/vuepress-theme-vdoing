@@ -15,12 +15,14 @@ export default ({ router }) => {
         },0)
       }
 
+      let count = 0
       window.onload = function() {
         insertBadge();
+        count++;
       }
 
       router.afterEach(function (to, from) {
-        if (to && from && to.path === from.path) {
+        if (to && from && to.path === from.path || !count) {
           return
         }
         insertBadge()
