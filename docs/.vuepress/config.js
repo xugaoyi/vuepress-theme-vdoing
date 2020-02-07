@@ -32,7 +32,8 @@ module.exports = {
     // displayAllHeaders: true, // 默认值：false
   },
   plugins: [ // 插件
-    require('./plugins/love_me'), // 鼠标点击爱心特效
+    require('./plugins/love-me'), // 鼠标点击爱心特效
+    require('./plugins/title-badge'), // h1标题徽章
     'vuepress-plugin-baidu-autopush', // 百度自动推送，作用：加快将页面推送给百度搜索
     '@vuepress/back-to-top', // 返回顶部
     ['demo-block', { // demo演示模块
