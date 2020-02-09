@@ -7,9 +7,23 @@ export default () => {
         }
         function n() {
             var t = "function" == typeof e.onclick && e.onclick;
+            
             e.onclick = function(e) {
+
+              // 过滤指定元素
+              let mark = true;
+              e.path && e.path.forEach((item) =>{
+                if(item.nodeType === 1) {
+                  if(item.className === "theme-default-content content__default") {
+                    mark = false;
+                  }
+                }
+              })
+              
+              if(mark) {
                 t && t(),
                 o(e)
+              }
             }
         }
         function o(e) {

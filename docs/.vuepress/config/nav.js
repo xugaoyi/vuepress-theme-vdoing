@@ -38,7 +38,7 @@ module.exports = [
       {text: '友情链接', link: '/pages/844eea1b2387fb96/'},
     ]
   },
-  {text: '博主', link: '/pages/b68fa17ad1a3a0d2/'},
+  {text: '关于', link: '/pages/81d9f505441078e0/'},
   {text: '最新', link: '/pages/8818d4830dac5e2a/'},
   
   // {text: '前端', link: '/01.前端/01.JavaScript/01.JavaScript中的名词概念'},

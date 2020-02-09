@@ -12,8 +12,8 @@ module.exports = {
     // ['script', { src: 'https://hm.baidu.com/hm.js?837775213e724293b4af2b9526e238b4'}]
 
     // 以下是vuepress-plugin-demo-block插件所需依赖
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }],
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
+    // ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }], // 此文件会影响导航router-link-active样式的切换
+    // ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
   ],
   markdown: {
     // lineNumbers: true // 代码行号
@@ -28,7 +28,7 @@ module.exports = {
 
     docsDir: 'docs', // 编辑的文件夹
     editLinks: true, // 编辑链接
-    editLinkText: '在 GitHub 上编辑此页',
+    editLinkText: '编辑',
     // displayAllHeaders: true, // 默认值：false
   },
   plugins: [ // 插件
