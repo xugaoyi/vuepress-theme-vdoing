@@ -30,10 +30,11 @@ module.exports = [
   },
   {text: '其他', 
     items: [
-      {text: '学习', link: '/pages/2e9ba3fa6e1ed0e9/'},
+      {text: '学习', link: '/pages/a8692ab3bdcb4588/'},
       {text: '笔记', link: '/pages/236ec09c26876b59/'},
       {text: '面试', link: '/pages/aea6571b7a8bae86/'},
-      {text: '心情杂货铺', link: '/pages/2d615df9a36a98ed/'},
+      {text: '心情杂货', link: '/pages/2d615df9a36a98ed/'},
+      {text: '学习网站', link: '/pages/2e9ba3fa6e1ed0e9/'},
       {text: '在线工具', link: '/pages/9c2232288caaa8ec/'},
       {text: '友情链接', link: '/pages/844eea1b2387fb96/'},
     ]
