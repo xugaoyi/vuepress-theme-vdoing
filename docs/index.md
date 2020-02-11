@@ -1,8 +1,7 @@
 ---
 home: true
-heroImage: /img/EB-logo.png
 heroText: Evan Blog
-tagline: web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
+tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
 
 features:
   - title: 前端
@@ -17,7 +16,10 @@ features:
     details: 技术文档、教程、技巧、总结等文章
     url: /pages/9a7ee40fc232253e/
     imgname: /img/other.png
-footer: Copyright © 2019-present xugaoyi
+footer:
+  year: 2019
+  content: xugaoyi
+  bgImg: /img/footer.jpg
 ---
 
 ## :earth_americas:前端

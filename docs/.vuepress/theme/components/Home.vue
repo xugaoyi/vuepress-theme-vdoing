@@ -1,31 +1,59 @@
 <template>
-  <main class="home" aria-labelledby="main-title">
-    <header class="hero">
-      <img v-if="data.heroImage" :src="$withBase(data.heroImage)" :alt="data.heroAlt || 'hero'" />
+  <div class="i-body" :style="'background-image: url('+ data.footer.bgImg +')'">
+    <div class="banner">
+      <main class="home">
+        <header class="hero">
+          <img v-if="data.heroImage" :src="$withBase(data.heroImage)" :alt="data.heroAlt || 'hero'" />
 
-      <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
+          <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
 
-      <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
+          <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
 
-      <p class="action" v-if="data.actionText && data.actionLink">
-        <NavLink class="action-button" :item="actionLink" />
-      </p>
-    </header>
+          <p class="action" v-if="data.actionText && data.actionLink">
+            <NavLink class="action-button" :item="actionLink" />
+          </p>
+        </header>
 
-    <div class="features" v-if="data.features && data.features.length">
-      <div class="feature" v-for="(feature, index) in data.features" :key="index">
-        <a :href="$withBase(feature.url)">
-          <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
-          <h2>{{ feature.title }}</h2>
-          <p>{{ feature.details }}</p>
-        </a>
-      </div>
+        <div class="features" v-if="data.features && data.features.length">
+          <div class="feature" v-for="(feature, index) in data.features" :key="index">
+            <a :href="$withBase(feature.url)">
+              <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
+              <h2>{{ feature.title }}</h2>
+              <p>{{ feature.details }}</p>
+            </a>
+          </div>
+        </div>
+      </main>
     </div>
 
-    <Content class="theme-default-content custom" />
 
-    <div class="footer" v-if="data.footer">{{ data.footer }}</div>
-  </main>
+    <main class="home home-content" aria-labelledby="main-title">
+      <!-- <header class="hero">
+        <img v-if="data.heroImage" :src="$withBase(data.heroImage)" :alt="data.heroAlt || 'hero'" />
+
+        <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
+
+        <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
+
+        <p class="action" v-if="data.actionText && data.actionLink">
+          <NavLink class="action-button" :item="actionLink" />
+        </p>
+      </header>
+
+      <div class="features" v-if="data.features && data.features.length">
+        <div class="feature" v-for="(feature, index) in data.features" :key="index">
+          <a :href="$withBase(feature.url)">
+            <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
+            <h2>{{ feature.title }}</h2>
+            <p>{{ feature.details }}</p>
+          </a>
+        </div>
+      </div> -->
+
+      <Content class="theme-default-content custom" />
+    </main>
+    <div class="footer" v-if="data.footer">Copyright © {{ data.footer.year }}-{{ new Date().getFullYear() }} {{ data.footer.content }}</div>
+  </div>
 </template>
 
 <script>
@@ -50,6 +78,49 @@ export default {
 </script>
 
 <style lang="stylus">
+.i-body{
+  background #f3f7fa bottom no-repeat
+  overflow hidden
+}
+.banner{
+  width 100%
+  background #1F2837
+  color #fff
+  .home{
+    background none
+    .hero{
+      h1{
+        font-size 3.5rem
+        margin: 3.5rem auto 1.8rem auto;
+      }
+      .description{
+        font-size 1.2rem
+        color #fff
+      }
+    }
+    .features{
+      border-top none
+    }
+    .feature {
+      h2{
+        font-size 1.3rem
+        color #fff
+      }
+      p{
+        color #B0B6BE
+      }
+    }
+  }
+}
+body .home-content{
+  background #fff;
+  padding 1rem 2rem 0;
+  margin 2rem auto;
+  border-radius 10px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.1);
+}
+
+
 .home {
   padding: $navbarHeight 2rem 0;
   max-width: 960px;
@@ -58,7 +129,6 @@ export default {
 
   .hero {
     text-align: center;
-
     img {
       max-width: 100%;
       max-height: 280px;
@@ -116,8 +186,8 @@ export default {
     text-align: center;
 
     .image_title {
-      width: 13rem;
-      height: 13rem;
+      width: 12rem;
+      height: 12rem;
       transition: all .3s;
     }
 
@@ -139,19 +209,51 @@ export default {
       transform:scale(1.1,1.1)
     }
   }
+}
 
-  .footer {
-    padding: 2.5rem;
-    border-top: 1px solid $borderColor;
-    text-align: center;
-    color: lighten($textColor, 25%);
+.footer {
+  padding: 2.5rem;
+  margin-bottom 2rem;
+  text-align: center;
+  color: lighten($textColor, 25%);
+}
+
+
+@media (max-width: 1025px){
+  //959px
+  .i-body{
+    background-color: #fff;
+  }
+  body .home-content{
+    margin: 0;
+    border-radius: 0;
+  }
+  .banner .home{
+    .hero h1{
+      font-size: 2.5rem;
+    }
+    .feature h2{
+      font-size: 1.1rem;
+    }
+    .hero .description{
+      font-size: 1rem;
+    }
+  }
+  .home .feature .image_title{
+    width: 10rem;
+    height: 10rem;
   }
 }
 
 @media (max-width: $MQMobile) {
+  // 719px
+  .banner .home .hero h1{
+    margin: 1.8rem auto;
+  }
   .home {
     .features {
       flex-direction: column;
+      margin-top: 0;
     }
 
     .feature {
@@ -163,6 +265,7 @@ export default {
 }
 
 @media (max-width: $MQMobileNarrow) {
+  // 419px
   .home {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
