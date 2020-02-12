@@ -22,7 +22,43 @@ footer:
   bgImg: /img/footer.jpg
 ---
 
-## :earth_americas:前端
+# 简介
+这是一个兼具博客文章、个人技能树、文档查找的个人网站，主要内容是Web前端技术（[最新](/pages/8818d4830dac5e2a/)）。如果你喜欢这个博客欢迎到 [GitHub](https://github.com/xugaoyi/blog) 点个Star、获取源码，或者[交换友链](/pages/844eea1b2387fb96/)。
+
+</br>
+
+## 特色功能
+博客部分特色功能介绍
+#### Demo演示模块
+   为了更直观的展示一些代码的效果，博客添加了demo模块插件，可查看demo、源码，以及跳转到codepen在线编辑。**示例**：
+
+::: demo [vanilla]
+```html
+<html>
+  <div id="vanilla-box"></div>
+</html>
+<script>
+  var box = document.getElementById('vanilla-box')
+  box.innerHTML = 'Hello World! Welcome to EB'
+</script>
+<style>
+#vanilla-box {
+  color: #11a8cd;
+}
+</style>
+```
+:::
+
+#### 搜索前端技术文档（学习笔记）
+   
+   博客内容包含js、es6等文档教程（学习笔记），可以利用搜索框快速搜索到相关文档，如搜索 `Object`，即可搜索到在博客中存在的相关文档或文章，如果博客中没有，可以选择最下方的 `在MDN中搜索“XXX”` 到MDN查看权威文档。
+   
+</br>
+
+
+## 文章推荐
+
+### :earth_americas:前端
 
 * JavaScript
   * [ES6面向对象](/pages/1f4123be6f45abcd/)
@@ -32,7 +68,7 @@ footer:
 * TypeScript
   * [《TypeScript 从零实现 axios》](/pages/e05dce83e5129785/)
 
-## 🗺️页面
+### 🗺️页面
 * HTML/CSS
   * [flex布局语法](/pages/0a83b083bdf257cb/)
   * [flex布局案例-圣杯布局](/pages/df9e7c7214fa5046/)
@@ -41,7 +77,7 @@ footer:
 
 
 
-## 💻技术
+### 💻技术
 
 * 技术文档
   * [Git使用手册](/pages/9a7ee40fc232253e/)
@@ -62,7 +98,7 @@ footer:
   * [博客源码](https://github.com/xugaoyi/blog)
 
 
-## 👾其他
+### 👾其他
 * 学习
   * [提高学习效率的策略](/pages/a8692ab3bdcb4588/)
   * [提高记忆的技巧](/pages/996822b2a2ca6e3b/)

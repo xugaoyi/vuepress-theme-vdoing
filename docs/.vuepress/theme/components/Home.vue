@@ -1,20 +1,20 @@
 <template>
   <div class="i-body" :style="'background-image: url('+ data.footer.bgImg +')'">
+
+
     <div class="banner">
       <main class="home">
         <header class="hero">
           <img v-if="data.heroImage" :src="$withBase(data.heroImage)" :alt="data.heroAlt || 'hero'" />
-
           <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
-
           <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
-
           <p class="action" v-if="data.actionText && data.actionLink">
             <NavLink class="action-button" :item="actionLink" />
           </p>
         </header>
 
-        <div class="features" v-if="data.features && data.features.length">
+        <!-- PC端features块 s -->
+        <div class="features" v-if="data.features && data.features.length && !isMQMobile">
           <div class="feature" v-for="(feature, index) in data.features" :key="index">
             <a :href="$withBase(feature.url)">
               <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
@@ -23,7 +23,34 @@
             </a>
           </div>
         </div>
+        <!-- PC端features块 s -->
       </main>
+
+      <!-- 移动端slide s -->
+        <div class="slide-banner" v-if="data.features && data.features.length" v-show="isMQMobile">
+          <div class="banner-wrapper">
+            <div class="slide-banner-scroll" ref="slide">
+              <div class="slide-banner-wrapper">
+                <div class="slide-item" v-for="(feature, index) in data.features" :key="index">
+                  <a :href="$withBase(feature.url)">
+                    <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
+                    <h2>{{ feature.title }}</h2>
+                    <p>{{ feature.details }}</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="docs-wrapper">
+              <span
+                class="doc"
+                v-for="(item, index) in data.features.length"
+                :key="index"
+                :class="{'active': currentPageIndex === index}"></span>
+            </div>
+          </div>
+        </div>
+        <!-- 移动端slide e -->
+
     </div>
 
 
@@ -58,8 +85,84 @@
 
 <script>
 import NavLink from "@theme/components/NavLink.vue";
+import BScroll from "@better-scroll/core"
+import Slide from "@better-scroll/slide"
+
+BScroll.use(Slide)
 
 export default {
+  data(){
+    return {
+      isMQMobile: false,
+      slide: null,
+      currentPageIndex: 0,
+      playTimer: 0,
+      mark: 0
+    }
+  },
+  created() {
+    //vupress在打包时不能在beforeCreate(),created()内访问浏览器api（如window）
+  },
+  beforeMount(){
+    this.isMQMobile = window.innerWidth < 720 ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
+    
+    window.addEventListener('resize', () => {
+      this.isMQMobile = window.innerWidth < 720 ? true : false;
+      if(this.isMQMobile && !this.slide && !this.mark){
+        this.mark++
+        setTimeout(() => {
+          this.init()
+        },60)
+      }
+    })
+
+  },
+  mounted() {
+    this.isMQMobile && this.init()
+  },
+  beforeDestroy() {
+    clearTimeout(this.playTimer)
+    this.slide.destroy()
+  },
+  methods: {
+    init() {
+      clearTimeout(this.playTimer)
+      this.slide = new BScroll(this.$refs.slide, {
+        scrollX: true, // x轴滚动
+        scrollY: false, // y轴滚动
+        slide: {
+          loop: true,
+          threshold: 100
+        },
+        useTransition: true, // 使用css3 transition动画
+        momentum: false,
+        bounce: false, // 回弹
+        stopPropagation: false, // 是否阻止事件冒泡
+        probeType: 2,
+        preventDefault: false
+      })
+
+      // user touches the slide area
+      this.slide.on('beforeScrollStart', () => {
+        clearTimeout(this.playTimer)
+      })
+      // user touched the slide done
+      this.slide.on('scrollEnd', () => {
+        this.autoGoNext()
+      })
+      this.slide.on('slideWillChange', (page) => {
+        this.currentPageIndex = page.pageX
+      })
+      this.autoGoNext()
+    },
+    autoGoNext() {
+      clearTimeout(this.playTimer)
+      this.playTimer = setTimeout(() => {
+        this.slide.next()
+      }, 4000)
+    }
+  },
+
   components: { NavLink },
 
   computed: {
@@ -78,6 +181,48 @@ export default {
 </script>
 
 <style lang="stylus">
+
+.slide-banner
+  margin-top: 2rem;
+  .banner-wrapper
+    position relative
+  .slide-banner-scroll
+    min-height 1px
+    overflow hidden
+  .slide-banner-wrapper
+    height 300px
+    .slide-item
+      display inline-block
+      height 300px
+      width 100%
+      text-align center
+      .image_title
+        width: 10rem;
+        height: 10rem;
+      h2
+        font-size: 1.1rem;
+        color: #fff;
+        font-weight: 500;
+        border-bottom: none;
+        padding-bottom: 0;
+      p
+        color: #b0b6be;
+
+  .docs-wrapper
+    position absolute
+    bottom 25px
+    left 50%
+    transform translateX(-50%)
+    .doc
+      display inline-block
+      margin 0 4px
+      width 8px
+      height 8px
+      border-radius 50%
+      background #2F455A
+      &.active
+        background #517EA9
+
 .i-body{
   background #f3f7fa bottom no-repeat
   overflow hidden
@@ -247,11 +392,15 @@ body .home-content{
 
 @media (max-width: $MQMobile) {
   // 719px
-  .banner .home .hero h1{
-    margin: 1.8rem auto;
+  .banner{
+    min-height 517px
+    .home .hero h1{
+      margin: 1.8rem auto;
+    }
   }
   .home {
     .features {
+      display none
       flex-direction: column;
       margin-top: 0;
     }
