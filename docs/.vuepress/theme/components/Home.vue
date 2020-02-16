@@ -293,7 +293,8 @@ body .home-content{
       max-width: 40rem;
       font-size: 1.4rem;
       line-height: 1.3;
-      color: lighten($textColor, 40%);
+      // color: lighten($textColor, 40%);
+      color: lighten($textColor, 20%);
     }
 
     .action-button {
