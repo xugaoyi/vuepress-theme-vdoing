@@ -3,23 +3,24 @@ module.exports = [
 
   {text: '前端',
     items: [
-      {text: 'JavaScript', items:[
+      {text: '前端文章', items: [
+        {text: 'JavaScript', link: '/pages/d039d42572a97b66/'},
+        {text: 'Vue', link: '/pages/bc8edd16a03876a0/'},
+      ]},
+      {text: '学习笔记', items:[
         {text: '《JavaScript教程》笔记', link: '/pages/0796ba76b4b55368/'},
-        {text: 'JavaScript相关文章', link: '/pages/d039d42572a97b66/'},
-      ]},
-      {text: 'ES6', items:[
         {text: '《ES6 教程》笔记', link: '/pages/f344d070a1031ef7/'},
-      ]},
-      {text: 'Vue', items:[
         {text: '《Vue》笔记', link: '/pages/114158caa9e96df0/'},
-      ]},
-      {text: 'TypeScript',items:[
         {text: '《TypeScript 从零实现 axios》', link: '/pages/e05dce83e5129785/'},
-      ]},
-
+      ]}
     ]
   },
-  {text: '页面', link: '/pages/0a83b083bdf257cb/'},
+  {text: '页面', 
+    items: [
+      {text: 'HTML', link: '/pages/8309a5b876fc95e3/'},
+      {text: 'CSS', link: '/pages/0a83b083bdf257cb/'},
+    ]
+  },
   {text: '技术',
     items: [
       {text: '技术文档', link: '/pages/9a7ee40fc232253e/'},

@@ -10,7 +10,7 @@ features:
     imgname: /img/web.png
   - title: 页面
     details: html(5)/css(3)，前端页面相关技术
-    url: /pages/0a83b083bdf257cb/
+    url: /pages/8309a5b876fc95e3/
     imgname: /img/ui.png
   - title: 技术
     details: 技术文档、教程、技巧、总结等文章
@@ -69,7 +69,9 @@ footer:
   * [《TypeScript 从零实现 axios》](/pages/e05dce83e5129785/)
 
 ### 🗺️页面
-* HTML/CSS
+* HTML
+  * [常用meta整理](/pages/8309a5b876fc95e3/)
+* CSS
   * [flex布局语法](/pages/0a83b083bdf257cb/)
   * [flex布局案例-圣杯布局](/pages/df9e7c7214fa5046/)
   * [CSS3之animation动画](/pages/c2c0432138f6e042/)

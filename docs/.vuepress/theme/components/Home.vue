@@ -276,7 +276,7 @@ body .home-content{
     text-align: center;
     img {
       max-width: 100%;
-      max-height: 280px;
+      max-height: 192px;
       display: block;
       margin: 2rem auto 1.5rem;
     }
