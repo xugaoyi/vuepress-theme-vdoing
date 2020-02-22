@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: Evan Blog
+heroText: Evan's blog
 tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
 
 features:
@@ -23,7 +23,7 @@ footer:
 ---
 
 # 简介
-这是一个兼具博客文章、个人技能树、文档查找的个人网站，主要内容是Web前端技术（[最新](/pages/8818d4830dac5e2a/)）。如果你喜欢这个博客欢迎到 [GitHub](https://github.com/xugaoyi/blog) 点个Star、获取源码，或者[交换友链](/pages/844eea1b2387fb96/)。
+这是一个兼具博客文章、个人技能树、文档查找的个人网站，主要内容是Web前端技术（[最新](/pages/8818d4830dac5e2a/)）。如果你喜欢这个博客欢迎到 [GitHub](https://github.com/xugaoyi/blog) 点个Star、获取源码，或者交换 [友链](/pages/844eea1b2387fb96/)。
 
 </br>
 

@@ -12,6 +12,7 @@ module.exports = [
         {text: '《ES6 教程》笔记', link: '/pages/f344d070a1031ef7/'},
         {text: '《Vue》笔记', link: '/pages/114158caa9e96df0/'},
         {text: '《TypeScript 从零实现 axios》', link: '/pages/e05dce83e5129785/'},
+        {text: '小程序笔记', link: '/pages/236ec09c26876b59/'},
       ]}
     ]
   },
@@ -32,7 +33,6 @@ module.exports = [
   {text: '其他', 
     items: [
       {text: '学习', link: '/pages/a8692ab3bdcb4588/'},
-      {text: '笔记', link: '/pages/236ec09c26876b59/'},
       {text: '面试', link: '/pages/aea6571b7a8bae86/'},
       {text: '心情杂货', link: '/pages/2d615df9a36a98ed/'},
       {text: '学习网站', link: '/pages/2e9ba3fa6e1ed0e9/'},
