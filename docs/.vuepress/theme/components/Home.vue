@@ -76,7 +76,7 @@
           </a>
         </div>
       </div> -->
-
+      <Article pageMark="home" />
       <Content class="theme-default-content custom" />
     </main>
     <div class="footer" v-if="data.footer">Copyright © {{ data.footer.year }}-{{ new Date().getFullYear() }} {{ data.footer.content }}</div>
@@ -87,6 +87,7 @@
 import NavLink from "@theme/components/NavLink.vue";
 import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
+import Article from './Article.vue'
 
 BScroll.use(Slide)
 
@@ -163,7 +164,7 @@ export default {
     }
   },
 
-  components: { NavLink },
+  components: { NavLink, Article },
 
   computed: {
     data() {

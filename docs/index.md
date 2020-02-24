@@ -22,7 +22,7 @@ footer:
   bgImg: /img/footer.jpg
 ---
 
-# 简介
+## 简介
 这是一个兼具博客文章、个人技能树、文档查找的个人网站，主要内容是Web前端技术（[最新](/pages/8818d4830dac5e2a/)）。如果你喜欢这个博客欢迎到 [GitHub](https://github.com/xugaoyi/blog) 点个Star、获取源码，或者交换 [友链](/pages/844eea1b2387fb96/)。
 
 </br>
