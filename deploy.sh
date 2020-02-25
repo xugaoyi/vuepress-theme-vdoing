@@ -31,8 +31,8 @@ if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_T
   # codingUrl=git@git.dev.tencent.com:xugaoyi/xugaoyi.git
   codingUrl=git@e.coding.net:xgy/xgy.git
 else
-  #  codingUrl=https://xugaoyi:${CODING_TOKEN}@git.dev.tencent.com/xugaoyi/xugaoyi.git
-  condingUrl=https://xgy:${CODING_TOKEN}@e.coding.net/xgy/xgy.git
+  # codingUrl=https://xugaoyi:${CODING_TOKEN}@git.dev.tencent.com/xugaoyi/xugaoyi.git
+  condingUrl=https://HmuzsGrGQX:${CODING_TOKEN}@e.coding.net/xgy/xgy.git
 fi
 git add -A
 git commit -m "${msg}"
