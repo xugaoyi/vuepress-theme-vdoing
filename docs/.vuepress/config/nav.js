@@ -5,7 +5,7 @@ module.exports = [
     items: [
       {text: '前端文章', items: [
         {text: 'JavaScript', link: '/pages/d039d42572a97b66/'},
-        {text: 'Vue', link: '/pages/bc8edd16a03876a0/'},
+        {text: 'Vue', link: '/pages/802a1ca6f7b71c59/'},
       ]},
       {text: '学习笔记', items:[
         {text: '《JavaScript教程》笔记', link: '/pages/0796ba76b4b55368/'},
