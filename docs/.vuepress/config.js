@@ -36,10 +36,13 @@ module.exports = {
   plugins: [ // 插件
     require('./plugins/love-me'), // 鼠标点击爱心特效
     require('./plugins/title-badge'), // h1标题徽章
+
+    require('./plugins/enhanced-search'), // 增强型搜索框
+
     'vuepress-plugin-baidu-autopush', // 百度自动推送，作用：加快将页面推送给百度搜索
     '@vuepress/back-to-top', // 返回顶部
 
-    // ['@vuepress/search', { 
+    // ['@vuepress/search', { `
     //   searchMaxSuggestions: 10 
     // }],
 

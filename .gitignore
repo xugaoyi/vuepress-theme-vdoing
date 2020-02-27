@@ -10,6 +10,3 @@ docs/.vuepress/dist
 
 # 百度链接推送
 urls.txt
-
-#其他
-SearchBox.vue
