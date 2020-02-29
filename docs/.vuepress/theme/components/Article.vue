@@ -8,7 +8,7 @@
       <span v-else>最近更新</span>
     </div>
     <div class="article-wrapper">
-      <dl v-for="(item, index) in topPublishPosts" :key="item.key">
+      <dl v-for="(item, index) in topPublishPosts" :key="index">
         <dd>{{'0' + (index + 1)}}</dd>
         <dt>
           <a :href="item.path"><div>{{item.title}}</div></a>
@@ -100,13 +100,13 @@ export default {
       display none
     .article-title
       border-bottom 1px solid #eaecef
-      font-size 1.1rem
+      font-size 1.3rem
       font-weight bold
       padding 0 0 .5rem 1rem
     .article-wrapper
       overflow hidden
       dl
-        border-bottom 1px solid #eaecef
+        border-bottom 1px dotted #eaecef
         width 50%
         float left
         display flex
@@ -119,7 +119,7 @@ export default {
           font-size 1.1rem
           color #F17229
           width 50px
-          margin-left 30px
+          margin-left 22px
           font-weight bold
           line-height: 55px;
           @media (max-width: $MQNarrow)
@@ -146,6 +146,7 @@ export default {
               color $accentColor
           span
             width 100px
+            margin-right 15px
             color #999
             text-align right 
             font-size .9rem
