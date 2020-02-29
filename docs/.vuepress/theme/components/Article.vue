@@ -110,7 +110,7 @@ export default {
         width 50%
         float left
         display flex
-        padding 10px 0
+        padding 8px 0
         margin 0
         height 55px
         @media (max-width: $MQNarrow)
