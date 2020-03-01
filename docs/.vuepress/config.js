@@ -36,16 +36,17 @@ module.exports = {
   plugins: [ // 插件
     require('./plugins/love-me'), // 鼠标点击爱心特效
     require('./plugins/title-badge'), // h1标题徽章
-
     require('./plugins/enhanced-search'), // 增强型搜索框
 
-    'vuepress-plugin-baidu-autopush', // 百度自动推送，作用：加快将页面推送给百度搜索
+    'vuepress-plugin-baidu-autopush', // 百度自动推送
     '@vuepress/back-to-top', // 返回顶部
 
-    // ['@vuepress/search', { `
-    //   searchMaxSuggestions: 10 
-    // }],
-
+    ['one-click-copy', { // 代码块复制按钮
+      copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
+      copyMessage: '复制成功', // default is 'Copy successfully and then paste it for use.'
+      duration: 1000, // prompt message display time.
+      showInMobile: false // whether to display on the mobile side, default: false.
+    }],
     ['demo-block', { // demo演示模块
       settings: {
         // jsLib: ['http://xxx'], // 在线示例(jsfiddle, codepen)中的js依赖

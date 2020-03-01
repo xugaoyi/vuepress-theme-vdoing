@@ -6,7 +6,7 @@ tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习�
 features:
   - title: 前端
     details: JavaScript、ES6、Vue框架等前端技术
-    url: /pages/d039d42572a97b66/
+    url: /pages/8143cc480faf9a11/
     imgname: /img/web.png
   - title: 页面
     details: html(5)/css(3)，前端页面相关技术
