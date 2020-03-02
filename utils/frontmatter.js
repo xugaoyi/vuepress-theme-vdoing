@@ -3,7 +3,7 @@
  */
 const fs = require('fs'); // 文件模块
 const logger = require('tracer').colorConsole(); // 控制台工具(用于控制台打印信息包含时间、打印类型、文件及代码行号、对象、颜色)  
-const arg = process.argv.splice(2)[0]; // 获取命令行 传入参数
+const arg = process.argv.splice(2)[0]; // 获取命令行传入的参数
 const readFileList = require('./modules/readFileList');
 
 main();
@@ -42,8 +42,8 @@ function main() {
 // 写入FrontMatter
 function writeFrontMatter(file, dataStr) {
   const stat = fs.statSync(file.filePath);
-  const date = stat.birthtime; // 创建时间
-  const dateStr = `${date.getFullYear()}-${zero(date.getMonth()+1)}-${zero(date.getDate())}`;
+  const date = stat.birthtime; // 文件的创建时间
+  const dateStr = `${date.getFullYear()}-${zero(date.getMonth()+1)}-${zero(date.getDate())} ${zero(date.getHours())}:${zero(date.getMinutes())}:${zero(date.getSeconds())}`;
   const newData = `---\r\ntitle: ${file.name}\r\ndate: ${dateStr}\r\npermalink: ${file.permalink}\r\n---\r\n` + dataStr;
   fs.writeFileSync(file.filePath, newData); // 写入
 }
