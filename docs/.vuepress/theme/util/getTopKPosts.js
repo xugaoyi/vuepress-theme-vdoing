@@ -1,8 +1,8 @@
 const re = /.*\/(.*?)\.(html|md)/
 
 export function getPagesList(posts) {
-  console.log('------')
   let pagesList = {}
+  let tagGroup = {}
 
   // 过滤非文章页
   posts = filterNotArticle(posts)
@@ -14,9 +14,12 @@ export function getPagesList(posts) {
     const pathArr = post.relativePath.split('/')
 
     return {
-      ...post,
+      // ...post,
+      title: post.title,
+      path: post.path,
+      // lastUpdated: post.lastUpdated,
       updateTimestamp: date.getTime(), // 更新日期的时间戳
-      filename: execs ? execs['1'] : '',
+      // filename: execs ? execs['1'] : '',
       formatDay: formatDate(date),
       year: date.getFullYear(),
       tag: /\./g.test(pathArr[0]) ? pathArr[1].split('.')[1] : pathArr[0] // 区分是单独合集的笔记还是文章
@@ -28,7 +31,6 @@ export function getPagesList(posts) {
   let pageYearArr = []
   let pageYearObj = {}
   pages.forEach( page => {
-
     // 全部
     if (!pageYearObj[page.year]){
       pageYearArr.push({
@@ -44,30 +46,31 @@ export function getPagesList(posts) {
       })
     }
 
-    // 按标签分组
-    //console.log(page.tag)
-    if (!pagesList[page.tag]) {
-      pagesList[page.tag] = []
-    } else {
-
+    // 加入标签属性
+    if (!tagGroup[page.tag]) {
+      tagGroup[page.tag] = []
     }
-    
-
-
-
-
   })
 
   // 根据标签分组
-  pagesList['全部'] = pageYearArr
-  
+  for (let item in tagGroup) { // 循环标签
+    
+    for(let i in pageYearArr) { // 循环全部
+      const filterTag = pageYearArr[i].pageList.filter(page => { // 按标签过滤
+        return page.tag === item
+      })
+      if (filterTag.length) { // 该年份中有数据才加入
+        tagGroup[item].push({
+          year: pageYearArr[i].year,
+          pageList: filterTag
+        })
+      }
+    }
+  }
+  pagesList.tagGroup = tagGroup
+  pagesList.allPage = pageYearArr // 加入全部
 
-  console.log(pagesList)
-}
-
-// 按年份分组
-function pageGrouping(){
-
+  return pagesList
 }
 
 
@@ -107,7 +110,8 @@ function formatDate(date) {
   if (!(date instanceof Date)) {
     return 
   }
-  return `${date.getFullYear()}/${zero(date.getMonth() + 1)}/${zero(date.getDate())}`
+  // return `${date.getFullYear()}/${zero(date.getMonth() + 1)}/${zero(date.getDate())}`
+  return `${zero(date.getMonth() + 1)}-${zero(date.getDate())}`
 }
 
 // 补0

@@ -41,7 +41,7 @@ module.exports = [
     ]
   },
   {text: '关于', link: '/pages/81d9f505441078e0/'},
-  {text: '最新', link: '/pages/8818d4830dac5e2a/'},
+  {text: '时间轴', link: '/pages/8818d4830dac5e2a/'},
   
   // {text: '前端', link: '/01.前端/01.JavaScript/01.JavaScript中的名词概念'},
   // {text: '页面', link: '/02.页面/01.html-css/00.flex布局语法'},
