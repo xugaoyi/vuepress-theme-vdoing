@@ -11,7 +11,7 @@
       <dl v-for="(item, index) in topPublishPosts" :key="index">
         <dd>{{'0' + (index + 1)}}</dd>
         <dt>
-          <a :href="item.path"><div>{{item.title}}</div></a>
+          <router-link :to="item.path"><div>{{item.title}}</div></router-link>
           <span>{{item.formatDay}}</span>
         </dt>
       </dl>
@@ -19,7 +19,7 @@
       <dl>
         <dd></dd>
         <dt>
-          <a href="/pages/8818d4830dac5e2a" class="more">更多文章></a>
+          <router-link to="/timeline/" class="more">更多文章></router-link>
         </dt>
       </dl>
     </div>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { getTopKPosts } from '../util/getTopKPosts'
+import { getTopKPosts } from '../util/getArticleDate'
 
 export default {
   props: ['pageMark'],
@@ -42,44 +42,12 @@ export default {
   },
   computed: {
     topPublishPosts() {
-      // return this.getTopKPosts()
       return getTopKPosts(this.posts, 5)
     },
     isShowArticle () {
       const { frontmatter } = this.$page
       return !(frontmatter.article !== false)
     }
-  },
-  methods: {
-    // getTopKPosts() { // 文章数据处理
-    //   const re = /.*\/(.*?)\.(html|md)/
-    //   return this.posts
-    //     .filter(post => {
-    //       const { frontmatter } = post;
-    //       return frontmatter && frontmatter.permalink && frontmatter.title && frontmatter.article !== false;
-    //     })
-    //     .map(post => {
-    //       const execs = re.exec(post.relativePath)
-    //       return {
-    //         ...post,
-    //         updateTimestamp: (new Date(post.lastUpdated || post.frontmatter.date)).getTime(),
-    //         filename: execs ? execs['1'] : '',
-    //         formatDay: this.formatDate(new Date(post.lastUpdated || post.frontmatter.date))
-    //       }
-    //     })
-    //     .sort((a, b) => b.updateTimestamp - a.updateTimestamp)
-    //     .slice(0,5)
-    // },
-    
-    // formatDate(date) { // 日期格式化
-    //   if (!(date instanceof Date)) {
-    //     return 
-    //   }
-    //   return `${date.getFullYear()}/${this.zero(date.getMonth() + 1)}/${this.zero(date.getDate())}`
-    // },
-    // zero(d){ // 补0
-    //   return d.toString().padStart(2,'0')
-    // }
   }
 }
 </script>

@@ -30,7 +30,7 @@ module.exports = [
       {text: '博客搭建', link: '/pages/41f87d890d0a02af/'},
     ]
   },
-  {text: '其他', 
+  {text: '更多', 
     items: [
       {text: '学习', link: '/pages/a8692ab3bdcb4588/'},
       {text: '面试', link: '/pages/aea6571b7a8bae86/'},
@@ -40,8 +40,8 @@ module.exports = [
       {text: '友情链接', link: '/pages/844eea1b2387fb96/'},
     ]
   },
-  {text: '关于', link: '/pages/81d9f505441078e0/'},
-  {text: '时间轴', link: '/pages/8818d4830dac5e2a/'},
+  {text: '关于', link: '/about/'},
+  {text: '时间轴', link: '/timeline/'},
   
   // {text: '前端', link: '/01.前端/01.JavaScript/01.JavaScript中的名词概念'},
   // {text: '页面', link: '/02.页面/01.html-css/00.flex布局语法'},

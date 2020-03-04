@@ -9,7 +9,7 @@ export function getPagesList(posts) {
 
   // 对页面数据二次处理和排序
   const pages = posts.map(post => {
-    const execs = re.exec(post.relativePath)
+    // const execs = re.exec(post.relativePath)
     const date = new Date(post.frontmatter.date || post.lastUpdated)
     const pathArr = post.relativePath.split('/')
 
@@ -75,13 +75,19 @@ export function getPagesList(posts) {
 
 
 
-
-
-
 export function getTopKPosts(posts, len) {
-  return handlePageData(
-    filterNotArticle(posts)
-    ).slice(0,len)
+  return filterNotArticle(posts)
+    .map(post => {
+      const execs = re.exec(post.relativePath)
+      return {
+        ...post,
+        updateTimestamp: (new Date(post.frontmatter.date || post.lastUpdated)).getTime(), // 更新日期的时间戳
+        filename: execs ? execs['1'] : '',
+        formatDay: formatDate(new Date(post.frontmatter.date || post.lastUpdated))
+      }
+    })
+    .sort((a, b) => b.updateTimestamp - a.updateTimestamp)
+    .slice(0,len)
 }
 
  // 过滤没有frontmatter数据的 和 非文章页面的
@@ -90,19 +96,6 @@ function filterNotArticle(posts){
     const { frontmatter } = post;
     return frontmatter && frontmatter.permalink && frontmatter.title && frontmatter.article !== false;
   })
-}
-
-// 页面数据的处理和排序
-function handlePageData(posts){
-  return posts.map(post => {
-    const execs = re.exec(post.relativePath)
-    return {
-      ...post,
-      updateTimestamp: (new Date(post.frontmatter.date || post.lastUpdated)).getTime(), // 更新日期的时间戳
-      filename: execs ? execs['1'] : '',
-      formatDay: formatDate(new Date(post.frontmatter.date || post.lastUpdated))
-    }
-  }).sort((a, b) => b.updateTimestamp - a.updateTimestamp)
 }
 
 // 日期格式化
