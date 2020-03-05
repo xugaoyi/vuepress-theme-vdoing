@@ -60,20 +60,18 @@ function main() {
       
 
       // 更新title和permalink
-      if (arg === '-update'){
-        if (matterData.title != file.name) { // 当title和文件名不一致时才更新
-          matterData.title = file.name;
-          if (/pages/.test(matterData.permalink)) {
-            matterData.permalink = file.permalink;
-          }
-          // 修复date时区和格式被修改的问题 (并非更新date的值)
-          const date = new Date(matterData.date);
-          matterData.date = `${date.getUTCFullYear()}-${zero(date.getUTCMonth()+1)}-${zero(date.getUTCDate())} ${zero(date.getUTCHours())}:${zero(date.getUTCMinutes())}:${zero(date.getUTCSeconds())}`;
-          
-          const newData2 = YAML.stringify(JSON.parse(JSON.stringify(matterData))) + '---\r\n' + fileMatterObj.content;
-          fs.writeFileSync(file.filePath, newData2); // 写入
-          console.log(`更新FrontMatter标题和链接：${file.filePath} `)
+      if (arg === '-update' && matterData.title != file.name){ // 当title和文件名不一致时才更新
+        matterData.title = file.name;
+        if (/pages/.test(matterData.permalink)) {
+          matterData.permalink = file.permalink;
         }
+        // 修复date时区和格式被修改的问题 (并非更新date的值)
+        const date = new Date(matterData.date);
+        matterData.date = `${date.getUTCFullYear()}-${zero(date.getUTCMonth()+1)}-${zero(date.getUTCDate())} ${zero(date.getUTCHours())}:${zero(date.getUTCMinutes())}:${zero(date.getUTCSeconds())}`;
+        
+        const newData2 = YAML.stringify(JSON.parse(JSON.stringify(matterData))) + '---\r\n' + fileMatterObj.content;
+        fs.writeFileSync(file.filePath, newData2); // 写入
+        console.log(`更新FrontMatter标题和链接：${file.filePath}`)
       }
 
     }
