@@ -76,27 +76,6 @@ function main() {
 
     }
     
-
-    // if(dataStr.substring(0,3) !== '---'){ // 没有FrontMatter
-      ///console.log(`写入FrontMatter：${file.filePath}`)
-      // writeFrontMatter(file, dataStr);
-    // } else { // 已有FrontMatter
-      // if (arg !== '-update'){
-      //   return;
-      // }
-      // // 重新写入FrontMatter
-      // const dataArr = dataStr.split(/\r\n|\n|\r/gm);
-      // const fmArr = dataArr.slice(0,5);
-      // const dataStrOld = dataArr.slice(5).join('\r\n');
-      //   // 判断FrontMatter 是否为自动生成的格式
-      // if (fmArr[0] === '---' && /title/.test(fmArr[1]) && /date/.test(fmArr[2]) && /permalink/.test(fmArr[3]) && fmArr[4] === '---') {
-      //   console.log(`更新FrontMatter：${file.filePath} `)
-      //   writeFrontMatter(file, dataStrOld);
-      // } else {
-      //   logger.warn(`此文件FrontMatter更新失败${file.filePath}，因为它的FrontMatter格式并非自动生成的。`)
-      // }
-    // }
-      
   })
 
 }

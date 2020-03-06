@@ -1,7 +1,8 @@
 // 样式重置
 body
   background: none
-a,input,button{outline: none; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-focus-ring-color: rgba(0, 0, 0, 0);}
+a,input,button
+  outline: none; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-focus-ring-color: rgba(0, 0, 0, 0);
 
 
 // md文件中的按钮
@@ -30,7 +31,6 @@ table
 .gt-container .gt-comments-null
   color #999
 
-
 // 侧边栏高出评论区
 .sidebar
   z-index 11
@@ -49,30 +49,28 @@ table
     fill $accentColor!important
 
 // qq徽章
-.qq{position: relative;}
-.qq::after{
-    content: "可撩";
-    background: $accentColor;
-    color:#fff;
-    padding: 0 5px;
-    border-radius: 10px;
-    font-size:12px;
-    position: absolute;
-    top: -4px;
-    right: -35px;
-    transform:scale(0.85);
-}
+.qq
+  position: relative;
+.qq::after
+  content: "可撩";
+  background: $accentColor;
+  color:#fff;
+  padding: 0 5px;
+  border-radius: 10px;
+  font-size:12px;
+  position: absolute;
+  top: -4px;
+  right: -35px;
+  transform:scale(0.85);
 
 // demo模块图标颜色
-body  .vuepress-plugin-demo-block__wrapper .vuepress-plugin-demo-block__footer:hover .vuepress-plugin-demo-block__expand::before {
-  border-top-color: $accentColor !important;
-  border-bottom-color: $accentColor !important;
-}
-body .vuepress-plugin-demo-block__wrapper .vuepress-plugin-demo-block__footer:hover svg {
+body .vuepress-plugin-demo-block__wrapper .vuepress-plugin-demo-block__footer:hover
+  .vuepress-plugin-demo-block__expand::before
+    border-top-color: $accentColor !important;
+    border-bottom-color: $accentColor !important;
+  svg
     fill: $accentColor !important;
-}
-
+  
 //iframe
-iframe {
+iframe
   margin: 1rem 0
-}
