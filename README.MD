@@ -26,6 +26,8 @@
 
    [自动部署到 github 或 coding](https://github.com/xugaoyi/blog/issues/325)
 
+9. 效果：[ Evan's blog](https://xugaoyi.com/)
+
 
 
 ## Quick start
