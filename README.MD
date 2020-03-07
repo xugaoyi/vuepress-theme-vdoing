@@ -1,6 +1,7 @@
 # 一个简洁至上的 博客 & 文档 & 笔记管理 主题
 
-![CI](https://github.com/xugaoyi/blog/workflows/CI/badge.svg) ![baiduPush](https://github.com/xugaoyi/blog/workflows/baiduPush/badge.svg) ![last-commit](https://img.shields.io/github/last-commit/xugaoyi/blog) ![GitHub stars](https://img.shields.io/github/stars/xugaoyi/blog) [![QQ](https://img.shields.io/badge/撩我-894072666-brightgreen)](tencent://message/?uin=894072666&Site=&Menu=yes)
+[![CI](https://github.com/xugaoyi/blog/workflows/CI/badge.svg)](https://github.com/xugaoyi/blog/actions?query=workflow%3ACI) [![baiduPush](https://github.com/xugaoyi/blog/workflows/baiduPush/badge.svg)](https://github.com/xugaoyi/blog/actions?query=workflow%3AbaiduPush) [![last-commit](https://img.shields.io/github/last-commit/xugaoyi/blog)](https://github.com/xugaoyi/blog/commits/master) [![GitHub stars](https://img.shields.io/github/stars/xugaoyi/blog)](https://github.com/xugaoyi/blog/stargazers) <a href="tencent://message/?uin=894072666&Site=&Menu=yes"><img src="https://img.shields.io/badge/撩我-894072666-brightgreen" alt="QQ"></a>
+
 
 
 ## Introduce
