@@ -1,5 +1,8 @@
 # 一个简洁至上的 博客 & 文档 & 笔记管理 主题
 
+![CI](https://github.com/xugaoyi/blog/workflows/CI/badge.svg) ![baiduPush](https://github.com/xugaoyi/blog/workflows/baiduPush/badge.svg) ![last-commit](https://img.shields.io/github/last-commit/xugaoyi/blog) ![GitHub stars](https://img.shields.io/github/stars/xugaoyi/blog) [![QQ](https://img.shields.io/badge/撩我-894072666-brightgreen)](tencent://message/?uin=894072666&Site=&Menu=yes)
+
+
 ## Introduce
 
 1. 根据 [vuepress](https://vuepress.vuejs.org/zh/) 的默认主题修改而成，追求**简洁至上**。
