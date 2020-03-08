@@ -16,10 +16,29 @@ features:
     details: 技术文档、教程、技巧、总结等文章
     url: /pages/9a7ee40fc232253e/
     imgname: /img/other.png
+aside:
+  avatar: https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg
+  iconfontCssFile: //at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css # 阿里矢量图标库在线css文件地址
+  icons:
+    - iconClass: icon-QQ
+      title: QQ
+      link: tencent://message/?uin=894072666&Site=&Menu=yesUrl
+    - iconClass: icon-youjian
+      title: 发邮件
+      link: mailto:894072666@qq.com
+    - iconClass: icon-github
+      title: GitHub
+      link: https://github.com/xugaoyi
+    - iconClass: icon-erji
+      title: 听音乐
+      link: https://music.163.com/#/playlist?id=755597173
+  blogger:
+    name: Evan
+    slogan: 前端界的小学生
 footer:
   year: 2019
   content: xugaoyi
-  bgImg: /img/footer.jpg
+  bgImg: /img/footer.png
 ---
 
 ## 简介

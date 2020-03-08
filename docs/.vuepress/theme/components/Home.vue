@@ -27,58 +27,85 @@
       </main>
 
       <!-- 移动端slide s -->
-        <div class="slide-banner" v-if="data.features && data.features.length" v-show="isMQMobile">
-          <div class="banner-wrapper">
-            <div class="slide-banner-scroll" ref="slide">
-              <div class="slide-banner-wrapper">
-                <div class="slide-item" v-for="(feature, index) in data.features" :key="index">
-                  <router-link :to="$withBase(feature.url)">
-                    <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
-                    <h2>{{ feature.title }}</h2>
-                    <p>{{ feature.details }}</p>
-                  </router-link>
-                </div>
+      <div class="slide-banner" v-if="data.features && data.features.length" v-show="isMQMobile">
+        <div class="banner-wrapper">
+          <div class="slide-banner-scroll" ref="slide">
+            <div class="slide-banner-wrapper">
+              <div class="slide-item" v-for="(feature, index) in data.features" :key="index">
+                <router-link :to="$withBase(feature.url)">
+                  <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
+                  <h2>{{ feature.title }}</h2>
+                  <p>{{ feature.details }}</p>
+                </router-link>
               </div>
             </div>
-            <div class="docs-wrapper">
-              <span
-                class="doc"
-                v-for="(item, index) in data.features.length"
-                :key="index"
-                :class="{'active': currentPageIndex === index}"></span>
-            </div>
+          </div>
+          <div class="docs-wrapper">
+            <span
+              class="doc"
+              v-for="(item, index) in data.features.length"
+              :key="index"
+              :class="{'active': currentPageIndex === index}"></span>
           </div>
         </div>
-        <!-- 移动端slide e -->
+      </div>
+      <!-- 移动端slide e -->
 
     </div>
 
 
-    <main class="home home-content" aria-labelledby="main-title">
-      <!-- <header class="hero">
-        <img v-if="data.heroImage" :src="$withBase(data.heroImage)" :alt="data.heroAlt || 'hero'" />
+    <div class="main-wrapper">
+      <main class="home home-content" aria-labelledby="main-title">
+        <!-- <header class="hero">
+          <img v-if="data.heroImage" :src="$withBase(data.heroImage)" :alt="data.heroAlt || 'hero'" />
 
-        <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
+          <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
 
-        <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
+          <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
 
-        <p class="action" v-if="data.actionText && data.actionLink">
-          <NavLink class="action-button" :item="actionLink" />
-        </p>
-      </header>
+          <p class="action" v-if="data.actionText && data.actionLink">
+            <NavLink class="action-button" :item="actionLink" />
+          </p>
+        </header>
 
-      <div class="features" v-if="data.features && data.features.length">
-        <div class="feature" v-for="(feature, index) in data.features" :key="index">
-          <a :href="$withBase(feature.url)">
-            <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
-            <h2>{{ feature.title }}</h2>
-            <p>{{ feature.details }}</p>
+        <div class="features" v-if="data.features && data.features.length">
+          <div class="feature" v-for="(feature, index) in data.features" :key="index">
+            <a :href="$withBase(feature.url)">
+              <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
+              <h2>{{ feature.title }}</h2>
+              <p>{{ feature.details }}</p>
+            </a>
+          </div>
+        </div> -->
+        <Article pageMark="home" />
+        <Content class="theme-default-content custom" />
+      </main>
+
+      <aside class="info-wrapper" v-if="data.aside">
+        <div class="avatar">
+          <img :src="data.aside.avatar" alt="头像">
+        </div>
+        <div class="icons" v-if="data.aside.icons">
+          <a
+           :href="item.link"
+           :title="item.title"
+           :class="['iconfont', item.iconClass]"
+           v-for="(item, index) in data.aside.icons"
+           :key="index"
+           :style="{width: 100/data.aside.icons.length + '%'}"
+           target="_blank"
+          >
           </a>
         </div>
-      </div> -->
-      <Article pageMark="home" />
-      <Content class="theme-default-content custom" />
-    </main>
+        <div class="blogger">
+          <span class="name">{{data.aside.blogger.name}}</span>
+          <span class="slogan">
+            {{data.aside.blogger.slogan}}
+          </span>
+        </div>
+      </aside>
+    </div>
+
     <div class="footer" v-if="data.footer">Copyright © {{ data.footer.year }}-{{ new Date().getFullYear() }} {{ data.footer.content }}</div>
   </div>
 </template>
@@ -117,13 +144,22 @@ export default {
       }
     })
 
+    // 引入图标库
+    if(this.data.aside && this.data.aside.iconfontCssFile) {
+      let linkElm = document.createElement("link")
+      linkElm.setAttribute('rel', 'stylesheet');
+      linkElm.setAttribute("type", "text/css")
+      linkElm.setAttribute("href", this.data.aside.iconfontCssFile)
+      document.head.appendChild(linkElm)
+    }
+    
   },
   mounted() {
     this.isMQMobile && this.init()
   },
   beforeDestroy() {
     clearTimeout(this.playTimer)
-    this.slide.destroy()
+    this.slide && this.slide.destroy()
   },
   methods: {
     init() {
@@ -182,6 +218,7 @@ export default {
 </script>
 
 <style lang="stylus">
+// @import '//at.alicdn.com/t/font_1678482_k8ld4et1y2f.css'
 
 .slide-banner
   margin-top: 2rem;
@@ -232,8 +269,28 @@ export default {
   width 100%
   background #1F2837
   color #fff
+  position relative
+  overflow hidden
+  background-image url(../../public/img/bg-line.png);
+  background-size: 35px 35px;
+  // &:before{
+  //     content: "";
+  //     position: absolute;
+  //     top: 20%;
+  //     right: 10%;
+  //     width: 80%;
+  //     height: 70%;
+  //     background-image:
+  //         radial-gradient(ellipse closest-side, rgba(31, 40, 55, 0.75), #1f2837),
+  //         url(../../public/img/bg.jpg);
+  //     background-size: cover;
+  //     background-repeat: no-repeat;
+  //     opacity: 0.3;
+  //   }
   .home{
     background none
+    position relative
+    z-index 1
     .hero{
       h1{
         font-size 3.5rem
@@ -258,18 +315,78 @@ export default {
     }
   }
 }
-body .home-content{
-  background #fff;
-  padding 1rem 2rem 0;
+
+
+body .main-wrapper{
   margin 2rem auto;
-  border-radius 10px;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.1);
+  max-width 1080px;
+  position relative
+  display flex
+  >*{
+    border-radius 5px;
+    background #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.1);
+  }
+  .home-content{
+    padding 1rem 1.5rem 0;
+    // max-width 730px;
+    flex 1
+  }
+  .info-wrapper{
+    width 260px;
+    padding: 15px;
+    height: auto;
+    margin-left: 10px;
+    display: inline-table;
+    .avatar {
+      width 260px
+      height 260px
+      overflow: hidden;
+      img{
+        width 100%
+        height 100%
+        border-radius 3px
+      }
+    }
+    .icons {
+      border 1px solid #e1e4e8;
+      height 40px
+      line-height 40px
+      a{
+        font-size 20px
+        width 33%
+        color #666
+        display block
+        float left
+        text-align center
+        &:hover{
+          color $accentColor
+        }
+      }
+    }
+    .blogger{
+      margin: 15px 0 10px 0;
+      .name{
+        font-size 25px
+        display: block
+        margin-bottom 10px
+      }
+      .slogan{
+        color #777
+      }
+    }
+  }
 }
+
+
+
+
+
 
 
 .home {
   padding: $navbarHeight 2rem 0;
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0px auto;
   display: block;
 
@@ -333,8 +450,8 @@ body .home-content{
     text-align: center;
 
     .image_title {
-      width: 12rem;
-      height: 12rem;
+      width: 11rem;
+      height: 11rem;
       transition: all .3s;
     }
 
@@ -367,13 +484,15 @@ body .home-content{
 
 
 @media (max-width: 1025px){
-  //959px
   .i-body{
     background-color: #fff;
   }
   body .home-content{
     margin: 0;
     border-radius: 0;
+  }
+  body .main-wrapper >*{
+    box-shadow: none;
   }
   .banner .home{
     .hero h1{
@@ -392,7 +511,20 @@ body .home-content{
   }
 }
 
+@media (max-width: 765px){
+  body .main-wrapper .info-wrapper{
+    width: 200px
+    .avatar{
+      width: 200px
+      height: 200px
+    }
+  }
+}
+
 @media (max-width: $MQMobile) {
+  body .main-wrapper .info-wrapper{
+    display: none;
+  }
   // 719px
   .banner{
     min-height 517px
