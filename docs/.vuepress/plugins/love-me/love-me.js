@@ -9,12 +9,11 @@ export default () => {
             var t = "function" == typeof e.onclick && e.onclick;
             
             e.onclick = function(e) {
-
               // 过滤指定元素
               let mark = true;
-              e.path && e.path.forEach((item) =>{
+              EXCLUDECLASS && e.path && e.path.forEach((item) =>{
                 if(item.nodeType === 1) {
-                  if(item.className === "theme-default-content content__default") {
+                  if(item.className.indexOf(EXCLUDECLASS) > -1) {
                     mark = false;
                   }
                 }
@@ -35,7 +34,7 @@ export default () => {
                 y: e.clientY - 5,
                 scale: 1,
                 alpha: 1,
-                color: c()
+                color: COLOR
             }),
             t.body.appendChild(a)
         }
@@ -49,10 +48,9 @@ export default () => {
             }
             t.getElementsByTagName("head")[0].appendChild(a)
         }
-        function c() {
-            return "rgb(26,158,193)"
-            // return "rgb(" + ~~ (255 * Math.random()) + "," + ~~ (255 * Math.random()) + "," + ~~ (255 * Math.random()) + ")"
-        }
+        // function c() {
+        //     return "rgb(" + ~~ (255 * Math.random()) + "," + ~~ (255 * Math.random()) + "," + ~~ (255 * Math.random()) + ")"
+        // }
         var s = [];
         e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame ||
         function(e) {

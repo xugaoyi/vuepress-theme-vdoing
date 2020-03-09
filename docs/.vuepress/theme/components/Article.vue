@@ -80,14 +80,15 @@ export default {
       overflow hidden
       dl
         border-bottom 1px dotted #eaecef
-        width 50%
         float left
         display flex
         padding 8px 0
         margin 0
         height 55px
-        @media (max-width: $MQNarrow)
-          width 100%
+        width 100%
+        // width 50%
+        // @media (max-width: $MQNarrow)
+        //   width 100%
         dd
           font-size 1.1rem
           color #F17229

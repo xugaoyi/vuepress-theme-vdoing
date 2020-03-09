@@ -20,9 +20,9 @@ aside:
   avatar: https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg
   iconfontCssFile: //at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css # 阿里矢量图标库在线css文件地址
   icons:
-    - iconClass: icon-QQ
-      title: QQ
-      link: tencent://message/?uin=894072666&Site=&Menu=yesUrl
+    # - iconClass: icon-QQ
+    #   title: QQ
+    #   link: tencent://message/?uin=894072666&Site=&Menu=yesUrl
     - iconClass: icon-youjian
       title: 发邮件
       link: mailto:894072666@qq.com

@@ -522,8 +522,11 @@ body .main-wrapper{
 }
 
 @media (max-width: $MQMobile) {
-  body .main-wrapper .info-wrapper{
-    display: none;
+  body .main-wrapper{
+    display: block;
+    .info-wrapper{
+      display: none;
+    }
   }
   // 719px
   .banner{
