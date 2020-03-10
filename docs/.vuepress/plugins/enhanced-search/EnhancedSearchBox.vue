@@ -28,29 +28,23 @@
         @mousedown="go(i)"
         @mouseenter="focus(i)"
       >
-        <a :href="s.path" @click.prevent>
+
+        <a :href="s.path" @click.prevent v-if="s.thirdparty">
           <span class="page-title">{{ s.title || s.path }}</span>
           <span v-if="s.header" class="header">&gt; {{ s.header.title }}</span>
         </a>
+        
+        <a href="javascript:;" @click.prevent v-else>  <!-- 第三方搜索 -->
+          <span class="page-title">{{ s.title }}</span>
+        </a>
       </li>
-      <li
-        class="suggestion"
-        @mousedown="goMDN()"
-      >
-        <a @click.prevent>在MDN中搜索"{{query}}"</a>
-      </li>
-      <li
-        class="suggestion"
-        @mousedown="goRunoob()"
-      >
-        <a @click.prevent>在Runoob中搜索"{{query}}"</a>
-      </li>
+
     </ul>
   </div>
 </template>
 
 <script>
-/* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
+/* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS, SEARCH_THIRDPARTY */
 export default {
   data () {
     return {
@@ -122,7 +116,17 @@ export default {
           }
         }
       }
-      console.log(res)
+
+      // 添加第三方链接数据
+      if (SEARCH_THIRDPARTY.length) {
+        SEARCH_THIRDPARTY.forEach(item => {
+          item.thirdparty = true
+          item.title = `${item.title}"${this.query}"`
+          item.behindUrl = item.behindUrl || ''
+          res.push(item)
+        })
+      }
+      
       return res
     },
 
@@ -188,17 +192,17 @@ export default {
       if (!this.showSuggestions) {
         return
       }
-      this.$router.push(this.suggestions[i].path)
-      this.query = ''
-      this.focusIndex = 0
-    },
-
-    goMDN(){
-      window.open('https://developer.mozilla.org/zh-CN/search?q=' + this.query, '_blank')
-    },
-
-    goRunoob(){
-      window.open('https://www.runoob.com/?s=' + this.query, '_blank')
+      const item = this.suggestions[i]
+      if (item.thirdparty) {
+        window.open(
+          item.frontUrl + this.query + item.behindUrl, 
+          '_blank'
+        )
+      } else {
+        this.$router.push(item.path)
+        this.query = ''
+        this.focusIndex = 0
+      }
     },
 
     focus (i) {
