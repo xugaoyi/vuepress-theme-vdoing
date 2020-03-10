@@ -13,9 +13,7 @@ export default () => {
               let mark = true;
               EXCLUDECLASS && e.path && e.path.forEach((item) =>{
                 if(item.nodeType === 1) {
-                  if(item.className.indexOf(EXCLUDECLASS) > -1) {
-                    mark = false;
-                  }
+                  typeof item.className === 'string' && item.className.indexOf(EXCLUDECLASS) > -1 ? mark = false : ''
                 }
               })
               

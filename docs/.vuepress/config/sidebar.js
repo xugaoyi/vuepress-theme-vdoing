@@ -35,7 +35,7 @@ module.exports = { // 侧边栏
       collapsable: false, //是否可折叠，可选的，默认true
       sidebarDepth: 2, // 深度，可选的, 默认值是 1
       children: [
-        ['01.Git使用手册','Git使用手册'], // 同 {title: 'Git使用文档',path: 'git'}
+        ['01.Git使用手册','Git使用手册'], // 同 {path: '01.Git使用手册', title: 'Git使用文档'}
         ['02.GitHub高级搜索技巧','GitHub高级搜索技巧'],
         ['03.Markdown使用教程','Markdown使用教程'],
         ['04.npm常用命令','npm常用命令'],

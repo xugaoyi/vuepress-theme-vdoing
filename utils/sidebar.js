@@ -6,6 +6,7 @@ const fs = require('fs'); // 文件模块
 const path = require('path'); // 路径模块
 const ejs = require('ejs'); // ejs模板引擎
 const logger = require('tracer').colorConsole(); // 控制台工具(用于控制台打印信息包含时间、打印类型、文件及代码行号、对象、颜色)
+const matter = require('gray-matter'); // FrontMatter解析器
 
 const docsRoot = path.join(__dirname, '..', 'docs'); // docs文件路径
 const sidebarPath = path.join(__dirname, '..', 'docs', '.vuepress', 'config', 'sidebar-auto.js'); // 侧边栏js文件要保存的路径
@@ -13,7 +14,7 @@ const sidebarPath = path.join(__dirname, '..', 'docs', '.vuepress', 'config', 's
 
 // sidebar-auto.js代码模板
 const sidebarTemplate = `
-// 侧边栏自动生成
+// 侧边栏自动生成   // 最里面的数组，格式：[<path>, <title>, <permalink>]，其中permalink并非侧边栏所需，而是提供给其他页面使用
 module.exports = {
   <% for (let item of sidebarData) { %>
     "<%- item.path %>": <%- JSON.stringify(item.sidebarArr) %>,
@@ -98,7 +99,10 @@ function mapTocToSidebar(root, prefix){
          logger.error(`该文件 "${file}" 非md文件，不支持非md文件类型`);
          return;
       }
-      sidebar[order] = [prefix + filename, title];  // [<前缀加完整文件名>, <文件标题>]
+      const contentStr = fs.readFileSync(file, 'utf8') // 读取md文件内容，返回字符串
+      const { data } = matter(contentStr) // 解析出front matter数据
+      const permalink = data.permalink || ''
+      sidebar[order] = [prefix + filename, title, permalink ];  // [<路径>, <文件标题>, <永久链接>]
     }
   })
 

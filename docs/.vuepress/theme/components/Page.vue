@@ -2,6 +2,8 @@
   <main class="page">
     <slot name="top" />
 
+    <component v-if="pageComponent" :is="pageComponent" />
+
     <Content class="theme-default-content" />
     <PageEdit />
 
@@ -16,11 +18,17 @@
 <script>
 import PageEdit from '@theme/components/PageEdit.vue'
 import PageNav from '@theme/components/PageNav.vue'
+import Catalogue from './Catalogue.vue'
 import Article from './Article.vue'
 
 export default {
-  components: { PageEdit, PageNav, Article},
-  props: ['sidebarItems']
+  components: { PageEdit, PageNav, Catalogue, Article},
+  props: ['sidebarItems'],
+  computed: {
+    pageComponent () {
+      return this.$frontmatter.pageComponent ? this.$frontmatter.pageComponent.name : false
+    }
+  }
 }
 </script>
 

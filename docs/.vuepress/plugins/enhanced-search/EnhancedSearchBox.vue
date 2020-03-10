@@ -29,7 +29,7 @@
         @mouseenter="focus(i)"
       >
 
-        <a :href="s.path" @click.prevent v-if="s.thirdparty">
+        <a :href="s.path" @click.prevent v-if="!s.thirdparty">
           <span class="page-title">{{ s.title || s.path }}</span>
           <span v-if="s.header" class="header">&gt; {{ s.header.title }}</span>
         </a>
@@ -126,7 +126,6 @@ export default {
           res.push(item)
         })
       }
-      
       return res
     },
 
