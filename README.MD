@@ -13,19 +13,25 @@
 
 4. 添加博客所需的**评论**、**时间轴**、**分类**、**最近更新** 等。
 
-5. 可以很方便的管理你的**学习笔记**和**技术文档**，**扩展的搜索框**让你快速查找文档。
+5. 可以很方便的管理你的**学习笔记**和**技术文档**，**导航栏+目录页+侧边栏+扩展的搜索框** 多维度让你快速定位到任何你想要找的笔记或文档。
 
-   [扩展的搜索框插件](https://github.com/xugaoyi/blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md)
+   * 简单的导航栏配置，参照 [官方配置](https://vuepress.vuejs.org/zh/theme/default-theme-config.html#导航栏)
 
-6. 添加对*前端程序员*很友好**demo演示模块**，很方便的在博客中插入demo，同时可以查看demo源码，跳转到codepen在线编辑。
+   * 简单的目录页配置，参照 [目录页配置](https://github.com/xugaoyi/blog/issues/330)
 
-   [vuepress-plugin-demo-block](https://github.com/xiguaxigua/vuepress-plugin-demo-block)
+   * 自动生成侧边栏（请看第6条）
 
-7. 自动侧边栏满足不了需求？手动配置侧边栏工作繁杂？没关系，我们有**自动生成侧边栏**！
+   * [扩展的搜索框插件](https://github.com/xugaoyi/blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md)
+
+6. 自动侧边栏满足不了需求？手动配置侧边栏工作繁杂？没关系，我们有**自动生成侧边栏**！
 
    [根据目录自动生成侧边栏的约定说明](https://github.com/xugaoyi/blog/issues/113)
 
    > **分类标签**不需要你每个文件都设置 [Front Matter](https://vuepress.vuejs.org/zh/guide/frontmatter.html)，只需按照我们的目录约定，我们会按照目录来进行分类，这更适合管理你的学习笔记。
+
+7. 添加对*前端程序员*很友好**demo演示模块**，很方便的在博客中插入demo，同时可以查看demo源码，跳转到codepen在线编辑。
+
+   [vuepress-plugin-demo-block](https://github.com/xiguaxigua/vuepress-plugin-demo-block)
 
 8. vuepress 的页面链接对于博客来说是一个阴暗面，官方对于 [永久链接](https://vuepress.vuejs.org/zh/guide/permalinks.html) 的处理我个人不是特别喜欢，因此就有了**自动生成永久链接**，你不需要给每个页面定义一个[Front Matter](https://vuepress.vuejs.org/zh/guide/frontmatter.html)指定永久链接，我们会通过文件名来生成一个永久链接码到你的页面Front Matter。但这并不妨碍你在特定页面手动指定自己喜欢的永久链接。
 
