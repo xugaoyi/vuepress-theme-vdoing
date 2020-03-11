@@ -8,11 +8,11 @@ module.exports = [
         {text: 'Vue', link: '/pages/802a1ca6f7b71c59/'},
       ]},
       {text: '学习笔记', items:[
-        {text: '《JavaScript教程》笔记', link: '/pages/0796ba76b4b55368/'},
-        {text: '《ES6 教程》笔记', link: '/pages/f344d070a1031ef7/'},
-        {text: '《Vue》笔记', link: '/pages/114158caa9e96df0/'},
-        {text: '《TypeScript 从零实现 axios》', link: '/pages/e05dce83e5129785/'},
-        {text: '小程序笔记', link: '/pages/236ec09c26876b59/'},
+        {text: '《JavaScript教程》笔记', link: '/note/javascript/'},
+        {text: '《ES6 教程》笔记', link: '/note/es6/'},
+        {text: '《Vue》笔记', link: '/note/vue/'},
+        {text: '《TypeScript 从零实现 axios》', link: '/note/typescript-axios/'},
+        {text: '小程序笔记', link: '/note/wx-miniprogram/'},
       ]}
     ]
   },

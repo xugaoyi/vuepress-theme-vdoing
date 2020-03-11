@@ -273,20 +273,6 @@ export default {
   overflow hidden
   background-image url(../../public/img/bg-line.png);
   background-size: 35px 35px;
-  // &:before{
-  //     content: "";
-  //     position: absolute;
-  //     top: 20%;
-  //     right: 10%;
-  //     width: 80%;
-  //     height: 70%;
-  //     background-image:
-  //         radial-gradient(ellipse closest-side, rgba(31, 40, 55, 0.75), #1f2837),
-  //         url(../../public/img/bg.jpg);
-  //     background-size: cover;
-  //     background-repeat: no-repeat;
-  //     opacity: 0.3;
-  //   }
   .home{
     background none
     position relative
