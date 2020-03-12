@@ -1,27 +1,37 @@
-# 一个简洁而精致的 博客 & 文档 & 笔记管理 主题
+# vuepress-theme-vdoing
+
+## 一个简洁而精致的 笔记管理 & 博客 & 文档  主题
 
 [![CI](https://github.com/xugaoyi/blog/workflows/CI/badge.svg)](https://github.com/xugaoyi/blog/actions?query=workflow%3ACI) [![baiduPush](https://github.com/xugaoyi/blog/workflows/baiduPush/badge.svg)](https://github.com/xugaoyi/blog/actions?query=workflow%3AbaiduPush) [![last-commit](https://img.shields.io/github/last-commit/xugaoyi/blog)](https://github.com/xugaoyi/blog/commits/master) [![GitHub stars](https://img.shields.io/github/stars/xugaoyi/blog)](https://github.com/xugaoyi/blog/stargazers) [![QQ](https://img.shields.io/badge/撩我-894072666-brightgreen)](https://xugaoyi.com/about/#%E8%81%94%E7%B3%BB)
 
 
+
 ## Introduce
 
-1. 根据 [vuepress](https://vuepress.vuejs.org/zh/) 的默认主题修改而成，仍以官方配置为主，追求**简洁**同时又不失**美观**。
+1. 根据 [VuePress](https://vuepress.vuejs.org/zh/) 的默认主题修改而成，仍以官方配置为主，追求**简洁**同时又不失**美观**。
 
-2. 这是一个兼具 **博客文章** & **技术文档** & **学习笔记** 管理的博客主题。
+2. 这是一个兼具 **笔记管理** & **博客文章** & **技术文档** 的主题。
 
-3. **源码开源**，想改哪就改哪。
+3. **代码开源**，想改哪就改哪。
 
-4. 添加博客所需的**评论**、**时间轴**、**分类**、**最近更新** 等。
-
-5. 可以很方便的管理你的**学习笔记**和**技术文档**，**导航栏+目录页+侧边栏+扩展的搜索框** 多维度让你快速定位到任何你想要找的笔记或文档。
+4. 可以很方便的管理你的**学习笔记**和**技术文档**，**导航栏+目录页+侧边栏+扩展的搜索框** 多维度的让你快速定位到任何你想要找的笔记或文档。
 
    * 简单的导航栏配置，参照 [官方配置](https://vuepress.vuejs.org/zh/theme/default-theme-config.html#导航栏)
-
    * 简单的目录页配置，参照 [目录页配置](https://github.com/xugaoyi/blog/issues/330)
-
    * 自动生成侧边栏（请看第6条）
-
    * [扩展的搜索框插件](https://github.com/xugaoyi/blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md)
+   * 左右翻页按钮插件（待开发）
+   * 返回顶部和底部插件（待开发）
+
+5. 添加博客所需的**评论**、**时间轴+分类**、**最近更新** 等。
+
+   * [评论栏插件](https://github.com/dongyuanxin/vuepress-plugin-comment)
+
+   * [时间轴+分类 页面配置](https://github.com/xugaoyi/blog/issues/331)
+
+     > 分类标签数据依赖于目录约定（请看第6条）
+
+   * 最近更新（暂无文档）
 
 6. 自动侧边栏满足不了需求？手动配置侧边栏工作繁杂？没关系，我们有**自动生成侧边栏**！
 
@@ -29,11 +39,11 @@
 
    > **分类标签**不需要你每个文件都设置 [Front Matter](https://vuepress.vuejs.org/zh/guide/frontmatter.html)，只需按照我们的目录约定，我们会按照目录来进行分类，这更适合管理你的学习笔记。
 
-7. 添加对*前端程序员*很友好**demo演示模块**，很方便的在博客中插入demo，同时可以查看demo源码，跳转到codepen在线编辑。
+7. 添加对*前端程序员*很友好**Demo演示模块**，很方便的在博客中插入demo，同时可以查看demo源码，跳转到codepen在线编辑。
 
-   [vuepress-plugin-demo-block](https://github.com/xiguaxigua/vuepress-plugin-demo-block)
+   [Demo演示模块插件](https://github.com/xiguaxigua/vuepress-plugin-demo-block)
 
-8. vuepress 的页面链接对于博客来说是一个阴暗面，官方对于 [永久链接](https://vuepress.vuejs.org/zh/guide/permalinks.html) 的处理我个人不是特别喜欢，因此就有了**自动生成永久链接**，你不需要给每个页面定义一个[Front Matter](https://vuepress.vuejs.org/zh/guide/frontmatter.html)指定永久链接，我们会通过文件名来生成一个永久链接码到你的页面Front Matter。但这并不妨碍你在特定页面手动指定自己喜欢的永久链接。
+8. VuePress 的页面链接对于博客来说是一个阴暗面，官方对于 [永久链接](https://vuepress.vuejs.org/zh/guide/permalinks.html) 的处理我个人不是特别喜欢，因此就有了**自动生成永久链接**，你不需要给每个页面定义一个[Front Matter](https://vuepress.vuejs.org/zh/guide/frontmatter.html)指定永久链接，我们会通过文件名来生成一个永久链接码到你的页面Front Matter。但这并不妨碍你在特定页面手动指定自己喜欢的永久链接。
 
    [自动生成的Front Matter](https://github.com/xugaoyi/blog/issues/324)
 
@@ -78,7 +88,7 @@ npm run dev # or yarn dev
    ]
    ```
 
-2. **评论模块**
+2. **评论模块的搭建**
 
    [使用Gitalk实现静态博客无后台评论系统](https://xugaoyi.com/pages/1da0bf9a988eafe5/)
 
