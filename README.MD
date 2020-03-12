@@ -4,6 +4,8 @@
 
 [![CI](https://github.com/xugaoyi/blog/workflows/CI/badge.svg)](https://github.com/xugaoyi/blog/actions?query=workflow%3ACI) [![baiduPush](https://github.com/xugaoyi/blog/workflows/baiduPush/badge.svg)](https://github.com/xugaoyi/blog/actions?query=workflow%3AbaiduPush) [![last-commit](https://img.shields.io/github/last-commit/xugaoyi/blog)](https://github.com/xugaoyi/blog/commits/master) [![GitHub stars](https://img.shields.io/github/stars/xugaoyi/blog)](https://github.com/xugaoyi/blog/stargazers) [![QQ](https://img.shields.io/badge/撩我-894072666-brightgreen)](https://xugaoyi.com/about/#%E8%81%94%E7%B3%BB)
 
+效果预览：[ Evan's blog](https://xugaoyi.com/)
+
 
 
 ## Introduce
@@ -51,9 +53,7 @@
 
    [自动部署到 github 或 coding](https://github.com/xugaoyi/blog/issues/325)
 
-10. 效果：[ Evan's blog](https://xugaoyi.com/)
-
-
+   
 
 ## Quick start
 
