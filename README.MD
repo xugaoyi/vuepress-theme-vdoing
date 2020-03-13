@@ -18,28 +18,36 @@
 
 4. 可以很方便的管理你的**学习笔记**和**技术文档**，**导航栏+目录页+侧边栏+扩展的搜索框** 多维度的让你快速定位到任何你想要找的笔记或文档。
 
-   * 简单的导航栏配置，参照 [官方配置](https://vuepress.vuejs.org/zh/theme/default-theme-config.html#导航栏)
-   * 简单的目录页配置，参照 [目录页配置](https://github.com/xugaoyi/blog/issues/330)
-   * 自动生成侧边栏（请看第6条）
-   * [扩展的搜索框插件](https://github.com/xugaoyi/blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md)
-   * 左右翻页按钮插件（待开发）
-   * 返回顶部和底部插件（待开发）
+   <details>
+    <summary>查看文档</summary>
+    <ul>
+        <li>
+        简单的导航栏配置，参照 <a href="https://vuepress.vuejs.org/zh/theme/default-theme-config.html#导航栏">官方配置</a>
+        </li>
+        <li>简单的目录页配置，参照 <a href="https://github.com/xugaoyi/blog/issues/330">目录页配置</a></li>
+        <li>自动生成侧边栏工具（请看第6条）</li>
+        <li><a href="https://github.com/xugaoyi/blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a></li>
+        <li>左右翻页按钮插件（待开发）</li>
+        <li>返回顶部和底部插件（待开发）</li>
+    </ul>
+   </details>
 
 5. 添加博客所需的**评论**、**时间轴+分类**、**最近更新** 等。
+   <details>
+    <summary>查看文档</summary>
+    <ul>
+        <li><a href="https://github.com/dongyuanxin/vuepress-plugin-comment">评论栏插件</a>
+        </li>
+        <li><a href="https://github.com/xugaoyi/blog/issues/331">时间轴+分类 页面配置</a>
+        </li>
+        <li>最近更新模块（暂无文档）</li>
+    </ul>
+   </details>
 
-   * [评论栏插件](https://github.com/dongyuanxin/vuepress-plugin-comment)
 
-   * [时间轴+分类 页面配置](https://github.com/xugaoyi/blog/issues/331)
+6. 自动侧边栏满足不了需求？手动配置侧边栏工作繁杂？没关系，我们有**自动生成侧边栏工具**！
 
-     > 分类标签数据依赖于目录约定（请看第6条）
-
-   * 最近更新（暂无文档）
-
-6. 自动侧边栏满足不了需求？手动配置侧边栏工作繁杂？没关系，我们有**自动生成侧边栏**！
-
-   [根据目录自动生成侧边栏的约定说明](https://github.com/xugaoyi/blog/issues/113)
-
-   > **分类标签**不需要你每个文件都设置 [Front Matter](https://vuepress.vuejs.org/zh/guide/frontmatter.html)，只需按照我们的目录约定，我们会按照目录来进行分类，这更适合管理你的学习笔记。
+   [根据目录自动生成侧边栏和分类标签的约定说明](https://github.com/xugaoyi/blog/issues/113)
 
 7. 添加对*前端程序员*很友好**Demo演示模块**，很方便的在博客中插入demo，同时可以查看demo源码，跳转到codepen在线编辑。
 
@@ -119,6 +127,4 @@ npm run dev # or yarn dev
 7. **在线编辑和新增文章的方法**
 
    [在线编辑和新增文章的方法](https://github.com/xugaoyi/blog/issues/327)
-
-
 

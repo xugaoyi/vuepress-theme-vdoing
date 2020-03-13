@@ -15,7 +15,7 @@ if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
   githubUrl=git@github.com:xugaoyi/blog.git
 else
-  msg='来自github action的自动部署'
+  msg='来自github actions的自动部署'
   githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/blog.git
   git config --global user.name "xugaoyi"
   git config --global user.email "894072666@qq.com"
