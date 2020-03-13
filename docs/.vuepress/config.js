@@ -59,9 +59,8 @@ module.exports = {
           frontUrl: 'https://cn.vuejs.org/v2/api/#',
         }
       ]
-    }], 
-    require('./plugins/page-nav'), // 页面左右的翻页按钮
-
+    }],
+    
     'vuepress-plugin-baidu-autopush', // 百度自动推送
     '@vuepress/back-to-top', // 返回顶部
 
