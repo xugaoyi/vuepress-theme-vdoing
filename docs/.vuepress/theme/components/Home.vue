@@ -1,5 +1,5 @@
 <template>
-  <div class="i-body" :style="'background-image: url('+ data.footer.bgImg +')'">
+  <div class="i-body" :style="'background-image: url('+ data.footer.bgImg || '' +')'">
 
 
     <div class="banner">

@@ -33,11 +33,11 @@ aside:
       title: 听音乐
       link: https://music.163.com/#/playlist?id=755597173
   blogger:
-    name: Evan
+    name: Evan Xu
     slogan: 前端界的小学生
 footer:
   year: 2019
-  content: xugaoyi
+  content: Evan Xu
   bgImg: /img/footer.png
 ---
 

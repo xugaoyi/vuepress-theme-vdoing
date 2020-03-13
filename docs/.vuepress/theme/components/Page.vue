@@ -34,16 +34,7 @@ export default {
 </script>
 
 <style lang="stylus">
-// @require '../styles/wrapper.styl'
-
-$wrapper
-  max-width $contentWidth
-  margin 0 auto
-  padding 2rem 2.5rem
-  @media (max-width: $MQNarrow)
-    padding 2rem
-  @media (max-width: $MQMobileNarrow)
-    padding 1.5rem
+@require '../styles/wrapper.styl'
 
 .page
   padding-bottom 2rem

@@ -27,11 +27,9 @@
         <li>简单的目录页配置，参照 <a href="https://github.com/xugaoyi/blog/issues/330">目录页配置</a></li>
         <li>自动生成侧边栏工具（请看第6条）</li>
         <li><a href="https://github.com/xugaoyi/blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a></li>
-        <li>左右翻页按钮插件（待开发）</li>
-        <li>返回顶部和底部插件（待开发）</li>
     </ul>
    </details>
-
+   
 5. 添加博客所需的**评论**、**时间轴+分类**、**最近更新** 等。
    <details>
     <summary>查看文档</summary>
@@ -55,7 +53,7 @@
 
 8. VuePress 的页面链接对于博客来说是一个阴暗面，官方对于 [永久链接](https://vuepress.vuejs.org/zh/guide/permalinks.html) 的处理我个人不是特别喜欢，因此就有了**自动生成永久链接**，你不需要给每个页面定义一个[Front Matter](https://vuepress.vuejs.org/zh/guide/frontmatter.html)指定永久链接，我们会通过文件名来生成一个永久链接码到你的页面Front Matter。但这并不妨碍你在特定页面手动指定自己喜欢的永久链接。
 
-   [自动生成的Front Matter](https://github.com/xugaoyi/blog/issues/324)
+   [自动生成Front Matter工具](https://github.com/xugaoyi/blog/issues/324)
 
 9. **自动部署**，内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种自动部署脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
 
