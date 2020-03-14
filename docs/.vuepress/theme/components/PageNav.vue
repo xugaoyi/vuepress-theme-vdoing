@@ -69,7 +69,11 @@ export default {
       this.isShowTooltip = true
       const tooltipEle = this.$refs.tooltip
 
-      tooltipEle.textContent = e.target.dataset.tooltip
+      const tooltipText = e.target.dataset.tooltip
+      if (tooltipEle.textContent !== tooltipText) {
+        tooltipEle.textContent = tooltipText
+      }
+
       const clientW = document.body.clientWidth
       const X = e.clientX
       const tooltipEleStyle = tooltipEle.style

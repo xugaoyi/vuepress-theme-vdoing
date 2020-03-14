@@ -44,10 +44,10 @@ footer:
 ## 关于
 
 ### 📚Blog
-这是一个兼具博客文章、个人技能树、文档查找的个人网站，主要内容是Web前端技术。如果你喜欢这个博客&主题欢迎到[GitHub](https://github.com/xugaoyi/blog)点个Star、获取源码，或者交换[友链](/pages/844eea1b2387fb96/) ( •̀ ω •́ )✧
+这是一个兼具博客文章、个人技能树、文档查找的个人网站，主要内容是Web前端技术。如果你喜欢这个博客&主题欢迎到[GitHub](https://github.com/xugaoyi/vuepress-theme-vdoing-blog)点个Star、获取源码，或者交换[友链](/pages/844eea1b2387fb96/) ( •̀ ω •́ )✧
 
 ### 🎨Theme
-本站主题是根据[VuePress](https://vuepress.vuejs.org/zh/)的默认主题修改而成。取名[Vdoing](https://github.com/xugaoyi/blog)(维度)，含义是方便你多维度的快速的管理和查找学习笔记以及技术文档。添加方便管理笔记文档的目录页、自动生成侧边栏工具、搜索框功能扩展等，添加博客所需的评论、时间轴、分类、最近更新等。更多[详情](https://github.com/xugaoyi/blog)。
+本站主题是根据[VuePress](https://vuepress.vuejs.org/zh/)的默认主题修改而成。取名[Vdoing](https://github.com/xugaoyi/vuepress-theme-vdoing-blog)(维度)，含义是方便你多维度的快速的管理和查找学习笔记以及技术文档。添加方便管理笔记文档的目录页、自动生成侧边栏工具、搜索框功能扩展等，添加博客所需的评论、时间轴、分类、最近更新等。更多[详情](https://github.com/xugaoyi/vuepress-theme-vdoing-blog)。
 
 </br>
 
@@ -126,7 +126,7 @@ footer:
   * [解决百度无法收录搭建在GitHub上的静态博客的问题](/pages/41f87d890d0a02af/)
   * [使用Gitalk实现静态博客无后台评论系统](/pages/1da0bf9a988eafe5/)
   * [GitHub + jsDelivr + TinyPNG+ PicGo 打造稳定快速、高效免费图床](/pages/a5f73af5185fdf0a/)
-  * [博客源码](https://github.com/xugaoyi/blog)
+  * [博客源码](https://github.com/xugaoyi/vuepress-theme-vdoing-blog)
 
 
 ### 💡更多

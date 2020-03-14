@@ -2,7 +2,7 @@
 
 ## 一个简洁而精致的 笔记管理 & 博客 & 文档  主题
 
-[![CI](https://github.com/xugaoyi/blog/workflows/CI/badge.svg)](https://github.com/xugaoyi/blog/actions?query=workflow%3ACI) [![baiduPush](https://github.com/xugaoyi/blog/workflows/baiduPush/badge.svg)](https://github.com/xugaoyi/blog/actions?query=workflow%3AbaiduPush) [![last-commit](https://img.shields.io/github/last-commit/xugaoyi/blog)](https://github.com/xugaoyi/blog/commits/master) [![GitHub stars](https://img.shields.io/github/stars/xugaoyi/blog)](https://github.com/xugaoyi/blog/stargazers) [![QQ](https://img.shields.io/badge/撩我-894072666-brightgreen)](https://xugaoyi.com/about/#%E8%81%94%E7%B3%BB)
+[![CI](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/CI/badge.svg)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3ACI) [![baiduPush](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/baiduPush/badge.svg)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3AbaiduPush) [![last-commit](https://img.shields.io/github/last-commit/xugaoyi/vuepress-theme-vdoing-blog)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/commits/master) [![GitHub stars](https://img.shields.io/github/stars/xugaoyi/vuepress-theme-vdoing-blog)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/stargazers) [![QQ](https://img.shields.io/badge/撩我-894072666-brightgreen)](https://xugaoyi.com/about/#%E8%81%94%E7%B3%BB)
 
 效果预览：[ Evan's blog](https://xugaoyi.com/)
 
@@ -24,9 +24,9 @@
         <li>
         简单的导航栏配置，参照 <a href="https://vuepress.vuejs.org/zh/theme/default-theme-config.html#导航栏">官方配置</a>
         </li>
-        <li>简单的目录页配置，参照 <a href="https://github.com/xugaoyi/blog/issues/330">目录页配置</a></li>
+        <li>简单的目录页配置，参照 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/330">目录页配置</a></li>
         <li>自动生成侧边栏工具（请看第6条）</li>
-        <li><a href="https://github.com/xugaoyi/blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a></li>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a></li>
     </ul>
    </details>
    
@@ -36,7 +36,7 @@
     <ul>
         <li><a href="https://github.com/dongyuanxin/vuepress-plugin-comment">评论栏插件</a>
         </li>
-        <li><a href="https://github.com/xugaoyi/blog/issues/331">时间轴+分类 页面配置</a>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/331">时间轴+分类 页面配置</a>
         </li>
         <li>最近更新模块（暂无文档）</li>
     </ul>
@@ -45,7 +45,7 @@
 
 6. 自动侧边栏满足不了需求？手动配置侧边栏工作繁杂？没关系，我们有**自动生成侧边栏工具**！
 
-   [根据目录自动生成侧边栏和分类标签的约定说明](https://github.com/xugaoyi/blog/issues/113)
+   [根据目录自动生成侧边栏和分类标签的约定说明](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/113)
 
 7. 添加对*前端程序员*很友好**Demo演示模块**，很方便的在博客中插入demo，同时可以查看demo源码，跳转到codepen在线编辑。
 
@@ -53,11 +53,11 @@
 
 8. VuePress 的页面链接对于博客来说是一个阴暗面，官方对于 [永久链接](https://vuepress.vuejs.org/zh/guide/permalinks.html) 的处理我个人不是特别喜欢，因此就有了**自动生成永久链接**，你不需要给每个页面定义一个[Front Matter](https://vuepress.vuejs.org/zh/guide/frontmatter.html)指定永久链接，我们会通过文件名来生成一个永久链接码到你的页面Front Matter。但这并不妨碍你在特定页面手动指定自己喜欢的永久链接。
 
-   [自动生成Front Matter工具](https://github.com/xugaoyi/blog/issues/324)
+   [自动生成Front Matter工具](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/324)
 
 9. **自动部署**，内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种自动部署脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
 
-   [自动部署到 github 或 coding](https://github.com/xugaoyi/blog/issues/325)
+   [自动部署到 github 或 coding](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/325)
 
    
 
@@ -65,8 +65,8 @@
 
 ```bash
 # 克隆项目后进入
-git clone https://github.com/xugaoyi/blog
-cd blog
+git clone https://github.com/xugaoyi/vuepress-theme-vdoing-blog
+cd vuepress-theme-vdoing-blog
 
 # 安装依赖并运行开发服务
 npm install # or yarn install
@@ -100,7 +100,7 @@ npm run dev # or yarn dev
 
 3. **自定义域名及解析**
 
-   [自定义域名及解析](https://github.com/xugaoyi/blog/issues/326)
+   [自定义域名及解析](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/326)
 
 4. **SEO相关**
 
@@ -124,5 +124,5 @@ npm run dev # or yarn dev
 
 7. **在线编辑和新增文章的方法**
 
-   [在线编辑和新增文章的方法](https://github.com/xugaoyi/blog/issues/327)
+   [在线编辑和新增文章的方法](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/327)
 
