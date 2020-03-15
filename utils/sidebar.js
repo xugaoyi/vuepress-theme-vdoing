@@ -10,15 +10,21 @@ const matter = require('gray-matter'); // FrontMatter解析器
 
 const docsRoot = path.join(__dirname, '..', 'docs'); // docs文件路径
 const sidebarPath = path.join(__dirname, '..', 'docs', '.vuepress', 'config', 'sidebar-auto.js'); // 侧边栏js文件要保存的路径
-
+const catalogueData = {}; // 目录页数据
 
 // sidebar-auto.js代码模板
 const sidebarTemplate = `
-// 侧边栏自动生成   // 最里面的数组，格式：[<path>, <title>, <permalink>]，其中permalink并非侧边栏所需，而是提供给其他页面使用
+/**
+ * 自动生成的侧边栏
+ * 说明：
+ * 1. 最里边的数组，格式：[<path>, <title>, <permalink>]，其中permalink并非侧边栏所需，而是提供给其他页面（目录页）使用
+ * 2. catalogue属性是提供给面包屑所需的目录页数据
+ */
 module.exports = {
   <% for (let item of sidebarData) { %>
-    "<%- item.path %>": <%- JSON.stringify(item.sidebarArr) %>,
+  "<%- item.path %>": <%- JSON.stringify(item.sidebarArr) %>,
   <% } %>
+  "catalogue": <%- JSON.stringify(catalogueData) %>
 }`;
 
 main();
@@ -43,7 +49,7 @@ function main() {
     })
   })
 
-  const sidebarDataTem = ejs.render(sidebarTemplate, { sidebarData });
+  const sidebarDataTem = ejs.render(sidebarTemplate, { sidebarData, catalogueData });
   fs.writeFileSync(sidebarPath, sidebarDataTem); // 同步写入文件, 参数一：写入到的文件, 参数二：写入的数据
   logger.info('侧边栏生成成功！')
 }
@@ -103,6 +109,12 @@ function mapTocToSidebar(root, prefix){
       const { data } = matter(contentStr) // 解析出front matter数据
       const permalink = data.permalink || ''
       sidebar[order] = [prefix + filename, title, permalink ];  // [<路径>, <文件标题>, <永久链接>]
+
+      // 目录页和永久链接，用于给面包屑提供数据
+      const pageComponent = data.pageComponent
+      if (pageComponent && pageComponent.name && pageComponent.name === "Catalogue") {
+        catalogueData[title] = permalink
+      }
     }
   })
 

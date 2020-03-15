@@ -18,7 +18,7 @@ features:
     imgname: /img/other.png
 aside:
   avatar: https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg
-  iconfontCssFile: //at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css # 阿里矢量图标库在线css文件地址
+  # iconfontCssFile: //at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css # 阿里图标库在线css文件地址,对于原本没有的图标可以另外添加
   icons:
     # - iconClass: icon-QQ
     #   title: QQ
@@ -33,7 +33,7 @@ aside:
       title: 听音乐
       link: https://music.163.com/#/playlist?id=755597173
   blogger:
-    name: Evan Xu
+    name: Evan xu
     slogan: 前端界的小学生
 footer:
   year: 2019

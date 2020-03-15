@@ -106,7 +106,9 @@
       </aside>
     </div>
 
-    <div class="footer" v-if="data.footer">Copyright © {{ data.footer.year }}-{{ new Date().getFullYear() }} {{ data.footer.content }}</div>
+    <div class="footer" v-if="data.footer">
+      Copyright © {{ data.footer.year }}-{{ new Date().getFullYear() }} {{ data.footer.content }}
+    </div>
   </div>
 </template>
 
@@ -218,8 +220,6 @@ export default {
 </script>
 
 <style lang="stylus">
-// @import '//at.alicdn.com/t/font_1678482_k8ld4et1y2f.css'
-
 .slide-banner
   margin-top: 2rem;
   .banner-wrapper
@@ -438,7 +438,9 @@ body .main-wrapper{
     .image_title {
       width: 11rem;
       height: 11rem;
-      transition: all .3s;
+      // transition: all .3s;
+      animation: heart 1.2s ease-in-out 0s infinite alternate;
+      animation-play-state: paused
     }
 
     h2 {
@@ -447,18 +449,32 @@ body .main-wrapper{
       border-bottom: none;
       padding-bottom: 0;
       color: lighten($textColor, 10%);
+      transition: all 1.2s;
     }
 
     p {
       color: lighten($textColor, 25%);
+      transition: all 1.2s;
     }
   }
 
   .feature:hover {
     .image_title {
-      transform:scale(1.1,1.1)
+      // transform:scale(1.1,1.1);
+      animation-play-state: running;
+    }
+    h2{
+      color: lighten($textColor, 80%);
+    }
+    p{
+      color: lighten($textColor, 25%);
     }
   }
+}
+
+@keyframes heart{
+  from{transform:translate(0,0)}
+  to{transform:translate(0,8px)}
 }
 
 .footer {

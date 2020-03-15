@@ -11,6 +11,9 @@ module.exports = {
     ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc'}],
     ['meta', { name: 'theme-color', content: '#11a8cd'}], // 移动浏览器主题颜色
 
+    // 不蒜子访问量统计
+    // ['script', { src: '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async: 'async'}]
+
     // 以下是vuepress-plugin-demo-block插件所需依赖
     // ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }], // 此文件会影响导航router-link-active样式的切换
     // ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
@@ -21,6 +24,10 @@ module.exports = {
   themeConfig: { // 主题配置
     nav,
     sidebar, // 侧边栏    'auto' | 自定义
+    author: { // 文章默认的作者信息(此项非官方配置，是新增的一项配置)，可在md文件中另外指定此项配置
+      name: 'Evan xu', // 必需
+      href: 'https://github.com/xugaoyi' // 非必需
+    },
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/EB-logo.png', // 导航栏logo
     repo: 'xugaoyi/vuepress-theme-vdoing-blog', // 导航栏右侧生成Github链接
