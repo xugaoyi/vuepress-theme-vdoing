@@ -3,10 +3,10 @@
     <div class="articleInfo">
       <ul class="breadcrumbs">
         <li>
-          <router-link to="/" class="iconfont icon-ai-home icon-home" />
+          <router-link to="/" class="iconfont icon-ai-home icon-home" title="首页" />
         </li>
         <li v-if="articleInfo.classify1">
-          <router-link v-if="articleInfo.cataloguePermalink" :to="articleInfo.cataloguePermalink">{{articleInfo.classify1}}</router-link>
+          <router-link v-if="articleInfo.cataloguePermalink" :to="articleInfo.cataloguePermalink" :title="articleInfo.classify1+'-目录页'">{{articleInfo.classify1}}</router-link>
           <span v-else>{{articleInfo.classify1}}</span>
         </li>
         <li v-if="articleInfo.classify2">
@@ -83,8 +83,8 @@ function zero(d){
 <style lang='stylus' scoped>
 
 .articleInfo-wrap
-  margin-bottom -3.6rem
-  padding-bottom 0
+  margin-bottom -3.6rem!important
+  padding-bottom 0!important
   color gray
   .articleInfo
     overflow hidden
@@ -105,11 +105,12 @@ function zero(d){
         &:last-child
           &:after
             content ''
-        .icon-home
+        a
           color gray
-          text-decoration none
           &:hover
             color $accentColor
+        .icon-home
+          text-decoration none
     .info
       float right
       line-height 32px
@@ -125,7 +126,11 @@ function zero(d){
           margin-right 3px
         a
           color gray
+          &:hover
+            color $accentColor
         &.date
           a 
             text-decoration none
+            &:hover
+              color gray
 </style>
