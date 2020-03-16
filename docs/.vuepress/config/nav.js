@@ -2,6 +2,7 @@ module.exports = [
   {text: '首页', link: '/'},
 
   {text: '前端',
+    link: '/web/', // 目录页，新增的配置项
     items: [
       {text: '前端文章', items: [
         {text: 'JavaScript', link: '/pages/8143cc480faf9a11/'},
@@ -17,12 +18,14 @@ module.exports = [
     ]
   },
   {text: '页面', 
+    link: '/ui/',
     items: [
       {text: 'HTML', link: '/pages/8309a5b876fc95e3/'},
       {text: 'CSS', link: '/pages/0a83b083bdf257cb/'},
     ]
   },
   {text: '技术',
+    link: '/technology/',
     items: [
       {text: '技术文档', link: '/pages/9a7ee40fc232253e/'},
       {text: 'GitHub', link: '/pages/4c778760be26d8b3/'},
@@ -31,6 +34,7 @@ module.exports = [
     ]
   },
   {text: '更多', 
+    link: '/more/',
     items: [
       {text: '学习', link: '/pages/a8692ab3bdcb4588/'},
       {text: '面试', link: '/pages/aea6571b7a8bae86/'},

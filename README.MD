@@ -1,6 +1,6 @@
 # vuepress-theme-vdoing
 
-## 一个简洁而精致的 笔记管理 & 博客 & 文档  主题
+## 一个简洁而精致的 知识管理 & 博客 & 文档  主题
 
 [![CI](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/CI/badge.svg)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3ACI) [![baiduPush](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/baiduPush/badge.svg)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3AbaiduPush) [![last-commit](https://img.shields.io/github/last-commit/xugaoyi/vuepress-theme-vdoing-blog)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/commits/master) [![GitHub stars](https://img.shields.io/github/stars/xugaoyi/vuepress-theme-vdoing-blog)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/stargazers) [![QQ](https://img.shields.io/badge/撩我-894072666-brightgreen)](https://xugaoyi.com/about/#%E8%81%94%E7%B3%BB)
 
@@ -12,7 +12,7 @@
 
 1. 根据 [VuePress](https://vuepress.vuejs.org/zh/) 的默认主题修改而成，仍以官方配置为主，追求**简洁**同时又不失**美观**。
 
-2. 这是一个兼具 **笔记管理** & **博客文章** & **技术文档** 的主题。
+2. 这是一个兼具 **知识管理** & **博客文章** & **技术文档** 的主题。
 
 3. **代码开源**，想改哪就改哪。
 

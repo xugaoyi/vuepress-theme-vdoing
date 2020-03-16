@@ -25,7 +25,7 @@ module.exports = {
     nav,
     sidebar, // 侧边栏    'auto' | 自定义
     author: { // 文章默认的作者信息(此项非官方配置，是新增的一项配置)，可在md文件中另外指定此项配置
-      name: 'Evan xu', // 必需
+      name: 'Evan Xu', // 必需
       href: 'https://github.com/xugaoyi' // 非必需
     },
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）

@@ -42,7 +42,8 @@ export default {
   },
   computed: {
     topPublishPosts() {
-      return getTopKPosts(this.posts, 5)
+      const count = this.pageMark === 'home' ? 5 : 3
+      return getTopKPosts(this.posts, count)
     },
     isShowArticle () {
       const { frontmatter } = this.$page
