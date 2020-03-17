@@ -35,10 +35,10 @@ aside:
   blogger:
     name: Evan Xu
     slogan: 前端界的小学生
-footer:
-  year: 2019
-  content: Evan Xu
-  bgImg: /img/footer.png
+# footer: // 此项配置移动到config.js
+#   year: 2019 # 博客创建年份
+#   content: Evan Xu # 支持html标签
+#   # bgImg: /img/footer.png
 ---
 
 ## 关于

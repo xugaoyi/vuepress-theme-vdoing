@@ -1,20 +1,20 @@
 <template>
-  <main class="page">
-    <slot name="top" />
-    
-    <ArticleInfo class="theme-default-content" v-if="isArticle()" />
+  <div>
+    <main class="page">
+      <slot name="top" />
+      
+      <ArticleInfo class="theme-default-content" v-if="isArticle()" />
+      <component class="theme-default-content" v-if="pageComponent" :is="pageComponent" />
+      <Content class="theme-default-content" />
+      <PageEdit />
+      <PageNav v-bind="{ sidebarItems }" />
+      <Article />
 
-    <component class="theme-default-content" v-if="pageComponent" :is="pageComponent" />
+      <slot name="bottom" />
+    </main>
 
-    <Content class="theme-default-content" />
-    <PageEdit />
-
-    <PageNav v-bind="{ sidebarItems }" />
-
-    <Article />
-
-    <slot name="bottom" />
-  </main>
+    <Footer />
+  </div>
 </template>
 
 <script>
@@ -24,9 +24,10 @@ import ArticleInfo from './ArticleInfo.vue'
 import Catalogue from './Catalogue.vue'
 import Article from './Article.vue'
 import Timeline from './Timeline.vue'
+import Footer from './Footer.vue'
 
 export default {
-  components: { PageEdit, PageNav, ArticleInfo, Catalogue, Article, Timeline},
+  components: { PageEdit, PageNav, ArticleInfo, Catalogue, Article, Timeline, Footer},
   props: ['sidebarItems'],
   computed: {
     pageComponent () {

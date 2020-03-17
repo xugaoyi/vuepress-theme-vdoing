@@ -1,7 +1,5 @@
 <template>
-  <div class="i-body" :style="'background-image: url('+ data.footer.bgImg || '' +')'">
-
-
+  <div class="i-body" :style="'background-image: url('+ footerBgImg || '' +')'">
     <div class="banner">
       <main class="home">
         <header class="hero">
@@ -56,59 +54,36 @@
 
     <div class="main-wrapper">
       <main class="home home-content" aria-labelledby="main-title">
-        <!-- <header class="hero">
-          <img v-if="data.heroImage" :src="$withBase(data.heroImage)" :alt="data.heroAlt || 'hero'" />
-
-          <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
-
-          <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
-
-          <p class="action" v-if="data.actionText && data.actionLink">
-            <NavLink class="action-button" :item="actionLink" />
-          </p>
-        </header>
-
-        <div class="features" v-if="data.features && data.features.length">
-          <div class="feature" v-for="(feature, index) in data.features" :key="index">
-            <a :href="$withBase(feature.url)">
-              <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
-              <h2>{{ feature.title }}</h2>
-              <p>{{ feature.details }}</p>
-            </a>
-          </div>
-        </div> -->
         <Article pageMark="home" />
         <Content class="theme-default-content custom" />
       </main>
 
-      <aside class="info-wrapper" v-if="data.aside">
+      <aside class="info-wrapper" v-if="blogger">
         <div class="avatar">
-          <img :src="data.aside.avatar" alt="头像">
+          <img :src="blogger.avatar" alt="头像">
         </div>
-        <div class="icons" v-if="data.aside.icons">
+        <div class="icons" v-if="blogger.social">
           <a
            :href="item.link"
            :title="item.title"
            :class="['iconfont', item.iconClass]"
-           v-for="(item, index) in data.aside.icons"
+           v-for="(item, index) in blogger.social.icons"
            :key="index"
-           :style="{width: 100/data.aside.icons.length + '%'}"
+           :style="{width: 100/blogger.social.icons.length + '%'}"
            target="_blank"
           >
           </a>
         </div>
         <div class="blogger">
-          <span class="name">{{data.aside.blogger.name}}</span>
+          <span class="name">{{blogger.name}}</span>
           <span class="slogan">
-            {{data.aside.blogger.slogan}}
+            {{blogger.slogan}}
           </span>
         </div>
       </aside>
     </div>
-
-    <div class="footer" v-if="data.footer">
-      Copyright © {{ data.footer.year }}-{{ new Date().getFullYear() }} {{ data.footer.content }}
-    </div>
+    
+    <Footer />
   </div>
 </template>
 
@@ -117,6 +92,7 @@ import NavLink from "@theme/components/NavLink.vue";
 import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
 import Article from './Article.vue'
+import Footer from './Footer.vue'
 
 BScroll.use(Slide)
 
@@ -129,9 +105,6 @@ export default {
       playTimer: 0,
       mark: 0
     }
-  },
-  created() {
-    //vupress在打包时不能在beforeCreate(),created()内访问浏览器api（如window）
   },
   beforeMount(){
     this.isMQMobile = window.innerWidth < 720 ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
@@ -147,11 +120,11 @@ export default {
     })
 
     // 引入图标库
-    if(this.data.aside && this.data.aside.iconfontCssFile) {
+    if(this.blogger && this.blogger.social && this.blogger.social.iconfontCssFile ) {
       let linkElm = document.createElement("link")
       linkElm.setAttribute('rel', 'stylesheet');
       linkElm.setAttribute("type", "text/css")
-      linkElm.setAttribute("href", this.data.aside.iconfontCssFile)
+      linkElm.setAttribute("href", this.blogger.social.iconfontCssFile)
       document.head.appendChild(linkElm)
     }
     
@@ -202,13 +175,18 @@ export default {
     }
   },
 
-  components: { NavLink, Article },
+  components: { NavLink, Article, Footer },
 
   computed: {
     data() {
       return this.$page.frontmatter;
     },
-
+    blogger() {
+      return this.$themeConfig.blogger
+    },
+    footerBgImg() {
+      return this.$themeConfig.footer && this.$themeConfig.footer.footerBgImg
+    },
     actionLink() {
       return {
         link: this.data.actionLink,
@@ -353,7 +331,7 @@ body .main-wrapper{
     .blogger{
       margin: 15px 0 10px 0;
       .name{
-        font-size 25px
+        font-size 24px
         display: block
         margin-bottom 10px
       }
@@ -475,13 +453,6 @@ body .main-wrapper{
 @keyframes heart{
   from{transform:translate(0,0)}
   to{transform:translate(0,8px)}
-}
-
-.footer {
-  padding: 2.5rem;
-  margin-bottom 2rem;
-  text-align: center;
-  color: lighten($textColor, 25%);
 }
 
 

@@ -15,7 +15,8 @@
       </ul>
       <div class="info">
         <div class="author iconfont icon-touxiang" v-if="articleInfo.author">
-          <a :href="articleInfo.author.href" v-if="articleInfo.author.href" target="_blank" title="作者">{{articleInfo.author.name}}</a>
+          <a :href="articleInfo.author.href" v-if="articleInfo.author.href" target="_blank" class="beLink" title="作者">{{articleInfo.author.name}}</a>
+          <a v-else href="javascript:;"  title="作者">{{articleInfo.author.name}}</a>
         </div>
         <div class="date iconfont icon-ic_calendar" v-if="articleInfo.date">
           <a href="javascript:;" title="创建时间">{{articleInfo.date}}</a>
@@ -85,7 +86,7 @@ function zero(d){
 .articleInfo-wrap
   margin-bottom -3.6rem!important
   padding-bottom 0!important
-  color gray
+  color #888
   .articleInfo
     overflow hidden
     .breadcrumbs
@@ -101,12 +102,13 @@ function zero(d){
         padding-right 5px
         &:after
           content '→'
-          margin-left: 5px;
+          margin-left 5px
+          color #999
         &:last-child
           &:after
             content ''
         a
-          color gray
+          color #888
           &:hover
             color $accentColor
         .icon-home
@@ -125,12 +127,11 @@ function zero(d){
         &:before
           margin-right 3px
         a
-          color gray
+          color #888
+          &:hover
+            text-decoration none
+        a.beLink
           &:hover
             color $accentColor
-        &.date
-          a 
-            text-decoration none
-            &:hover
-              color gray
+            text-decoration underline
 </style>
