@@ -14,8 +14,8 @@
         <!-- PC端features块 s -->
         <div class="features" v-if="data.features && data.features.length && !isMQMobile">
           <div class="feature" v-for="(feature, index) in data.features" :key="index">
-            <router-link :to="$withBase(feature.url)">
-              <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
+            <router-link :to="$withBase(feature.link)">
+              <img class="image_title" :src="$withBase(feature.imgUrl)" :alt="feature.title" />
               <h2>{{ feature.title }}</h2>
               <p>{{ feature.details }}</p>
             </router-link>
@@ -30,8 +30,8 @@
           <div class="slide-banner-scroll" ref="slide">
             <div class="slide-banner-wrapper">
               <div class="slide-item" v-for="(feature, index) in data.features" :key="index">
-                <router-link :to="$withBase(feature.url)">
-                  <img class="image_title" :src="$withBase(feature.imgname)" :alt="feature.title" />
+                <router-link :to="$withBase(feature.link)">
+                  <img class="image_title" :src="$withBase(feature.imgUrl)" :alt="feature.title" />
                   <h2>{{ feature.title }}</h2>
                   <p>{{ feature.details }}</p>
                 </router-link>

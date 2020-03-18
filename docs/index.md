@@ -6,39 +6,16 @@ tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习�
 features:
   - title: 前端
     details: JavaScript、ES6、Vue框架等前端技术
-    url: /web/
-    imgname: /img/web.png
+    link: /web/
+    imgUrl: /img/web.png
   - title: 页面
     details: html(5)/css(3)，前端页面相关技术
-    url: /ui/
-    imgname: /img/ui.png
+    link: /ui/
+    imgUrl: /img/ui.png
   - title: 技术
     details: 技术文档、教程、技巧、总结等文章
-    url: /technology/
-    imgname: /img/other.png
-aside:
-  avatar: https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg
-  # iconfontCssFile: //at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css # 阿里图标库在线css文件地址,对于原本没有的图标可以另外添加
-  icons:
-    # - iconClass: icon-QQ
-    #   title: QQ
-    #   link: tencent://message/?uin=894072666&Site=&Menu=yesUrl
-    - iconClass: icon-youjian
-      title: 发邮件
-      link: mailto:894072666@qq.com
-    - iconClass: icon-github
-      title: GitHub
-      link: https://github.com/xugaoyi
-    - iconClass: icon-erji
-      title: 听音乐
-      link: https://music.163.com/#/playlist?id=755597173
-  blogger:
-    name: Evan Xu
-    slogan: 前端界的小学生
-# footer: // 此项配置移动到config.js
-#   year: 2019 # 博客创建年份
-#   content: Evan Xu # 支持html标签
-#   # bgImg: /img/footer.png
+    link: /technology/
+    imgUrl: /img/other.png
 ---
 
 ## 关于

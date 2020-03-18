@@ -52,7 +52,7 @@
     <ul>
         <li><a href="https://github.com/dongyuanxin/vuepress-plugin-comment">评论栏插件</a>
         </li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/331">时间轴+分类 页面配置</a>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/331">时间轴+分类 页面配置</a> (分类数据依赖于自动生成侧边栏工具)
         </li>
         <li>
             <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/335">文章信息栏（作者与创建时间）</a>
@@ -62,6 +62,11 @@
         <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/337">页脚版权栏</a></li>
     </ul>
    </details>
+   
+5. 首页样式美化
+
+   [首页配置](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/338)
+
 
 ## Start 开始
 
