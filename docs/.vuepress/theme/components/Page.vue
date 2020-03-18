@@ -8,7 +8,7 @@
       <Content class="theme-default-content" />
       <PageEdit />
       <PageNav v-bind="{ sidebarItems }" />
-      <Article />
+      <UpdateArticle />
 
       <slot name="bottom" />
     </main>
@@ -22,12 +22,12 @@ import PageEdit from '@theme/components/PageEdit.vue'
 import PageNav from '@theme/components/PageNav.vue'
 import ArticleInfo from './ArticleInfo.vue'
 import Catalogue from './Catalogue.vue'
-import Article from './Article.vue'
+import UpdateArticle from './UpdateArticle.vue'
 import Timeline from './Timeline.vue'
 import Footer from './Footer.vue'
 
 export default {
-  components: { PageEdit, PageNav, ArticleInfo, Catalogue, Article, Timeline, Footer},
+  components: { PageEdit, PageNav, ArticleInfo, Catalogue, UpdateArticle, Timeline, Footer},
   props: ['sidebarItems'],
   computed: {
     pageComponent () {

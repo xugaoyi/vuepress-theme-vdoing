@@ -54,7 +54,7 @@
 
     <div class="main-wrapper">
       <main class="home home-content" aria-labelledby="main-title">
-        <Article pageMark="home" />
+        <UpdateArticle pageMark="home" />
         <Content class="theme-default-content custom" />
       </main>
 
@@ -91,7 +91,7 @@
 import NavLink from "@theme/components/NavLink.vue";
 import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
-import Article from './Article.vue'
+import UpdateArticle from './UpdateArticle.vue'
 import Footer from './Footer.vue'
 
 BScroll.use(Slide)
@@ -175,7 +175,7 @@ export default {
     }
   },
 
-  components: { NavLink, Article, Footer },
+  components: { NavLink, UpdateArticle, Footer },
 
   computed: {
     data() {

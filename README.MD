@@ -8,29 +8,45 @@
 
 
 
-## Introduce
+## Original intention 初衷
+
+这个主题的初衷是搭建自己的知识库，记录和分享技术文章。
+
+![初衷](https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200318125116.jpg)
+
+
+
+## Introduce 介绍
 
 1. 根据 [VuePress](https://vuepress.vuejs.org/zh/) 的默认主题修改而成，仍以官方配置为主，追求**简洁**同时又不失**美观**。
 
 2. 这是一个兼具 **知识管理** & **博客文章** & **技术文档** 的主题。
 
-3. **代码开源**，想改哪就改哪。
-
-4. 可以很方便的管理你的**学习笔记**和**技术文档**，**导航栏+目录页+侧边栏+扩展的搜索框** 多维度的让你快速定位到任何你想要找的笔记或文档。
+3. 添加方便管理 **学习笔记** 和 **技术文档** 的 **目录页**、**自动生成侧边栏工具**、**自动生成Front Matter工具**、**扩展的搜索框插件**、**面包屑**、**快捷翻页按钮** 等，多维度的让你快速定位到任何你想要找的笔记或文档。
 
    <details>
     <summary>查看文档</summary>
     <ul>
-        <li>
-        简单的导航栏配置，参照 <a href="https://vuepress.vuejs.org/zh/theme/default-theme-config.html#导航栏">官方配置</a>
         </li>
-        <li>简单的目录页配置，参照 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/330">目录页配置</a></li>
-        <li>自动生成侧边栏工具（请看第6条）</li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a></li>
+        <li>简单的<b>目录页</b>配置，查看 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/330">目录页配置</a>
+        </li>
+        <li><b>自动生成侧边栏工具</b> 让你拥有一个结构清晰的侧边栏，无需手动配置。<br/>
+        <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/113">根据目录自动生成侧边栏和分类标签的约定说明</a>
+        </li>
+        <li><b>自动生成Front Matter工具</b> 助你专注于写作，你无需给每个文件都手写front matter。<br/>
+        <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/324">自动生成Front Matter工具</a>
+        </li>
+        <li>
+        可以添加第三方搜索链接的<a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a>
+        </li>
+       <li>
+        	<b>面包屑</b>和<b>快捷翻页按钮</b>内置于主题，无需配置。（面包屑数据依赖于自动生成侧边栏工具）
+        </li>
     </ul>
    </details>
-   
-5. 添加博客所需的**评论**、**时间轴+分类**、**最近更新** 等。
+
+
+4. 添加博客相关的 **评论**、**时间轴+分类页**、**最近更新栏** 、**文章信息栏（作者与创建时间）**、**博主信息栏**、**页脚版权栏**等。
    <details>
     <summary>查看文档</summary>
     <ul>
@@ -38,30 +54,16 @@
         </li>
         <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/331">时间轴+分类 页面配置</a>
         </li>
-        <li>最近更新模块（暂无文档）</li>
+        <li>
+            <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/335">文章信息栏（作者与创建时间）</a>
+        </li>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/334">最近更新栏</a></li>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/336">博主信息栏</a></li>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/337">页脚版权栏</a></li>
     </ul>
    </details>
 
-
-6. 自动侧边栏满足不了需求？手动配置侧边栏工作繁杂？没关系，我们有**自动生成侧边栏工具**！
-
-   [根据目录自动生成侧边栏和分类标签的约定说明](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/113)
-
-7. 添加对*前端程序员*很友好**Demo演示模块**，很方便的在博客中插入demo，同时可以查看demo源码，跳转到codepen在线编辑。
-
-   [Demo演示模块插件](https://github.com/xiguaxigua/vuepress-plugin-demo-block)
-
-8. VuePress 的页面链接对于博客来说是一个阴暗面，官方对于 [永久链接](https://vuepress.vuejs.org/zh/guide/permalinks.html) 的处理我个人不是特别喜欢，因此就有了**自动生成永久链接**，你不需要给每个页面定义一个[Front Matter](https://vuepress.vuejs.org/zh/guide/frontmatter.html)指定永久链接，我们会通过文件名来生成一个永久链接码到你的页面Front Matter。但这并不妨碍你在特定页面手动指定自己喜欢的永久链接。
-
-   [自动生成Front Matter工具](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/324)
-
-9. **自动部署**，内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种自动部署脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
-
-   [自动部署到 github 或 coding](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/325)
-
-   
-
-## Quick start
+## Start 开始
 
 ```bash
 # 克隆项目后进入
@@ -73,36 +75,70 @@ npm install # or yarn install
 npm run dev # or yarn dev
 ```
 
+## Plugins 工具
+
+推荐几款插件
 
 
-## Other
+1. 对*前端程序员*很友好**Demo演示模块插件**，很方便的在博客中插入demo，同时可以查看demo源码，跳转到codepen在线编辑。
 
-1. **百度推送和统计**
+   [vuepress-plugin-demo-block](https://www.npmjs.com/package/vuepress-plugin-demo-block)
 
-   以插件的形式加入百度推送和统计，`npm`安装好如下插件并配置
+2. 代码块一键复制插件
+
+   [vuepress-plugin-one-click-copy](https://www.npmjs.com/package/vuepress-plugin-one-click-copy)
+
+3. H1标题美化徽章插件
+
+   [title-badge](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/tree/master/docs/.vuepress/plugins/title-badge)
+
+   > 此插件未上传npm，以本地插件引入:
 
    ```js
-   //config.js
-   plugins:[
-       'vuepress-plugin-baidu-autopush', // 百度推送
-       [
-           'vuepress-plugin-baidu-tongji', // 百度统计
-           {
-               hm: '**********************' // 设置你自己的hm参数，百度统计提供
-           }
-       ]
-   ]
+   // config.js
+   module.exports = {
+       plugins: [
+           [require('./plugins/title-badge'), { // h1标题徽章
+               // badges: [ // 替换默认的徽章图标
+               //   'data:image/png;base64,**',
+               //   'data:image/png;base64,***',
+               // ]
+           }]
+      ]
+   }
    ```
 
-2. **评论模块的搭建**
+4. 可以添加第三方搜索链接的搜索框插件
+
+   [enhanced-search](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md)
+
+   > 此插件未上传npm，以本地插件引入
+
+5. 百度推送和统计插件
+
+   [vuepress-plugin-baidu-autopush](https://www.npmjs.com/package/vuepress-plugin-baidu-autopush)
+
+   [vuepress-plugin-baidu-tongji](https://www.npmjs.com/package/vuepress-plugin-baidu-tongji)
+
+## Deploy 部署
+
+1. 内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种**自动部署**脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
+
+   [自动部署到 github 或 coding](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/325)
+
+
+
+## Other 其他
+
+1. **评论模块的搭建**
 
    [使用Gitalk实现静态博客无后台评论系统](https://xugaoyi.com/pages/1da0bf9a988eafe5/)
 
-3. **自定义域名及解析**
+2. **自定义域名及解析**
 
    [自定义域名及解析](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/326)
 
-4. **SEO相关**
+3. **SEO相关**
 
    ```js
    // config.js
@@ -114,15 +150,15 @@ npm run dev # or yarn dev
    }
    ```
 
-5. **图床**
+4. **图床**
 
    [GitHub + jsDelivr + TinyPNG+ PicGo 打造稳定快速、高效免费图床](https://xugaoyi.com/pages/a5f73af5185fdf0a/)
 
-6. **结合GitHub Actions开发的每天定时百度推送，加快收录**
+5. **结合GitHub Actions开发的每天定时百度推送，加快收录**
 
    [GitHub Actions 定时运行代码：每天定时百度链接推送](https://xugaoyi.com/pages/f44d2f9ad04ab8d3/)
 
-7. **在线编辑和新增文章的方法**
+6. **在线编辑和新增文章的方法**
 
    [在线编辑和新增文章的方法](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/327)
 
