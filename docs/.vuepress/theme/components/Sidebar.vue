@@ -76,11 +76,12 @@ export default {
       margin-top .75rem
   .blogger
     display none
+    border-bottom 1px solid $borderColor
     img
       width 60px
       height 60px
       border-radius 5px
-      margin .75rem .75rem 0
+      margin .75rem 1rem
     .blogger-info
       flex 1
       h3

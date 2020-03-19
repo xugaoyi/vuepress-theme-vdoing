@@ -58,8 +58,16 @@ export default {
     max-width $contentWidth
     margin 0 auto
     padding 2rem 2.5rem 0 2.5rem
+    &:not(.article-home)
+      margin 2rem auto 0 auto
+      border 8px solid #f5f5f5
+      box-sizing border-box
     @media (max-width: $MQNarrow)
       padding 2rem 2rem 0rem 2rem
+      &:not(.article-home)
+        border-width 10px
+        border-left none
+        border-right none
     @media (max-width: $MQMobileNarrow)
       padding 1.5rem 1.5rem 0rem 1.5rem
     &.article-home
@@ -90,6 +98,8 @@ export default {
         // width 50%
         // @media (max-width: $MQNarrow)
         //   width 100%
+        &:last-child
+          border-bottom none
         dd
           font-size 1.1rem
           color #F17229

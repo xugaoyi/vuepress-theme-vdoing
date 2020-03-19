@@ -10,7 +10,7 @@
 
 ## Original intention 初衷
 
-这个主题的初衷是搭建自己的知识库，记录和分享技术文章。
+这个主题的初衷是搭建自己的知识库，兼具博客功能，记录和分享技术文章。
 
 ![初衷](https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200318125116.jpg)
 
@@ -80,7 +80,7 @@ npm install # or yarn install
 npm run dev # or yarn dev
 ```
 
-## Plugins 工具
+## Plugin 插件
 
 推荐几款插件
 
