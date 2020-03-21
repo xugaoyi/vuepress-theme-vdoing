@@ -113,7 +113,7 @@ export default {
       ]
     }
   },
-  created() {
+  beforeMount() {
     this.isSidebarOpenOfclientWidth()
   },
   mounted () {
