@@ -5,7 +5,7 @@ export default ({ router }) => {
       function insertBadge(){
         setTimeout(() =>{
           const a = document.querySelector(".theme-default-content h1 a");
-          a && a.insertAdjacentHTML('afterend', `<img src="${BADGES[Math.floor(Math.random() * BADGES.length)]}">`);
+          a && a.insertAdjacentHTML('afterend', `<img src="${BADGES[Math.floor(Math.random() * BADGES.length)]}" class="no-zoom">`);
         },0)
       }
 

@@ -3,7 +3,7 @@
     <div class="articleInfo">
       <ul class="breadcrumbs">
         <li>
-          <router-link to="/" class="iconfont icon-ai-home icon-home" title="首页" />
+          <router-link to="/" class="iconfont icon-home" title="首页" />
         </li>
         <li v-if="articleInfo.classify1">
           <router-link v-if="articleInfo.cataloguePermalink" :to="articleInfo.cataloguePermalink" :title="articleInfo.classify1+'-目录页'">{{articleInfo.classify1}}</router-link>
@@ -18,7 +18,7 @@
           <a :href="articleInfo.author.href" v-if="articleInfo.author.href" target="_blank" class="beLink" title="作者">{{articleInfo.author.name}}</a>
           <a v-else href="javascript:;"  title="作者">{{articleInfo.author.name}}</a>
         </div>
-        <div class="date iconfont icon-ic_calendar" v-if="articleInfo.date">
+        <div class="date iconfont icon-riqi" v-if="articleInfo.date">
           <a href="javascript:;" title="创建时间">{{articleInfo.date}}</a>
         </div>
       </div>
@@ -89,11 +89,13 @@ function zero(d){
   color #888
   .articleInfo
     overflow hidden
+    font-size .95rem
     .breadcrumbs
       margin 0
       padding 0
       overflow hidden
       display inline-block
+      line-height 2rem
       @media (max-width: 960px)
         width 100%
       li
@@ -101,7 +103,7 @@ function zero(d){
         float left
         padding-right 5px
         &:after
-          content '→'
+          content '-'
           margin-left 5px
           color #999
         &:last-child
@@ -109,6 +111,8 @@ function zero(d){
             content ''
         a
           color #888
+          &:before
+            font-size .95rem
           &:hover
             color $accentColor
         .icon-home
@@ -121,7 +125,7 @@ function zero(d){
       div
         float left
         margin-left 20px
-        font-size .9rem
+        font-size .8rem
         @media (max-width: 960px)
           margin 0 20px 0 0
         &:before

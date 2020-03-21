@@ -215,14 +215,16 @@ function flatten (items, res) {
     max-width 200px
   .page-nav-centre-prev
     left 0
-    -webkit-transform translateX(320px)
-    transform translateX(320px)
     &:before
       transform rotate(-135deg)
   .page-nav-centre-next
     right: 0
     &:before
       transform rotate(45deg)
+
+.sidebar-open .page-nav-centre-wrap .page-nav-centre-prev
+  -webkit-transform translateX(320px)
+  transform translateX(320px)
 .no-sidebar .page-nav-centre-wrap .page-nav-centre-prev
   -webkit-transform translateX(0)
   transform translateX(0)

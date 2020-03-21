@@ -1,5 +1,5 @@
 // 引入字体图标
-@import '//at.alicdn.com/t/font_1678482_m18ipwgi2da.css'
+@import '//at.alicdn.com/t/font_1678482_tdhmdeztrfo.css'
 
 // 样式重置
 body
@@ -10,6 +10,9 @@ a,input,button
 .theme-default-content:not(.custom)
   word-wrap break-word
   
+.navbar
+  box-shadow 0 2px 5px rgba(0,0,0,.06)
+
 // 滚动条样式
 @media (min-width: $MQMobile)
   ::-webkit-scrollbar
@@ -57,6 +60,7 @@ table
 // 侧边栏高出评论区
 .sidebar
   z-index 11
+  background #fbfbfb
 
 // 评论区颜色重置
 .gt-container
@@ -97,3 +101,51 @@ body .vuepress-plugin-demo-block__wrapper .vuepress-plugin-demo-block__footer:ho
 //iframe
 iframe
   margin: 1rem 0
+
+
+
+// 目录显示隐藏
+@media (max-width: $MQMobile)
+  .theme-container
+    &.sidebar-open
+      .sidebar-mask // 蒙版在小屏中才能显示
+        display: block
+
+@media (min-width: ($MQMobile + 1px))
+  .theme-container // 覆盖index.style #179
+    &.sidebar-open
+      .sidebar-mask // 蒙版在大屏中不能显示
+        display: none
+
+  .theme-container.no-sidebar
+    .sidebar-button
+      display none
+
+
+
+// 大于720px时 切换目录栏的样式
+.sidebar
+  transform translateX(-100%)
+  transition transform .2s ease
+.page // 覆盖index.styl #20
+  transition all .2s ease
+  padding-left 0
+
+@media (min-width: ($MQMobile + 1px))
+  .theme-container
+    &.sidebar-open
+      .sidebar
+        transform translateX(0)
+      .sidebar-button
+        left $sidebarWidth
+      .page
+        padding-left $sidebarWidth
+    &.no-sidebar
+      .page
+        padding-left 0
+  @media (max-width: $MQNarrow)
+    .theme-container
+      &.sidebar-open:not(.on-sidebar)
+        .sidebar-button
+          $mobileSidebarWidth = $sidebarWidth * 0.82
+          left $mobileSidebarWidth
