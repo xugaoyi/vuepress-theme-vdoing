@@ -41,24 +41,17 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
     padding 0 10px
     font-size 19px
 .footer
-  padding 2.5rem
+  padding 2.5rem 2.5rem 4rem 
   text-align center
   color lighten($textColor, 25%)
-  margin 0 0 2rem 0
   box-sizing border-box
   font-size .85rem
   transition all .2s ease
-  // width auto
-  // margin-left 0
-
-.sidebar-open .footer
-  width auto
-  margin-left $sidebarWidth
-  // @media (max-width: $MQNarrow)
-  //   margin-left $mobileSidebarWidth
-  // @media (max-width: $MQMobile)
-  //   width auto
-  //   margin-left 0
+  
+@media (min-width: ($MQMobile + 1px))
+  .sidebar-open .footer
+    width auto
+    margin-left $sidebarWidth
 
 .no-sidebar .footer
   width auto

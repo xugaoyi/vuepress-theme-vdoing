@@ -44,6 +44,8 @@
         #bottom
       />
     </Page>
+
+    <Buttons />
   </div>
 </template>
 
@@ -52,12 +54,13 @@ import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
+import Buttons from '@theme/components/Buttons.vue'
 import { resolveSidebarItems } from '../util'
 
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 
 export default {
-  components: { Home, Page, Sidebar, Navbar },
+  components: { Home, Page, Sidebar, Navbar, Buttons },
 
   data () {
     return {
@@ -130,7 +133,6 @@ export default {
     },
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
-      console.log(this.isSidebarOpen)
       this.$emit('toggle-sidebar', this.isSidebarOpen)
     },
 
