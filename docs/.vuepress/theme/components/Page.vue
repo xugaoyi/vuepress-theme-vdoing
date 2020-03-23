@@ -3,15 +3,15 @@
     <main class="page">
       <slot name="top" />
       
-      <div class="theme-vdoing-wrapper">
-        <RightMenu />
+      <!-- <div class="theme-vdoing-wrapper"> -->
+        <!-- <RightMenu /> -->
         <ArticleInfo class="theme-default-content" v-if="isArticle()" />
         <component class="theme-default-content" v-if="pageComponent" :is="pageComponent" />
         <Content class="theme-default-content" />
 
         <PageEdit />
         <PageNav v-bind="{ sidebarItems }" />
-      </div>
+      <!-- </div> -->
 
       <UpdateArticle />
 

@@ -86,6 +86,7 @@ function zero(d){
 .articleInfo-wrap
   margin-bottom -3.6rem!important
   padding-bottom 0!important
+  padding-top 1rem!important
   color #888
   .articleInfo
     overflow hidden
