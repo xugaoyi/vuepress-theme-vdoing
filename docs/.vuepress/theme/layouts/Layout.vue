@@ -18,6 +18,7 @@
     <Sidebar
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
+      v-show="showSidebar"
     >
       <slot
         name="sidebar-top"
@@ -64,7 +65,8 @@ export default {
 
   data () {
     return {
-      isSidebarOpen: true
+      isSidebarOpen: true,
+      showSidebar: false
     }
   },
 
@@ -120,6 +122,7 @@ export default {
     this.isSidebarOpenOfclientWidth()
   },
   mounted () {
+    this.showSidebar = true // 解决移动端初始化页面时侧边栏闪现的问题
     this.$router.afterEach(() => {
       this.isSidebarOpenOfclientWidth()
     })

@@ -79,7 +79,16 @@ export default {
     },
 
     scrollToComment() {
-      window.scrollTo({ top: this.commentTop, behavior: 'smooth' })
+      window.scrollTo({ top: this.commentTop, behavior: 'instant' })
+      const textareaEl = document.querySelector(this.COMMENT_SELECTOR + ' textarea')
+      if (textareaEl) {
+        textareaEl.focus()
+        textareaEl.classList.add('yellowBorder')
+        setTimeout(() => {
+          textareaEl.classList.remove('yellowBorder')
+        }, 500)
+      }
+      
     }
     
   },
@@ -92,7 +101,10 @@ export default {
 }
 </script>
 
-<style lang='stylus' scoped>
+<style lang='stylus'>
+  .yellowBorder
+    border: #FFE089 1px solid!important
+    box-shadow 0 0 10px #FFE089!important
   .buttons
     position fixed
     right 2rem

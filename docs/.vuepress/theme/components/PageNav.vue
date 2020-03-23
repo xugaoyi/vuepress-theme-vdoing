@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-nav-wapper">
     <!-- 页面中间左右翻页 -->
     <div class="page-nav-centre-wrap" v-if="prev || next">
       <router-link
