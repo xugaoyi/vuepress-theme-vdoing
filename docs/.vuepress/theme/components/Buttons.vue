@@ -12,6 +12,10 @@
       title="护眼模式"
       class="button go-to-comment iconfont icon-huyan"
     /> -->
+    <!-- <div
+      title="阅读模式"
+      class="button go-to-comment iconfont icon-yuedu"
+    /> -->
     <div
       title="去评论"
       class="button go-to-comment iconfont icon-pinglun"
@@ -32,6 +36,9 @@ export default {
       scrollTop: null,
       showCommentBut: false,
       commentTop: null,
+      _scrollTimer: null,
+      _textareaEl: null,
+      _recordScrollTop: null,
       COMMENT_SELECTOR: '#vuepress-plugin-comment' // 评论区元素的选择器
     }
   },
@@ -79,16 +86,30 @@ export default {
     },
 
     scrollToComment() {
-      window.scrollTo({ top: this.commentTop, behavior: 'instant' })
-      const textareaEl = document.querySelector(this.COMMENT_SELECTOR + ' textarea')
-      if (textareaEl) {
-        textareaEl.focus()
-        textareaEl.classList.add('yellowBorder')
-        setTimeout(() => {
-          textareaEl.classList.remove('yellowBorder')
-        }, 500)
+      window.scrollTo({ top: this.commentTop, behavior: 'smooth' })
+      this._textareaEl = document.querySelector(this.COMMENT_SELECTOR + ' textarea')
+      if( this._textareaEl && this.getScrollTop() !== this._recordScrollTop) {
+        document.addEventListener("scroll", this._handleListener)
+      } else if (this._textareaEl && this.getScrollTop() === this._recordScrollTop) {
+        this._handleFocus()
       }
-      
+    },
+
+    _handleListener() {
+      clearTimeout(this._scrollTimer)
+      this._scrollTimer = setTimeout(() => {
+        document.removeEventListener('scroll', this._handleListener)
+        this._recordScrollTop = this.getScrollTop()
+        this._handleFocus()
+      }, 30)
+    },
+
+    _handleFocus() {
+      this._textareaEl.focus()
+      this._textareaEl.classList.add('yellowBorder')
+      setTimeout(() => {
+        this._textareaEl.classList.remove('yellowBorder')
+      }, 500)
     }
     
   },
@@ -119,6 +140,7 @@ export default {
       margin-top .9rem
       text-align center
       cursor pointer
+      // color #666
       &:hover
         color $accentColor
 

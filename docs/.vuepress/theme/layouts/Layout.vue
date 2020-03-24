@@ -71,6 +71,15 @@ export default {
   },
 
   computed: {
+    showRightMenu() {
+      const { headers } = this.$page
+      return (
+        !this.$frontmatter.home
+        && headers
+        && headers.length
+        && this.$frontmatter.sidebar !== false
+      )
+    },
     shouldShowNavbar () {
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
@@ -112,7 +121,8 @@ export default {
         {
           'no-navbar': !this.shouldShowNavbar,
           'sidebar-open': this.isSidebarOpen,
-          'no-sidebar': !this.shouldShowSidebar
+          'no-sidebar': !this.shouldShowSidebar,
+          'have-rightmenu': this.showRightMenu
         },
         userPageClass
       ]

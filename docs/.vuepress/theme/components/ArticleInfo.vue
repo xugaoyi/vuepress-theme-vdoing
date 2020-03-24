@@ -84,9 +84,9 @@ function zero(d){
 <style lang='stylus' scoped>
 
 .articleInfo-wrap
-  margin-bottom -3.6rem!important
-  padding-bottom 0!important
-  padding-top 1rem!important
+  // margin-bottom -3.6rem!important
+  margin: 2.6rem 0 -3.1rem 0
+  // padding-top 0!important
   color #888
   .articleInfo
     overflow hidden

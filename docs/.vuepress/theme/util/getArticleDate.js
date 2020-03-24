@@ -75,8 +75,8 @@ export function getPagesList(posts) {
 
 
 
-export function getTopKPosts(posts, len) {
-  return filterNotArticle(posts)
+export function getTopKPosts(posts, len, currentPath) {
+  return filterNotArticle(posts, currentPath)
     .map(post => {
       const execs = re.exec(post.relativePath)
       return {
@@ -90,11 +90,16 @@ export function getTopKPosts(posts, len) {
     .slice(0,len)
 }
 
- // 过滤没有frontmatter数据的 和 非文章页面的
-function filterNotArticle(posts){
+ // 过滤没有frontmatter数据的 和 非文章页面的,
+function filterNotArticle(posts, currentPath){
   return posts.filter(post => {
-    const { frontmatter } = post;
-    return frontmatter && frontmatter.permalink && frontmatter.title && frontmatter.article !== false;
+    const { frontmatter, path } = post;
+    if (currentPath) { // 过滤是当前页面的
+      return frontmatter && frontmatter.permalink && frontmatter.title && frontmatter.article !== false && path !== currentPath;
+    } else {
+      return frontmatter && frontmatter.permalink && frontmatter.title && frontmatter.article !== false;
+    }
+    
   })
 }
 

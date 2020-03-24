@@ -1,5 +1,5 @@
 // 引入字体图标
-@import '//at.alicdn.com/t/font_1678482_tdhmdeztrfo.css'
+@import '//at.alicdn.com/t/font_1678482_n0yuvrfwl5s.css'
 
 // 样式重置
 body
@@ -142,3 +142,10 @@ iframe
   .theme-container.no-sidebar
     .sidebar-button
       display none
+
+// 覆盖mobile.style
+$mobileSidebarWidth = $sidebarWidth * 0.95
+@media (max-width: $MQNarrow)
+  .sidebar
+    font-size 15px
+    width $mobileSidebarWidth

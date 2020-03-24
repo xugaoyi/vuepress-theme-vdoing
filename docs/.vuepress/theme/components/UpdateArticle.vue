@@ -34,20 +34,27 @@ export default {
   props: ['pageMark'],
   data() {
     return {
-      posts: []
+      posts: [],
+      currentPath: ''
     }
   },
   created() {
     this.posts = this.$site.pages
+    this.currentPath = this.$page.path
   },
   computed: {
     topPublishPosts() {
       const count = this.pageMark === 'home' ? 5 : 3
-      return getTopKPosts(this.posts, count)
+      return getTopKPosts(this.posts, count, this.currentPath)
     },
     isShowArticle () {
       const { frontmatter } = this.$page
       return !(frontmatter.article !== false)
+    }
+  },
+  watch: {
+    $route() {
+      this.currentPath = this.$page.path
     }
   }
 }

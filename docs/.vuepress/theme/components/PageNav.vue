@@ -223,8 +223,8 @@ function flatten (items, res) {
       transform rotate(45deg)
 
 .sidebar-open .page-nav-centre-wrap .page-nav-centre-prev
-  -webkit-transform translateX(320px)
-  transform translateX(320px)
+  -webkit-transform translateX($sidebarWidth)
+  transform translateX($sidebarWidth)
 .no-sidebar .page-nav-centre-wrap .page-nav-centre-prev
   -webkit-transform translateX(0)
   transform translateX(0)
