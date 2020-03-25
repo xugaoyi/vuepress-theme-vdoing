@@ -422,16 +422,16 @@ body .main-wrapper{
     }
 
     h2 {
-      font-size: 1.4rem;
+      // font-size: 1.4rem;
       font-weight: 500;
       border-bottom: none;
       padding-bottom: 0;
-      color: lighten($textColor, 10%);
+      // color: lighten($textColor, 10%);
       transition: all 1.2s;
     }
 
     p {
-      color: lighten($textColor, 25%);
+      // color: lighten($textColor, 25%);
       transition: all 1.2s;
     }
   }

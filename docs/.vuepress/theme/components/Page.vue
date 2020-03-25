@@ -80,7 +80,7 @@ export default {
     .theme-vdoing-wrapper,.page-edit,.page-nav,#vuepress-plugin-comment,.article:not(.article-home)
       transform translateX(-($rightMenuWidth / 2.5))
 
-@media (min-width: 1490px) and (max-width: 1680px)
+@media (min-width: 1360px) and (max-width: 1679px)
   .have-rightmenu
     .page
       transition: all 0s!important
@@ -89,10 +89,17 @@ export default {
         margin 0 0 0 2rem
       .article:not(.article-home)
         margin 0 0 0 4rem
-@media (max-width: 1489px) // 小于1490时隐藏右侧锚点菜单
+@media (min-width: 1360px) and (max-width: 1519px)
+  .have-rightmenu
+    .theme-vdoing-wrapper,.page-edit,.page-nav,#vuepress-plugin-comment,.article:not(.article-home)
+      max-width ($contentWidth - 200px)
+    .right-menu-wrapper
+      margin-left ($contentWidth - 180px)
+
+@media (max-width: 1359px) // 小于等于1359时隐藏右侧锚点菜单
   .right-menu-wrapper
     display none
-@media (min-width: 1490px) // 大于1490时右侧左侧的锚点菜单
+@media (min-width: 1360px) // 大于等于1360时隐藏左侧锚点菜单
   .sidebar .sidebar-sub-headers
     display none
 </style>

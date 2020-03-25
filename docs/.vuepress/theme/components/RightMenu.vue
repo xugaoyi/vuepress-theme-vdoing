@@ -43,7 +43,7 @@ export default {
 }
 </script>
 
-<style lang='stylus' scoped>
+<style lang='stylus'>
 .right-menu-wrapper
   width $rightMenuWidth
   height 0
@@ -78,9 +78,6 @@ export default {
         opacity 0.75
         display block
         width ($rightMenuWidth - 30px)
-        // overflow hidden
-        // white-space nowrap
-        // text-overflow ellipsis
         &:hover
           color $accentColor
 </style>
