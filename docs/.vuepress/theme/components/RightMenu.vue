@@ -45,12 +45,12 @@ export default {
 
 <style lang='stylus' scoped>
 .right-menu-wrapper
-  width 250px
+  width $rightMenuWidth
   height 0
   margin 0 0 0 ($contentWidth + 20px)
   position sticky
   top 0
-  font-size 0.93rem
+  font-size .9rem
   .right-menu-padding
     padding-top ($navbarHeight + 3rem)
   .right-menu-content
@@ -77,9 +77,10 @@ export default {
         color $textColor
         opacity 0.75
         display block
-        overflow hidden
-        white-space nowrap
-        text-overflow ellipsis
+        width ($rightMenuWidth - 30px)
+        // overflow hidden
+        // white-space nowrap
+        // text-overflow ellipsis
         &:hover
           color $accentColor
 </style>

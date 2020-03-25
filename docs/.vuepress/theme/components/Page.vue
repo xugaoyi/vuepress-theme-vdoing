@@ -59,32 +59,40 @@ export default {
   display block
 
 .theme-vdoing-wrapper
-  // max-width ($contentWidth + 300px)
   max-width $contentWidth
   margin 0 auto
   padding 2rem 2.5rem
   position relative
-  transition all .5s
   @media (max-width: $MQNarrow)
     padding 2rem
   @media (max-width: $MQMobileNarrow)
     padding 1.5rem
   .theme-default-content
-    padding 0
+    padding 0!important
   &>.theme-default-content
     margin 0
 
 // 右侧菜单的自适应
+@media (min-width: 1680px) // 在大屏时
+  .theme-vdoing-wrapper,.page-edit,.page-nav,#vuepress-plugin-comment,.article:not(.article-home)
+    transition: all .2s!important
+  .have-rightmenu // 有右侧菜单时
+    .theme-vdoing-wrapper,.page-edit,.page-nav,#vuepress-plugin-comment,.article:not(.article-home)
+      transform translateX(-($rightMenuWidth / 2.5))
+
 @media (min-width: 1490px) and (max-width: 1680px)
-  .have-rightmenu.sidebar-open
-    .theme-vdoing-wrapper,.page-edit,.page-nav,#vuepress-plugin-comment
-      margin 0 0 0 2rem
-    .article:not(.article-home)
-      margin 0 0 0 4rem
-@media (max-width: 1489px) 
+  .have-rightmenu
+    .page
+      transition: all 0s!important
+    &.sidebar-open
+      .theme-vdoing-wrapper,.page-edit,.page-nav,#vuepress-plugin-comment
+        margin 0 0 0 2rem
+      .article:not(.article-home)
+        margin 0 0 0 4rem
+@media (max-width: 1489px) // 小于1490时隐藏右侧锚点菜单
   .right-menu-wrapper
     display none
-@media (min-width: 1490px) 
+@media (min-width: 1490px) // 大于1490时右侧左侧的锚点菜单
   .sidebar .sidebar-sub-headers
     display none
 </style>
