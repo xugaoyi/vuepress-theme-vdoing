@@ -8,19 +8,16 @@
         @click="scrollToTop"
       />
     </transition>
-    <!-- <div
-      title="护眼模式"
-      class="button go-to-comment iconfont icon-huyan"
-    /> -->
-    <!-- <div
-      title="阅读模式"
-      class="button go-to-comment iconfont icon-yuedu"
-    /> -->
     <div
       title="去评论"
       class="button go-to-comment iconfont icon-pinglun"
       v-show="showCommentBut"
       @click="scrollToComment"
+    />
+    <div
+      title="阅读模式"
+      class="button read-mode iconfont icon-yuedu"
+      @click="$emit('toggle-read-mode')"
     />
   </div>
 </template>
@@ -111,7 +108,6 @@ export default {
         this._textareaEl.classList.remove('yellowBorder')
       }, 500)
     }
-    
   },
   watch: {
     $route() {
@@ -140,6 +136,7 @@ export default {
       margin-top .9rem
       text-align center
       cursor pointer
+      background rgba(255,255,255,0.8)
       // color #666
       &:hover
         color $accentColor

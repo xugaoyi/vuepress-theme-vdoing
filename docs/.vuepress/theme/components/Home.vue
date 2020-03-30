@@ -240,7 +240,7 @@ export default {
         background #517EA9
 
 .i-body{
-  background #f3f7fa bottom no-repeat
+  background #fafafa bottom no-repeat
   overflow hidden
 }
 .banner{
@@ -416,29 +416,20 @@ body .main-wrapper{
     .image_title {
       width: 11rem;
       height: 11rem;
-      // transition: all .3s;
       animation: heart 1.2s ease-in-out 0s infinite alternate;
       animation-play-state: paused
     }
 
     h2 {
-      // font-size: 1.4rem;
       font-weight: 500;
       border-bottom: none;
       padding-bottom: 0;
-      // color: lighten($textColor, 10%);
-      transition: all 1.2s;
     }
 
-    p {
-      // color: lighten($textColor, 25%);
-      transition: all 1.2s;
-    }
   }
 
   .feature:hover {
     .image_title {
-      // transform:scale(1.1,1.1);
       animation-play-state: running;
     }
     h2{

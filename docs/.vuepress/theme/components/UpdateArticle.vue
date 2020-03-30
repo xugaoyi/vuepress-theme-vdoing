@@ -67,7 +67,7 @@ export default {
     padding 2rem 2.5rem 0 2.5rem
     &:not(.article-home)
       margin 2rem auto 0 auto
-      border 8px solid #f5f5f5
+      border 8px solid rgba(160,160,160,.1)
       box-sizing border-box
     @media (max-width: $MQNarrow)
       padding 2rem 2rem 0rem 2rem

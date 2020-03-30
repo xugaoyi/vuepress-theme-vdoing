@@ -162,7 +162,7 @@ export default {
       margin-left: -2px;
       width: 4px;
       height: 100%;
-      background: #EAECEF; 
+      background: $borderColor; 
     >li
       transition: all .25s ease-in-out;
       margin-bottom: 55px;
@@ -183,7 +183,7 @@ export default {
       width: 8px;
       height: 8px;
       background: #fff;
-      border: 1px solid #EAECEF;
+      border: 1px solid $borderColor;
       border-radius: 50%;
     .year-wrapper
       padding-left: 0!important;
@@ -191,7 +191,7 @@ export default {
         display: flex;
         padding: 30px 0 10px;
         list-style: none;
-        border-bottom: 1px dashed #EAECEF;
+        border-bottom: 1px dashed $borderColor;
         position: relative;
         color: #666;
         transition: all 0.25s ease-in-out;
@@ -211,7 +211,7 @@ export default {
             margin-left: -4px;
             background: #fff;
             border-radius: 50%;
-            border: 1px solid #EAECEF;
+            border: 1px solid $borderColor;
             z-index: 2;
         &:hover
           text-decoration:none

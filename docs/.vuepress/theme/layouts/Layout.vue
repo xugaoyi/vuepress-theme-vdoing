@@ -46,7 +46,9 @@
       />
     </Page>
 
-    <Buttons />
+    <Buttons 
+      @toggle-read-mode="toggleReadMode"
+    />
   </div>
 </template>
 
@@ -66,7 +68,8 @@ export default {
   data () {
     return {
       isSidebarOpen: true,
-      showSidebar: false
+      showSidebar: false,
+      readMode: false
     }
   },
 
@@ -122,7 +125,8 @@ export default {
           'no-navbar': !this.shouldShowNavbar,
           'sidebar-open': this.isSidebarOpen,
           'no-sidebar': !this.shouldShowSidebar,
-          'have-rightmenu': this.showRightMenu
+          'have-rightmenu': this.showRightMenu,
+          'read-mode': this.readMode
         },
         userPageClass
       ]
@@ -148,7 +152,12 @@ export default {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)
     },
-
+    toggleReadMode (){
+      this.readMode = !this.readMode
+      if (document.documentElement.clientWidth > MOBILE_DESKTOP_BREAKPOINT) {
+        this.isSidebarOpen = !this.readMode
+      }
+    },
     // side swipe
     onTouchStart (e) {
       this.touchStart = {
@@ -171,3 +180,24 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+  .read-mode
+    background $readModeColor
+    .i-body
+      background-color $readModeColor
+      .main-wrapper >*
+        background-color lighten($readModeColor, 50%)!important
+    .navbar
+      background $readModeColor
+      .dropdown-wrapper .nav-dropdown
+        background lighten($readModeColor, 50%)
+    .suggestions
+      background lighten($readModeColor, 50%)
+    .read-mode
+      background lighten($accentColor, 30%)
+      color #fff
+      &:hover
+        color #fff
+    
+</style>

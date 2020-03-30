@@ -58,10 +58,14 @@ table
 .gt-container .gt-comments-null
   color #999
 
-// 侧边栏高出评论区
+// 侧边栏
 .sidebar
   z-index 11
-  background #fbfbfb
+  background rgba(220,220,220,.1)
+  @media (max-width: $MQNarrow)
+    background #fbfbfb
+.sidebar-mask // 侧边栏蒙版
+  background rgba(0,0,0,.2)
 
 // 评论区颜色重置
 .gt-container
