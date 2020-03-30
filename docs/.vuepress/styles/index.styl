@@ -6,13 +6,22 @@ body
   // background: #F5F5D5
 a,input,button
   outline: none; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+h1
+  font-size 1.8rem
+  img 
+    width 1.6rem
+h2
+  font-size 1.5rem
 
 .theme-default-content:not(.custom)
   word-wrap break-word
   
+
+// 导航栏
 .navbar
   box-shadow 0 2px 5px rgba(0,0,0,.06)
   // background: #F5F5D5 // 覆盖index.styl #30
+
 
 // 滚动条样式
 @media (min-width: $MQMobile)
@@ -62,6 +71,8 @@ table
 .sidebar
   z-index 11
   background rgba(220,220,220,.1)
+  @media (max-width: $MQNarrow)
+      background-color #FBFBFB
 .sidebar-mask // 侧边栏蒙版
   background rgba(0,0,0,.2)
 

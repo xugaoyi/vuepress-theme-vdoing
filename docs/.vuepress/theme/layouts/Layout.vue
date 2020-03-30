@@ -158,9 +158,9 @@ export default {
     toggleReadMode (){
       this.readMode = !this.readMode
       storage.set('mode', this.readMode)
-      if (document.documentElement.clientWidth > MOBILE_DESKTOP_BREAKPOINT) {
-        this.isSidebarOpen = !this.readMode
-      }
+      // if (document.documentElement.clientWidth > MOBILE_DESKTOP_BREAKPOINT) {
+      //   this.isSidebarOpen = !this.readMode
+      // }
     },
     // side swipe
     onTouchStart (e) {
@@ -191,6 +191,8 @@ export default {
     background $readModeColor
     .i-body // 首页
       background-color $readModeColor
+      .banner,.home .hero .description,.home .feature h2,.slide-banner .slide-banner-wrapper .slide-item h2 // banner栏
+        color lighten($readModeColor, 50%)
       .main-wrapper >*
         background-color lighten($readModeColor, 50%)!important
     .sidebar // 侧边栏
@@ -202,11 +204,16 @@ export default {
         background lighten($readModeColor, 50%)
     .suggestions // 搜索结果
       background lighten($readModeColor, 50%)
-    .read-mode // 阅读模式按钮
-      background lighten($accentColor, 35%)
-      color #fff
-      &:hover
+    .buttons // 右下角按钮
+      .button
+        background lighten($readModeColor, 50%)
+      .read-mode // 阅读模式按钮
+        background lighten($accentColor, 30%)
+        opacity .85
         color #fff
+        &:hover
+          opacity 1
+          color #fff
     tr // 表格
       &:nth-child(2n)
         background-color lighten($readModeColor, 50%)

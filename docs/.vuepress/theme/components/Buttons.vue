@@ -125,7 +125,10 @@ export default {
   .buttons
     position fixed
     right 2rem
-    bottom 3rem
+    bottom 2.5rem
+    @media (max-width: $MQNarrow)
+      right 1rem
+      bottom 1.5rem
     z-index 1
     .button
       width 40px

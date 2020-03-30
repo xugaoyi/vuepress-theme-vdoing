@@ -487,9 +487,13 @@ body .main-wrapper{
 
 @media (max-width: $MQMobile) {
   body .main-wrapper{
+    margin 0
     display: block;
     .info-wrapper{
       display: none;
+    }
+    .home-content{
+      padding-top 1.5rem
     }
   }
   // 719px

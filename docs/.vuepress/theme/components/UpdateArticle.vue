@@ -88,9 +88,9 @@ export default {
       font-weight bold
       padding 0 0 .5rem 1rem
       h1
-        font-size 1.8rem
+        font-size 1.6rem
         img
-          width 28px
+          width 1.6rem
           margin-bottom: -4px;
     .article-wrapper
       overflow hidden
