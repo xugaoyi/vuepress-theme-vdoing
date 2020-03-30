@@ -136,7 +136,7 @@ export default {
       margin-top .9rem
       text-align center
       cursor pointer
-      background rgba(255,255,255,0.8)
+      background rgba(255,255,255,0.6)
       // color #666
       &:hover
         color $accentColor

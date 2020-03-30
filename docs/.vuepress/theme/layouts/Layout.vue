@@ -59,6 +59,7 @@ import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import Buttons from '@theme/components/Buttons.vue'
 import { resolveSidebarItems } from '../util'
+import storage from 'good-storage' // 本地存储
 
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 
@@ -72,7 +73,6 @@ export default {
       readMode: false
     }
   },
-
   computed: {
     showRightMenu() {
       const { headers } = this.$page
@@ -134,6 +134,9 @@ export default {
   },
   beforeMount() {
     this.isSidebarOpenOfclientWidth()
+    if(storage.get('mode')) {
+      this.readMode = true
+    } 
   },
   mounted () {
     this.showSidebar = true // 解决移动端初始化页面时侧边栏闪现的问题
@@ -154,6 +157,7 @@ export default {
     },
     toggleReadMode (){
       this.readMode = !this.readMode
+      storage.set('mode', this.readMode)
       if (document.documentElement.clientWidth > MOBILE_DESKTOP_BREAKPOINT) {
         this.isSidebarOpen = !this.readMode
       }
@@ -182,22 +186,31 @@ export default {
 </script>
 
 <style lang="stylus">
+  // 阅读模式样式
   .read-mode
     background $readModeColor
-    .i-body
+    .i-body // 首页
       background-color $readModeColor
       .main-wrapper >*
         background-color lighten($readModeColor, 50%)!important
-    .navbar
+    .sidebar // 侧边栏
+      @media (max-width: $MQNarrow)
+        background-color lighten($readModeColor, 30%)!important
+    .navbar // 导航栏
       background $readModeColor
       .dropdown-wrapper .nav-dropdown
         background lighten($readModeColor, 50%)
-    .suggestions
+    .suggestions // 搜索结果
       background lighten($readModeColor, 50%)
-    .read-mode
-      background lighten($accentColor, 30%)
+    .read-mode // 阅读模式按钮
+      background lighten($accentColor, 35%)
       color #fff
       &:hover
         color #fff
-    
+    tr // 表格
+      &:nth-child(2n)
+        background-color lighten($readModeColor, 50%)
+    // 时间轴页面
+    .timeline-wrapper .timeline ul .desc:before, .timeline-wrapper .timeline ul .year:before,.timeline-wrapper .timeline ul .year-wrapper a .date:before
+      background-color $readModeColor!important
 </style>

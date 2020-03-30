@@ -62,23 +62,25 @@ table
 .sidebar
   z-index 11
   background rgba(220,220,220,.1)
-  @media (max-width: $MQNarrow)
-    background #fbfbfb
 .sidebar-mask // 侧边栏蒙版
   background rgba(0,0,0,.2)
 
 // 评论区颜色重置
 .gt-container
+  .gt-header-textarea
+    background rgba(180,180,180,0.1)!important
   .gt-btn
     border-color $accentColor!important
     background-color $accentColor!important
   .gt-btn-preview
-    background-color #fff!important
+    background-color rgba(255,255,255,0)!important
     color $accentColor!important
   a
     color $accentColor!important
   .gt-svg svg
     fill $accentColor!important
+.read-mode .gt-container .gt-comment-admin .gt-comment-content
+  background-color lighten($readModeColor, 50%)!important
 
 // qq徽章
 .qq

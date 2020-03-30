@@ -26,6 +26,7 @@
   "dependencies": {
     "@better-scroll/core": "^2.0.0-beta.4",
     "@better-scroll/slide": "^2.0.0-beta.4",
+    "good-storage": "^1.1.1",
     "vuepress-plugin-comment": "^0.7.2"
   }
 }
