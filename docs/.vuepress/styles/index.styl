@@ -1,54 +1,11 @@
-// 引入字体图标
-@import '//at.alicdn.com/t/font_1678482_n0yuvrfwl5s.css'
-
-// 样式重置
-body
-  // background: #F5F5D5
-a,input,button
-  outline: none; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+// h1标签徽章图标
 h1
-  font-size 1.8rem
   img 
     width 1.6rem
-h2
-  font-size 1.5rem
 
+// 强制换行（如链接文本太长换行）
 .theme-default-content:not(.custom)
   word-wrap break-word
-  
-
-// 导航栏
-.navbar
-  box-shadow 0 2px 5px rgba(0,0,0,.06)
-  // background: #F5F5D5 // 覆盖index.styl #30
-
-
-// 滚动条样式
-@media (min-width: $MQMobile)
-  ::-webkit-scrollbar
-    width:6px;
-    height:5px;
-  ::-webkit-scrollbar-track-piece
-    background-color:rgba(0,0,0,.15);
-    -webkit-border-radius:3px;
-  ::-webkit-scrollbar-thumb:vertical
-    height:5px;
-    background-color:hsla(0,0%,49%,.6);
-    -webkit-border-radius:3px
-  ::-webkit-scrollbar-thumb:horizontal
-    width:5px;
-    background-color:hsla(0,0%,49%,.6);
-    -webkit-border-radius:3px
-
-
-// md文件中的按钮
-.theme-default-content .but
-  background $accentColor
-  color #fff
-  border none
-  border-radius 4px
-  padding 0.55em 1em
-  cursor pointer
 
 // 表格宽度
 table
@@ -64,20 +21,11 @@ table
     padding 2rem
   @media (max-width: $MQMobileNarrow)
     padding 1.5rem
-.gt-container .gt-comments-null
-  color #999
-
-// 侧边栏
-.sidebar
-  z-index 11
-  background rgba(220,220,220,.1)
-  @media (max-width: $MQNarrow)
-      background-color #FBFBFB
-.sidebar-mask // 侧边栏蒙版
-  background rgba(0,0,0,.2)
 
 // 评论区颜色重置
 .gt-container
+  .gt-comments-null
+    color #999
   .gt-header-textarea
     background rgba(180,180,180,0.1)!important
   .gt-btn
@@ -90,8 +38,9 @@ table
     color $accentColor!important
   .gt-svg svg
     fill $accentColor!important
-.read-mode .gt-container .gt-comment-admin .gt-comment-content
-  background-color lighten($readModeColor, 50%)!important
+  .gt-comment-admin .gt-comment-content
+    background-color lighten($readModeColor, 50%)!important
+
 
 // qq徽章
 .qq
@@ -115,54 +64,3 @@ body .vuepress-plugin-demo-block__wrapper .vuepress-plugin-demo-block__footer:ho
     border-bottom-color: $accentColor !important;
   svg
     fill: $accentColor !important;
-  
-//iframe
-iframe
-  margin: 1rem 0
-
-
-
-// 目录显示隐藏
-.sidebar
-  transform translateX(-100%)
-  transition transform .2s ease
-.page // 覆盖index.styl #20
-  transition all .2s ease
-  padding-left 0
-
-@media (max-width: $MQMobile)
-  .theme-container
-    &.sidebar-open
-      .sidebar-mask // 蒙版在小屏中才能显示
-        display: block
-
-@media (min-width: ($MQMobile + 1px)) // 大于720px时
-  .theme-container 
-    &.sidebar-open
-      .sidebar-mask // 蒙版在大屏中不能显示,覆盖index.style #179
-        display: none
-      .sidebar
-        transform translateX(0)
-      .sidebar-button
-        left $sidebarWidth
-      .page
-        padding-left $sidebarWidth
-    &.no-sidebar
-      .page
-        padding-left 0
-  @media (max-width: $MQNarrow)
-    .theme-container
-      &.sidebar-open:not(.on-sidebar)
-        .sidebar-button
-          $mobileSidebarWidth = $sidebarWidth * 0.75
-          left $mobileSidebarWidth
-  .theme-container.no-sidebar
-    .sidebar-button
-      display none
-
-// 覆盖mobile.style
-$mobileSidebarWidth = $sidebarWidth * 0.95
-@media (max-width: $MQNarrow)
-  .sidebar
-    font-size 15px
-    width $mobileSidebarWidth

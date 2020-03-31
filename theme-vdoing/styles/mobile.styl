@@ -1,0 +1,64 @@
+@require './config'
+
+$mobileSidebarWidth = $sidebarWidth * 0.95
+
+// narrow desktop / iPad
+@media (max-width: $MQNarrow)
+  .sidebar
+    font-size 15px
+    width $mobileSidebarWidth
+  .page
+    // padding-left $mobileSidebarWidth
+
+// wide mobile
+@media (max-width: $MQMobile)
+  .sidebar
+    top 0
+    padding-top $navbarHeight
+    transform translateX(-100%)
+    transition transform .2s ease
+  .page
+    padding-left 0
+  .theme-container
+    &.sidebar-open
+      .sidebar
+        transform translateX(0)
+      .sidebar-mask // 蒙版在小屏中才能显示
+        display block
+    &.no-navbar
+      .sidebar
+        padding-top: 0
+
+// narrow mobile
+@media (max-width: $MQMobileNarrow)
+  h1
+    font-size 1.9rem
+  {$contentClass}
+    div[class*="language-"]
+      margin 0.85rem -1.5rem
+      border-radius 0
+
+// 侧边栏显示隐藏的适配
+@media (min-width: ($MQMobile + 1px)) // 大于720px时
+  .theme-container 
+    &.sidebar-open
+      .sidebar-mask
+        display: none
+      .sidebar
+        transform translateX(0)
+      .sidebar-button
+        left $sidebarWidth
+      .page
+        padding-left $sidebarWidth
+    &.no-sidebar
+      .page
+        padding-left 0
+  @media (max-width: $MQNarrow)
+    .theme-container
+      &.sidebar-open:not(.on-sidebar)
+        .sidebar-button
+          $mobileSidebarWidth = $sidebarWidth * 0.75
+          left $mobileSidebarWidth
+  .theme-container.no-sidebar
+    .sidebar-button
+      display none

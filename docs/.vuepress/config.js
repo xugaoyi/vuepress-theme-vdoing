@@ -21,6 +21,7 @@ module.exports = {
   markdown: {
     // lineNumbers: true // 代码行号
   },
+  theme: require.resolve('../../theme-vdoing'), // 使用的主题
   themeConfig: { // 主题配置
     nav,
     sidebar, // 侧边栏    'auto' | 自定义

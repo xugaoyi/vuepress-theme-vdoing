@@ -126,7 +126,7 @@ export default {
           'sidebar-open': this.isSidebarOpen,
           'no-sidebar': !this.shouldShowSidebar,
           'have-rightmenu': this.showRightMenu,
-          'read-mode': this.readMode
+          'theme-read-mode': this.readMode
         },
         userPageClass
       ]
@@ -187,7 +187,8 @@ export default {
 
 <style lang="stylus">
   // 阅读模式样式
-  .read-mode
+  .theme-read-mode
+    min-height 100vh
     background $readModeColor
     .i-body // 首页
       background-color $readModeColor
