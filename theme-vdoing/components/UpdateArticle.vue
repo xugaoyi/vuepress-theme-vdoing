@@ -83,7 +83,7 @@ export default {
     &.no-article
       display none
     .article-title
-      border-bottom 1px solid #eaecef
+      border-bottom 1px solid var(--borderColor)
       font-size 1.3rem
       font-weight bold
       padding 0 0 .5rem 1rem
@@ -95,7 +95,7 @@ export default {
     .article-wrapper
       overflow hidden
       dl
-        border-bottom 1px dotted #eaecef
+        border-bottom 1px dotted var(--borderColor)
         float left
         display flex
         padding 8px 0
@@ -120,7 +120,7 @@ export default {
           flex 1
           display flex
           a
-            color $textColor
+            color var(--textColor)
             flex 1
             display: flex;
             height: 55px;

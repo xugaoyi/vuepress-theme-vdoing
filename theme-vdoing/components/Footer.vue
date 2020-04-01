@@ -43,12 +43,13 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
 .footer
   padding 2.5rem 2.5rem 3rem 
   text-align center
-  color #999
+  color var(--textColor)
+  opacity .6
   box-sizing border-box
   font-size .85rem
   transition all .2s ease
   a
-    color #999
+    color var(--textColor)
 @media (min-width: ($MQMobile + 1px))
   .sidebar-open .footer
     width auto

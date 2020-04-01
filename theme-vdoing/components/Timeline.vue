@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline-wrapper theme-default-content">
+  <div class="timeline-wrapper theme-vdoing-content">
     <div class="tags">
       <a href="#全部" :class="{active: currentTag === '全部'}" :style="randomBgcolor()" @click="toggleTag('全部')">全部</a>
       <a
@@ -125,7 +125,7 @@ export default {
       font-size: 13px;
       transition: all .5s; 
       opacity: 0.9;
-      box-shadow: 2px 2px 5px #ccc;
+      box-shadow: 0px 0px 8px rgba(80,80,80,.3);
       &.active
         transform: scale(1.2);
         opacity: 1;
@@ -162,7 +162,7 @@ export default {
       margin-left: -2px;
       width: 4px;
       height: 100%;
-      background: $borderColor; 
+      background: var(--borderColor); 
     >li
       transition: all .25s ease-in-out;
       margin-bottom: 55px;
@@ -183,7 +183,7 @@ export default {
       width: 8px;
       height: 8px;
       background: #fff;
-      border: 1px solid $borderColor;
+      border: 1px solid var(--borderColor);
       border-radius: 50%;
     .year-wrapper
       padding-left: 0!important;
@@ -191,10 +191,12 @@ export default {
         display: flex;
         padding: 30px 0 10px;
         list-style: none;
-        border-bottom: 1px dashed $borderColor;
+        border-bottom: 1px dashed var(--borderColor);
         position: relative;
-        color: #666;
+        color: var(--textColor)
         transition: all 0.25s ease-in-out;
+        .title
+          opacity .9
         .date
           min-width: 40px;
           line-height: 30px;
@@ -211,7 +213,7 @@ export default {
             margin-left: -4px;
             background: #fff;
             border-radius: 50%;
-            border: 1px solid $borderColor;
+            border: 1px solid var(--borderColor);
             z-index: 2;
         &:hover
           text-decoration:none

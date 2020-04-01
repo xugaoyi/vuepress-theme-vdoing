@@ -55,7 +55,7 @@
     <div class="main-wrapper">
       <main class="home home-content" aria-labelledby="main-title">
         <UpdateArticle pageMark="home" />
-        <Content class="theme-default-content custom" />
+        <Content class="theme-vdoing-content custom" />
       </main>
 
       <aside class="info-wrapper" v-if="blogger">
@@ -241,7 +241,9 @@ export default {
         background #517EA9
 
 .i-body
-  background #fafafa bottom no-repeat
+  background bottom no-repeat
+  // background-color var(--homeBg)
+  background-color rgba(220,220,220,0.1)
   overflow hidden
 .banner
   width 100%
@@ -278,8 +280,8 @@ body .main-wrapper
   display flex
   >*
     border-radius 5px
-    background #fff
-    box-shadow 0 1px 2px 0 rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.1)
+    background var(--bg)
+    box-shadow 0 1px 2px 0 rgba(0,0,30,.1), 0 2px 4px 0 rgba(0,0,0,.1)
   
   .home-content
     padding 1rem 1.5rem 0
@@ -299,13 +301,13 @@ body .main-wrapper
         height 100%
         border-radius 3px
     .icons
-      border 1px solid #e1e4e8
+      border 1px solid var(--borderColor)
       height 40px
       line-height 40px
       a
         font-size 20px
         width 33%
-        color #666
+        color var(--textColor)
         display block
         float left
         text-align center
@@ -318,7 +320,7 @@ body .main-wrapper
         display: block
         margin-bottom 10px
       .slogan
-        color #777
+        color var(--textColor)
 
 
 .home
@@ -343,7 +345,7 @@ body .main-wrapper
       max-width 40rem
       font-size 1.4rem
       line-height 1.3
-      color lighten($textColor, 20%)
+      color var(--textLightenColor)
     .action-button 
       display inline-block
       font-size 1.2rem
@@ -358,7 +360,7 @@ body .main-wrapper
         background-color lighten($accentColor, 10%)
 
   .features 
-    border-top 1px solid $borderColor
+    border-top 1px solid var(--borderColor)
     padding 2rem 0
     margin-top 2.5rem
     display flex
@@ -384,9 +386,9 @@ body .main-wrapper
     .image_title 
       animation-play-state: running
     h2
-      color lighten($textColor, 80%)
+      color var(--textColor)
     p
-      color lighten($textColor, 25%)
+      color var(--textLightenColor)
 
 @keyframes heart
   from{transform:translate(0,0)}
@@ -395,7 +397,7 @@ body .main-wrapper
 
 @media (max-width: 1025px)
   .i-body
-    background-color #fff
+    background-color var(--bg)
   
   body .home-content
     margin 0

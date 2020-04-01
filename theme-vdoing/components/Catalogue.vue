@@ -1,5 +1,5 @@
 <template>
-  <div class="theme-default-content">
+  <div class="theme-vdoing-content">
     <div class="column-wrapper">
       <img :src="getPageData().imgUrl" />
       <dl class="column-info">
@@ -63,7 +63,7 @@ dl,dd
   display flex
   margin-top 4.6rem!important
   padding-bottom 2rem
-  border-bottom 1px solid #eaecef
+  border-bottom 1px solid var(--borderColor)
   img
     width 80px
     height 80px
@@ -73,11 +73,12 @@ dl,dd
     .title
       font-size 1.6rem
     .description
-      color #666
+      color var(--textColor)
+      opacity .8
       margin .5rem 0
 .catalogue-wrapper
   .catalogue-title
-    font-size 1.5rem
+    font-size 1.45rem
     margin 2rem 0
   .catalogue-content
     dl

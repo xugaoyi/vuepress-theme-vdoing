@@ -15,16 +15,16 @@
       @click="scrollToComment"
     />
     <div
-      title="阅读模式"
-      class="button read-mode iconfont icon-yuedu"
-      @click="$emit('toggle-read-mode')"
+      title="主题模式"
+      class="button theme-mode-but iconfont"
+      :class="themeIconClass"
+      @click="$emit('toggle-theme-mode')"
     />
   </div>
 </template>
 
 <script>
 import debounce from 'lodash.debounce'
-
 
 export default {
   data() {
@@ -33,6 +33,7 @@ export default {
       scrollTop: null,
       showCommentBut: false,
       commentTop: null,
+      themeIconClass: 'icon-rijianmoshi',
       _scrollTimer: null,
       _textareaEl: null,
       _recordScrollTop: null,
@@ -56,6 +57,10 @@ export default {
     }
   },
   methods: {
+    toggleIconClass(mode) {
+      this.themeIconClass = mode == 1 ? 'icon-rijianmoshi' : mode == 2 ? 'icon-yejianmoshi' : 'icon-yuedu' 
+    },
+
     getScrollTop () {
       return window.pageYOffset
         || document.documentElement.scrollTop
@@ -135,12 +140,12 @@ export default {
       height 40px
       line-height 40px
       border-radius 50%
-      box-shadow 0 2px 6px rgba(0,0,0,.15)
+      box-shadow 0 2px 6px rgba(0,0,0,.25)
       margin-top .9rem
       text-align center
       cursor pointer
-      background rgba(255,255,255,0.6)
-      // color #666
+      color var(--textLightenColor)
+      background rgba(255,255,255,.1)
       &:hover
         color $accentColor
 

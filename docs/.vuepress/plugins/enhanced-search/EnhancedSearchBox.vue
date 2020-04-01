@@ -228,9 +228,9 @@ export default {
     cursor text
     width 10rem
     height: 2rem
-    color lighten($textColor, 25%)
+    color var(--textColor)
     display inline-block
-    border 1px solid darken($borderColor, 10%)
+    border 1px solid var(--borderColor, #ccc)
     border-radius 2rem
     font-size 0.9rem
     line-height 2rem
@@ -243,11 +243,11 @@ export default {
       cursor auto
       border-color $accentColor
   .suggestions
-    background #fff
+    background var(--bg, #fff)
     width 20rem
     position absolute
     top 1.5rem
-    border 1px solid darken($borderColor, 10%)
+    border 1px solid var(--borderColor, #ccc)
     border-radius 6px
     padding 0.4rem
     list-style-type none
@@ -260,7 +260,8 @@ export default {
     cursor pointer
     a
       white-space normal
-      color lighten($textColor, 35%)
+      color var(--textColor)
+      opacity .75
       .page-title
         font-weight 600
       .header

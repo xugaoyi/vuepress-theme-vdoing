@@ -90,7 +90,7 @@ function zero(d){
   color #888
   .articleInfo
     overflow hidden
-    font-size .95rem
+    font-size .92rem
     .breadcrumbs
       margin 0
       padding 0
@@ -113,7 +113,7 @@ function zero(d){
         a
           color #888
           &:before
-            font-size .95rem
+            font-size .92rem
           &:hover
             color $accentColor
         .icon-home

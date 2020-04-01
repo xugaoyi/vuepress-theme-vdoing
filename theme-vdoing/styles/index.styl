@@ -4,9 +4,10 @@
 @require './arrow'
 @require './wrapper'
 @require './toc'
+@require './theme-mode'
 
 // 引入字体图标
-@import '//at.alicdn.com/t/font_1678482_aerreja5rn7.css'
+@import '//at.alicdn.com/t/font_1678482_q8amu5272z.css'
 // 去掉黄色边框
 a,input,button
   outline: none; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-focus-ring-color: rgba(0, 0, 0, 0);
@@ -52,9 +53,9 @@ body
   left 0
   right 0
   height $navbarHeight
-  background-color #fff
+  background-color var(--bg)
   box-sizing border-box
-  border-bottom 1px solid $borderColor
+  border-bottom 1px solid var(--borderColor)
   box-shadow 0 2px 5px rgba(0,0,0,.06)
 
 .sidebar-mask
@@ -78,14 +79,15 @@ body
   left 0
   bottom 0
   box-sizing border-box
-  border-right 1px solid $borderColor
+  border-right 1px solid var(--borderColor)
   overflow-y auto
   transform translateX(-100%)
   transition transform .2s ease
   @media (max-width: $MQNarrow)
-    background-color #fbfbfb
+    background-color var(--bg)
 
 {$contentClass}:not(.custom)
+  word-wrap break-word
   @extend $wrapper
   > *:first-child
     margin-top $navbarHeight
@@ -165,7 +167,7 @@ h1
 h2
   font-size 1.5rem
   padding-bottom .3rem
-  border-bottom 1px solid $borderColor
+  border-bottom 1px solid var(--borderColor)
 
 h3
   font-size 1.35rem
@@ -189,25 +191,30 @@ p, ul, ol
 
 hr
   border 0
-  border-top 1px solid $borderColor
+  border-top 1px solid var(--borderColor)
 
 table
   border-collapse collapse
   margin 1rem 0
-  display: block
+  // display: block
   overflow-x: auto
+  width 100%
+  display inline-table
 
 tr
-  border-top 1px solid #dfe2e5
+  border-top 1px solid var(--borderColor)
 
   &:nth-child(2n)
-    background-color #f6f8fa
+    background-color rgba(150,150,150,0.1)
 
 th, td
-  border 1px solid #dfe2e5
+  border 1px solid var(--borderColor)
   padding .6em 1em
 
 .theme-container
+  background var(--bg)
+  color var(--textColor)
+  min-height 100vh
   &.sidebar-open
     .sidebar-mask
       display: block

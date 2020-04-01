@@ -65,7 +65,7 @@ export default {
       overflow-y auto
     .right-menu-item
       padding 4px 15px
-      border-left .2rem solid #E4E4E4
+      border-left .2rem solid var(--borderColor)
       &.level3
         padding-left 28px
       &.active
@@ -74,7 +74,7 @@ export default {
           color $accentColor
           opacity 1
       a
-        color $textColor
+        color var(--textColor)
         opacity 0.75
         display block
         width ($rightMenuWidth - 30px)

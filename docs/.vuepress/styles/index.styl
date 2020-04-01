@@ -1,16 +1,8 @@
+
 // h1标签徽章图标
 h1
   img 
     width 1.6rem
-
-// 强制换行（如链接文本太长换行）
-.theme-default-content:not(.custom)
-  word-wrap break-word
-
-// 表格宽度
-table
-  width: 100%;
-  display: inline-table;
 
 // 评论区样式
 #vuepress-plugin-comment
@@ -24,6 +16,8 @@ table
 
 // 评论区颜色重置
 .gt-container
+  .gt-meta
+    border-color var(--borderColor)!important
   .gt-comments-null
     color #999
   .gt-header-textarea
@@ -39,7 +33,11 @@ table
   .gt-svg svg
     fill $accentColor!important
   .gt-comment-admin .gt-comment-content
-    background-color lighten($readModeColor, 50%)!important
+    background-color rgba(150,150,150,0.1)!important
+    &:hover
+      box-shadow 0 0 25px rgba(150,150,150,.5)
+    .gt-comment-body
+      color var(--textColor)!important
 
 
 // qq徽章

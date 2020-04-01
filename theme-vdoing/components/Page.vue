@@ -6,8 +6,8 @@
       <div class="theme-vdoing-wrapper">
         <RightMenu v-if="showRightMenu !== false"/>
         <ArticleInfo v-if="isArticle()" />
-        <component class="theme-default-content" v-if="pageComponent" :is="pageComponent" />
-        <Content class="theme-default-content" />
+        <component class="theme-vdoing-content" v-if="pageComponent" :is="pageComponent" />
+        <Content class="theme-vdoing-content" />
         
       </div>
 
@@ -67,9 +67,9 @@ export default {
     padding 2rem
   @media (max-width: $MQMobileNarrow)
     padding 1.5rem
-  .theme-default-content
+  .theme-vdoing-content
     padding 0!important
-  &>.theme-default-content
+  &>.theme-vdoing-content
     margin 0
 
 // 右侧菜单的自适应

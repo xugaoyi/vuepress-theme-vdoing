@@ -74,7 +74,7 @@ module.exports = {
   plugins: [ // 插件
     // [require('./plugins/love-me'), { // 鼠标点击爱心特效
     //   color: '#11a8cd', // 爱心颜色，默认随机色
-    //   excludeClassName: 'theme-default-content' // 要排除元素的class, 默认空''
+    //   excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
     // }],
     [require('./plugins/title-badge'), { // h1标题徽章
       // badges: [ // 替换默认的徽章图标
@@ -122,7 +122,7 @@ module.exports = {
     [
       'vuepress-plugin-zooming', // 放大图片
       {
-        selector:'.theme-default-content img:not(.no-zoom)',
+        selector:'.theme-vdoing-content img:not(.no-zoom)',
         options: {
           bgColor: 'rgba(0,0,0,0.6)'
         },

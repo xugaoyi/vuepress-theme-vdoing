@@ -47,7 +47,8 @@
     </Page>
 
     <Buttons 
-      @toggle-read-mode="toggleReadMode"
+      ref="buttons"
+      @toggle-theme-mode="toggleThemeMode"
     />
   </div>
 </template>
@@ -70,7 +71,8 @@ export default {
     return {
       isSidebarOpen: true,
       showSidebar: false,
-      readMode: false
+      themeMode: 1, // 1 => 日间模式， 2=> 夜间模式， 3=> 阅读模式
+      THEMEMODE_COUNT: 3 // 主题模式的数量
     }
   },
   computed: {
@@ -126,23 +128,25 @@ export default {
           'sidebar-open': this.isSidebarOpen,
           'no-sidebar': !this.shouldShowSidebar,
           'have-rightmenu': this.showRightMenu,
-          'theme-read-mode': this.readMode
         },
+        'theme-mode-' + (this.themeMode == 1 ? 'daytime' : this.themeMode == 2 ? 'night' : 'read'),
         userPageClass
       ]
     }
   },
   beforeMount() {
     this.isSidebarOpenOfclientWidth()
-    if(storage.get('mode')) {
-      this.readMode = true
-    } 
   },
   mounted () {
     this.showSidebar = true // 解决移动端初始化页面时侧边栏闪现的问题
     this.$router.afterEach(() => {
       this.isSidebarOpenOfclientWidth()
     })
+    
+    if(storage.get('mode')) {
+      this.themeMode = storage.get('mode')
+      this.toggleThemeIcon()
+    } 
   },
 
   methods: {
@@ -155,12 +159,16 @@ export default {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)
     },
-    toggleReadMode (){
-      this.readMode = !this.readMode
-      storage.set('mode', this.readMode)
+    toggleThemeMode (){
+      this.themeMode = this.themeMode+1 > this.THEMEMODE_COUNT ? 1 : this.themeMode+1
+      storage.set('mode', this.themeMode)
+      this.toggleThemeIcon()
       // if (document.documentElement.clientWidth > MOBILE_DESKTOP_BREAKPOINT) {
       //   this.isSidebarOpen = !this.readMode
       // }
+    },
+    toggleThemeIcon() {
+      this.$refs.buttons.toggleIconClass(this.themeMode)
     },
     // side swipe
     onTouchStart (e) {
@@ -184,41 +192,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-  // 阅读模式样式
-  .theme-read-mode
-    min-height 100vh
-    background $readModeColor
-    .i-body // 首页
-      background-color $readModeColor
-      .banner,.home .hero .description,.home .feature h2,.slide-banner .slide-banner-wrapper .slide-item h2 // banner栏
-        color lighten($readModeColor, 50%)
-      .main-wrapper >*
-        background-color lighten($readModeColor, 50%)!important
-    .sidebar // 侧边栏
-      @media (max-width: $MQNarrow)
-        background-color lighten($readModeColor, 30%)!important
-    .navbar // 导航栏
-      background $readModeColor
-      .dropdown-wrapper .nav-dropdown
-        background lighten($readModeColor, 50%)
-    .suggestions // 搜索结果
-      background lighten($readModeColor, 50%)
-    .buttons // 右下角按钮
-      .button
-        background lighten($readModeColor, 50%)
-      .read-mode // 阅读模式按钮
-        background lighten($accentColor, 30%)
-        opacity .85
-        color #fff
-        &:hover
-          opacity 1
-          color #fff
-    tr // 表格
-      &:nth-child(2n)
-        background-color lighten($readModeColor, 50%)
-    // 时间轴页面
-    .timeline-wrapper .timeline ul .desc:before, .timeline-wrapper .timeline ul .year:before,.timeline-wrapper .timeline ul .year-wrapper a .date:before
-      background-color $readModeColor!important
-</style>
