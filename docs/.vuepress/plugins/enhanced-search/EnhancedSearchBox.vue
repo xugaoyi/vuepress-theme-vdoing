@@ -268,9 +268,9 @@ export default {
         font-size 0.9em
         margin-left 0.25em
     &:hover
-      background-color #f3f4f5
+      background-color rgba(150,150,150,.2)
     &.focused
-      background-color #f3f4f5
+      background-color rgba(150,150,150,.2)
       a
         color $accentColor
 

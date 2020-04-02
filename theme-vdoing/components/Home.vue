@@ -311,6 +311,7 @@ body .main-wrapper
         display block
         float left
         text-align center
+        opacity .8
         &:hover
           color $accentColor
     .blogger
