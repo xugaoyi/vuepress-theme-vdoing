@@ -142,11 +142,14 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpenOfclientWidth()
     })
-    
-    if(storage.get('mode')) {
+    // 系统处于深色模式且未切换过模式时，自动显示深色模式
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches && !storage.get('mode')){
+      this.themeMode = 2
+      this.toggleThemeIcon()
+    } else if (storage.get('mode')) {
       this.themeMode = storage.get('mode')
       this.toggleThemeIcon()
-    } 
+    }
   },
 
   methods: {
