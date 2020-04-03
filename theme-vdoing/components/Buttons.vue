@@ -144,7 +144,7 @@ export default {
       margin-top .9rem
       text-align center
       cursor pointer
-      color var(--textLightenColor)
+      // color var(--textLightenColor)
       background rgba(255,255,255,.1)
       &:hover
         color $accentColor

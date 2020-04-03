@@ -247,7 +247,8 @@ export default {
   overflow hidden
 .banner
   width 100%
-  background #1F2837
+  // background #1F2837
+  background rgb(40,40,45)
   color #fff
   position relative
   overflow hidden
