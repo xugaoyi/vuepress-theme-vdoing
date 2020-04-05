@@ -17,18 +17,23 @@
     <div
       title="主题模式"
       class="button theme-mode-but iconfont icon-zhuti"
+      @mouseenter="showModeBox = true"
+      @mouseleave="showModeBox = false"
+      @click="showModeBox = true"
     >
-      <ul class="select-box">
-        <li
-         v-for="item in modeList"
-         :key="item.KEY"
-         class="iconfont"
-         :class="[item.icon, {active: item.KEY === currentMode}]"
-         @click="toggleMode(item.KEY)"
-        >
-          {{item.name}}
-        </li>
-      </ul>
+      <transition name="mode">
+        <ul class="select-box" ref="modeBox" v-show="showModeBox" @click.stop>
+          <li
+          v-for="item in modeList"
+          :key="item.KEY"
+          class="iconfont"
+          :class="[item.icon, {active: item.KEY === currentMode}]"
+          @click="toggleMode(item.KEY)"
+          >
+            {{item.name}}
+          </li>
+        </ul>
+      </transition>
     </div>
   </div>
 </template>
@@ -36,6 +41,7 @@
 <script>
 import debounce from 'lodash.debounce'
 import storage from 'good-storage' // 本地存储
+const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 
 export default {
   data() {
@@ -45,6 +51,7 @@ export default {
       showCommentBut: false,
       commentTop: null,
       currentMode: null,
+      showModeBox: false,
       modeList: [
         {
           name: '跟随系统',
@@ -85,6 +92,19 @@ export default {
     window.addEventListener('load', () => {
       this.getCommentTop()
     })
+
+    // 小屏时选择主题模式后关闭选择框
+    if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
+      const modeBox = this.$refs.modeBox
+      modeBox.onclick = () => {
+        this.showModeBox = false
+      }
+      window.addEventListener('scroll', debounce(() => {
+        if(this.showModeBox) {
+          this.showModeBox = false
+        }
+      }, 100))
+    }
   },
   computed: {
     showToTop () {
@@ -184,20 +204,17 @@ export default {
       &:hover
         &:before
           color $accentColor
-        .select-box
-          display block
       .select-box
         margin 0
         padding .5rem 0
         position absolute
         bottom 0rem
-        right 2rem
+        right 1.5rem
         background var(--bg)
         border 1px solid var(--borderColor)
         width 100px
         border-radius 3px
         box-shadow 0 2px 6px rgba(0,0,0,.25)
-        display none
         li 
           list-style none
           line-height 1.8rem
@@ -207,6 +224,13 @@ export default {
           &.active
             background-color rgba(150,150,150,.2)
             color $accentColor
+
+  .mode-enter-active, .mode-leave-active
+    transition all .3s
+  .mode-enter, .mode-leave-to
+    opacity 0
+    transform scale(.8)
+
   .fade-enter-active, .fade-leave-active
     transition opacity .2s
   .fade-enter, .fade-leave-to
