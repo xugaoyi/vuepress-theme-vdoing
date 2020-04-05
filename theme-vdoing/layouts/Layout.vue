@@ -71,8 +71,7 @@ export default {
     return {
       isSidebarOpen: true,
       showSidebar: false,
-      themeMode: 1, // 1 => 日间模式， 2=> 夜间模式， 3=> 阅读模式
-      THEMEMODE_COUNT: 3 // 主题模式的数量
+      themeMode: null
     }
   },
   computed: {
@@ -129,27 +128,25 @@ export default {
           'no-sidebar': !this.shouldShowSidebar,
           'have-rightmenu': this.showRightMenu,
         },
-        'theme-mode-' + (this.themeMode == 1 ? 'daytime' : this.themeMode == 2 ? 'night' : 'read'),
+        'theme-mode-' + this.themeMode,
         userPageClass
       ]
     }
   },
   beforeMount() {
     this.isSidebarOpenOfclientWidth()
+    const mode = storage.get('mode')
+    if(!mode || mode === 'auto') { // 当未切换过模式，或模式处于'跟随系统'时
+      this._autoMode()
+    } else {
+      this.themeMode = mode
+    }
   },
   mounted () {
     this.showSidebar = true // 解决移动端初始化页面时侧边栏闪现的问题
     this.$router.afterEach(() => {
       this.isSidebarOpenOfclientWidth()
     })
-    // 系统处于深色模式且未切换过模式时，自动显示深色模式
-    if(window.matchMedia('(prefers-color-scheme: dark)').matches && !storage.get('mode')){
-      this.themeMode = 2
-      this.toggleThemeIcon()
-    } else if (storage.get('mode')) {
-      this.themeMode = storage.get('mode')
-      this.toggleThemeIcon()
-    }
   },
 
   methods: {
@@ -162,17 +159,22 @@ export default {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)
     },
-    toggleThemeMode (){
-      this.themeMode = this.themeMode+1 > this.THEMEMODE_COUNT ? 1 : this.themeMode+1
-      storage.set('mode', this.themeMode)
-      this.toggleThemeIcon()
-      // if (document.documentElement.clientWidth > MOBILE_DESKTOP_BREAKPOINT) {
-      //   this.isSidebarOpen = !this.readMode
-      // }
+    _autoMode () {
+      if(window.matchMedia('(prefers-color-scheme: dark)').matches){ // 系统处于深色模式
+        this.themeMode = 'dark'
+      } else {
+        this.themeMode = 'light'
+      }
     },
-    toggleThemeIcon() {
-      this.$refs.buttons.toggleIconClass(this.themeMode)
+    toggleThemeMode (key) {
+      if(key === 'auto') {
+        this._autoMode()
+      } else {
+        this.themeMode = key
+      }
+      storage.set('mode', key)
     },
+    
     // side swipe
     onTouchStart (e) {
       this.touchStart = {

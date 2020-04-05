@@ -16,24 +16,57 @@
     />
     <div
       title="主题模式"
-      class="button theme-mode-but iconfont"
-      :class="themeIconClass"
-      @click="$emit('toggle-theme-mode')"
-    />
+      class="button theme-mode-but iconfont icon-zhuti"
+    >
+      <ul class="select-box">
+        <li
+         v-for="item in modeList"
+         :key="item.KEY"
+         class="iconfont"
+         :class="[item.icon, {active: item.KEY === currentMode}]"
+         @click="toggleMode(item.KEY)"
+        >
+          {{item.name}}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import debounce from 'lodash.debounce'
+import storage from 'good-storage' // 本地存储
 
 export default {
   data() {
     return {
-      threshold: 300,
+      threshold: 100,
       scrollTop: null,
       showCommentBut: false,
       commentTop: null,
-      themeIconClass: 'icon-rijianmoshi',
+      currentMode: null,
+      modeList: [
+        {
+          name: '跟随系统',
+          icon: 'icon-zidong',
+          KEY: 'auto'
+        },
+        {
+          name: '浅色模式',
+          icon: 'icon-rijianmoshi',
+          KEY: 'light'
+        },
+        {
+          name: '深色模式',
+          icon: 'icon-yejianmoshi',
+          KEY: 'dark'
+        },
+        {
+          name: '阅读模式',
+          icon: 'icon-yuedu',
+          KEY: 'read'
+        }
+      ],
       _scrollTimer: null,
       _textareaEl: null,
       _recordScrollTop: null,
@@ -41,6 +74,8 @@ export default {
     }
   },
   mounted () {
+    this.currentMode = storage.get('mode') || 'auto'
+
     this.scrollTop = this.getScrollTop()
     window.addEventListener('scroll', debounce(() => {
       this.scrollTop = this.getScrollTop()
@@ -57,10 +92,10 @@ export default {
     }
   },
   methods: {
-    toggleIconClass(mode) {
-      this.themeIconClass = mode == 1 ? 'icon-rijianmoshi' : mode == 2 ? 'icon-yejianmoshi' : 'icon-yuedu' 
+    toggleMode(key){
+      this.currentMode = key
+      this.$emit('toggle-theme-mode', key)
     },
-
     getScrollTop () {
       return window.pageYOffset
         || document.documentElement.scrollTop
@@ -131,14 +166,14 @@ export default {
     position fixed
     right 2rem
     bottom 2.5rem
+    z-index 11
     @media (max-width: $MQNarrow)
       right 1rem
       bottom 1.5rem
-    z-index 1
     .button
-      width 40px
-      height 40px
-      line-height 40px
+      width 2.2rem
+      height 2.2rem
+      line-height 2.2rem
       border-radius 50%
       box-shadow 0 2px 6px rgba(0,0,0,.25)
       margin-top .9rem
@@ -147,8 +182,31 @@ export default {
       // color var(--textLightenColor)
       background rgba(255,255,255,.1)
       &:hover
-        color $accentColor
-
+        &:before
+          color $accentColor
+        .select-box
+          display block
+      .select-box
+        margin 0
+        padding .5rem 0
+        position absolute
+        bottom 0rem
+        right 2rem
+        background var(--bg)
+        border 1px solid var(--borderColor)
+        width 100px
+        border-radius 3px
+        box-shadow 0 2px 6px rgba(0,0,0,.25)
+        display none
+        li 
+          list-style none
+          line-height 1.8rem
+          font-size .9rem
+          &:hover
+            color $accentColor
+          &.active
+            background-color rgba(150,150,150,.2)
+            color $accentColor
   .fade-enter-active, .fade-leave-active
     transition opacity .2s
   .fade-enter, .fade-leave-to
