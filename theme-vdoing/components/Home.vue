@@ -387,9 +387,7 @@ body .main-wrapper
   .feature:hover 
     .image_title 
       animation-play-state: running
-    h2
-      color var(--textColor)
-    p
+    h2,p
       color var(--textLightenColor)
 
 @keyframes heart

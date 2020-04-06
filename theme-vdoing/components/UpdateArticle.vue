@@ -70,13 +70,14 @@ export default {
       border 8px solid rgba(160,160,160,.1)
       box-sizing border-box
     @media (max-width: $MQNarrow)
-      padding 2rem 2rem 0rem 2rem
+      padding 1.5rem 1.5rem 0rem 1.5rem
       &:not(.article-home)
         border-width 10px
         border-left none
         border-right none
     @media (max-width: $MQMobileNarrow)
       padding 1.5rem 1.5rem 0rem 1.5rem
+      margin 0 -1.5rem
     &.article-home
       max-width: 100%
       padding 0 0 2rem 0

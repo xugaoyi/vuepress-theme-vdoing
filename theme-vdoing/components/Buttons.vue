@@ -218,7 +218,7 @@ export default {
         li 
           list-style none
           line-height 1.8rem
-          font-size .9rem
+          font-size .95rem
           &:hover
             color $accentColor
           &.active

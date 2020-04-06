@@ -33,7 +33,7 @@ export default {
       articleInfo: {}
     }
   },
-  mounted() {
+  created() {
     this.articleInfo = this.getPageInfo()
   },
   watch: {

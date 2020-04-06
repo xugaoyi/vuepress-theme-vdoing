@@ -71,7 +71,7 @@ export default {
     return {
       isSidebarOpen: true,
       showSidebar: false,
-      themeMode: null
+      themeMode: 'light'
     }
   },
   computed: {
