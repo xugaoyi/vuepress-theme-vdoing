@@ -61,12 +61,12 @@ export default {
 </script>
 
 <style lang='stylus'>
+  @require '../styles/wrapper.styl'
   .article
-    max-width $contentWidth
-    margin 0 auto
+    @extend $wrapper
     padding 2rem 2.5rem 0 2.5rem
     &:not(.article-home)
-      margin 2rem auto 0 auto
+      margin-top 2rem
       border 8px solid rgba(160,160,160,.1)
       box-sizing border-box
     @media (max-width: $MQNarrow)

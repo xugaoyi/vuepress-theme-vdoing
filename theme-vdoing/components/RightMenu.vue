@@ -46,8 +46,8 @@ export default {
 <style lang='stylus'>
 .right-menu-wrapper
   width $rightMenuWidth
-  height 0
-  margin 0 0 0 ($contentWidth + 20px)
+  float right 
+  margin-right -20px
   position sticky
   top 0
   font-size .9rem

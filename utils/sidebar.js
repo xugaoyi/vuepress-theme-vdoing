@@ -51,7 +51,7 @@ function main() {
 
   const sidebarDataTem = ejs.render(sidebarTemplate, { sidebarData, catalogueData });
   fs.writeFileSync(sidebarPath, sidebarDataTem); // 同步写入文件, 参数一：写入到的文件, 参数二：写入的数据
-  logger.info('侧边栏生成成功！')
+  logger.info('add sidebar-auto.js (侧边栏生成成功！)')
 }
 
 /**

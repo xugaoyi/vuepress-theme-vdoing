@@ -82,11 +82,11 @@ function zero(d){
 </script>
 
 <style lang='stylus' scoped>
+@require '../styles/wrapper.styl'
 
 .articleInfo-wrap
-  // margin-bottom -3.6rem!important
+  @extend $wrapper
   margin: 2.6rem 0 -3.1rem 0
-  // padding-top 0!important
   color #888
   .articleInfo
     overflow hidden

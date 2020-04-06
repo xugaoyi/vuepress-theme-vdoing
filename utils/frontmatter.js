@@ -20,7 +20,7 @@ function main() {
     let dataStr = fs.readFileSync(file.filePath, 'utf8');// 读取每个md文件内容
 
     /**
-     * fileMatterObj => {content:'剔除frontmatter的文件内容字符串', data:{<frontmatter对象>}, ...}
+     * fileMatterObj => {content:'剔除frontmatter后的文件内容字符串', data:{<frontmatter对象>}, ...}
      */
     const fileMatterObj = matter(dataStr);
 
@@ -29,7 +29,7 @@ function main() {
       const dateStr = dateFormat(stat.birthtime);// 文件的创建时间
       const newData = `---\r\ntitle: ${file.name}\r\ndate: ${dateStr}\r\npermalink: ${file.permalink}\r\n---\r\n` + fileMatterObj.content;
       fs.writeFileSync(file.filePath, newData); // 写入
-      console.log(`写入FrontMatter：${file.filePath} `)
+      console.log(`write FrontMatter：${file.filePath} `)
 
     } else { // 已有FrontMatter
       const matterData = fileMatterObj.data;
@@ -55,7 +55,7 @@ function main() {
       if (mark) {
         const newData = YAML.stringify(matterData) + '---\r\n' + fileMatterObj.content;
         fs.writeFileSync(file.filePath, newData); // 写入
-        console.log(`更新FrontMatter：${file.filePath} `)
+        console.log(`update FrontMatter：${file.filePath} `)
       }
       
 
@@ -71,7 +71,7 @@ function main() {
         
         const newData2 = YAML.stringify(JSON.parse(JSON.stringify(matterData))) + '---\r\n' + fileMatterObj.content;
         fs.writeFileSync(file.filePath, newData2); // 写入
-        console.log(`更新FrontMatter标题和链接：${file.filePath}`)
+        console.log(`update FrontMatter title and permalink：${file.filePath}`)
       }
 
     }
