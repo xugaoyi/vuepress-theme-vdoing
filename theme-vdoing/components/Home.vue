@@ -440,9 +440,9 @@ body .main-wrapper
 
   // 719px
   .banner
-    min-height 517px
+    // min-height 517px
     .home .hero h1
-      margin 1.8rem auto
+      // margin 1.8rem auto
   .home
     .features
       display none

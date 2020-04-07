@@ -76,6 +76,7 @@
 
    [首页配置](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/338)
 
+7. 多种颜色模式供用户选择：**跟随系统**、**浅色模式**、**深色模式**、**阅读模式**
 
 ## Start 开始
 
