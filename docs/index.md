@@ -2,8 +2,9 @@
 home: true
 heroText: Evan's blog
 tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
+# bgImg: /img/bg.jpeg # 可选的，如没有背景图则显示网格纹背景
 
-features:
+features: # 可选的
   - title: 前端
     details: JavaScript、ES6、Vue框架等前端技术
     link: /web/
@@ -17,6 +18,7 @@ features:
     link: /technology/
     imgUrl: /img/other.png
 ---
+
 
 ## 关于
 

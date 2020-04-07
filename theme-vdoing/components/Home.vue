@@ -1,7 +1,7 @@
 <template>
   <div class="i-body" :style="'background-image: url('+ footerBgImg || '' +')'">
-    <div class="banner">
-      <main class="home">
+    <div class="banner" :style="data.bgImg && `background: url(${data.bgImg}) center center / cover no-repeat`">
+      <main class="home" :style="!data.features && `padding-top: 7rem`">
         <header class="hero">
           <img v-if="data.heroImage" :src="$withBase(data.heroImage)" :alt="data.heroAlt || 'hero'" />
           <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
@@ -180,6 +180,7 @@ export default {
 
   computed: {
     data() {
+      console.log(this.$frontmatter)
       return this.$page.frontmatter;
     },
     blogger() {
@@ -248,7 +249,7 @@ export default {
   overflow hidden
 .banner
   width 100%
-  // background #1F2837
+  min-height 450px
   background rgb(40,40,45)
   color #fff
   position relative
@@ -273,7 +274,9 @@ export default {
         font-size 1.3rem
         color #fff
       p
-        color #B0B6BE
+        color #fff
+        opacity 0.8
+        // color #B0B6BE
 
 body .main-wrapper
   margin 2rem auto
@@ -389,7 +392,8 @@ body .main-wrapper
     .image_title 
       animation-play-state: running
     h2,p
-      color var(--textLightenColor)
+      opacity .7
+      // color var(--textLightenColor)
 
 @keyframes heart
   from{transform:translate(0,0)}

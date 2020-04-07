@@ -50,6 +50,9 @@ export default {
     }
   },
   created() {
+    
+  },
+  mounted() {
     const fmData = this.$frontmatter.pageComponent.data
     if(fmData && fmData.tagBgColor) {
       this.pageData.tagBgColor = fmData.tagBgColor
@@ -59,10 +62,10 @@ export default {
     }
 
     this.posts = this.$site.pages
-  },
-  mounted() {
     document.body.style="overflow-y: scroll;" // 解决切换tag页面高度不满屏出现跳动的问题
+
     this.handleHashTag()
+
     window.onhashchange = () => {
       this.handleHashTag()
     }
