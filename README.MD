@@ -1,8 +1,17 @@
-# vuepress-theme-vdoing
+<p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="150" src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200407130906.png" alt="logo"></a></p>
 
-## 一个简洁而精致的 知识管理 & 博客 & 文档  主题
+<p align="center">
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3ACI"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/CI/badge.svg" alt="CI"></a>
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3AbaiduPush"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/baiduPush/badge.svg" alt="baiduPush"></a>
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/commits/master"><img src="https://img.shields.io/github/last-commit/xugaoyi/vuepress-theme-vdoing-blog" alt="last-commit"></a>
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/stargazers"><img src="https://img.shields.io/github/stars/xugaoyi/vuepress-theme-vdoing-blog" alt="GitHub stars"></a>
 
-[![CI](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/CI/badge.svg)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3ACI) [![baiduPush](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/baiduPush/badge.svg)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3AbaiduPush) [![last-commit](https://img.shields.io/github/last-commit/xugaoyi/vuepress-theme-vdoing-blog)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/commits/master) [![GitHub stars](https://img.shields.io/github/stars/xugaoyi/vuepress-theme-vdoing-blog)](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/stargazers) [![QQ](https://img.shields.io/badge/撩我-894072666-brightgreen)](https://xugaoyi.com/about/#%E8%81%94%E7%B3%BB)
+</p>
+
+<h2 align="center">vuepress-theme-vdoing</h2>
+
+
+
 
 效果预览：[ Evan's blog](https://xugaoyi.com/)
 

@@ -76,8 +76,9 @@ export default {
         border-left none
         border-right none
     @media (max-width: $MQMobileNarrow)
-      padding 1.5rem 1.5rem 0rem 1.5rem
-      margin 0 -1.5rem
+      // padding 1.5rem 1.5rem 0rem 1.5rem
+      &:not(.article-home)
+        margin 0 -1.5rem
     &.article-home
       max-width: 100%
       padding 0 0 2rem 0

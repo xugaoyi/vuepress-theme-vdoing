@@ -135,7 +135,7 @@ export default {
   },
   beforeMount() {
     this.isSidebarOpenOfclientWidth()
-    const mode = storage.get('mode')
+    const mode = storage.get('mode') // 不放在created是因为vuepress不能在created访问浏览器api，如window
     if(!mode || mode === 'auto') { // 当未切换过模式，或模式处于'跟随系统'时
       this._autoMode()
     } else {
