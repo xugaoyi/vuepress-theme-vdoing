@@ -93,6 +93,7 @@ import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
 import UpdateArticle from './UpdateArticle.vue'
 import Footer from './Footer.vue'
+const MOBILE_DESKTOP_BREAKPOINT = 720 // refer to config.styl
 
 BScroll.use(Slide)
 
@@ -107,10 +108,10 @@ export default {
     }
   },
   beforeMount(){
-    this.isMQMobile = window.innerWidth < 720 ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
+    this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
     
     window.addEventListener('resize', () => {
-      this.isMQMobile = window.innerWidth < 720 ? true : false;
+      this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false;
       if(this.isMQMobile && !this.slide && !this.mark){
         this.mark++
         setTimeout(() => {

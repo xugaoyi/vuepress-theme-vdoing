@@ -1,4 +1,4 @@
-<p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="150" src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200407130906.png" alt="logo"></a></p>
+<p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="150" src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200407145524.png" alt="logo"></a></p>
 
 <p align="center">
   <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3ACI"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/CI/badge.svg" alt="CI"></a>
