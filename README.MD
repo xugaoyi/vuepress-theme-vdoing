@@ -37,7 +37,7 @@
    <details>
     <summary>查看文档</summary>
     <ul>
-        </li>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/343">.vuepress/config.js 新增的配置</a></li>
         <li>简单的<b>目录页</b>配置，查看 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/330">目录页配置</a>
         </li>
         <li><b>自动生成侧边栏工具</b> 让你拥有一个结构清晰的侧边栏，无需手动配置。<br/>

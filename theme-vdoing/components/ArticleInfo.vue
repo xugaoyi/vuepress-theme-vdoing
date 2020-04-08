@@ -86,6 +86,8 @@ function zero(d){
 
 .articleInfo-wrap
   @extend $wrapper
+  position: relative
+  z-index: 1
   margin: 2.6rem 0 -3.1rem 0
   color #888
   .articleInfo
