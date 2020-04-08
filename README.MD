@@ -15,6 +15,7 @@
 
 效果预览：[ Evan's blog](https://xugaoyi.com/)
 
+效果图：[vdoing主题效果图](https://xugaoyi.com/pages/d557b9a89a215d2e)
 
 
 ## Original intention 初衷
