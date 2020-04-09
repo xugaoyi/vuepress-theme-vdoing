@@ -36,7 +36,7 @@ module.exports = {
     editLinkText: '编辑',
 
     // 以下配置为Vdoing主题新增配置
-    // updateBar: { // 最近更新栏
+    // updateBar: { // 最近更新栏(此配置功能当前正在开发 04.09日)
     //   isShowOnHome:  false, // 可选，是否显示在首页，默认true
     //   isShowOnArticle: false,  // 可选，是否显示在文章页，默认true
     //   moreArticle: '/timeline' // “更多文章”跳转的页面，默认'/timeline'
