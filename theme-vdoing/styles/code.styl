@@ -1,4 +1,4 @@
-{$contentClass}
+body {$contentClass}
   code
     color var(--textLightenColor)
     padding 0.25rem 0.5rem
@@ -13,7 +13,7 @@
       &.inserted
         color $accentColor
 
-{$contentClass}
+body {$contentClass}
   pre, pre[class*="language-"]
     line-height 1.4
     padding 1.25rem 1.5rem
@@ -79,7 +79,8 @@ div[class*="language-"]
       top 0
       width $lineNumbersWrapperWidth
       text-align center
-      color rgba(255, 255, 255, 0.3)
+      // color rgba(255, 255, 255, 0.3)
+      color rgba(127, 127, 127, .5)
       padding 1.25rem 0
       line-height 1.4
       br
@@ -98,8 +99,10 @@ div[class*="language-"]
       width $lineNumbersWrapperWidth
       height 100%
       border-radius 6px 0 0 6px
-      border-right 1px solid rgba(0, 0, 0, 66%)
-      background-color $codeBgColor
+      // border-right 1px solid rgba(0, 0, 0, 66%)
+      // background-color $codeBgColor
+      border-right 1px solid var(--borderColor)
+      background-color var(--codeBgColor)
 
 
 for lang in $codeLang

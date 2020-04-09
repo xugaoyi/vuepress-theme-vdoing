@@ -44,6 +44,8 @@ export default {
 </script>
 
 <style lang='stylus'>
+@require '../styles/variable.styl'
+  
 .right-menu-wrapper
   width $rightMenuWidth
   float right 

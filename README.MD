@@ -1,4 +1,4 @@
-<p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="150" src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200407145524.png" alt="logo"></a></p>
+<p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="180" src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200409124835.png" alt="logo"></a></p>
 
 <p align="center">
   <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3ACI"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/CI/badge.svg" alt="CI"></a>
@@ -78,6 +78,7 @@
    [首页配置](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/338)
 
 7. 多种颜色模式供用户选择：**跟随系统**、**浅色模式**、**深色模式**、**阅读模式**
+   [palette.styl主题调色板使用说明](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/345s)
 
 ## Start 开始
 

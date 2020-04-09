@@ -56,6 +56,8 @@ export default {
 
 <style lang="stylus">
 @require '../styles/wrapper.styl'
+@require '../styles/variable.styl'
+
 .page
   padding-bottom 2rem
   display block

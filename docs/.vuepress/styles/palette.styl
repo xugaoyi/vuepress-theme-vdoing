@@ -1,29 +1,64 @@
 // 主题调色板
 
-// 默认 颜色
-$accentColor = #3eaf7c // 强调色
-$textColor = #2c3e50 // 文本色
-$borderColor = #eaecef // 边框色
-$codeBgColor = #282c34 // 代码块背景色
-$arrowBgColor = #ccc // 箭头背景色？
-$badgeTipColor = #42b983 // 提示框
-$badgeWarningColor = darken(#ffe564, 35%) // 警告框
-$badgeErrorColor = #DA5961 // 错误框
-
-// 默认 布局
+// 原主题预设变量
+// 颜色
+// $accentColor = #3eaf7c
+// $textColor = #2c3e50
+// $borderColor = #eaecef
+// $codeBgColor = #282c34
+// $arrowBgColor = #ccc
+// $badgeTipColor = #42b983
+// $badgeWarningColor = darken(#ffe564, 35%)
+// $badgeErrorColor = #DA5961
+// 布局
 // $navbarHeight = 3.6rem
 // $sidebarWidth = 20rem
 // $contentWidth = 740px
 // $homePageWidth = 960px
+// 代码块
+// $lineNumbersWrapperWidth = 3.5rem
 
 
-// 自定义 蓝色主题
+// 自定义 颜色
 $accentColor = #11A8CD
-$textColor = #004050
-$borderColor = rgba(0,0,0,.1)
-$badgeTipColor = #11A8CD
 
 // 自定义 布局
 $sidebarWidth = 18rem
 $contentWidth = 830px
-$rightMenuWidth = 280px // 右侧菜单
+$lineNumbersWrapperWidth = 2.5rem
+
+
+/** 注意：
+ *  vdoing主题弃用了部分原有的变量，弃用的有：$textColor、$borderColor、$codeBgColor。
+ *  弃用后的变量改为采用"--"的方式定义，并在不同模式下设置不同的值，同时还新增了其他的一些变量。
+ *  以下是vdoing主题默认的变量，您可以在此文件内对其进行修改。
+ */ 
+// // 浅色模式
+// .theme-mode-light
+//   --bg: #fff
+//   --textColor: #004050
+//   --textLightenColor: #0085AD
+//   --borderColor: rgba(0,0,0,.15)
+//   --codeBgColor: #f6f6f6
+//   --codeColor: #525252
+//   codeThemeLight()
+
+// // 深色模式
+// .theme-mode-dark
+//   --bg: rgb(30,30,34)
+//   --textColor: rgb(150,150,154)
+//   --textLightenColor: #0085AD
+//   --borderColor: #2C2C3A
+//   --codeBgColor: #252526
+//   --codeColor: #fff
+//   codeThemeDark()
+
+// // 阅读模式
+// .theme-mode-read
+//   --bg: #f5f5d5 // 杏仁黄
+//   --textColor: #004050
+//   --textLightenColor: #0085AD
+//   --borderColor: rgba(0,0,0,.15)
+//   --codeBgColor: #282c34
+//   --codeColor: #fff
+//   codeThemeDark()

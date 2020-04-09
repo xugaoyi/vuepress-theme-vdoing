@@ -19,7 +19,7 @@ module.exports = {
     // ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
   ],
   markdown: {
-    // lineNumbers: true // 代码行号
+    lineNumbers: true // 代码行号
   },
   theme: require.resolve('../../theme-vdoing'), // 使用的主题
   themeConfig: { // 主题配置
@@ -77,7 +77,7 @@ module.exports = {
     //   excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
     // }],
     [require('./plugins/title-badge'), { // h1标题徽章
-      // badges: [ // 替换默认的徽章图标
+      // badges: [ // 替换默认的徽章图标,可选
       //   'data:image/png;base64,**',
       //   'data:image/png;base64,***',
       // ]
