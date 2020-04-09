@@ -180,7 +180,6 @@ export default {
 
   computed: {
     data() {
-      console.log(this.$frontmatter)
       return this.$page.frontmatter;
     },
     blogger() {

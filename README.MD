@@ -68,8 +68,7 @@
             <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/335">文章信息栏（作者与创建时间）</a>
         </li>
         <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/334">最近更新栏</a></li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/336">博主信息栏</a></li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/337">页脚版权栏</a></li>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/343">博主信息栏和页脚版权栏在config.js配置</a></li>
     </ul>
    </details>
    
@@ -78,7 +77,8 @@
    [首页配置](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/338)
 
 7. 多种颜色模式供用户选择：**跟随系统**、**浅色模式**、**深色模式**、**阅读模式**
-   [palette.styl主题调色板使用说明](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/345s)
+
+   [palette.styl主题调色板使用说明](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/345)
 
 ## Start 开始
 

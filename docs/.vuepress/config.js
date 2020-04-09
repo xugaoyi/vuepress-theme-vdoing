@@ -36,6 +36,11 @@ module.exports = {
     editLinkText: '编辑',
 
     // 以下配置为Vdoing主题新增配置
+    // updateBar: { // 最近更新栏
+    //   isShowOnHome:  false, // 可选，是否显示在首页，默认true
+    //   isShowOnArticle: false,  // 可选，是否显示在文章页，默认true
+    //   moreArticle: '/timeline' // “更多文章”跳转的页面，默认'/timeline'
+    // },
     author: { // 文章默认的作者信息，可在md文件中单独配置此信息
       name: 'Evan Xu', // 必需
       href: 'https://github.com/xugaoyi' // 可选的
