@@ -12,7 +12,7 @@
       </a>
     </div>
     <template v-if="footer">
-      <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog" target="_blank" title="本站主题">♔♕Vdoing | </a>
+      <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">♔♕Vdoing | </a>
       Copyright © {{ footer.createYear }}-{{ new Date().getFullYear() }}
       <span v-html="footer.copyrightInfo"></span>
     </template>

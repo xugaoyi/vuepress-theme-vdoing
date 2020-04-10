@@ -87,7 +87,7 @@ function mapTocToSidebar(root, prefix){
     let [order, title, type] = filename.split('.');
     order = parseInt(order, 10);
     if (isNaN(order) || order < 0) {
-      logger.error(`该文件 "${file}" 序号出错，请填写正确的序号，序号约定请查看：https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/113`);
+      logger.error(`该文件 "${file}" 序号出错，请填写正确的序号，序号约定请查看：https://github.com/xugaoyi/vuepress-theme-vdoing/issues/113`);
       return;
     }
     if (sidebar[order]) { // sidebar数组的order位置的数据的布尔值

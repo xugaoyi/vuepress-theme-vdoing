@@ -1,10 +1,10 @@
 <p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="180" src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200409124835.png" alt="logo"></a></p>
 
 <p align="center">
-  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3ACI"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/CI/badge.svg" alt="CI"></a>
-  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/actions?query=workflow%3AbaiduPush"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/workflows/baiduPush/badge.svg" alt="baiduPush"></a>
-  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/commits/master"><img src="https://img.shields.io/github/last-commit/xugaoyi/vuepress-theme-vdoing-blog" alt="last-commit"></a>
-  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/stargazers"><img src="https://img.shields.io/github/stars/xugaoyi/vuepress-theme-vdoing-blog" alt="GitHub stars"></a>
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/actions?query=workflow%3ACI"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing/workflows/CI/badge.svg" alt="CI"></a>
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/actions?query=workflow%3AbaiduPush"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing/workflows/baiduPush/badge.svg" alt="baiduPush"></a>
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/commits/master"><img src="https://img.shields.io/github/last-commit/xugaoyi/vuepress-theme-vdoing" alt="last-commit"></a>
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/stargazers"><img src="https://img.shields.io/github/stars/xugaoyi/vuepress-theme-vdoing" alt="GitHub stars"></a>
 
 </p>
 
@@ -20,7 +20,7 @@
 
 ## Original intention
 
-这个主题的初衷是打造一个 **结构化** 与 **碎片化** 并存的个人**知识库**。[详情](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/339)
+这个主题的初衷是打造一个 **结构化** 与 **碎片化** 并存的个人**知识库**。[详情](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/339)
 
 >  目前功能已比较完整，但仍在不断的完善当中。如果你有什么建议欢迎提**Issues**，喜欢这个项目的欢迎点个**Star**持续关注。
 
@@ -37,17 +37,17 @@
    <details>
     <summary>查看文档</summary>
     <ul>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/343">.vuepress/config.js 新增的配置</a></li>
-        <li>简单的<b>目录页</b>配置，查看 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/330">目录页配置</a>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/343">.vuepress/config.js 新增的配置</a></li>
+        <li>简单的<b>目录页</b>配置，查看 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/330">目录页配置</a>
         </li>
         <li><b>自动生成侧边栏工具</b> 让你拥有一个结构清晰的侧边栏，无需手动配置。<br/>
-        <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/113">根据目录自动生成侧边栏和分类标签的约定说明</a>
+        <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/113">根据目录自动生成侧边栏和分类标签的约定说明</a>
         </li>
         <li><b>自动生成Front Matter工具</b> 助你专注于写作，你无需给每个文件都手写front matter。<br/>
-        <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/324">自动生成Front Matter工具</a>
+        <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/324">自动生成Front Matter工具</a>
         </li>
         <li>
-        可以添加第三方搜索链接的<a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a>
+        可以添加第三方搜索链接的<a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a>
         </li>
        <li>
         	<b>面包屑</b>和<b>快捷翻页按钮</b>内置于主题，无需配置。（面包屑数据依赖于自动生成侧边栏工具）
@@ -62,32 +62,32 @@
     <ul>
         <li><a href="https://github.com/dongyuanxin/vuepress-plugin-comment">评论栏插件</a>
         </li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/331">时间轴+分类 页面配置</a> (分类数据依赖于自动生成侧边栏工具)
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/331">时间轴+分类 页面配置</a> (分类数据依赖于自动生成侧边栏工具)
         </li>
         <li>
-            <a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/335">文章信息栏（作者与创建时间）</a>
+            <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/335">文章信息栏（作者与创建时间）</a>
         </li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/334">最近更新栏</a></li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/343">博主信息栏和页脚版权栏在config.js配置</a></li>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/334">最近更新栏</a></li>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/343">博主信息栏和页脚版权栏在config.js配置</a></li>
     </ul>
    </details>
    
 6. 首页样式美化
 
-   [首页配置](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/338)
+   [首页配置](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/338)
 
 7. 多种颜色模式供用户选择：**跟随系统**、**浅色模式**、**深色模式**、**阅读模式**
 
-   [palette.styl主题调色板使用说明](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/345)
+   [palette.styl主题调色板使用说明](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/345)
 
 ## Start
 
 ```bash
 # clone the project
-git clone https://github.com/xugaoyi/vuepress-theme-vdoing-blog.git
+git clone https://github.com/xugaoyi/vuepress-theme-vdoing.git
 
 # enter the project directory
-cd vuepress-theme-vdoing-blog
+cd vuepress-theme-vdoing
 
 # install dependency
 npm install # or yarn install
@@ -111,7 +111,7 @@ npm run dev # or yarn dev
 
 3. H1标题美化徽章插件
 
-   [title-badge](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/tree/master/docs/.vuepress/plugins/title-badge)
+   [title-badge](https://github.com/xugaoyi/vuepress-theme-vdoing/tree/master/docs/.vuepress/plugins/title-badge)
 
    > 此插件未上传npm，以本地插件引入:
 
@@ -131,7 +131,7 @@ npm run dev # or yarn dev
 
 4. 可以添加第三方搜索链接的搜索框插件
 
-   [enhanced-search](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/blob/master/docs/.vuepress/plugins/enhanced-search/README.md)
+   [enhanced-search](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/docs/.vuepress/plugins/enhanced-search/README.md)
 
    > 此插件未上传npm，以本地插件引入
 
@@ -145,7 +145,7 @@ npm run dev # or yarn dev
 
 1. 内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种**自动部署**脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
 
-   [自动部署到 github 或 coding](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/325)
+   [自动部署到 github 或 coding](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/325)
 
 
 
@@ -157,7 +157,7 @@ npm run dev # or yarn dev
 
 2. **自定义域名及解析**
 
-   [自定义域名及解析](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/326)
+   [自定义域名及解析](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/326)
 
 3. **SEO相关**
 
@@ -181,7 +181,7 @@ npm run dev # or yarn dev
 
 6. **在线编辑和新增文章的方法**
 
-   [在线编辑和新增文章的方法](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues/327)
+   [在线编辑和新增文章的方法](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/327)
 
 ## Donate
 如果你觉得这个主题对你有用，可以为作者贡献一杯82年的雪碧🍸。
@@ -190,6 +190,6 @@ npm run dev # or yarn dev
 | <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113708.jpg" alt="Wechat QRcode" width=200>| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113707.jpg" alt="Alipay QRcode" width=200> |
 
 ## License
-[MIT](https://github.com/xugaoyi/vuepress-theme-vdoing-blog/blob/master/LICENSE)
+[MIT](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE)
 
 Copyright (c) 2019-present Evan Xu

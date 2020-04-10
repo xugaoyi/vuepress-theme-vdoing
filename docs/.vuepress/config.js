@@ -4,7 +4,7 @@ const sidebar = require('./config/sidebar-auto.js');
 module.exports = {
   title: "Evan's blog", // 标题
   description: 'web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到页面html中
-  // base: '/vuepress-theme-vdoing-blog/', // 默认'/' || github仓库名'/<仓库名>/',
+  // base: '/vuepress-theme-vdoing/', // 默认'/' || github仓库名'/<仓库名>/',
   head: [ // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
     ['link', { rel: 'icon', href: '/img/favicon.ico' }], //favicons，资源放在public文件夹
     ['meta', { name: 'keywords', content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown'}],
@@ -27,7 +27,7 @@ module.exports = {
     sidebar, // 侧边栏    'auto' | 自定义
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/EB-logo.png', // 导航栏logo
-    repo: 'xugaoyi/vuepress-theme-vdoing-blog', // 导航栏右侧生成Github链接
+    repo: 'xugaoyi/vuepress-theme-vdoing', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索显示最大数
     lastUpdated: '上次更新', // 更新的时间，及前缀文字   string | boolean (取值为git提交时间)
 
@@ -146,7 +146,7 @@ module.exports = {
         options: {
           clientID: 'a6e1355287947096b88b',
           clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
-          repo: 'vuepress-theme-vdoing-blog', // GitHub 仓库
+          repo: 'vuepress-theme-vdoing', // GitHub 仓库
           owner: 'xugaoyi', // GitHub仓库所有者
           admin: ['xugaoyi'], // 对仓库有写权限的人
           distractionFreeMode: false,

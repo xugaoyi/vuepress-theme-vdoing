@@ -4,7 +4,7 @@
     "name": "Evan Xu"
   },
   "bugs": {
-    "url": "https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues"
+    "url": "https://github.com/xugaoyi/vuepress-theme-vdoing/issues"
   },
   "dependencies": {
     "@vuepress/plugin-active-header-links": "^1.2.0",
@@ -18,7 +18,7 @@
     "vuepress-plugin-smooth-scroll": "^0.0.3"
   },
   "description": "Vdoing theme for VuePress",
-  "homepage": "https://github.com/xugaoyi/vuepress-theme-vdoing-blog#readme",
+  "homepage": "https://github.com/xugaoyi/vuepress-theme-vdoing#readme",
   "keywords": [
     "documentation",
     "vue",
@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xugaoyi/vuepress-theme-vdoing-blog.git"
+    "url": "git+https://github.com/xugaoyi/vuepress-theme-vdoing.git"
   },
   "version": "1.0.0"
 }
