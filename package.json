@@ -1,5 +1,5 @@
 {
-  "name": "evanblog",
+  "name": "vuepress-theme-vdoing",
   "version": "1.0.0",
   "scripts": {
     "dev": "node utils/frontmatter.js && node utils/sidebar.js && vuepress dev docs",

@@ -1,39 +1,10 @@
 {
-  "_args": [
-    [
-      "@vuepress/theme-default@1.2.0",
-      "E:\\Github仓库集合\\vuepress-Evan-blog"
-    ]
-  ],
-  "_development": true,
-  "_from": "@vuepress/theme-default@1.2.0",
-  "_id": "@vuepress/theme-default@1.2.0",
-  "_inBundle": false,
-  "_integrity": "sha1-MwOvIaAAMaNILtHElFCCNPVFy/E=",
-  "_location": "/@vuepress/theme-default",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "@vuepress/theme-default@1.2.0",
-    "name": "@vuepress/theme-default",
-    "escapedName": "@vuepress%2ftheme-default",
-    "scope": "@vuepress",
-    "rawSpec": "1.2.0",
-    "saveSpec": null,
-    "fetchSpec": "1.2.0"
-  },
-  "_requiredBy": [
-    "/vuepress"
-  ],
-  "_resolved": "https://registry.npm.taobao.org/@vuepress/theme-default/download/@vuepress/theme-default-1.2.0.tgz",
-  "_spec": "1.2.0",
-  "_where": "E:\\Github仓库集合\\vuepress-Evan-blog",
+  "name": "vuepress-theme-vdoing",
   "author": {
-    "name": "Evan You"
+    "name": "Evan Xu"
   },
   "bugs": {
-    "url": "https://github.com/vuejs/vuepress/issues"
+    "url": "https://github.com/xugaoyi/vuepress-theme-vdoing-blog/issues"
   },
   "dependencies": {
     "@vuepress/plugin-active-header-links": "^1.2.0",
@@ -46,31 +17,30 @@
     "vuepress-plugin-container": "^2.0.2",
     "vuepress-plugin-smooth-scroll": "^0.0.3"
   },
-  "description": "Default theme for VuePress",
-  "gitHead": "f61e2d42b4b2d9a59630f95a37fab968dcbd8b39",
-  "homepage": "https://github.com/vuejs/vuepress/packages/@vuepress/theme-default#readme",
+  "description": "Vdoing theme for VuePress",
+  "homepage": "https://github.com/xugaoyi/vuepress-theme-vdoing-blog#readme",
   "keywords": [
     "documentation",
     "vue",
     "vuepress",
-    "generator"
+    "generator",
+    "theme",
+    "blog"
   ],
   "license": "MIT",
   "main": "index.js",
   "maintainers": [
     {
-      "name": "ULIVZ",
-      "email": "chl814@foxmail.com"
+      "name": "Evan xu",
+      "email": "894072666@qq.com"
     }
   ],
-  "name": "@vuepress/theme-default",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/vuepress.git",
-    "directory": "packages/@vuepress/theme-default"
+    "url": "git+https://github.com/xugaoyi/vuepress-theme-vdoing-blog.git"
   },
-  "version": "1.2.0"
+  "version": "1.0.0"
 }
