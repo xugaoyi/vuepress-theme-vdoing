@@ -120,7 +120,7 @@ module.exports = {
       duration: 1000, // prompt message display time.
       showInMobile: false // whether to display on the mobile side, default: false.
     }],
-    ['demo-block', { // demo演示模块
+    ['demo-block', { // demo演示模块 https://github.com/xiguaxigua/vuepress-plugin-demo-block
       settings: {
         // jsLib: ['http://xxx'], // 在线示例(jsfiddle, codepen)中的js依赖
         // cssLib: ['http://xxx'], // 在线示例中的css依赖
