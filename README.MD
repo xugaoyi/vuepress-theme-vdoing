@@ -13,9 +13,7 @@
 
 
 
-效果预览：[ Evan's blog](https://xugaoyi.com/)
-
-效果图：[vdoing主题效果图](https://xugaoyi.com/pages/d557b9a89a215d2e)
+预览：[ Evan's blog](https://xugaoyi.com/) | [效果图](https://xugaoyi.com/pages/d557b9a89a215d2e)
 
 
 ## Original intention
@@ -56,7 +54,7 @@
    </details>
 
 
-5. 添加博客相关的 **评论**、**时间轴+分类页**、**最近更新栏** 、**文章信息栏（作者与创建时间）**、**博主信息栏**、**页脚版权栏**等。
+5. 添加博客相关的 **评论插件**、**时间轴+分类页**、**最近更新栏** 、**文章信息栏（作者与创建时间）**、**博主信息栏**、**页脚版权栏**等。
    <details>
     <summary>查看文档</summary>
     <ul>
@@ -64,11 +62,7 @@
         </li>
         <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/331">时间轴+分类 页面配置</a> (分类数据依赖于自动生成侧边栏工具)
         </li>
-        <li>
-            <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/335">文章信息栏（作者与创建时间）</a>
-        </li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/334">最近更新栏</a></li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/343">博主信息栏和页脚版权栏在config.js配置</a></li>
+        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/343">文章信息栏（作者与创建时间）、最近更新栏、博主信息栏和页脚版权栏在config.js配置</a></li>
     </ul>
    </details>
    
@@ -184,10 +178,10 @@ npm run dev # or yarn dev
    [在线编辑和新增文章的方法](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/327)
 
 ## Donate
-如果你觉得这个主题对你有用，可以为作者贡献一杯82年的雪碧🍸。
+如果你觉得这个项目帮助到了你，可以为作者贡献一杯82年的雪碧🍸。
 | Wechat | Alipay |
 | :---: | :---: |
-| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113708.jpg" alt="Wechat QRcode" width=200>| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113707.jpg" alt="Alipay QRcode" width=200> |
+| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113708.jpg" alt="Wechat QRcode" width=180>| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113707.jpg" alt="Alipay QRcode" width=180> |
 
 ## License
 [MIT](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE)

@@ -54,7 +54,12 @@
 
     <div class="main-wrapper">
       <main class="home home-content" aria-labelledby="main-title">
-        <UpdateArticle pageMark="home" />
+        <UpdateArticle
+          pageMark="home"
+          :length="updateBarConfig && updateBarConfig.onHome && updateBarConfig.onHome.length || 5"
+          :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
+          v-if="isShowUpdateBar"
+         />
         <Content class="theme-vdoing-content custom" />
       </main>
 
@@ -104,8 +109,12 @@ export default {
       slide: null,
       currentPageIndex: 0,
       playTimer: 0,
-      mark: 0
+      mark: 0,
+      updateBarConfig: null
     }
+  },
+  created() {
+    this.updateBarConfig = this.$themeConfig.updateBar
   },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
@@ -119,7 +128,6 @@ export default {
         },60)
       }
     })
-
     // 引入图标库
     if(this.blogger && this.blogger.social && this.blogger.social.iconfontCssFile ) {
       let linkElm = document.createElement("link")
@@ -181,6 +189,9 @@ export default {
   computed: {
     data() {
       return this.$page.frontmatter;
+    },
+    isShowUpdateBar() {
+      return this.updateBarConfig && this.updateBarConfig.onHome && this.updateBarConfig.onHome.isShow === false ? false : true
     },
     blogger() {
       return this.$themeConfig.blogger

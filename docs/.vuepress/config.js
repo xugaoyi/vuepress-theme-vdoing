@@ -15,7 +15,7 @@ module.exports = {
     // ['script', { src: '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async: 'async'}]
 
     // 以下是vuepress-plugin-demo-block插件所需依赖
-    // ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }], // 此文件会影响导航router-link-active样式的切换
+    // ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }], // 此文件会影响导航router-link-active样式的切换，改为在enhanceApp.js中把Vue构造函数绑定到window上
     // ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
   ],
   markdown: {
@@ -35,17 +35,23 @@ module.exports = {
     editLinks: true, // 编辑链接
     editLinkText: '编辑',
 
-    // 以下配置为Vdoing主题新增配置
-    // updateBar: { // 最近更新栏(此配置功能当前正在开发 04.09日)
-    //   isShowOnHome:  false, // 可选，是否显示在首页，默认true
-    //   isShowOnArticle: false,  // 可选，是否显示在文章页，默认true
+    // 以下配置是Vdoing主题新增配置
+    // updateBar: { // 最近更新栏（此配置和它下面的所有属性均是可选的）
+    //   onHome: { // 在首页
+    //     isShow: true, // 是否显示，默认true
+    //     length: 5 // 显示的数量，默认5
+    //   },
+    //   onArticle: { // 在文章页
+    //     isShow: true, // 是否显示，默认true
+    //     length: 3 // 显示的数量，默认3
+    //   },
     //   moreArticle: '/timeline' // “更多文章”跳转的页面，默认'/timeline'
     // },
     author: { // 文章默认的作者信息，可在md文件中单独配置此信息
       name: 'Evan Xu', // 必需
       href: 'https://github.com/xugaoyi' // 可选的
     },
-    blogger:{ // 博主信息，显示在首页侧边栏。以及社交信息显示在页面底部
+    blogger:{ // 可选，博主信息，显示在首页侧边栏。以及社交信息显示在页面底部
       avatar: 'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg',
       name: 'Evan Xu',
       slogan: '前端界的小学生',
@@ -72,7 +78,7 @@ module.exports = {
     },
     footer:{ // 页脚信息
       createYear: 2019, // 博客创建年份
-      copyrightInfo: 'Evan Xu', // 博客版权信息，支持html标签
+      copyrightInfo: 'Evan Xu', // 博客版权信息，支持a标签
       // footerBgImg: '/img/footer.png' // 可选的，页脚背景图，只在首页显示
     }
   },
@@ -136,27 +142,27 @@ module.exports = {
     [
       'vuepress-plugin-baidu-tongji', // 百度统计
       {
-        hm: '503f098e7e5b3a5b5d8c5fc2938af002' // 嘿，朋友，请把我的这个统计hm码换掉或注释掉哦
+        hm: '503f098e7e5b3a5b5d8c5fc2938af002'
       }
     ],
-    [
-      'vuepress-plugin-comment', // 评论
-      {
-        choosen: 'gitalk', 
-        options: {
-          clientID: 'a6e1355287947096b88b',
-          clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
-          repo: 'vuepress-theme-vdoing', // GitHub 仓库
-          owner: 'xugaoyi', // GitHub仓库所有者
-          admin: ['xugaoyi'], // 对仓库有写权限的人
-          distractionFreeMode: false,
-          id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
-          title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
-          labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-          body:"页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
-        }
-      }
-    ],
+    // [
+    //   'vuepress-plugin-comment', // 评论
+    //   {
+    //     choosen: 'gitalk', 
+    //     options: {
+    //       clientID: 'a6e1355287947096b88b',
+    //       clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
+    //       repo: 'vuepress-theme-vdoing', // GitHub 仓库
+    //       owner: 'xugaoyi', // GitHub仓库所有者
+    //       admin: ['xugaoyi'], // 对仓库有写权限的人
+    //       distractionFreeMode: false,
+    //       id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
+    //       title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
+    //       labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+    //       body:"页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
+    //     }
+    //   }
+    // ],
     [
       '@vuepress/last-updated', // "上次更新"时间格式
       {

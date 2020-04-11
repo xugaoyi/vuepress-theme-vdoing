@@ -9,7 +9,7 @@
     </div>
     <div class="article-wrapper">
       <dl v-for="(item, index) in topPublishPosts" :key="index">
-        <dd>{{'0' + (index + 1)}}</dd>
+        <dd>{{ index < 9 ? '0' + (index + 1) : index + 1 }}</dd>
         <dt>
           <router-link :to="item.path"><div>{{item.title}}</div></router-link>
           <span>{{item.formatDay}}</span>
@@ -19,7 +19,7 @@
       <dl>
         <dd></dd>
         <dt>
-          <router-link to="/timeline/" class="more">更多文章></router-link>
+          <router-link :to="moreArticle || '/timeline/'" class="more">更多文章></router-link>
         </dt>
       </dl>
     </div>
@@ -31,7 +31,15 @@
 import { getTopKPosts } from '../util/getArticleDate'
 
 export default {
-  props: ['pageMark'],
+  name: 'UpdateArticle',
+  props: {
+    pageMark: String,
+    length: {
+      type: [String, Number],
+      default: 5
+    },
+    moreArticle: String
+  },
   data() {
     return {
       posts: [],
@@ -44,8 +52,7 @@ export default {
   },
   computed: {
     topPublishPosts() {
-      const count = this.pageMark === 'home' ? 5 : 3
-      return getTopKPosts(this.posts, count, this.currentPath)
+      return getTopKPosts(this.posts, this.length, this.currentPath)
     },
     isShowArticle () {
       const { frontmatter } = this.$page

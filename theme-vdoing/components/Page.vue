@@ -15,7 +15,11 @@
 
         <PageEdit />
         <PageNav v-bind="{ sidebarItems }" />
-        <UpdateArticle />
+        <UpdateArticle
+          :length="updateBarConfig && updateBarConfig.onArticle && updateBarConfig.onArticle.length || 3"
+          :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
+          v-if="isShowUpdateBar"
+         />
       </div>
 
       <slot name="bottom" />
@@ -36,9 +40,20 @@ import Footer from './Footer.vue'
 import RightMenu from './RightMenu.vue'
 
 export default {
-  components: { PageEdit, PageNav, ArticleInfo, Catalogue, UpdateArticle, Timeline, Footer, RightMenu},
+  data() {
+    return {
+      updateBarConfig: null
+    }
+  },
   props: ['sidebarItems'],
+  components: { PageEdit, PageNav, ArticleInfo, Catalogue, UpdateArticle, Timeline, Footer, RightMenu},
+  created() {
+    this.updateBarConfig = this.$themeConfig.updateBar
+  },
   computed: {
+    isShowUpdateBar() {
+      return this.updateBarConfig && this.updateBarConfig.onArticle && this.updateBarConfig.onArticle.isShow === false ? false : true
+    },
     showRightMenu(){
       return this.$page.headers && (this.$frontmatter && this.$frontmatter.sidebar && this.$frontmatter.sidebar !== false) !== false
     },
