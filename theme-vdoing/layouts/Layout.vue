@@ -133,6 +133,12 @@ export default {
       ]
     }
   },
+  created() {
+    const sidebarOpen = this.$themeConfig.sidebarOpen
+    if (sidebarOpen === false) {
+      this.isSidebarOpen = sidebarOpen 
+    }
+  },
   beforeMount() {
     this.isSidebarOpenOfclientWidth()
     const mode = storage.get('mode') // 不放在created是因为vuepress不能在created访问浏览器api，如window

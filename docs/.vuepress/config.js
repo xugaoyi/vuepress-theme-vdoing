@@ -36,6 +36,7 @@ module.exports = {
     editLinkText: '编辑',
 
     // 以下配置是Vdoing主题新增配置
+    // sidebarOpen: false, // 初始状态是否打开侧边栏，默认true
     // updateBar: { // 最近更新栏（此配置和它下面的所有属性均是可选的）
     //   onHome: { // 在首页
     //     isShow: true, // 是否显示，默认true
@@ -78,7 +79,7 @@ module.exports = {
     },
     footer:{ // 页脚信息
       createYear: 2019, // 博客创建年份
-      copyrightInfo: 'Evan Xu', // 博客版权信息，支持a标签
+      copyrightInfo: 'Evan Xu | MIT License', // 博客版权信息，支持a标签
       // footerBgImg: '/img/footer.png' // 可选的，页脚背景图，只在首页显示
     }
   },
@@ -145,24 +146,24 @@ module.exports = {
         hm: '503f098e7e5b3a5b5d8c5fc2938af002'
       }
     ],
-    // [
-    //   'vuepress-plugin-comment', // 评论
-    //   {
-    //     choosen: 'gitalk', 
-    //     options: {
-    //       clientID: 'a6e1355287947096b88b',
-    //       clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
-    //       repo: 'vuepress-theme-vdoing', // GitHub 仓库
-    //       owner: 'xugaoyi', // GitHub仓库所有者
-    //       admin: ['xugaoyi'], // 对仓库有写权限的人
-    //       distractionFreeMode: false,
-    //       id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
-    //       title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
-    //       labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-    //       body:"页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
-    //     }
-    //   }
-    // ],
+    [
+      'vuepress-plugin-comment', // 评论
+      {
+        choosen: 'gitalk', 
+        options: {
+          clientID: 'a6e1355287947096b88b',
+          clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
+          repo: 'vuepress-theme-vdoing', // GitHub 仓库
+          owner: 'xugaoyi', // GitHub仓库所有者
+          admin: ['xugaoyi'], // 对仓库有写权限的人
+          distractionFreeMode: false,
+          id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
+          title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
+          labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+          body:"页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
+        }
+      }
+    ],
     [
       '@vuepress/last-updated', // "上次更新"时间格式
       {

@@ -39,11 +39,10 @@ module.exports = [
       {text: '学习', link: '/pages/a8692ab3bdcb4588/'},
       {text: '面试', link: '/pages/aea6571b7a8bae86/'},
       {text: '心情杂货', link: '/pages/2d615df9a36a98ed/'},
-      {text: '学习网站', link: '/pages/2e9ba3fa6e1ed0e9/'},
-      {text: '在线工具', link: '/pages/9c2232288caaa8ec/'},
-      {text: '友情链接', link: '/pages/844eea1b2387fb96/'},
+      {text: '友情链接', link: '/friends/'},
     ]
   },
   {text: '关于', link: '/about/'},
+  {text: '收藏夹', link: '/bookmarks/'},
   {text: '时间轴', link: '/timeline/'},
 ]
