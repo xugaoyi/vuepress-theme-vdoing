@@ -38,7 +38,7 @@
     color #888
     border-radius 50%
     padding 0
-    transition all .2s ease
+    transition left .2s ease
     &:hover
       box-shadow 0 2px 6px rgba(0,0,0,.15)
     .icon

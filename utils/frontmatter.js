@@ -53,7 +53,10 @@ function main() {
       }
 
       if (mark) {
-        const newData = YAML.stringify(matterData) + '---\r\n' + fileMatterObj.content;
+        if(matterData.date && type(matterData.date) === 'date') {
+          matterData.date = repairDate(matterData.date) // 修复时间格式
+        }
+        const newData = YAML.stringify(matterData).replace(/\n\s{2}/g,"\n") + '---\r\n' + fileMatterObj.content;
         fs.writeFileSync(file.filePath, newData); // 写入
         console.log(`update FrontMatter：${file.filePath} `)
       }
@@ -66,8 +69,7 @@ function main() {
           matterData.permalink = file.permalink;
         }
         // 修复date时区和格式被修改的问题 (并非更新date的值)
-        const date = new Date(matterData.date);
-        matterData.date = `${date.getUTCFullYear()}-${zero(date.getUTCMonth()+1)}-${zero(date.getUTCDate())} ${zero(date.getUTCHours())}:${zero(date.getUTCMinutes())}:${zero(date.getUTCSeconds())}`;
+        matterData.date = repairDate(matterData.date);
         
         const newData2 = YAML.stringify(JSON.parse(JSON.stringify(matterData))) + '---\r\n' + fileMatterObj.content;
         fs.writeFileSync(file.filePath, newData2); // 写入
@@ -78,6 +80,18 @@ function main() {
     
   })
 
+}
+
+// 类型判断
+function type(o){
+  var s = Object.prototype.toString.call(o)
+  return s.match(/\[object (.*?)\]/)[1].toLowerCase()
+}
+
+ // 修复date时区格式的问题
+function repairDate(date) {
+  date = new Date(date);
+  return `${date.getUTCFullYear()}-${zero(date.getUTCMonth()+1)}-${zero(date.getUTCDate())} ${zero(date.getUTCHours())}:${zero(date.getUTCMinutes())}:${zero(date.getUTCSeconds())}`;
 }
 
 // 日期的格式
