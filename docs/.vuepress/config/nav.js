@@ -2,7 +2,7 @@ module.exports = [
   {text: '首页', link: '/'},
 
   {text: '前端',
-    link: '/web/', // 目录页，新增的配置项
+    link: '/web/',  //目录页，vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
     items: [
       {text: '前端文章', items: [
         {text: 'JavaScript', link: '/pages/8143cc480faf9a11/'},

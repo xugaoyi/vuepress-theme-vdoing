@@ -28,11 +28,16 @@ $contentWidth = 830px
 $lineNumbersWrapperWidth = 2.5rem
 
 
+
 /** 注意：
- *  vdoing主题弃用了部分原有的变量，弃用的有：$textColor、$borderColor、$codeBgColor。
- *  弃用后的变量改为采用"--"的方式定义，并在不同模式下设置不同的值，同时还新增了其他的一些变量。
- *  以下是vdoing主题默认的变量，您可以在此文件内对其进行修改。
+ *  vdoing主题弃用了部分原有的变量，弃用的有：$textColor、$borderColor、$codeBgColor, $homePageWidth。
+ *  弃用后的变量改为采用"--"的方式定义，同时还新增了其他的一些变量，有的变量需要在不同模式下设置不同的值。
+ *  以下是vdoing主题默认的变量，您可以在此文件内对其进行修改（注意变量前是有选择器的）。
  */ 
+
+//  :root
+//   --homePageWidth: 1080px
+  
 // // 浅色模式
 // .theme-mode-light
 //   --bg: #fff

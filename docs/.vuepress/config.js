@@ -4,11 +4,11 @@ const sidebar = require('./config/sidebar-auto.js');
 module.exports = {
   title: "Evan's blog", // 标题
   description: 'web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到页面html中
-  // base: '/vuepress-theme-vdoing/', // 默认'/' || github仓库名'/<仓库名>/',
+  // base: '/vuepress-theme-vdoing/', // '/<github仓库名>/'， 默认'/' 
   head: [ // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
     ['link', { rel: 'icon', href: '/img/favicon.ico' }], //favicons，资源放在public文件夹
     ['meta', { name: 'keywords', content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown'}],
-    ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc'}],
+    ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc'}],// 百度统计博主验证
     ['meta', { name: 'theme-color', content: '#11a8cd'}], // 移动浏览器主题颜色
 
     // 不蒜子访问量统计
@@ -24,11 +24,11 @@ module.exports = {
   theme: require.resolve('../../theme-vdoing'), // 使用的主题
   themeConfig: { // 主题配置
     nav,
-    sidebar, // 侧边栏    'auto' | 自定义
+    sidebar, // 侧边栏   'auto' | 自定义
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/EB-logo.png', // 导航栏logo
     repo: 'xugaoyi/vuepress-theme-vdoing', // 导航栏右侧生成Github链接
-    searchMaxSuggestions: 10, // 搜索显示最大数
+    searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 更新的时间，及前缀文字   string | boolean (取值为git提交时间)
 
     docsDir: 'docs', // 编辑的文件夹
@@ -90,8 +90,8 @@ module.exports = {
     // }],
     [require('./plugins/title-badge'), { // h1标题徽章
       // badges: [ // 替换默认的徽章图标,可选
-      //   'data:image/png;base64,**',
-      //   'data:image/png;base64,***',
+      //   'base64图片1',
+      //   'base64图片2',
       // ]
     }], 
     [require('./plugins/enhanced-search'), { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
@@ -113,7 +113,6 @@ module.exports = {
     }],
     
     'vuepress-plugin-baidu-autopush', // 百度自动推送
-    // '@vuepress/back-to-top', // 返回顶部
 
     ['one-click-copy', { // 代码块复制按钮
       copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
