@@ -4,7 +4,11 @@
   <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/actions?query=workflow%3ACI"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing/workflows/CI/badge.svg" alt="CI"></a>
   <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/actions?query=workflow%3AbaiduPush"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing/workflows/baiduPush/badge.svg" alt="baiduPush"></a>
   <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/commits/master"><img src="https://img.shields.io/github/last-commit/xugaoyi/vuepress-theme-vdoing" alt="last-commit"></a>
-  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/stargazers"><img src="https://img.shields.io/github/stars/xugaoyi/vuepress-theme-vdoing" alt="GitHub stars"></a>
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE"><img src="https://img.shields.io/github/license/xugaoyi/vuepress-theme-vdoing
+" alt="License"></a>
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/stargazers"><img src="https://img.shields.io/github/stars/xugaoyi/vuepress-theme-vdoing?logo=ReverbNation&logoColor=rgba(255,255,255,.6)" alt="GitHub stars"></a>
+
+  
 
 </p>
 
@@ -12,8 +16,7 @@
 
 
 
-
-预览：[ Evan's blog](https://xugaoyi.com/) | [效果图](https://xugaoyi.com/pages/d557b9a89a215d2e)
+[Evan's blog](https://xugaoyi.com/) | [效果图](https://xugaoyi.com/pages/d557b9a89a215d2e) | [指南](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/350)
 
 
 ## Original intention

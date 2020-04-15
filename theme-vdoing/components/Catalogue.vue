@@ -1,10 +1,10 @@
 <template>
   <div class="theme-vdoing-content">
     <div class="column-wrapper">
-      <img :src="getPageData().imgUrl" />
+      <img :src="$withBase(pageData.imgUrl)" />
       <dl class="column-info">
-        <dt class="title">{{getPageData().title}}</dt>
-        <dd class="description" v-html="getPageData().description"></dd>
+        <dt class="title">{{pageData.title}}</dt>
+        <dd class="description" v-html="pageData.description"></dd>
       </dl>
     </div>
     <div class="catalogue-wrapper">
@@ -32,11 +32,25 @@
 
 <script>
 export default {
+  data() {
+    return {
+      pageData: null
+    }
+  },
+  created() {
+    this.getPageData()
+  },
   methods: {
     getPageData() {
-      const pageData = this.$frontmatter.pageComponent.data
-      pageData.title = this.$frontmatter.title
-      return pageData
+      const pageComponent = this.$frontmatter.pageComponent
+      if (pageComponent && pageComponent.data) {
+        this.pageData = {
+          ...pageComponent.data,
+          title: this.$frontmatter.title
+        }
+      } else {
+        console.error('请在front matter中设置pageComponent和pageComponent.data数据')
+      }
     },
     getCatalogueList() {
       const { sidebar } = this.$site.themeConfig
@@ -51,6 +65,11 @@ export default {
     },
     type(o) { // 数据类型检查
       return Object.prototype.toString.call(o).match(/\[object (.*?)\]/)[1].toLowerCase()
+    }
+  },
+  watch: {
+    $route() {
+      this.getPageData()
     }
   }
 }
