@@ -1,10 +1,10 @@
 /**
- * 生成frontmatter (标题、日期、永久链接)
+ * 生成front matter (标题、日期、永久链接)
  */
 const fs = require('fs'); // 文件模块
 const logger = require('tracer').colorConsole(); // 控制台工具(用于控制台打印信息包含时间、打印类型、文件及代码行号、对象、颜色) 
 const matter = require('gray-matter'); // FrontMatter解析器 https://github.com/jonschlinkert/gray-matter
-const YAML = require('json2yaml')
+const jsonToYaml = require('json2yaml')
 const arg = process.argv.splice(2)[0]; // 获取命令行传入的参数
 const readFileList = require('./modules/readFileList');
 
@@ -56,7 +56,7 @@ function main() {
         if(matterData.date && type(matterData.date) === 'date') {
           matterData.date = repairDate(matterData.date) // 修复时间格式
         }
-        const newData = YAML.stringify(matterData).replace(/\n\s{2}/g,"\n") + '---\r\n' + fileMatterObj.content;
+        const newData = jsonToYaml.stringify(matterData).replace(/\n\s{2}/g,"\n") + '---\r\n' + fileMatterObj.content;
         fs.writeFileSync(file.filePath, newData); // 写入
         console.log(`update FrontMatter：${file.filePath} `)
       }
@@ -71,7 +71,7 @@ function main() {
         // 修复date时区和格式被修改的问题 (并非更新date的值)
         matterData.date = repairDate(matterData.date);
         
-        const newData2 = YAML.stringify(JSON.parse(JSON.stringify(matterData))) + '---\r\n' + fileMatterObj.content;
+        const newData2 = jsonToYaml.stringify(JSON.parse(JSON.stringify(matterData))) + '---\r\n' + fileMatterObj.content;
         fs.writeFileSync(file.filePath, newData2); // 写入
         console.log(`update FrontMatter title and permalink：${file.filePath}`)
       }

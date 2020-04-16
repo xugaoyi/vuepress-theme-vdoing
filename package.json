@@ -5,7 +5,8 @@
     "dev": "node utils/frontmatter.js && node utils/sidebar.js && vuepress dev docs",
     "build": "node utils/frontmatter.js && node utils/sidebar.js && vuepress build docs",
     "deploy": "bash deploy.sh",
-    "updateFM": "node utils/frontmatter.js -update",
+    "updateFm": "node utils/frontmatter.js -update",
+    "editFm": "node utils/editFrontmatter.js",
     "baiduPush": "node utils/baiduPush.js https://xugaoyi.com && bash baiduPush.sh"
   },
   "license": "MIT",
@@ -21,7 +22,8 @@
     "vuepress-plugin-baidu-tongji": "^1.0.1",
     "vuepress-plugin-demo-block": "^0.7.2",
     "vuepress-plugin-one-click-copy": "^1.0.1",
-    "vuepress-plugin-zooming": "^1.1.7"
+    "vuepress-plugin-zooming": "^1.1.7",
+    "yamljs": "^0.3.0"
   },
   "dependencies": {
     "@better-scroll/core": "^2.0.0-beta.4",

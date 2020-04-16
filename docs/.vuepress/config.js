@@ -2,7 +2,7 @@ const nav = require('./config/nav.js');
 const sidebar = require('./config/sidebar-auto.js');
 
 module.exports = {
-  title: "Evan's blog", // 标题
+  title: "Evan's blog",
   description: 'web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到页面html中
   // base: '/vuepress-theme-vdoing/', // '/<github仓库名>/'， 默认'/' 
   head: [ // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
@@ -108,6 +108,10 @@ module.exports = {
         {
           title: '在Vue API中搜索',
           frontUrl: 'https://cn.vuejs.org/v2/api/#',
+        },
+        {
+          title: '在Bing中搜索',
+          frontUrl: 'https://cn.bing.com/search?q='
         }
       ]
     }],
