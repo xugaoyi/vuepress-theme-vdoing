@@ -12,6 +12,7 @@
       </a>
     </div>
     <template v-if="footer">
+      <!--vdoing主题遵循MIT协议，完全开源且免费。如果你对主题的修改并不大，希望你可以保留主题的链接。-->
       <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">♔♕Vdoing | </a>
       Copyright © {{ footer.createYear }}-{{ new Date().getFullYear() }}
       <span v-html="footer.copyrightInfo"></span>
