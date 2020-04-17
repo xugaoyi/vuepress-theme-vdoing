@@ -77,7 +77,7 @@
 
    [palette.styl主题调色板使用说明](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/345)
 
-8. 专为主题定制的辅助工具： [批量修改front matter工具](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/351)
+8. 提高搬砖效率的辅助工具： [批量修改front matter工具](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/351)
 
 ## Start
 
