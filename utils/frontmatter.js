@@ -7,6 +7,7 @@ const matter = require('gray-matter'); // FrontMatter解析器 https://github.co
 const jsonToYaml = require('json2yaml')
 const arg = process.argv.splice(2)[0]; // 获取命令行传入的参数
 const readFileList = require('./modules/readFileList');
+const { type, repairDate, dateFormat} = require('./modules/fn');
 
 main();
 
@@ -29,7 +30,7 @@ function main() {
       const dateStr = dateFormat(stat.birthtime);// 文件的创建时间
       const newData = `---\r\ntitle: ${file.name}\r\ndate: ${dateStr}\r\npermalink: ${file.permalink}\r\n---\r\n` + fileMatterObj.content;
       fs.writeFileSync(file.filePath, newData); // 写入
-      console.log(`write FrontMatter：${file.filePath} `)
+      console.log(`write frontmatter：${file.filePath} `)
 
     } else { // 已有FrontMatter
       const matterData = fileMatterObj.data;
@@ -56,9 +57,9 @@ function main() {
         if(matterData.date && type(matterData.date) === 'date') {
           matterData.date = repairDate(matterData.date) // 修复时间格式
         }
-        const newData = jsonToYaml.stringify(matterData).replace(/\n\s{2}/g,"\n") + '---\r\n' + fileMatterObj.content;
+        const newData = jsonToYaml.stringify(matterData).replace(/\n\s{2}/g,"\n").replace(/"/g,"") + '---\r\n' + fileMatterObj.content;
         fs.writeFileSync(file.filePath, newData); // 写入
-        console.log(`update FrontMatter：${file.filePath} `)
+        console.log(`update frontmatter：${file.filePath} `)
       }
       
 
@@ -71,7 +72,7 @@ function main() {
         // 修复date时区和格式被修改的问题 (并非更新date的值)
         matterData.date = repairDate(matterData.date);
         
-        const newData2 = jsonToYaml.stringify(JSON.parse(JSON.stringify(matterData))).replace(/\n\s{2}/g,"\n") + '---\r\n' + fileMatterObj.content;
+        const newData2 = jsonToYaml.stringify(JSON.parse(JSON.stringify(matterData))).replace(/\n\s{2}/g,"\n").replace(/"/g,"") + '---\r\n' + fileMatterObj.content;
         fs.writeFileSync(file.filePath, newData2); // 写入
         console.log(`update FrontMatter title and permalink：${file.filePath}`)
       }
@@ -82,24 +83,4 @@ function main() {
 
 }
 
-// 类型判断
-function type(o){
-  var s = Object.prototype.toString.call(o)
-  return s.match(/\[object (.*?)\]/)[1].toLowerCase()
-}
 
- // 修复date时区格式的问题
-function repairDate(date) {
-  date = new Date(date);
-  return `${date.getUTCFullYear()}-${zero(date.getUTCMonth()+1)}-${zero(date.getUTCDate())} ${zero(date.getUTCHours())}:${zero(date.getUTCMinutes())}:${zero(date.getUTCSeconds())}`;
-}
-
-// 日期的格式
-function dateFormat(date) {
-  return `${date.getFullYear()}-${zero(date.getMonth()+1)}-${zero(date.getDate())} ${zero(date.getHours())}:${zero(date.getMinutes())}:${zero(date.getSeconds())}`
-}
-
-// 小于10补0
-function zero(d){
-  return d.toString().padStart(2,'0')
-}

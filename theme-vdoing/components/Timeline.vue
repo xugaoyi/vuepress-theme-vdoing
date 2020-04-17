@@ -54,9 +54,6 @@ export default {
   },
   mounted() {
     const fmData = this.$frontmatter.pageComponent.data
-    if(fmData && fmData.tagBgColor) {
-      this.pageData.tagBgColor = fmData.tagBgColor
-    }
     if(fmData && fmData.slogan) {
       this.pageData.slogan = fmData.slogan
     }
