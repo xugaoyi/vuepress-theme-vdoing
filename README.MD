@@ -18,12 +18,13 @@
 
 [Evan's blog](https://xugaoyi.com/) | [效果图](https://xugaoyi.com/pages/d557b9a89a215d2e) | [指南](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/350)
 
+**注意：主题当前还在不断完善当中，因此功能和文档或许会有调整。**
 
 ## Original intention
 
 这个主题的初衷是打造一个 **结构化** 与 **碎片化** 并存的个人**知识库**。[详情](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/339)
 
->  目前功能已比较完整，但仍在不断的完善当中。如果你有什么建议欢迎提**Issues**，喜欢这个项目的欢迎点个**Star**持续关注。
+如果你有什么建议欢迎提**Issues**，喜欢这个项目的欢迎点个**Star**持续关注。
 
 ## Introduce
 

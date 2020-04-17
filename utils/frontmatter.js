@@ -71,7 +71,7 @@ function main() {
         // 修复date时区和格式被修改的问题 (并非更新date的值)
         matterData.date = repairDate(matterData.date);
         
-        const newData2 = jsonToYaml.stringify(JSON.parse(JSON.stringify(matterData))) + '---\r\n' + fileMatterObj.content;
+        const newData2 = jsonToYaml.stringify(JSON.parse(JSON.stringify(matterData))).replace(/\n\s{2}/g,"\n") + '---\r\n' + fileMatterObj.content;
         fs.writeFileSync(file.filePath, newData2); // 写入
         console.log(`update FrontMatter title and permalink：${file.filePath}`)
       }
