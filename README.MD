@@ -18,7 +18,7 @@
 
 [Evan's blog](https://xugaoyi.com/) | [效果图](https://xugaoyi.com/pages/d557b9a89a215d2e) | [指南](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/350)
 
-**注意：主题当前还在不断完善当中，因此功能和文档或许会有调整。**
+**温馨提示：主题当前功能已相对完整，欢迎食用。但是，当前仍然还在不断完善、优化当中，因此功能和文档可能会有调整。**
 
 ## Original intention
 
