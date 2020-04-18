@@ -25,7 +25,7 @@
 export default {
   computed: {
     social() {
-      return this.$themeConfig.blogger && this.$themeConfig.blogger.social
+      return this.$themeConfig.social
     },
     footer() {
       return this.$themeConfig.footer
