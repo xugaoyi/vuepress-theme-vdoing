@@ -16,7 +16,7 @@
       <div class="info">
         <div class="author iconfont icon-touxiang" v-if="articleInfo.author">
           <a :href="articleInfo.author.href" v-if="articleInfo.author.href" target="_blank" class="beLink" title="作者">{{articleInfo.author.name}}</a>
-          <a v-else href="javascript:;"  title="作者">{{articleInfo.author.name}}</a>
+          <a v-else href="javascript:;" title="作者">{{articleInfo.author.name}}</a>
         </div>
         <div class="date iconfont icon-riqi" v-if="articleInfo.date">
           <a href="javascript:;" title="创建时间">{{articleInfo.date}}</a>
@@ -106,7 +106,7 @@ function zero(d){
         float left
         padding-right 5px
         &:after
-          content '-'
+          content '/'
           margin-left 5px
           color #999
         &:last-child

@@ -74,14 +74,14 @@
           <div class="avatar">
             <img :src="blogger.avatar" alt="头像" title="我好看吗">
           </div>
-          <div class="icons" v-if="blogger.social">
+          <div class="icons" v-if="social">
             <a
             :href="item.link"
             :title="item.title"
             :class="['iconfont', item.iconClass]"
-            v-for="(item, index) in blogger.social.icons"
+            v-for="(item, index) in social.icons"
             :key="index"
-            :style="{width: 100/blogger.social.icons.length + '%'}"
+            :style="{width: 100/social.icons.length + '%'}"
             target="_blank"
             >
             </a>
@@ -119,11 +119,13 @@ export default {
       currentPageIndex: 0,
       playTimer: 0,
       mark: 0,
-      updateBarConfig: null
+      updateBarConfig: null,
+      social: null
     }
   },
   created() {
     this.updateBarConfig = this.$themeConfig.updateBar
+    this.social = this.$themeConfig.social
   },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
@@ -137,12 +139,13 @@ export default {
         },60)
       }
     })
+
     // 引入图标库
-    if(this.blogger && this.blogger.social && this.blogger.social.iconfontCssFile ) {
+    if(this.social && this.social.iconfontCssFile ) {
       let linkElm = document.createElement("link")
       linkElm.setAttribute('rel', 'stylesheet');
       linkElm.setAttribute("type", "text/css")
-      linkElm.setAttribute("href", this.blogger.social.iconfontCssFile)
+      linkElm.setAttribute("href", this.social.iconfontCssFile)
       document.head.appendChild(linkElm)
     }
     

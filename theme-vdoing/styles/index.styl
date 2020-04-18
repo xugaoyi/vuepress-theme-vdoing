@@ -8,6 +8,18 @@
 @require './wrapper'
 @require './toc'
 
+html, body
+  padding 0
+  margin 0
+  background-color #fff
+
+body
+  font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  font-size 16px
+  color $textColor
+
 // 去掉黄色边框
 a,input,button
   outline: none; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-focus-ring-color: rgba(0, 0, 0, 0);
@@ -29,17 +41,50 @@ a,input,button
     -webkit-border-radius:3px
 
 
-html, body
-  padding 0
-  margin 0
-  background-color #fff
+/** 部件样式**/
+// 卡片
+.card-box
+  border-radius 5px
+  background var(--bg)
+  box-shadow 0 1px 3px 0 rgba(0,0,30,.1), 1px 2px 4px 0 rgba(0,0,0,.1)
 
-body
-  font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  font-size 16px
-  color $textColor
+// 提示框
+// .hover-tip
+//   position relative
+//   &::before,
+//   &::after 
+//     position absolute
+//     left 50%
+//     top 100%
+//     opacity 0
+//     visibility hidden
+//     transform translate3d(0, 20px, 0)
+//     transition all .3s
+//     z-index 999
+//   &::before 
+//     margin 0 0 12px -35px
+//     border-radius 5px
+//     width 70px
+//     height 28px
+//     background-color rgba(#000, .5)
+//     line-height 28px
+//     text-align center
+//     font-size .8rem
+//     color #fff!important
+//     content attr(data-title)
+//   &::after 
+//     margin -10px 0 0 -5px
+//     border 5px solid transparent
+//     border-bottom-color rgba(#000, .5)
+//     width 0
+//     height 0
+//     content ""
+//   &:hover 
+//     &::before,
+//     &::after
+//       opacity 1
+//       visibility visible
+//       transform translate3d(0, 12px, 0)
 
 .page
   transition padding .2s ease
@@ -84,12 +129,6 @@ body
   transition transform .2s ease
   @media (max-width: $MQMobile)
     background-color var(--bg)
-
-// 卡片
-.card-box
-  border-radius 5px
-  background var(--bg)
-  box-shadow 0 1px 3px 0 rgba(0,0,30,.1), 1px 2px 4px 0 rgba(0,0,0,.1)
 
 
 {$contentClass}:not(.custom)
