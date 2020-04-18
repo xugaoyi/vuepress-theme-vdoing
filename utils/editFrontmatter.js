@@ -1,15 +1,16 @@
 /**
- * 批量添加和修改front matter ，需要 ./config.yml 配置文件的配合。
+ * 批量添加和修改front matter ，需要配置 ./config.yml 文件。
  */
 const fs = require('fs'); // 文件模块
 const path = require('path'); // 路径模块
-const matter = require('gray-matter'); // FrontMatter解析器 https://github.com/jonschlinkert/gray-matter
+const matter = require('gray-matter'); // front matter解析器 https://github.com/jonschlinkert/gray-matter
 const jsonToYaml = require('json2yaml')
 const yamlToJs = require('yamljs')
 const inquirer = require('inquirer') // 命令行操作
-
+const chalk = require('chalk') // 命令行打印美化
 const readFileList = require('./modules/readFileList');
 const { type, repairDate} = require('./modules/fn');
+const log = console.log
 
 const configPath = path.join(__dirname, 'config.yml') // 配置文件的路径
 
@@ -36,6 +37,12 @@ async function main() {
   }
   
   const config = yamlToJs.load(configPath) // 解析配置文件的数据转为js对象
+
+  if (type(config.path) !== 'array') {
+    log(chalk.red('路径配置有误，path字段应该是一个数组'))
+    return
+  }
+
   const filePath = path.join(__dirname, '..', 'docs', ...config.path); // 要批量修改的文件路径
   const files = readFileList(filePath); // 读取所有md文件数据
 
@@ -43,20 +50,36 @@ async function main() {
     let dataStr = fs.readFileSync(file.filePath, 'utf8');// 读取每个md文件的内容
     const fileMatterObj = matter(dataStr) // 解析md文件的front Matter。 fileMatterObj => {content:'剔除frontmatter后的文件内容字符串', data:{<frontmatter对象>}, ...}
     let matterData = fileMatterObj.data; // 得到md文件的front Matter
-
-    if (config.delete == true) { // 删除操作
-      for(let key in config.data) {
-        delete matterData[key]
+    
+    let mark = false
+    // 删除操作
+    if (config.delete) {
+      if( type(config.delete) !== 'array' ) {
+        log(chalk.yellow('未能完成删除操作，delete字段的值应该是一个数组！'))
+      } else {
+        config.delete.forEach(item => {
+          delete matterData[item]
+        })
+        mark = true
       }
-    } else { // 添加、修改操作
+    }
+
+    // 添加、修改操作
+    if (type(config.data) === 'object') {
       Object.assign(matterData, config.data) // 将配置数据合并到front Matter对象
+      mark = true
     }
     
+    // 没有任何操作时跳出
+    if (!mark) {
+      return
+    }
+
     if(matterData.date && type(matterData.date) === 'date') {
       matterData.date = repairDate(matterData.date) // 修复时间格式
     }
     const newData = jsonToYaml.stringify(matterData).replace(/\n\s{2}/g,"\n").replace(/"/g,"")  + '---\r\n' + fileMatterObj.content;
     fs.writeFileSync(file.filePath, newData); // 写入
-    console.log(`update frontmatter：${file.filePath} `)
+    log(`update frontmatter：${file.filePath} `)
   })
 }

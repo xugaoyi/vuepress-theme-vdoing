@@ -1,12 +1,14 @@
 #批量添加和修改、删除front matter配置文件
 
-# 需要批量处理的路径，docs文件夹内的文件夹
+# 需要批量处理的路径，docs文件夹内的文件夹  (数组。路径：docs/arr[0]/arr[1] ... )
 path:
-  - 《ES6 教程》笔记
+  - 06.收藏夹
 
-# delete: true # 是否删除字段操作
+# 要删除的字段 (数组)
+delete:  
+  # - author
+  # - article
 
- # 要写入或删除front matter的数据 （front matter中没有的数据则添加，已有的数据则覆盖。如果是删除操作会忽略字段的值。）
+ # 要添加、修改front matter的数据 （front matter中没有的数据则添加，已有的数据则覆盖）
 data:
-  author:
-    name: 阮一峰
+  # article: false
