@@ -7,7 +7,7 @@
         <dd class="description" v-html="pageData.description"></dd>
       </dl>
     </div>
-    <div class="catalogue-wrapper">
+    <div class="catalogue-wrapper" v-if="isStructuring">
       <div class="catalogue-title">目录</div>
       <div class="catalogue-content">
         <template v-for="(item, index) in getCatalogueList()">
@@ -17,7 +17,10 @@
             </dt>
           </dl>
           <dl v-else-if="type(item) === 'object'" :key="index">
-            <dt>{{`${index+1}. ${item.title}`}}</dt>
+            <dt :id="anchorText = encodeAnchor(item.title)">
+              <a :href="`#${anchorText}`" class="header-anchor">#</a>
+              {{`${index+1}. ${item.title}`}}
+            </dt>
             <dd>
               <router-link :to="s[2]" v-for="(s, i) in item.children" :key="i">
                 {{`${index+1}-${i+1}. ${s[1]}`}}
@@ -31,14 +34,23 @@
 </template>
 
 <script>
+import encodeMixin from '../mixins/encodeAnchor'
 export default {
+  mixins: [encodeMixin],
   data() {
     return {
-      pageData: null
+      pageData: null,
+      isStructuring: true
     }
   },
   created() {
     this.getPageData()
+
+    const sidebar = this.$themeConfig.sidebar
+    if (!sidebar || sidebar === 'auto') {
+      this.isStructuring = false
+      console.error("目录页数据依赖于结构化的侧边栏数据，请在主题设置中将侧边栏字段设置为'structuring'，否则无法获取目录数据。")
+    }
   },
   methods: {
     getPageData() {
@@ -110,11 +122,17 @@ dl,dd
           width 100%
         a
           width 100%
+      &:not(.inline)
+        dt
+          margin-top -($navbarHeight)
+          padding-top $navbarHeight
       dt
         font-size 1.1rem
+        &:hover .header-anchor
+          opacity 1
       dd
         margin-top .7rem
-      a
+      a:not(.header-anchor)
         margin-bottom .5rem
         display inline-block
         width 50%

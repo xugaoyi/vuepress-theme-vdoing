@@ -8,8 +8,8 @@ const ejs = require('ejs'); // ejs模板引擎
 const logger = require('tracer').colorConsole(); // 控制台工具(用于控制台打印信息包含时间、打印类型、文件及代码行号、对象、颜色)
 const matter = require('gray-matter'); // FrontMatter解析器
 
-const docsRoot = path.join(__dirname, '..', 'docs'); // docs文件路径
-const sidebarPath = path.join(__dirname, '..', 'docs', '.vuepress', 'config', 'sidebar-auto.js'); // 侧边栏js文件要保存的路径
+const docsRoot = path.join(__dirname, '..', '..', 'docs'); // docs文件路径
+const sidebarPath = path.join(__dirname, '..', '..', 'docs', '.vuepress', 'config', 'sidebar-auto.js'); // 侧边栏js文件要保存的路径
 const catalogueData = {}; // 目录页数据
 
 // sidebar-auto.js代码模板

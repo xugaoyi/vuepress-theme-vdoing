@@ -16,7 +16,7 @@
 
 
 
-[Evan's blog](https://xugaoyi.com/) | [效果图](https://xugaoyi.com/pages/d557b9a89a215d2e) | [指南](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/350)
+[Evan's blog](https://xugaoyi.com/) | [效果图](https://xugaoyi.com/pages/d557b9a89a215d2e) | [指南 (必读)](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/350)
 
 **注意：主题当前还在不断完善当中，因此功能和文档或许会有调整。**
 
@@ -42,7 +42,7 @@
         <li>简单的<b>目录页</b>配置，查看 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/330">目录页配置</a>
         </li>
         <li><b>自动生成侧边栏工具</b> 让你拥有一个结构清晰的侧边栏，无需手动配置。<br/>
-        <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/113">根据目录自动生成侧边栏和分类标签的约定说明</a>
+        <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/113">构建结构化站点的核心配置和约定</a>
         </li>
         <li><b>自动生成Front Matter工具</b> 助你专注于写作，你无需给每个文件都手写front matter。<br/>
         <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/324">自动生成Front Matter工具</a>

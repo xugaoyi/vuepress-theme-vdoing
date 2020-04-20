@@ -10,7 +10,8 @@
           <span v-else>{{articleInfo.classify1}}</span>
         </li>
         <li v-if="articleInfo.classify2">
-          <span>{{articleInfo.classify2}}</span>
+          <router-link v-if="articleInfo.cataloguePermalink" :to="articleInfo.cataloguePermalink + '/#' + encodeAnchor(articleInfo.classify2)" :title="articleInfo.classify1+'#'+articleInfo.classify2">{{articleInfo.classify2}}</router-link>
+          <span v-else>{{articleInfo.classify2}}</span>
         </li>
       </ul>
       <div class="info">
@@ -27,7 +28,9 @@
 </template>
   
 <script>
+import encodeMixin from '../mixins/encodeAnchor'
 export default {
+  mixins: [encodeMixin],
   data() {
     return {
       articleInfo: {}

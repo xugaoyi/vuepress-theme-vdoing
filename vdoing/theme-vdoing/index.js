@@ -1,8 +1,31 @@
 const path = require('path')
+const setFrontmatter = require('./node_utils/setFrontmatter')
+const getSidebarData = require('./node_utils/getSidebarData')
+const chalk = require('chalk') // 命令行打印美化
+const log = console.log
+
 
 // Theme API.
 module.exports = (options, ctx) => {
-  const { themeConfig, siteConfig } = ctx
+  const { sourceDir, themeConfig, siteConfig } = ctx
+  
+  // 自动设置front matter
+  setFrontmatter(sourceDir)
+
+  // 自动生成结构化侧边栏
+  const sidebar = themeConfig.sidebar
+  if(sidebar === 'structuring' || sidebar && sidebar.mode === 'structuring') {
+    const collapsable = themeConfig.sidebar.collapsable === false ? false : true
+    const sidebarData = getSidebarData(sourceDir, collapsable)
+    if(sidebarData) {
+      themeConfig.sidebar = sidebarData
+      log(chalk.blue('tip ') + chalk.green('add sidebar data. 侧边栏数据成功生成。'))
+    } else {
+      themeConfig.sidebar = 'auto'
+      log(chalk.yellow('warning: fail to add sidebar data. 未能添加侧边栏数据，将切换为“auto”。'))
+    }
+  }
+
 
   // resolve algolia
   const isAlgoliaSearch = (

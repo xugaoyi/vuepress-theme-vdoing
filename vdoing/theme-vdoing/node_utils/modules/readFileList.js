@@ -4,11 +4,11 @@
 const fs = require('fs'); // 文件模块
 const path = require('path'); // 路径模块
 const MD5 = require('md5.js');
-const docsRoot = path.join(__dirname, '..', '..', 'docs'); // docs文件路径
+// const docsRoot = path.join(__dirname, '..', '..', '..', 'docs'); // docs文件路径
 
 const PREFIX = '/pages/'; // 链接前缀
 
-function readFileList(dir = docsRoot, filesList = []) {
+function readFileList(dir, filesList = []) {
  
   const files = fs.readdirSync(dir);
 

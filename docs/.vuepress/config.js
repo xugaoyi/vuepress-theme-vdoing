@@ -1,5 +1,5 @@
 const nav = require('./config/nav.js');
-const sidebar = require('./config/sidebar-auto.js');
+// const sidebar = require('./config/sidebar-auto.js');
 
 module.exports = {
   title: "Evan's blog",
@@ -21,21 +21,21 @@ module.exports = {
   markdown: {
     lineNumbers: true // 代码行号
   },
-  theme: require.resolve('../../theme-vdoing'), // 使用的主题
+  theme: require.resolve('../../vdoing/theme-vdoing'), // 使用的主题
   themeConfig: { // 主题配置
     nav,
-    sidebar, // 侧边栏   'auto' | 自定义
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/EB-logo.png', // 导航栏logo
     repo: 'xugaoyi/vuepress-theme-vdoing', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 更新的时间，及前缀文字   string | boolean (取值为git提交时间)
-
     docsDir: 'docs', // 编辑的文件夹
     editLinks: true, // 编辑链接
     editLinkText: '编辑',
 
-    // 以下配置是Vdoing主题新增配置
+    // 以下配置是Vdoing主题改动的和新增的配置
+    sidebar: 'structuring', //  侧边栏   'auto' | 自定义 | 'structuring' | { mode: 'structuring', collapsable: Boolean}  温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
+
     // sidebarOpen: false, // 初始状态是否打开侧边栏，默认true
     // updateBar: { // 最近更新栏（此配置和它下面的所有属性均是可选的）
     //   onHome: { // 在首页
