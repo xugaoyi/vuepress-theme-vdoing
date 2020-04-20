@@ -22,7 +22,7 @@
 
 ## Original intention
 
-这个主题的初衷是打造一个 **结构化** 与 **碎片化** 并存的个人**知识库**。[详情](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/339)
+这个主题的初衷是打造一个 `结构化` 与 `碎片化` 并存的个人`知识库`。[详情](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/339)
 
 如果你有什么建议欢迎提**Issues**，喜欢这个项目的欢迎点个**Star**持续关注。
 
