@@ -183,7 +183,7 @@ npm run dev # or yarn dev
    [在线编辑和新增文章的方法](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/327)
 
 ## 支持
-如果你觉得这个项目帮助到了你，可以为作者贡献一杯82年的雪碧🍸。
+如果你觉得这个项目帮助到了你，可以为作者贡献一杯82年的雪碧🍸。你任何形式的支持都是对我的肯定，我会坚持初心把这个项目做得更好。
 | Wechat | Alipay |
 | :---: | :---: |
 | <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113708.jpg" alt="Wechat QRcode" width=180>| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113707.jpg" alt="Alipay QRcode" width=180> |
