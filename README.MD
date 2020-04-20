@@ -20,13 +20,13 @@
 
 温馨提示：目前并非稳定版，因此功能和文档可能会有调整。欢迎star持续关注，一定会有惊喜哟🎉
 
-## Original intention
+## 初衷
 
 这个主题的初衷是打造一个 `结构化` 与 `碎片化` 并存的个人`知识库`。[详情](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/339)
 
 如果你有什么建议欢迎提**Issues**，喜欢这个项目的欢迎点个**Star**持续关注。
 
-## Introduce
+## 介绍
 
 1. 根据 [VuePress](https://vuepress.vuejs.org/zh/) 的默认主题修改而成，仍以官方配置为主，追求`简洁`同时又不失`美观`。
 
@@ -79,7 +79,7 @@
 
 8. 提高搬砖效率的辅助工具： [批量修改front matter工具](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/351)
 
-## Start
+## 快速上手
 
 ```bash
 # clone the project
@@ -95,7 +95,7 @@ npm install # or yarn install
 npm run dev # or yarn dev
 ```
 
-## Plugin
+## 插件
 
 推荐几款插件
 
@@ -140,7 +140,7 @@ npm run dev # or yarn dev
 
    [vuepress-plugin-baidu-tongji](https://www.npmjs.com/package/vuepress-plugin-baidu-tongji)
 
-## Deploy
+## 部署
 
 1. 内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种**自动部署**脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
 
@@ -148,7 +148,7 @@ npm run dev # or yarn dev
 
 
 
-## Other
+## 其他
 
 1. **评论模块的搭建**
 
@@ -182,13 +182,13 @@ npm run dev # or yarn dev
 
    [在线编辑和新增文章的方法](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/327)
 
-## Donate
+## 支持
 如果你觉得这个项目帮助到了你，可以为作者贡献一杯82年的雪碧🍸。
 | Wechat | Alipay |
 | :---: | :---: |
 | <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113708.jpg" alt="Wechat QRcode" width=180>| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113707.jpg" alt="Alipay QRcode" width=180> |
 
-## License
+## 许可证
 [MIT](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE)
 
 Copyright (c) 2019-present Evan Xu
