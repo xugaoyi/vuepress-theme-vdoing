@@ -42,13 +42,13 @@
         <li><b>自动生成结构化侧边栏</b> 让你拥有一个结构清晰的侧边栏，无需手动配置。<br/>
         <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/113">构建结构化站点的核心配置和约定</a>
         </li>
-        <li><b>自动生成front matter</b> 助你专注于写作，你无需给每个`.md`文件都手写front matter。<br/>
+        <li><b>自动生成front matter</b> 助你专注于写作，你无需给每个.md文件都手写front matter。<br/>
         <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/324">自动生成front matter</a>
         </li>
         <li>简单的<b>目录页</b>配置，查看 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/330">目录页配置</a>
         </li>
         <li>
-        可以添加第三方搜索链接的<a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a>
+        可以添加第三方搜索链接的<a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a>，提高搬砖效率。
         </li>
        <li>
         	<b>面包屑</b>和<b>快捷翻页按钮</b>内置于主题，无需配置。（面包屑数据依赖于自动生成的结构化侧边栏）
