@@ -34,38 +34,43 @@
 
 3. 一个`结构化的知识库`，形成一本本像书一样清晰易读的知识库。同时博客功能提供一种`碎片化`形态。
 
-4. 添加方便管理学习笔记和技术文档的 `目录页`、`自动生成侧边栏工具`、`自动生成Front Matter工具`、`扩展的搜索框插件`、`面包屑`、`快捷翻页按钮` 等，让你快速定位到任何你想要找的内容
+4. 添加方便管理学习笔记和技术文档的 `自动生成结构化侧边栏`、`自动生成front matter`、`目录页`、`扩展的搜索框插件`、`面包屑`、`快捷翻页按钮` 等，让你快速定位到任何你想要找的内容
 
    <details>
     <summary>查看文档</summary>
     <ul>
-        <li>简单的<b>目录页</b>配置，查看 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/330">目录页配置</a>
-        </li>
-        <li><b>自动生成侧边栏工具</b> 让你拥有一个结构清晰的侧边栏，无需手动配置。<br/>
+        <li><b>自动生成结构化侧边栏</b> 让你拥有一个结构清晰的侧边栏，无需手动配置。<br/>
         <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/113">构建结构化站点的核心配置和约定</a>
         </li>
-        <li><b>自动生成Front Matter工具</b> 助你专注于写作，你无需给每个文件都手写front matter。<br/>
-        <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/324">自动生成Front Matter工具</a>
+        <li><b>自动生成front matter</b> 助你专注于写作，你无需给每个`.md`文件都手写front matter。<br/>
+        <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/324">自动生成front matter</a>
+        </li>
+        <li>简单的<b>目录页</b>配置，查看 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/330">目录页配置</a>
         </li>
         <li>
         可以添加第三方搜索链接的<a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a>
         </li>
        <li>
-        	<b>面包屑</b>和<b>快捷翻页按钮</b>内置于主题，无需配置。（面包屑数据依赖于自动生成侧边栏工具）
+        	<b>面包屑</b>和<b>快捷翻页按钮</b>内置于主题，无需配置。（面包屑数据依赖于自动生成的结构化侧边栏）
         </li>
     </ul>
    </details>
 
 
-5. 添加博客相关的 `评论插件`、`时间轴+分类页`、`最近更新栏` 、`文章信息栏（作者与创建时间）`、`博主信息栏`、`页脚版权栏`等。
+5. 添加博客相关的 `文章信息栏（作者与创建时间）`、`最近更新栏` 、`博主信息栏`、`页脚版权栏`、`时间轴+分类页`、`评论插件`等。
    <details>
     <summary>查看文档</summary>
     <ul>
-        <li><a href="https://github.com/dongyuanxin/vuepress-plugin-comment">评论栏插件</a>
+        <li>
+          文章信息栏（作者与创建时间）、最近更新栏、博主信息栏和页脚版权栏等在
+          <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/343">config.js配置</a>
         </li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/331">时间轴+分类 页面配置</a> (分类数据依赖于自动生成侧边栏工具)
+        <li>
+          <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/331">时间轴+分类 页面配置</a> 
         </li>
-        <li><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/343">文章信息栏（作者与创建时间）、最近更新栏、博主信息栏和页脚版权栏在config.js配置</a></li>
+        <li>
+          <a href="https://github.com/dongyuanxin/vuepress-plugin-comment">评论栏插件</a>
+        </li>
     </ul>
    </details>
    
@@ -139,6 +144,8 @@ npm run dev # or yarn dev
    [vuepress-plugin-baidu-autopush](https://www.npmjs.com/package/vuepress-plugin-baidu-autopush)
 
    [vuepress-plugin-baidu-tongji](https://www.npmjs.com/package/vuepress-plugin-baidu-tongji)
+
+6. 更多插件查看官方[Awesome VuePress](https://github.com/vuepressjs/awesome-vuepress)
 
 ## 部署
 
