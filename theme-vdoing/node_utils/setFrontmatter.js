@@ -2,7 +2,7 @@ const fs = require('fs'); // 文件模块
 const matter = require('gray-matter'); // FrontMatter解析器 https://github.com/jonschlinkert/gray-matter
 const jsonToYaml = require('json2yaml')
 const chalk = require('chalk') // 命令行打印美化
-const arg = process.argv.splice(2)[0]; // 获取命令行传入的参数
+// const arg = process.argv.splice(2)[0]; // 获取命令行传入的参数
 const readFileList = require('./modules/readFileList');
 const { type, repairDate, dateFormat} = require('./modules/fn');
 const log = console.log
@@ -60,18 +60,18 @@ function setFrontmatter(sourceDir) {
       
 
       // 更新title和permalink
-      if (arg === '-update' && matterData.title != file.name){ // 当title和文件名不一致时才更新
-        matterData.title = file.name;
-        if (/pages/.test(matterData.permalink)) {
-          matterData.permalink = file.permalink;
-        }
-        // 修复date时区和格式被修改的问题 (并非更新date的值)
-        matterData.date = repairDate(matterData.date);
+      // if (arg === '-update' && matterData.title != file.name){ // 当title和文件名不一致时才更新
+      //   matterData.title = file.name;
+      //   if (/pages/.test(matterData.permalink)) {
+      //     matterData.permalink = file.permalink;
+      //   }
+      //   // 修复date时区和格式被修改的问题 (并非更新date的值)
+      //   matterData.date = repairDate(matterData.date);
         
-        const newData2 = jsonToYaml.stringify(JSON.parse(JSON.stringify(matterData))).replace(/\n\s{2}/g,"\n").replace(/"/g,"") + '---\r\n' + fileMatterObj.content;
-        fs.writeFileSync(file.filePath, newData2); // 写入
-        log(chalk.blue('tip ') + chalk.green(`update frontmatter title and permalink(更新frontmatter的标题和永久链接)：${file.filePath} `))
-      }
+      //   const newData2 = jsonToYaml.stringify(JSON.parse(JSON.stringify(matterData))).replace(/\n\s{2}/g,"\n").replace(/"/g,"") + '---\r\n' + fileMatterObj.content;
+      //   fs.writeFileSync(file.filePath, newData2); // 写入
+      //   log(chalk.blue('tip ') + chalk.green(`update frontmatter title and permalink(更新frontmatter的标题和永久链接)：${file.filePath} `))
+      // }
 
     }
   })
