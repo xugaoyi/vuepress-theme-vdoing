@@ -149,9 +149,9 @@ npm run dev # or yarn dev
 
 ## 部署
 
-1. 内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种**自动部署**脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
+内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种**自动部署**脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
 
-   [自动部署到 github 或 coding](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/325)
+[自动部署到 github 或 coding](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/325)
 
 
 
@@ -161,7 +161,7 @@ npm run dev # or yarn dev
 
    [使用Gitalk实现静态博客无后台评论系统](https://xugaoyi.com/pages/1da0bf9a988eafe5/)
 
-2. [自定义域名及解析](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/326)
+2. 自定义域名及解析，[详情](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/326)
 
 3. SEO相关
 
@@ -183,7 +183,7 @@ npm run dev # or yarn dev
 
    [GitHub Actions 定时运行代码：每天定时百度链接推送](https://xugaoyi.com/pages/f44d2f9ad04ab8d3/)
 
-6. [在线编辑和新增文章的方法](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/327)
+6. 在线编辑和新增文章的方法，[详情](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/327)
 
 ## 支持
 如果你觉得这个项目帮助到了你，可以为作者贡献一杯82年的雪碧🍸。你任何形式的支持都是对我的肯定，我会坚持初心把这个项目做得更好。
