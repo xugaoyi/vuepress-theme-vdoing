@@ -157,15 +157,13 @@ npm run dev # or yarn dev
 
 ## 其他
 
-1. **评论模块的搭建**
+1. 评论模块的搭建
 
    [使用Gitalk实现静态博客无后台评论系统](https://xugaoyi.com/pages/1da0bf9a988eafe5/)
 
-2. **自定义域名及解析**
+2. [自定义域名及解析](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/326)
 
-   [自定义域名及解析](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/326)
-
-3. **SEO相关**
+3. SEO相关
 
    ```js
    // config.js
@@ -177,17 +175,15 @@ npm run dev # or yarn dev
    }
    ```
 
-4. **图床**
+4. 图床
 
    [GitHub + jsDelivr + TinyPNG+ PicGo 打造稳定快速、高效免费图床](https://xugaoyi.com/pages/a5f73af5185fdf0a/)
 
-5. **结合GitHub Actions开发的每天定时百度推送，加快收录**
+5. 结合GitHub Actions开发的每天定时百度推送，加快收录
 
    [GitHub Actions 定时运行代码：每天定时百度链接推送](https://xugaoyi.com/pages/f44d2f9ad04ab8d3/)
 
-6. **在线编辑和新增文章的方法**
-
-   [在线编辑和新增文章的方法](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/327)
+6. [在线编辑和新增文章的方法](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/327)
 
 ## 支持
 如果你觉得这个项目帮助到了你，可以为作者贡献一杯82年的雪碧🍸。你任何形式的支持都是对我的肯定，我会坚持初心把这个项目做得更好。
