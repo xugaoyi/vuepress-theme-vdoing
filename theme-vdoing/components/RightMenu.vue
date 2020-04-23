@@ -49,12 +49,12 @@ export default {
 .right-menu-wrapper
   width $rightMenuWidth
   float right 
-  margin-right -20px
+  margin-right -($rightMenuWidth + 60px)
   position sticky
   top 0
   font-size .9rem
   .right-menu-padding
-    padding-top ($navbarHeight + 3rem)
+    padding-top ($navbarHeight + 1rem)
   .right-menu-content
     max-height 80vh
     position relative

@@ -92,6 +92,7 @@ $navbar-horizontal-padding = 1.5rem
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
+  transition transform 0.3s
   a, span, img
     display inline-block
   .logo
@@ -117,6 +118,10 @@ $navbar-horizontal-padding = 1.5rem
     .search-box
       flex: 0 0 auto
       vertical-align top
+
+.hide-navbar
+    .navbar
+      transform translateY(-100%)
 
 @media (max-width: $MQMobile)
   .navbar

@@ -42,23 +42,30 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
   .iconfont
     padding 0 10px
     font-size 19px
+
 .footer
-  padding 2.5rem 2.5rem 3rem 
+  padding 1.5rem 1.5rem 2rem 
   text-align center
-  color var(--textColor)
-  opacity .6
+  color #666
   box-sizing border-box
   font-size .85rem
   transition all .2s ease
+  @media (min-width: $cardLayout)
+    background var(--pageBg)
   a
-    color var(--textColor)
+    color #666
+
 @media (min-width: ($MQMobile + 1px))
   .sidebar-open .footer
     width auto
-    margin-left $sidebarWidth
+    padding-left ($sidebarWidth + 1.5rem)
+
+@media (min-width 1520px)
+  .have-rightmenu .footer
+    padding-right ($rightMenuWidth + 1.5rem)
 
 .no-sidebar .footer
   width auto
-  margin-left 0
+  padding-left 0
 
 </style>

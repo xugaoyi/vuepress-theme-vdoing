@@ -91,8 +91,8 @@ export default {
 dl,dd
   margin 0
 .column-wrapper
+  margin-top .6rem
   display flex
-  margin-top 4.6rem!important
   padding-bottom 2rem
   border-bottom 1px solid var(--borderColor)
   img

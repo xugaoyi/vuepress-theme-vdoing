@@ -12,6 +12,7 @@
           <RightMenu v-if="showRightMenu"/>
           <Content class="theme-vdoing-content" />
         </div>
+        
 
         <PageEdit />
         <PageNav v-bind="{ sidebarItems }" />
@@ -74,8 +75,12 @@ export default {
 @require '../styles/variable.styl'
 
 .page
-  padding-bottom 2rem
+  padding-bottom 3rem
   display block
+  padding-top ($navbarHeight)
+  @media (min-width $cardLayout)
+    padding-top ($navbarHeight + 2rem)
+    background var(--pageBg)
   >*
     @extend $vdoing-wrapper
 
@@ -86,23 +91,11 @@ export default {
 /**
  * 右侧菜单的自适应
  */
-@media (min-width: 1680px) // 在大屏时
-  .have-rightmenu // 有右侧菜单时
-    .page
-      .theme-vdoing-wrapper
-        max-width ($contentWidth + $rightMenuWidth)
-      >*:not(.theme-vdoing-wrapper)
-        transform translateX(-($rightMenuWidth / 2))
-
-@media (min-width: 1520px) and (max-width: 1679px)
+@media (min-width: 720px) and (max-width: 1519px)
   .have-rightmenu
-    .page
-      transition: all 0s!important
-      .theme-vdoing-wrapper
-        max-width ($contentWidth + $rightMenuWidth)
-    &.sidebar-open
-      .page >*
-        margin 0 0 0 2rem
+    .page 
+      padding-right 0!important
+
 @media (max-width: 1519px)
   .right-menu-wrapper
     display none
@@ -110,21 +103,4 @@ export default {
   .sidebar .sidebar-sub-headers
     display none
 
-
-// @media (min-width: 1360px) and (max-width: 1519px)
-//   .have-rightmenu
-//     .page
-//       .theme-vdoing-wrapper
-//         max-width ($contentWidth + $rightMenuWidth - 200px)
-//       .theme-vdoing-content,.page-edit,.page-nav,#vuepress-plugin-comment,.article:not(.article-home)
-//         max-width ($contentWidth - 200px)
-//       .right-menu-wrapper
-//         // margin-left ($contentWidth - 180px)
-
-// @media (max-width: 1359px) // 小于等于1359时隐藏右侧锚点菜单
-//   .right-menu-wrapper
-//     display none
-// @media (min-width: 1360px) // 大于等于1360时隐藏左侧锚点菜单
-//   .sidebar .sidebar-sub-headers
-//     display none
 </style>

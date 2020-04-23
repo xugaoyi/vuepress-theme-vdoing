@@ -227,7 +227,7 @@ export default {
 <style lang="stylus">
 .i-body
   background bottom no-repeat
-  background-color rgba(220,220,220,0.1)
+  background-color var(--pageBg)
   overflow hidden
   .banner
     width 100%
@@ -402,6 +402,8 @@ export default {
             margin-bottom 6px
           .slogan
             color var(--textColor)
+  .footer
+    background none
 
 
 @keyframes heart

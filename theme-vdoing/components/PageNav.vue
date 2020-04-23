@@ -186,6 +186,7 @@ function flatten (items, res) {
     margin-top -35px
     outline 0
     transition all .2s
+    border-radius 2px
     @media (max-width: 1340px)
       width 50px
     @media (max-width: 960px) 

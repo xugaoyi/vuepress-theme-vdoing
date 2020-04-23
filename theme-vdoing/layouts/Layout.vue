@@ -61,6 +61,7 @@ import Sidebar from '@theme/components/Sidebar.vue'
 import Buttons from '@theme/components/Buttons.vue'
 import { resolveSidebarItems } from '../util'
 import storage from 'good-storage' // 本地存储
+import _ from 'lodash'
 
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 
@@ -69,6 +70,7 @@ export default {
 
   data () {
     return {
+      hideNavbar: false,
       isSidebarOpen: true,
       showSidebar: false,
       themeMode: 'light'
@@ -124,6 +126,7 @@ export default {
       return [
         {
           'no-navbar': !this.shouldShowNavbar,
+          'hide-navbar': this.hideNavbar, // 向下滚动隐藏导航栏
           'sidebar-open': this.isSidebarOpen,
           'no-sidebar': !this.shouldShowSidebar,
           'have-rightmenu': this.showRightMenu,
@@ -153,9 +156,35 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpenOfclientWidth()
     })
-  },
 
+    // 向下滚动收起导航栏
+    let p = 0, t = 0;
+    window.addEventListener('scroll', _.throttle(() => {
+      if(!this.isSidebarOpen) { // 侧边栏关闭时
+        p = this.getScrollTop()
+        if(t < p) { // 向下滚动
+          this.hideNavbar = true
+        } else { // 向上
+          this.hideNavbar = false
+        }
+        setTimeout(() => {t = p},0)
+      }
+    }, 300))
+
+  },
+  watch: {
+    isSidebarOpen() {
+      if(this.isSidebarOpen) {  // 侧边栏打开时，恢复导航栏显示
+        this.hideNavbar = false
+      }
+    }
+  },
   methods: {
+    getScrollTop () {
+      return window.pageYOffset
+        || document.documentElement.scrollTop
+        || document.body.scrollTop || 0
+    },
     isSidebarOpenOfclientWidth() {
       if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
         this.isSidebarOpen = false

@@ -252,9 +252,10 @@ export default {
         background #517EA9
 .i-body
   background bottom no-repeat
-  // background-color var(--homeBg)
-  background-color rgba(220,220,220,0.1)
+  background-color var(--pageBg)
   overflow hidden
+  .footer
+    background none
 .banner
   width 100%
   min-height 450px

@@ -41,6 +41,7 @@
     transition left .2s ease
     &:hover
       box-shadow 0 2px 6px rgba(0,0,0,.15)
+      background var(--bg)
     .icon
       display inline
       width 1rem

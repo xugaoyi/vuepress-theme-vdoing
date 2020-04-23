@@ -71,7 +71,7 @@ export default {
   @require '../styles/wrapper.styl'
   .article
     @extend $wrapper
-    padding 2rem 2.5rem 0 2.5rem
+    padding 1.8rem 2rem 0 2rem
     &:not(.article-home)
       margin-top 2rem
       border 8px solid rgba(160,160,160,.1)
@@ -109,7 +109,7 @@ export default {
         display flex
         padding 8px 0
         margin 0
-        height 55px
+        height 45px
         width 100%
         // width 50%
         // @media (max-width: $MQNarrow)
@@ -122,7 +122,7 @@ export default {
           width 50px
           margin-left 22px
           font-weight bold
-          line-height: 55px;
+          line-height: 45px;
           @media (max-width: $MQNarrow)
             width 45px
         dt
@@ -132,7 +132,7 @@ export default {
             color var(--textColor)
             flex 1
             display: flex;
-            height: 55px;
+            height: 45px;
             align-items: center;
             div
               overflow: hidden;
@@ -151,7 +151,7 @@ export default {
             color #999
             text-align right 
             font-size .9rem
-            line-height: 55px;
+            line-height: 45px;
             @media (max-width: $MQNarrow)
               width 95px
 </style>

@@ -200,7 +200,7 @@ export default {
       text-align center
       cursor pointer
       // color var(--textLightenColor)
-      background rgba(255,255,255,.1)
+      background var(--bg)
       &:hover
         &:before
           color $accentColor
