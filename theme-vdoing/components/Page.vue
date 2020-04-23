@@ -76,7 +76,7 @@ export default {
 @require '../styles/variable.styl'
 
 .page
-  padding-bottom 3rem
+  padding-bottom 2rem
   display block
   padding-top ($navbarHeight)
   @media (min-width $cardLayout)
