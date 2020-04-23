@@ -73,17 +73,18 @@ export default {
     @extend $wrapper
     padding 1.8rem 2rem 0 2rem
     &:not(.article-home)
-      margin-top 2rem
-      border 8px solid rgba(160,160,160,.1)
-      box-sizing border-box
-    @media (max-width: $MQNarrow)
-      padding 1.5rem 1.5rem 0rem 1.5rem
+      padding-top 1.8rem
+      // margin-top 2rem
+      // border 8px solid rgba(160,160,160,.1)
+      // box-sizing border-box
+    @media (max-width $cardLayout)
       &:not(.article-home)
-        border-width 10px
+        border 10px solid rgba(160,160,160,.1)
         border-left none
         border-right none
+    @media (max-width: $MQNarrow)
+      padding 1.5rem 1.5rem 0rem 1.5rem
     @media (max-width: $MQMobileNarrow)
-      // padding 1.5rem 1.5rem 0rem 1.5rem
       &:not(.article-home)
         margin 0 -1.5rem
     &.article-home

@@ -16,16 +16,17 @@
 
         <PageEdit />
         <PageNav v-bind="{ sidebarItems }" />
-        <UpdateArticle
-          :length="updateBarConfig && updateBarConfig.onArticle && updateBarConfig.onArticle.length || 3"
-          :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
-          v-if="isShowUpdateBar"
-         />
       </div>
+
+      <UpdateArticle
+        :length="updateBarConfig && updateBarConfig.onArticle && updateBarConfig.onArticle.length || 3"
+        :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
+        v-if="isShowUpdateBar"
+        />
 
       <slot name="bottom" />
     </main>
-
+  
     <Footer />
   </div>
 </template>
