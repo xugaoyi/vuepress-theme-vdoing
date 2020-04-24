@@ -149,7 +149,7 @@ npm run dev # or yarn dev
 
 ## 部署
 
-内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种**自动部署**脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
+内置 `deploy.sh` 和 [GitHub Actions](https://github.com/features/actions) 两种`自动部署`脚本，一键发布到 GitHub Pages 或 国内访问速度更快的Coding Pages。
 
 [自动部署到 github 或 coding](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/325)
 
