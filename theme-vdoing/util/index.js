@@ -243,3 +243,18 @@ function resolveItem (item, pages, base, groupDepth = 1) {
     }
   }
 }
+
+
+
+// 日期格式化
+export function dateFormat(date) {
+  if (!(date instanceof Date)) {
+    date = new Date(date)
+  }
+  return `${date.getUTCFullYear()}-${zero(date.getUTCMonth()+1)}-${zero(date.getUTCDate())}`
+}
+
+// 小于10补0
+function zero(d){
+  return d.toString().padStart(2,'0')
+}

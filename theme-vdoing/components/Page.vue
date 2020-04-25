@@ -50,6 +50,7 @@ export default {
   props: ['sidebarItems'],
   components: { PageEdit, PageNav, ArticleInfo, Catalogue, UpdateArticle, Timeline, Footer, RightMenu},
   created() {
+    console.log(this.$themeConfig)
     this.updateBarConfig = this.$themeConfig.updateBar
   },
   computed: {

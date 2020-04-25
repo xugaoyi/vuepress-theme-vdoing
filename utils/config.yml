@@ -2,8 +2,7 @@
 
 # 需要批量处理的路径，docs文件夹内的文件夹  (数组。路径：docs/arr[0]/arr[1] ... )
 path:
-  - 03.技术
-  - 02.GitHub技巧
+  - 《ES6 教程》笔记
 
 # 要删除的字段 (数组)
 delete:  
@@ -12,5 +11,4 @@ delete:
 
  # 要添加、修改front matter的数据 （front matter中没有的数据则添加，已有的数据则覆盖）
 data:
-  # tags:
-  #   - GitHub技巧
+  author: 阮一峰

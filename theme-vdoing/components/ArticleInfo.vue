@@ -7,7 +7,7 @@
         </li>
         <li v-if="articleInfo.classify1">
           <router-link v-if="articleInfo.cataloguePermalink" :to="articleInfo.cataloguePermalink" :title="articleInfo.classify1+'-目录页'">{{articleInfo.classify1}}</router-link>
-          <span v-else>{{articleInfo.classify1}}</span>
+          <span v-else>{{articleInfo.classify1 === '_posts' ? '博客文章' : articleInfo.classify1 }}</span>
         </li>
         <li v-if="articleInfo.classify2">
           <router-link v-if="articleInfo.cataloguePermalink" :to="articleInfo.cataloguePermalink + '/#' + encodeAnchor(articleInfo.classify2)" :title="articleInfo.classify1+'#'+articleInfo.classify2">{{articleInfo.classify2}}</router-link>
@@ -17,7 +17,7 @@
       <div class="info">
         <div class="author iconfont icon-touxiang" v-if="articleInfo.author">
           <a :href="articleInfo.author.href" v-if="articleInfo.author.href" target="_blank" class="beLink" title="作者">{{articleInfo.author.name}}</a>
-          <a v-else href="javascript:;" title="作者">{{articleInfo.author.name}}</a>
+          <a v-else href="javascript:;" title="作者">{{articleInfo.author.name || articleInfo.author}}</a>
         </div>
         <div class="date iconfont icon-riqi" v-if="articleInfo.date">
           <a href="javascript:;" title="创建时间">{{articleInfo.date}}</a>
@@ -29,6 +29,8 @@
   
 <script>
 import encodeMixin from '../mixins/encodeAnchor'
+import { dateFormat } from '../util'
+
 export default {
   mixins: [encodeMixin],
   data() {
@@ -68,19 +70,6 @@ export default {
       }
     }
   }
-}
-
-// 日期格式化
-function dateFormat(date) {
-  if (!(date instanceof Date)) {
-    date = new Date(date)
-  }
-  return `${date.getFullYear()}-${zero(date.getMonth()+1)}-${zero(date.getDate())}`
-}
-
-// 小于10补0
-function zero(d){
-  return d.toString().padStart(2,'0')
 }
 </script>
 

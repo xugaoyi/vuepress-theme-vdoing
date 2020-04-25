@@ -34,7 +34,7 @@ module.exports = {
     editLinkText: '编辑',
 
     // 以下配置是Vdoing主题改动的和新增的配置
-    sidebar: 'structuring', //  侧边栏   'auto' | 自定义 | 'structuring' | { mode: 'structuring', collapsable: Boolean}  温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
+    sidebar: 'structuring', // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
 
     // sidebarOpen: false, // 初始状态是否打开侧边栏，默认true
     // updateBar: { // 最近更新栏（此配置和它下面的所有属性均是可选的）
@@ -48,7 +48,7 @@ module.exports = {
     //   },
     //   moreArticle: '/timeline' // “更多文章”跳转的页面，默认'/timeline'
     // },
-    author: { // 文章默认的作者信息，可在md文件中单独配置此信息
+    author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, href: String}
       name: 'Evan Xu', // 必需
       href: 'https://github.com/xugaoyi' // 可选的
     },
@@ -159,7 +159,8 @@ module.exports = {
           repo: 'vuepress-theme-vdoing', // GitHub 仓库
           owner: 'xugaoyi', // GitHub仓库所有者
           admin: ['xugaoyi'], // 对仓库有写权限的人
-          distractionFreeMode: false,
+          // distractionFreeMode: true,
+          pagerDirection: 'last', // 'first'正序 | 'last'倒序
           id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
           title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
           labels: ["Gitalk", "Comment"], // GitHub issue 的标签

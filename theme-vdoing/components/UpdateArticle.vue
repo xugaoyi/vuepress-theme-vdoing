@@ -105,22 +105,22 @@ export default {
         display flex
         padding 8px 0
         margin 0
-        height 45px
+        height 50px
         width 100%
         // width 50%
         // @media (max-width: $MQNarrow)
         //   width 100%
         &:last-child
-          border-bottom none
+          // border-bottom none
         dd
           font-size 1.1rem
           color #F17229
           width 50px
           margin-left 22px
           font-weight bold
-          line-height: 45px;
+          line-height: 50px;
           @media (max-width: $MQNarrow)
-            width 45px
+            width 50px
         dt
           flex 1
           display flex
@@ -128,7 +128,7 @@ export default {
             color var(--textColor)
             flex 1
             display: flex;
-            height: 45px;
+            height: 50px;
             align-items: center;
             div
               overflow: hidden;
@@ -147,7 +147,7 @@ export default {
             color #999
             text-align right 
             font-size .9rem
-            line-height: 45px;
+            line-height: 50px;
             @media (max-width: $MQNarrow)
               width 95px
 </style>

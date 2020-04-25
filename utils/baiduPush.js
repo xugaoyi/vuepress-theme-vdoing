@@ -27,7 +27,7 @@ function main() {
     const { data } = matter(fs.readFileSync(file.filePath, 'utf8')); 
 
     if (data.permalink) {
-      const link = `\r\n${DOMAIN}${data.permalink}/`;
+      const link = `\r\n${DOMAIN}${data.permalink}`;
       console.log(link)
       fs.appendFileSync(urlsRoot, link);
     }

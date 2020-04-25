@@ -3,6 +3,7 @@ const path = require('path'); // 路径模块
 const chalk = require('chalk') // 命令行打印美化
 const matter = require('gray-matter'); // front matter解析器
 const log = console.log
+
 let catalogueData = {}; // 目录页数据
 
 /**
@@ -13,15 +14,23 @@ let catalogueData = {}; // 目录页数据
 function createSidebarData(sourceDir, collapsable){
   const sidebarData = {};
   const tocs = readTocs(sourceDir);
-
   tocs.forEach(toc => { // toc是每个目录的绝对路径
-    const sidebarObj = mapTocToSidebar(toc, collapsable);
-    if (!sidebarObj.sidebar.length) {
-      log(chalk.yellow(`warning: 该目录 "${toc}" 内部没有任何可用文件，将忽略生成对应侧边栏`))
-      return;
+
+    const tocArr = toc.split('\\')
+    if (tocArr[tocArr.length -1] === '_posts') { // 碎片化文章
+      
+      const sidebarArr = mapTocToPostSidebar(toc);
+      sidebarData[`/${path.basename(toc)}/`] = sidebarArr
+
+    } else {
+      const sidebarObj = mapTocToSidebar(toc, collapsable);
+      if (!sidebarObj.sidebar.length) {
+        log(chalk.yellow(`warning: 该目录 "${toc}" 内部没有任何文件或文件序号出错，将忽略生成对应侧边栏`))
+        return;
+      }
+      sidebarData[`/${path.basename(toc)}/`] = sidebarObj.sidebar
+      sidebarData.catalogue = sidebarObj.catalogueData
     }
-    sidebarData[`/${path.basename(toc)}/`] = sidebarObj.sidebar
-    sidebarData.catalogue = sidebarObj.catalogueData
   })
 
   return sidebarData
@@ -48,16 +57,56 @@ function readTocs(root){
 
 
 /**
+ * 将碎片化文章目录(_posts)映射为对应的侧边栏配置数据
+ * @param {String} root 
+ */
+function mapTocToPostSidebar(root){
+  let postSidebar = [] // 碎片化文章数据
+  const files = fs.readdirSync(root); // 读取目录（文件和文件夹）,返回数组
+
+  files.forEach(filename => {
+    const file = path.resolve(root, filename); // 方法：将路径或路径片段的序列解析为绝对路径
+    const stat = fs.statSync(file); // 文件信息
+
+    const fileNameArr = filename.split('.');
+    if (fileNameArr.length > 2) {
+      log(chalk.yellow(`warning: 该文件 "${file}" 在_posts文件夹中，不应有序号，且文件名中间不应有'.'`))
+      return
+    }
+    if(stat.isDirectory()){ // 是文件夹目录
+      log(chalk.yellow(`warning: 该目录 "${file}" 内文件无法生成侧边栏，_posts文件夹里面不能有二级目录。`))
+      return
+    } 
+
+    let [title, type] = filename.split('.');
+    if (type !== 'md') {
+      log(chalk.yellow(`warning: 该文件 "${file}" 非.md格式文件，不支持该文件类型`))
+      return;
+    }
+
+    const contentStr = fs.readFileSync(file, 'utf8') // 读取md文件内容，返回字符串
+    const { data } = matter(contentStr) // 解析出front matter数据
+    const permalink = data.permalink || ''
+    postSidebar.push([filename, title, permalink ]);  // [<路径>, <文件标题>, <永久链接>]
+  })
+
+  return postSidebar
+}
+
+
+/**
  * 将目录映射为对应的侧边栏配置数据
  * @param {String} root 
  * @param {Boolean} collapsable
  * @param {String} prefix
  */
+
 function mapTocToSidebar(root, collapsable, prefix){
   prefix = prefix || '';
   let sidebar = [];
   const files = fs.readdirSync(root); // 读取目录（文件和文件夹）,返回数组
-  files.forEach(filename => {
+
+  files.forEach(filename => { // 结构化文章
     const file = path.resolve(root, filename); // 方法：将路径或路径片段的序列解析为绝对路径
     const stat = fs.statSync(file); // 文件信息
     let [order, title, type] = filename.split('.');

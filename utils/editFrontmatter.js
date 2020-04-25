@@ -23,7 +23,7 @@ async function main() {
 
   const promptList = [{
     type: "confirm",
-    message: "批量操作frontmatter有修改数据的风险，确定要继续吗？",
+    message: chalk.yellow('批量操作frontmatter有修改数据的风险，确定要继续吗？'),
     name: "edit",
   }];
   let edit = true;
@@ -80,6 +80,6 @@ async function main() {
     }
     const newData = jsonToYaml.stringify(matterData).replace(/\n\s{2}/g,"\n").replace(/"/g,"")  + '---\r\n' + fileMatterObj.content;
     fs.writeFileSync(file.filePath, newData); // 写入
-    log(`update frontmatter：${file.filePath} `)
+    log(chalk.green(`update frontmatter：${file.filePath} `))
   })
 }

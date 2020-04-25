@@ -5,11 +5,12 @@ h1
     width 1.6rem
 
 
-// // 评论区颜色重置
-// #vuepress-plugin-comment
-//   @media (min-width: 1200px)
-//     margin-top: 1.5rem
+// 评论区颜色重置
 .gt-container
+  .gt-ico-tip
+    &::after
+      content: '。( Win + . ) or ( ⌃ + ⌘ + ␣ ) open Emoji'
+      color: #999
   .gt-meta
     border-color var(--borderColor)!important
   .gt-comments-null

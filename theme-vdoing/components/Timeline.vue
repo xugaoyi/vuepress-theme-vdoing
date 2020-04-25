@@ -110,6 +110,7 @@ export default {
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
 .timeline-wrapper
+  padding-top 1rem
   .tags
     margin-bottom 30px
     a
