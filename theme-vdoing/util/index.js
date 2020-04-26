@@ -245,8 +245,13 @@ function resolveItem (item, pages, base, groupDepth = 1) {
 }
 
 
+// 类型判断
+export function type(o){
+  const s = Object.prototype.toString.call(o)
+  return s.match(/\[object (.*?)\]/)[1].toLowerCase()
+}
 
-// 日期格式化
+// 日期格式化(只获取年月日)
 export function dateFormat(date) {
   if (!(date instanceof Date)) {
     date = new Date(date)
@@ -255,6 +260,16 @@ export function dateFormat(date) {
 }
 
 // 小于10补0
-function zero(d){
+export function zero(d){
   return d.toString().padStart(2,'0')
+}
+
+// 获取时间的时间戳
+export function getTimeNum (post) {
+  return new Date(post.frontmatter.date || timeline.lastUpdated).getTime()
+}
+
+// 比对时间
+export function compareDate (a, b) {
+  return getTimeNum(b) - getTimeNum(a)
 }

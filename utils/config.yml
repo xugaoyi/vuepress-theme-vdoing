@@ -11,4 +11,4 @@ delete:
 
  # 要添加、修改front matter的数据 （front matter中没有的数据则添加，已有的数据则覆盖）
 data:
-  author: 阮一峰
+  # author: 阮一峰

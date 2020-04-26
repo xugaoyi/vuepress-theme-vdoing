@@ -50,7 +50,6 @@ export default {
   props: ['sidebarItems'],
   components: { PageEdit, PageNav, ArticleInfo, Catalogue, UpdateArticle, Timeline, Footer, RightMenu},
   created() {
-    console.log(this.$themeConfig)
     this.updateBarConfig = this.$themeConfig.updateBar
   },
   computed: {
@@ -74,7 +73,6 @@ export default {
 
 <style lang="stylus">
 @require '../styles/wrapper.styl'
-@require '../styles/variable.styl'
 
 .page
   padding-bottom 2rem

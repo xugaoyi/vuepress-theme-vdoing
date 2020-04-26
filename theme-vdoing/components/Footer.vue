@@ -66,6 +66,6 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
 
 .no-sidebar .footer
   width auto
-  padding-left 0
+  padding-left 1.5rem
 
 </style>

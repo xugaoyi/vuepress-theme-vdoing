@@ -115,12 +115,12 @@ export default {
         dd
           font-size 1.1rem
           color #F17229
-          width 50px
+          width 45px
           margin-left 22px
           font-weight bold
-          line-height: 50px;
-          @media (max-width: $MQNarrow)
-            width 50px
+          line-height: 45px;
+          // @media (max-width: $MQNarrow)
+          //   width 45px
         dt
           flex 1
           display flex
@@ -142,12 +142,10 @@ export default {
             &.more
               color $accentColor
           span
-            width 100px
+            width 50px
             margin-right 15px
             color #999
             text-align right 
             font-size .9rem
             line-height: 50px;
-            @media (max-width: $MQNarrow)
-              width 95px
 </style>

@@ -104,9 +104,12 @@
 import NavLink from "@theme/components/NavLink";
 import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
-import UpdateArticle from './UpdateArticle'
-import PostList from './PostList'
-import Footer from './Footer'
+import UpdateArticle from '@theme/components/UpdateArticle'
+import PostList from '@theme/components/PostList'
+import Footer from '@theme/components/Footer'
+import { filterPosts, sortPosts, getAllCategoriesAndTags } from '../util/postData'
+
+
 const MOBILE_DESKTOP_BREAKPOINT = 720 // refer to config.styl
 
 BScroll.use(Slide)
@@ -126,7 +129,8 @@ export default {
   created() {
     this.updateBarConfig = this.$themeConfig.updateBar
     this.social = this.$themeConfig.social
-    console.log(this.$site.pages)
+    // console.log(filterPosts(this.$site.pages))
+    getAllCategoriesAndTags(this.$site.pages)
   },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
