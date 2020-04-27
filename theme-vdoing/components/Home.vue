@@ -107,8 +107,6 @@ import Slide from "@better-scroll/slide"
 import UpdateArticle from '@theme/components/UpdateArticle'
 import PostList from '@theme/components/PostList'
 import Footer from '@theme/components/Footer'
-import { filterPosts, sortPosts, getAllCategoriesAndTags } from '../util/postData'
-
 
 const MOBILE_DESKTOP_BREAKPOINT = 720 // refer to config.styl
 
@@ -129,8 +127,6 @@ export default {
   created() {
     this.updateBarConfig = this.$themeConfig.updateBar
     this.social = this.$themeConfig.social
-    // console.log(filterPosts(this.$site.pages))
-    getAllCategoriesAndTags(this.$site.pages)
   },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
@@ -314,7 +310,10 @@ export default {
           animation-play-state: running
         h2,p
           opacity .7
-          // color var(--textLightenColor)
+          color var(--textLightenColor)
+        h2
+          color $accentColor
+         
 
     // 移动端滑动图标
     .slide-banner

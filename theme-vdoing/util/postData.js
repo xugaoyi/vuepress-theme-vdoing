@@ -1,14 +1,9 @@
-// 处理文章数据
-
-/**
- * 思路：过滤非文章页，按时间排序（置顶靠前）， 按分类、标签对数据分组，解析出所有分类（数量取分组post的长度）、标签。 
- */
-
 import { type, compareDate } from './index'
 
-const log = console.log
-
-// 过滤非文章页
+/**
+ * 过滤非文章页
+ * @param {Array} posts 所有文章数据
+ */
 export function filterPosts (posts) {
   posts = posts.filter(item => {
     const { frontmatter: { pageComponent, article, home }} = item
@@ -17,11 +12,14 @@ export function filterPosts (posts) {
   return posts
 }
 
-// 按时间排序（并且置顶靠前）
+/**
+ * 按时间排序（置顶是否靠前）
+ * @param {Array} posts 过滤非文章页之后的文章数据
+ * @param {Boolean} isSticky 是否需要置顶靠前
+ */
 export function sortPosts (posts, isSticky = true) {
-  posts = filterPosts(posts) // 过滤非文章页
   posts.sort((prev, next) => {
-    if (isSticky) { // 是否需要置顶靠前
+    if (isSticky) {
       const prevSticky = prev.frontmatter.sticky
       const nextSticky = next.frontmatter.sticky
       if (prevSticky && nextSticky) {
@@ -32,56 +30,73 @@ export function sortPosts (posts, isSticky = true) {
         return 1
       }
     }
-
     return compareDate(prev, next)
   })
   return posts
 }
 
-// 按分类和标签分组
-export function groupByCategoriesAndTags(posts) {
-  const categoriesArr = []
-  const tagsArr = []
-
-  posts = sortPosts(posts, false)
+/**
+ * 按分类和标签分组
+ * @param {Array} posts 按时间排序之后的文章数据
+ */
+export function groupPosts(posts) {
+  const categoriesObj = {}
+  const tagsObj = {}
 
   for (let i = 0, postsL = posts.length; i < postsL; i++) {
-    
+    const { frontmatter: { categories, tags }} = posts[i]
+    if (type(categories) === 'array') {
+      categories.forEach(item => {
+        if (item) { // 分类值是有效的
+          if (!categoriesObj[item]) {
+            categoriesObj[item] = []
+          }
+          categoriesObj[item].push(posts[i])
+        }
+      })
+    }
+    if (type(tags) === 'array') {
+      tags.forEach(item => {
+        if (item) { // 标签值是有效的
+          if (!tagsObj[item]) {
+            tagsObj[item] = []
+          }
+          tagsObj[item].push(posts[i])
+        }
+      })
+    }
   }
-
   return {
-    categories: categoriesArr,
-    tags: tagsArr
+    categories: categoriesObj,
+    tags: tagsObj
   }
 }
 
-// 获取所有分类和标签
-export function getAllCategoriesAndTags(posts) {
+
+
+/**
+ * 获取所有分类和标签
+ * @param {Object} groupPosts 按分类和标签分组之后的文章数据
+ */
+export function categoriesAndTags(groupPosts) {
   const categoriesArr = []
   const tagsArr = []
 
-  // posts = sortPosts(posts, false)
+  for(let key in groupPosts.categories) {
+    categoriesArr.push({
+      key,
+      length: groupPosts.categories[key].length
+    })
+  }
 
-  // for (let i = 0, postsL = posts.length; i < postsL; i++) {
-  //   const { frontmatter: { categories, tags }} = posts[i]
-  //   if (type(categories) === 'array') {
-  //     categories.forEach(item => {
-  //       item && categoriesArr.indexOf(item) === -1 && categoriesArr.push(item)
-  //     })
-  //   }
-  //   if (type(tags) === 'array') {
-  //     tags.forEach(item => {
-  //       item && tagsArr.indexOf(item) === -1 && tagsArr.push(item)
-  //     })
-  //   }
-  // }
-
+  for(let key in groupPosts.tags) {
+    tagsArr.push({
+      key,
+      length: groupPosts.tags[key].length
+    })
+  }
   return {
     categories: categoriesArr,
     tags: tagsArr
   }
 }
-
-
-
-

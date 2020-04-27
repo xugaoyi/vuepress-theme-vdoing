@@ -43,7 +43,12 @@ async function main() {
     return
   }
 
-  const filePath = path.join(__dirname, '..', 'docs', ...config.path); // 要批量修改的文件路径
+  if (config.path[0] !== 'docs') {
+    log(chalk.red("路径配置有误，path数组的第一个成员必须是'docs'"))
+    return
+  }
+
+  const filePath = path.join(__dirname, '..', ...config.path); // 要批量修改的文件路径
   const files = readFileList(filePath); // 读取所有md文件数据
 
   files.forEach(file => {
