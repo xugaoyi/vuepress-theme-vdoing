@@ -63,9 +63,12 @@ async function main() {
         log(chalk.yellow('未能完成删除操作，delete字段的值应该是一个数组！'))
       } else {
         config.delete.forEach(item => {
-          delete matterData[item]
+          if (matterData[item]) {
+            delete matterData[item]
+            mark = true
+          }
         })
-        mark = true
+        
       }
     }
 
@@ -75,16 +78,15 @@ async function main() {
       mark = true
     }
     
-    // 没有任何操作时跳出
-    if (!mark) {
-      return
+    // 有操作时才继续
+    if (mark) {
+      if(matterData.date && type(matterData.date) === 'date') {
+        matterData.date = repairDate(matterData.date) // 修复时间格式
+      }
+      const newData = jsonToYaml.stringify(matterData).replace(/\n\s{2}/g,"\n").replace(/"/g,"")  + '---\r\n' + fileMatterObj.content;
+      fs.writeFileSync(file.filePath, newData); // 写入
+      log(chalk.green(`update frontmatter：${file.filePath} `))
     }
 
-    if(matterData.date && type(matterData.date) === 'date') {
-      matterData.date = repairDate(matterData.date) // 修复时间格式
-    }
-    const newData = jsonToYaml.stringify(matterData).replace(/\n\s{2}/g,"\n").replace(/"/g,"")  + '---\r\n' + fileMatterObj.content;
-    fs.writeFileSync(file.filePath, newData); // 写入
-    log(chalk.green(`update frontmatter：${file.filePath} `))
   })
 }

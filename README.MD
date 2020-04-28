@@ -48,7 +48,7 @@
         <li>简单的<b>目录页</b>配置，查看 <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/issues/330">目录页配置</a>
         </li>
         <li>
-        可以添加第三方搜索链接的<a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/docs/.vuepress/plugins/enhanced-search/README.md">扩展的搜索框插件</a>，提高搬砖效率。
+        可以添加第三方搜索链接的<a href="https://github.com/xugaoyi/vuepress-plugin-thirdparty-search">扩展的搜索框插件</a>，提高搬砖效率。
         </li>
        <li>
         	<b>面包屑</b>和<b>快捷翻页按钮</b>内置于主题，无需配置。（面包屑数据依赖于自动生成的结构化侧边栏）
@@ -135,9 +135,8 @@ npm run dev # or yarn dev
 
 4. 可以添加第三方搜索链接的搜索框插件
 
-   [enhanced-search](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/docs/.vuepress/plugins/enhanced-search/README.md)
+   [vuepress-plugin-thirdparty-search](https://github.com/xugaoyi/vuepress-plugin-thirdparty-search)
 
-   > 此插件未上传npm，以本地插件引入
 
 5. 百度推送和统计插件
 

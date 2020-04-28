@@ -10,7 +10,8 @@
 
         <div class="content-wrapper">
           <RightMenu v-if="showRightMenu"/>
-          <Content class="theme-vdoing-content" />
+          <h1>{{this.$page.title}}</h1>
+          <Content class="theme-vdoing-content" ref="vdoingContent" />
         </div>
         
 
@@ -19,7 +20,7 @@
       </div>
 
       <UpdateArticle
-        :length="updateBarConfig && updateBarConfig.onArticle && updateBarConfig.onArticle.length || 3"
+        :length="updateBarConfig && updateBarConfig.length || 3"
         :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
         v-if="isShowUpdateBar"
         />
@@ -52,9 +53,12 @@ export default {
   created() {
     this.updateBarConfig = this.$themeConfig.updateBar
   },
+  mounted() {
+    console.log(this.$refs)
+  },
   computed: {
     isShowUpdateBar() {
-      return this.updateBarConfig && this.updateBarConfig.onArticle && this.updateBarConfig.onArticle.isShow === false ? false : true
+      return this.updateBarConfig && this.updateBarConfig.isShow === false ? false : true 
     },
     showRightMenu(){
       return this.$page.headers && (this.$frontmatter && this.$frontmatter.sidebar && this.$frontmatter.sidebar !== false) !== false

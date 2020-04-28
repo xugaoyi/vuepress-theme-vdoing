@@ -100,7 +100,7 @@ export default {
       margin .5rem 0
       overflow hidden
       .excerpt
-        h1
+        h1,h2,h3
           display none
         img
           max-height 280px

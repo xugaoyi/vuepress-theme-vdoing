@@ -20,6 +20,7 @@
     "vuepress-plugin-baidu-tongji": "^1.0.1",
     "vuepress-plugin-demo-block": "^0.7.2",
     "vuepress-plugin-one-click-copy": "^1.0.1",
+    "vuepress-plugin-thirdparty-search": "^1.0.0",
     "vuepress-plugin-zooming": "^1.1.7",
     "yamljs": "^0.3.0"
   },

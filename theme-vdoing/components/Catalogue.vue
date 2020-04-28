@@ -91,7 +91,7 @@ export default {
 dl,dd
   margin 0
 .column-wrapper
-  margin-top .6rem
+  margin-top 1rem
   display flex
   padding-bottom 2rem
   border-bottom 1px solid var(--borderColor)

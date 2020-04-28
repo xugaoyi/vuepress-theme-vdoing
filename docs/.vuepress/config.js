@@ -37,15 +37,9 @@ module.exports = {
     sidebar: 'structuring', // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
 
     // sidebarOpen: false, // 初始状态是否打开侧边栏，默认true
-    // updateBar: { // 最近更新栏（此配置和它下面的所有属性均是可选的）
-    //   onHome: { // 在首页
-    //     isShow: true, // 是否显示，默认true
-    //     length: 5 // 显示的数量，默认5
-    //   },
-    //   onArticle: { // 在文章页
-    //     isShow: true, // 是否显示，默认true
-    //     length: 3 // 显示的数量，默认3
-    //   },
+    // updateBar: { // 文章页中的最近更新栏（此配置和它下面的属性均是可选的）
+    //   isShow: true, // 是否显示，默认true
+    //   length: 3, // 显示的数量，默认3
     //   moreArticle: '/timeline' // “更多文章”跳转的页面，默认'/timeline'
     // },
     author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, href: String}
@@ -94,7 +88,8 @@ module.exports = {
       //   'base64图片2',
       // ]
     }], 
-    [require('./plugins/enhanced-search'), { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
+
+    ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
       thirdparty: [ // 可选，默认 []
         {
           title: '在MDN中搜索',
@@ -115,7 +110,7 @@ module.exports = {
         }
       ]
     }],
-    
+
     'vuepress-plugin-baidu-autopush', // 百度自动推送
 
     ['one-click-copy', { // 代码块复制按钮

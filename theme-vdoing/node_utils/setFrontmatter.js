@@ -91,15 +91,17 @@ tags:
 
 // 获取分类数据
 function getCategories(file) {
-  let categories = ['博文']
+  let categories = []
 
   if (file.filePath.indexOf('_posts') === -1) { // 不在_posts文件夹
     const filePathArr = file.filePath.split('\\')
-    categories[0] = filePathArr[filePathArr.length - 3].split('.').pop() // 获取分类1
-    const c = filePathArr[filePathArr.length - 2].split('.').pop() // 获取分类2
+    const c = filePathArr[filePathArr.length - 3].split('.').pop() // 获取分类1
     if (c !== 'docs') {
-      categories[1] = c
+      categories.push(c)
     }
+    categories.push(filePathArr[filePathArr.length - 2].split('.').pop()) // 获取分类2
+  } else {
+    categories.push('博文')
   }
   return categories
 }

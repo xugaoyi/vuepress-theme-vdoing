@@ -58,15 +58,6 @@
       <div class="main-left">
         <PostList/>
         <Content class="theme-vdoing-content custom card-box" />
-        <!-- <main class="home home-content" aria-labelledby="main-title">
-          <UpdateArticle
-            pageMark="home"
-            :length="updateBarConfig && updateBarConfig.onHome && updateBarConfig.onHome.length || 5"
-            :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
-            v-if="isShowUpdateBar"
-          />
-          
-        </main> -->
       </div>
 
       <div class="main-right">
@@ -104,7 +95,6 @@
 import NavLink from "@theme/components/NavLink";
 import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
-import UpdateArticle from '@theme/components/UpdateArticle'
 import PostList from '@theme/components/PostList'
 import Footer from '@theme/components/Footer'
 
@@ -197,7 +187,7 @@ export default {
     }
   },
 
-  components: { NavLink, UpdateArticle, PostList, Footer },
+  components: { NavLink, PostList, Footer },
 
   computed: {
     homeData() {
