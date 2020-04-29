@@ -1,15 +1,21 @@
 <template>
-  <footer class="page-edit">
+  <div class="page-edit">
     <div class="edit-link" v-if="editLink">
       <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
       <OutboundLink />
+    </div>
+
+    <div class="tags" v-if="tags && tags[0]">
+      <router-link to="/" v-for="(item, index) in tags" :key="index" title="标签">
+        #{{item}}
+      </router-link>
     </div>
 
     <div class="last-updated" v-if="lastUpdated">
       <span class="prefix">{{ lastUpdatedText }}:</span>
       <span class="time">{{ lastUpdated }}</span>
     </div>
-  </footer>
+  </div>
 </template>
 <script>
 import isNil from 'lodash/isNil'
@@ -18,6 +24,10 @@ import { endingSlashRE, outboundRE } from '../util'
 export default {
   name: 'PageEdit',
   computed: {
+    tags() {
+      return this.$frontmatter.tags
+    },
+    
     lastUpdated () {
       return this.$page.lastUpdated
     },
@@ -105,8 +115,21 @@ export default {
 
   .edit-link
     display inline-block
+    float left
+    margin-right 2rem
     a
       margin-right 0.25rem
+  .tags
+    float left
+    a
+      margin-right .8rem
+      color var(--textLightenColor)
+      padding 0.2rem 0.7rem
+      font-size 0.9em
+      background-color rgba(128,128,128,0.08)
+      border-radius 3px
+      opacity .8
+
   .last-updated
     float right
     font-size 0.9em
@@ -120,11 +143,11 @@ export default {
 
 @media (max-width: $MQMobile)
   .page-edit
-    .edit-link
-      margin-bottom 0.5rem
+    .edit-link,.tags
+      margin-bottom .5rem
     .last-updated
+      width 100%
       font-size 0.8em
-      float none
       text-align left
 
 </style>

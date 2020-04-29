@@ -1,5 +1,5 @@
 // 引入字体图标
-@import '//at.alicdn.com/t/font_1678482_hmeznrrjf56.css'
+@import '//at.alicdn.com/t/font_1678482_gesz4ocax96.css'
 
 @require './config'
 @require './code'
@@ -46,44 +46,9 @@ a,input,button
   border-radius 5px
   background var(--bg)
   box-shadow 0 1px 3px 0 rgba(0,0,30,.1), 1px 2px 4px 0 rgba(0,0,0,.1)
+.blur
+  backdrop-filter saturate(200%) blur(20px)
 
-// 提示框
-// .hover-tip
-//   position relative
-//   &::before,
-//   &::after 
-//     position absolute
-//     left 50%
-//     top 100%
-//     opacity 0
-//     visibility hidden
-//     transform translate3d(0, 20px, 0)
-//     transition all .3s
-//     z-index 999
-//   &::before 
-//     margin 0 0 12px -35px
-//     border-radius 5px
-//     width 70px
-//     height 28px
-//     background-color rgba(#000, .5)
-//     line-height 28px
-//     text-align center
-//     font-size .8rem
-//     color #fff!important
-//     content attr(data-title)
-//   &::after 
-//     margin -10px 0 0 -5px
-//     border 5px solid transparent
-//     border-bottom-color rgba(#000, .5)
-//     width 0
-//     height 0
-//     content ""
-//   &:hover 
-//     &::before,
-//     &::after
-//       opacity 1
-//       visibility visible
-//       transform translate3d(0, 12px, 0)
 
 .page
   transition padding .2s ease
@@ -96,7 +61,7 @@ a,input,button
   left 0
   right 0
   height $navbarHeight
-  background-color var(--bg)
+  background-color var(--blurBg)
   box-sizing border-box
   box-shadow 0 2px 5px rgba(0,0,0,.06)
 
@@ -206,6 +171,9 @@ h1, h2, h3, h4, h5, h6
 
 h1
   font-size 1.8rem
+  {$contentClass}:not(.custom) > & // 页面内容的首个h1标签隐藏
+    &:first-child
+      display none
 
 h2
   font-size 1.5rem

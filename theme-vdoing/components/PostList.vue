@@ -48,15 +48,6 @@
 
 <script>
 export default {
-  created() {
-    console.log(this.$sortPosts)
-  },
-  methods: {
-    // getAuthor(item) {
-    //   console.log(item)
-    //   item
-    // }
-  }
 }
 </script>
 

@@ -42,6 +42,12 @@ module.exports = {
     //   length: 3, // 显示的数量，默认3
     //   moreArticle: '/timeline' // “更多文章”跳转的页面，默认'/timeline'
     // },
+    // titleBadge: false, // 文章标题前的图标是否显示，默认true
+    // titleBadgeIcons: [ // 文章标题前图标的链接，默认主题内置图标
+    //   '图标链接1',
+    //   '图标链接2'
+    // ],
+
     author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, href: String}
       name: 'Evan Xu', // 必需
       href: 'https://github.com/xugaoyi' // 可选的
@@ -82,12 +88,12 @@ module.exports = {
     //   color: '#11a8cd', // 爱心颜色，默认随机色
     //   excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
     // }],
-    [require('./plugins/title-badge'), { // h1标题徽章
-      // badges: [ // 替换默认的徽章图标,可选
-      //   'base64图片1',
-      //   'base64图片2',
-      // ]
-    }], 
+    // [require('./plugins/title-badge'), { // h1标题徽章
+    //   // badges: [ // 替换默认的徽章图标,可选
+    //   //   'base64图片1',
+    //   //   'base64图片2',
+    //   // ]
+    // }], 
 
     ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
       thirdparty: [ // 可选，默认 []

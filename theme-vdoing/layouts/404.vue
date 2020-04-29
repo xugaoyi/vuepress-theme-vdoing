@@ -1,7 +1,7 @@
 <template>
   <div class="theme-container">
     <div class="theme-vdoing-content">
-      <h1>404</h1>
+      <span>404</span>
       <blockquote>{{ getMsg() }}</blockquote>
       <router-link to="/">返回首页</router-link>
     </div>
@@ -27,8 +27,8 @@ export default {
 
 <style lang="stylus" scoped>
 .theme-vdoing-content
-  margin 0 auto
-  h1
+  margin 3rem auto
+  span
     font-size 8rem
     color $accentColor
 </style>

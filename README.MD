@@ -113,38 +113,19 @@ npm run dev # or yarn dev
 
    [vuepress-plugin-one-click-copy](https://www.npmjs.com/package/vuepress-plugin-one-click-copy)
 
-3. H1标题美化徽章插件
 
-   [title-badge](https://github.com/xugaoyi/vuepress-theme-vdoing/tree/master/docs/.vuepress/plugins/title-badge)
-
-   > 此插件未上传npm，以本地插件引入:
-
-   ```js
-   // config.js
-   module.exports = {
-       plugins: [
-           [require('./plugins/title-badge'), { // h1标题徽章
-               // badges: [ // 替换默认的徽章图标
-               //   'data:image/png;base64,**',
-               //   'data:image/png;base64,***',
-               // ]
-           }]
-      ]
-   }
-   ```
-
-4. 可以添加第三方搜索链接的搜索框插件
+3. 可以添加第三方搜索链接的搜索框插件
 
    [vuepress-plugin-thirdparty-search](https://github.com/xugaoyi/vuepress-plugin-thirdparty-search)
 
 
-5. 百度推送和统计插件
+4. 百度推送和统计插件
 
    [vuepress-plugin-baidu-autopush](https://www.npmjs.com/package/vuepress-plugin-baidu-autopush)
 
    [vuepress-plugin-baidu-tongji](https://www.npmjs.com/package/vuepress-plugin-baidu-tongji)
 
-6. 更多插件查看官方[Awesome VuePress](https://github.com/vuepressjs/awesome-vuepress)
+5. 更多插件查看官方[Awesome VuePress](https://github.com/vuepressjs/awesome-vuepress)
 
 ## 部署
 

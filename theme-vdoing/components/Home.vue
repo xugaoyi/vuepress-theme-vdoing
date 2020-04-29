@@ -61,29 +61,9 @@
       </div>
 
       <div class="main-right">
-        <aside class="blogger-wrapper card-box" v-if="blogger">
-          <div class="avatar">
-            <img :src="blogger.avatar" alt="头像" title="我好看吗">
-          </div>
-          <div class="icons" v-if="social">
-            <a
-            :href="item.link"
-            :title="item.title"
-            :class="['iconfont', item.iconClass]"
-            v-for="(item, index) in social.icons"
-            :key="index"
-            :style="{width: 100/social.icons.length + '%'}"
-            target="_blank"
-            >
-            </a>
-          </div>
-          <div class="blogger">
-            <span class="name">{{blogger.name}}</span>
-            <span class="slogan">
-              {{blogger.slogan}}
-            </span>
-          </div>
-        </aside>
+        <BloggerBar  v-if="$themeConfig.blogger" />
+        <CategoriesBar />
+        <TagsBar />
       </div>
     </div>
     
@@ -96,6 +76,9 @@ import NavLink from "@theme/components/NavLink";
 import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
 import PostList from '@theme/components/PostList'
+import BloggerBar from '@theme/components/BloggerBar'
+import CategoriesBar from '@theme/components/CategoriesBar'
+import TagsBar from '@theme/components/TagsBar'
 import Footer from '@theme/components/Footer'
 
 const MOBILE_DESKTOP_BREAKPOINT = 720 // refer to config.styl
@@ -109,15 +92,10 @@ export default {
       slide: null,
       currentPageIndex: 0,
       playTimer: 0,
-      mark: 0,
-      updateBarConfig: null,
-      social: null
+      mark: 0
     }
   },
-  created() {
-    this.updateBarConfig = this.$themeConfig.updateBar
-    this.social = this.$themeConfig.social
-  },
+  components: { NavLink, PostList, BloggerBar, CategoriesBar, TagsBar, Footer },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
     
@@ -131,15 +109,6 @@ export default {
       }
     })
 
-    // 引入图标库
-    if(this.social && this.social.iconfontCssFile ) {
-      let linkElm = document.createElement("link")
-      linkElm.setAttribute('rel', 'stylesheet');
-      linkElm.setAttribute("type", "text/css")
-      linkElm.setAttribute("href", this.social.iconfontCssFile)
-      document.head.appendChild(linkElm)
-    }
-    
   },
   mounted() {
     this.isMQMobile && this.init()
@@ -187,20 +156,12 @@ export default {
     }
   },
 
-  components: { NavLink, PostList, Footer },
-
   computed: {
     homeData() {
       return {
         ...this.$page.frontmatter,
         base: this.$site.base
       }
-    },
-    isShowUpdateBar() {
-      return this.updateBarConfig && this.updateBarConfig.onHome && this.updateBarConfig.onHome.isShow === false ? false : true
-    },
-    blogger() {
-      return this.$themeConfig.blogger
     },
     footerBgImg() {
       return this.$themeConfig.footer && this.$themeConfig.footer.footerBgImg
@@ -360,42 +321,9 @@ export default {
         flex 1
     .main-right
       .card-box
-        margin-left .9rem
-      .blogger-wrapper
-        padding 15px
-        height auto
-        display inline-table
-        .avatar
-          width 245px
-          height 245px
-          overflow hidden
-          img
-            width 100%
-            height 100%
-            border-radius 3px
-        .icons
-          border 1px solid var(--borderColor)
-          border-top none
-          height 40px
-          line-height 40px
-          a
-            font-size 20px
-            width 33%
-            color var(--textColor)
-            display block
-            float left
-            text-align center
-            opacity .8
-            &:hover
-              color $accentColor
-        .blogger
-          margin 15px 0 10px 0
-          .name
-            font-size 1.4rem
-            display: block
-            margin-bottom 6px
-          .slogan
-            color var(--textColor)
+        margin 0 0 .9rem .9rem
+        padding .95rem
+      
   .footer
     background none
 

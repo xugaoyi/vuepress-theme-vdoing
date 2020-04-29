@@ -3,20 +3,20 @@
     <transition name="fade">
       <div
         title="返回顶部"
-        class="button go-to-top iconfont icon-fanhuidingbu"
+        class="button blur go-to-top iconfont icon-fanhuidingbu"
         v-show="showToTop"
         @click="scrollToTop"
       />
     </transition>
     <div
       title="去评论"
-      class="button go-to-comment iconfont icon-pinglun"
+      class="button blur go-to-comment iconfont icon-pinglun"
       v-show="showCommentBut"
       @click="scrollToComment"
     />
     <div
       title="主题模式"
-      class="button theme-mode-but iconfont icon-zhuti"
+      class="button blur theme-mode-but iconfont icon-zhuti"
       @mouseenter="showModeBox = true"
       @mouseleave="showModeBox = false"
       @click="showModeBox = true"
@@ -170,7 +170,7 @@ export default {
     }
   },
   watch: {
-    $route() {
+    '$route.path'() {
       this.handleShowCommentBut()
       this.getCommentTop()
     }
@@ -200,7 +200,7 @@ export default {
       text-align center
       cursor pointer
       transition all .5s
-      background var(--bg)
+      background var(--blurBg)
       &:hover
         background $accentColor
         box-shadow 0 0 15px $accentColor

@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar">
+  <header class="navbar blur">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
     <router-link
