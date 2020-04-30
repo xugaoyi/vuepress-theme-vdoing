@@ -56,14 +56,15 @@
     <div class="main-wrapper">
 
       <div class="main-left">
-        <PostList/>
-        <Content class="theme-vdoing-content custom card-box" />
+        <PostList />
+        <Pagation />
+        <!-- <Content class="theme-vdoing-content custom card-box" /> -->
       </div>
 
       <div class="main-right">
         <BloggerBar  v-if="$themeConfig.blogger" />
-        <CategoriesBar />
-        <TagsBar />
+        <CategoriesBar :categoriesData="$categoriesAndTags.categories" v-if="$categoriesAndTags.categories.length" />
+        <TagsBar :tagsData="$categoriesAndTags.tags" v-if="$categoriesAndTags.tags.length" />
       </div>
     </div>
     
@@ -76,6 +77,7 @@ import NavLink from "@theme/components/NavLink";
 import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
 import PostList from '@theme/components/PostList'
+import Pagation from '@theme/components/Pagation'
 import BloggerBar from '@theme/components/BloggerBar'
 import CategoriesBar from '@theme/components/CategoriesBar'
 import TagsBar from '@theme/components/TagsBar'
@@ -95,7 +97,7 @@ export default {
       mark: 0
     }
   },
-  components: { NavLink, PostList, BloggerBar, CategoriesBar, TagsBar, Footer },
+  components: { NavLink, PostList, BloggerBar, CategoriesBar, TagsBar, Pagation, Footer },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
     
@@ -313,13 +315,16 @@ export default {
     position relative
     display flex
     .main-left
-      .card-box
+      flex 1
+      .post-list .card-box,.theme-vdoing-content.card-box
         padding 1rem 1.5rem
         margin-bottom .9rem
       .home-content
         padding 1rem 1.5rem 0
-        flex 1
+      .pagation
+        margin-top 4rem
     .main-right
+      width 280px
       .card-box
         margin 0 0 .9rem .9rem
         padding .95rem

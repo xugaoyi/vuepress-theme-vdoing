@@ -1,7 +1,7 @@
 <template>
   <div class="post-list">
 
-    <div class="post card-box" :class="item.frontmatter.sticky && 'iconfont icon-zhiding'" v-for="item in $sortPosts" :key="item.key">
+    <div class="post card-box" :class="item.frontmatter.sticky && 'iconfont icon-zhiding'" v-for="item in sortPosts" :key="item.key">
       <div class="title-wrapper">
         <h2>
           <router-link :to="item.path">{{item.title}}</router-link>
@@ -37,8 +37,8 @@
       <div class="excerpt-wrapper" v-if="item.excerpt">
         <div class="excerpt" v-html="item.excerpt">
         </div>
-        <router-link :to="item.path" class="readmore">
-          阅读全文>
+        <router-link :to="item.path" class="readmore iconfont icon-jiantou-you">
+          阅读全文
         </router-link>
       </div>
     </div>
@@ -48,6 +48,14 @@
 
 <script>
 export default {
+  data() {
+    return {
+      sortPosts: {}
+    }
+  },
+  created() {
+    this.sortPosts = this.$sortPosts.slice(0,1)
+  }
 }
 </script>
 
@@ -99,4 +107,9 @@ export default {
       .readmore
         float right 
         margin-right 1rem
+        line-height 1rem
+        &::before
+          float right 
+          font-size .8rem
+          margin .1rem 0 0 .2rem
 </style>

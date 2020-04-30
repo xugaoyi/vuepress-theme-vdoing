@@ -8,7 +8,7 @@
         {{item.key}}
         <span>({{item.length}})</span>
       </router-link>
-      <router-link to="/" v-if="$categoriesAndTags.categories.length > 10">
+      <router-link to="/" v-if="categoriesData.length > 10">
         更多...
       </router-link>
     </div>
@@ -17,9 +17,10 @@
 
 <script>
 export default {
+  props: ['categoriesData'],
   computed: {
     categories() {
-      return this.$categoriesAndTags.categories.slice(0, 10)
+      return this.categoriesData.slice(0, 10)
     }
   }
 }
@@ -34,10 +35,10 @@ export default {
     &:hover
       color $accentColor
   .categories
-    padding-top .5rem
+    padding-top .6rem
     a
       display block
-      padding .3rem 0
+      padding .25rem 0
       color var(--textColor)
       opacity .8
       font-size .95rem

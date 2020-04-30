@@ -13,7 +13,7 @@ const PREFIX = '/pages/'
 /**
  * 给.md文件设置frontmatter(标题、日期、永久链接)
  */
-function setFrontmatter(sourceDir) {
+function setFrontmatter(sourceDir, postCategory = '随笔') {
   const files = readFileList(sourceDir); // 读取所有md文件数据
 
   files.forEach(file => {
@@ -27,7 +27,7 @@ function setFrontmatter(sourceDir) {
       const dateStr = dateFormat(stat.birthtime);// 文件的创建时间
 
      
-      const categories = getCategories(file)
+      const categories = getCategories(file, postCategory)
 // 注意下面这个字符串的格式会映射到文件
 const newData = `---
 title: ${file.name}
@@ -66,7 +66,7 @@ tags:
 
       if ( !matterData.hasOwnProperty('pageComponent') && matterData.article !== false ) { // 是文章页才添加分类和标签
         if (!matterData.hasOwnProperty('categories')) { // 分类
-          matterData.categories = getCategories(file)
+          matterData.categories = getCategories(file, postCategory)
           mark = true;
         }
   
@@ -90,7 +90,7 @@ tags:
 }
 
 // 获取分类数据
-function getCategories(file) {
+function getCategories(file, postCategory) {
   let categories = []
 
   if (file.filePath.indexOf('_posts') === -1) { // 不在_posts文件夹
@@ -101,7 +101,7 @@ function getCategories(file) {
     }
     categories.push(filePathArr[filePathArr.length - 2].split('.').pop()) // 获取分类2
   } else {
-    categories.push('博文')
+    categories.push(postCategory)
   }
   return categories
 }

@@ -43,8 +43,8 @@ export default {
   height auto
   display inline-table
   .avatar
-    width 245px
-    height 245px
+    width 235px
+    height 235px
     overflow hidden
     img
       width 100%
@@ -66,7 +66,7 @@ export default {
       &:hover
         color $accentColor
   .blogger
-    margin 15px 0 10px 0
+    margin 12px 0 2px 0
     .name
       font-size 1.4rem
       display: block

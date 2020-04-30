@@ -4,9 +4,12 @@
       热门标签
     </router-link>
     <div class="tags">
-      <router-link to="/" v-for="(item, index) in tags" :key="index">
-        {{item.key}}
-      </router-link>
+      <template v-for="(item, index) in tags" >
+        <router-link to="/" :key="index" :style="getTagStyle()">
+          {{item.key}}
+        </router-link>
+        <span :key="index+tags.length"/>
+      </template>
       <router-link to="/" v-if="showMore()">
         更多...
       </router-link>
@@ -15,163 +18,22 @@
 </template>
 
 <script>
-const MAXLEN = 50
+const MAXLEN = 30
 
 export default {
+  props: ['tagsData'],
   computed: {
     tags() {
-      const test = [
-        {key: "test", length: 1},
-        {key: "博客博客博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "testtest", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "githubgithub", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1},
-        {key: "test", length: 1},
-        {key: "博客", length: 2},
-        {key: "css", length: 1},
-        {key: "github", length: 1}
-      ];
-
-      this.$categoriesAndTags.tags = test
-
-      return this.$categoriesAndTags.tags.slice(0, MAXLEN)
+      return this.tagsData.slice(0, MAXLEN)
     }
   },
   methods: {
     showMore() {
-      console.log(this.$categoriesAndTags.tags.length > MAXLEN)
-      return this.$categoriesAndTags.tags.length > MAXLEN
+      return this.tagsData.length > MAXLEN
+    },
+    getTagStyle() {
+      const r = Math.random()
+      return r > 0.7 ? 'font-size:1.2rem;opacity: 0.8;' : r < 0.2 ? 'font-size:1rem;opacity: 0.7;' : ''
     }
   }
 }
@@ -186,14 +48,14 @@ export default {
     &:hover
       color $accentColor
   .tags
-    padding-top .5rem
+    padding-top .6rem
     text-align justify
     a
       color var(--textColor)
       opacity .6
       font-size .95rem
       display inline-block
-      padding 0 .2rem 0 .1rem
+      padding .2rem .2rem .2rem .1rem
       &:hover
         color $accentColor
         opacity 1
