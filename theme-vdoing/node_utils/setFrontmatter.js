@@ -32,7 +32,7 @@ function setFrontmatter(sourceDir, postCategory = '随笔') {
 const newData = `---
 title: ${file.name}
 date: ${dateStr}
-permalink: ${getPermalink()}
+permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsidebar: auto' : ''}
 categories: 
   - ${categories[0]}${categories[1] ? '\r\n  - '+ categories[1] : ''}
 tags: 
@@ -61,6 +61,11 @@ tags:
 
       if (!matterData.hasOwnProperty('permalink')) { // 永久链接
         matterData.permalink = getPermalink();
+        mark = true;
+      }
+      
+      if (file.filePath.indexOf('_posts') > -1 && !matterData.hasOwnProperty('sidebar')) { // auto侧边栏，_posts文件夹特有
+        matterData.sidebar = "auto";
         mark = true;
       }
 

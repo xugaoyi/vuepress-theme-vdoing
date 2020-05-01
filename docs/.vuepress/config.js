@@ -48,6 +48,8 @@ module.exports = {
     //   '图标链接2'
     // ],
     // postCategory: '随笔', // 碎片化文章（_posts文件夹内）预设生成的分类，默认'随笔'
+    // categoriesPage: false, // 是否自动生成分类页面（生成在@pages文件夹），默认true
+    // tagsPage: false, // 是否自动生成标签页面（生成在@pages文件夹），默认true
 
     author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, href: String}
       name: 'Evan Xu', // 必需

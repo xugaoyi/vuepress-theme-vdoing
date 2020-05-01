@@ -19,8 +19,9 @@ function createSidebarData(sourceDir, collapsable){
     const tocArr = toc.split('\\')
     if (tocArr[tocArr.length -1] === '_posts') { // 碎片化文章
       
-      const sidebarArr = mapTocToPostSidebar(toc);
-      sidebarData[`/${path.basename(toc)}/`] = sidebarArr
+      // 注释说明：碎片化文章不需要生成结构化侧边栏 2020.05.01
+      // const sidebarArr = mapTocToPostSidebar(toc);
+      // sidebarData[`/${path.basename(toc)}/`] = sidebarArr
 
     } else {
       const sidebarObj = mapTocToSidebar(toc, collapsable);
@@ -48,7 +49,7 @@ function readTocs(root){
   const files = fs.readdirSync(root); // 读取目录,返回数组，成员是root底下所有的目录名 (包含文件夹和文件)
   files.forEach(name => {
     const file = path.resolve(root, name); // 将路径或路径片段的序列解析为绝对路径
-    if (fs.statSync(file).isDirectory() && name !== '.vuepress') { // 是否为文件夹目录，并排除.vuepress文件夹
+    if (fs.statSync(file).isDirectory() && name !== '.vuepress' && name !== '@pages') { // 是否为文件夹目录，并排除.vuepress文件夹
       result.push(file);
     }
   })
@@ -74,7 +75,7 @@ function mapTocToPostSidebar(root){
       return
     }
     if(stat.isDirectory()){ // 是文件夹目录
-      log(chalk.yellow(`warning: 该目录 "${file}" 内文件无法生成侧边栏，_posts文件夹里面不能有二级目录。`))
+      // log(chalk.yellow(`warning: 该目录 "${file}" 内文件无法生成侧边栏，_posts文件夹里面不能有二级目录。`))
       return
     } 
 

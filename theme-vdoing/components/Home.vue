@@ -56,8 +56,17 @@
     <div class="main-wrapper">
 
       <div class="main-left">
-        <PostList />
-        <Pagation />
+        <PostList
+         :currentPage="currentPage"
+         :perPage="perPage"
+        />
+        <Pagination
+          :total="total"
+          :perPage="perPage"
+          :currentPage="currentPage"
+          @getCurrentPage="handlePagination"
+          v-if="Math.ceil(total / perPage) > 1"
+        />
         <!-- <Content class="theme-vdoing-content custom card-box" /> -->
       </div>
 
@@ -77,7 +86,7 @@ import NavLink from "@theme/components/NavLink";
 import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
 import PostList from '@theme/components/PostList'
-import Pagation from '@theme/components/Pagation'
+import Pagination from '@theme/components/Pagination'
 import BloggerBar from '@theme/components/BloggerBar'
 import CategoriesBar from '@theme/components/CategoriesBar'
 import TagsBar from '@theme/components/TagsBar'
@@ -94,10 +103,17 @@ export default {
       slide: null,
       currentPageIndex: 0,
       playTimer: 0,
-      mark: 0
+      mark: 0,
+
+      total: 0, // 总长
+      perPage: 10, // 每页长
+      currentPage: 1// 当前页
     }
   },
-  components: { NavLink, PostList, BloggerBar, CategoriesBar, TagsBar, Pagation, Footer },
+  components: { NavLink, PostList, BloggerBar, CategoriesBar, TagsBar, Pagination, Footer },
+  created() {
+    this.total = this.$sortPosts.length
+  },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
     
@@ -155,6 +171,9 @@ export default {
       this.playTimer = setTimeout(() => {
         this.slide.next()
       }, 4000)
+    },
+    handlePagination(i) { // 分页
+      this.currentPage = i
     }
   },
 
@@ -316,13 +335,13 @@ export default {
     display flex
     .main-left
       flex 1
+      > *
+        margin-bottom 4rem
       .post-list .card-box,.theme-vdoing-content.card-box
         padding 1rem 1.5rem
         margin-bottom .9rem
       .home-content
         padding 1rem 1.5rem 0
-      .pagation
-        margin-top 4rem
     .main-right
       width 280px
       .card-box

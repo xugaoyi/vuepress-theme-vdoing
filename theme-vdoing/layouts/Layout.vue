@@ -29,9 +29,17 @@
         #bottom
       />
     </Sidebar>
-
+    
+    <!-- 首页 -->
     <Home v-if="$page.frontmatter.home"/>
 
+    <!-- 分类页 -->
+    <CategoriesPage v-else-if="$page.frontmatter.categoriesPage"/>
+
+    <!-- 标签页 -->
+    <TagsPage v-else-if="$page.frontmatter.tagsPage"/>
+
+    <!-- 文章页或其他页 -->
     <Page
       v-else
       :sidebar-items="sidebarItems"
@@ -57,6 +65,8 @@
 import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
+import CategoriesPage from '@theme/components/CategoriesPage.vue'
+import TagsPage from '@theme/components/TagsPage.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import Buttons from '@theme/components/Buttons.vue'
 import { resolveSidebarItems } from '../util'
@@ -66,7 +76,7 @@ import _ from 'lodash'
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 
 export default {
-  components: { Home, Page, Sidebar, Navbar, Buttons },
+  components: { Home, Navbar, Page, CategoriesPage, TagsPage, Sidebar, Buttons },
 
   data () {
     return {

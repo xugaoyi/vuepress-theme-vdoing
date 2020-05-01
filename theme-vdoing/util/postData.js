@@ -13,23 +13,31 @@ export function filterPosts (posts) {
 }
 
 /**
- * 按时间排序（置顶是否靠前）
+ * 按置顶和时间排序
  * @param {Array} posts 过滤非文章页之后的文章数据
- * @param {Boolean} isSticky 是否需要置顶靠前
  */
-export function sortPosts (posts, isSticky = true) {
+export function sortPosts (posts) {
   posts.sort((prev, next) => {
-    if (isSticky) {
-      const prevSticky = prev.frontmatter.sticky
-      const nextSticky = next.frontmatter.sticky
-      if (prevSticky && nextSticky) {
-        return prevSticky == nextSticky ? compareDate(prev, next) : (prevSticky - nextSticky)
-      } else if (prevSticky && !nextSticky) {
-        return -1
-      } else if (!prevSticky && nextSticky) {
-        return 1
-      }
+    const prevSticky = prev.frontmatter.sticky
+    const nextSticky = next.frontmatter.sticky
+    if (prevSticky && nextSticky) {
+      return prevSticky == nextSticky ? compareDate(prev, next) : (prevSticky - nextSticky)
+    } else if (prevSticky && !nextSticky) {
+      return -1
+    } else if (!prevSticky && nextSticky) {
+      return 1
     }
+    return compareDate(prev, next)
+  })
+  return posts
+}
+
+/**
+ * 按时间排序
+ * @param {Array} posts 过滤非文章页之后的文章数据
+ */
+export function sortPostsByDate (posts) {
+  posts.sort((prev, next) => {
     return compareDate(prev, next)
   })
   return posts

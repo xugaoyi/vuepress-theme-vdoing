@@ -266,7 +266,7 @@ export function zero(d){
 
 // 获取时间的时间戳
 export function getTimeNum (post) {
-  return new Date(post.frontmatter.date || timeline.lastUpdated).getTime()
+  return new Date(post.frontmatter.date || post.lastUpdated).getTime()
 }
 
 // 比对时间

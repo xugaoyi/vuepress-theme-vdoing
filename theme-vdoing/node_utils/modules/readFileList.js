@@ -11,7 +11,7 @@ function readFileList(dir, filesList = []) {
   files.forEach( (item, index) => {
       let filePath = path.join(dir, item);
       const stat = fs.statSync(filePath);
-      if (stat.isDirectory() && item !== '.vuepress') {
+      if (stat.isDirectory() && item !== '.vuepress' && item !== '@pages') {
         readFileList(path.join(dir, item), filesList);  //递归读取文件
       } else {
         if(path.basename(dir) !== 'docs'){ // 过滤docs目录级下的文件

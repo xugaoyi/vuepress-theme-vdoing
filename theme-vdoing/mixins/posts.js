@@ -1,4 +1,4 @@
-import { filterPosts, sortPosts, groupPosts, categoriesAndTags } from '../util/postData'
+import { filterPosts, sortPosts, sortPostsByDate, groupPosts, categoriesAndTags } from '../util/postData'
 
 export default {
   computed: {
@@ -9,7 +9,7 @@ export default {
       return sortPosts(this.$filterPosts)
     },
     $sortPostsByDate() { // 仅按时间排序的文章数据
-      return sortPosts(this.$filterPosts, false)
+      return sortPostsByDate(this.$filterPosts)
     },
     $groupPosts() { // 按分类和标签分组的文章数据
       return groupPosts(this.$sortPostsByDate)

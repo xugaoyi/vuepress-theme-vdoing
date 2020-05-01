@@ -1,6 +1,7 @@
 const path = require('path')
 const setFrontmatter = require('./node_utils/setFrontmatter')
 const getSidebarData = require('./node_utils/getSidebarData')
+const createPage = require('./node_utils/createPage')
 const chalk = require('chalk') // 命令行打印美化
 const log = console.log
 
@@ -27,6 +28,16 @@ module.exports = (options, ctx) => {
     }
   }
 
+  // 生成分类页
+  if (themeConfig.categoriesPage !== false) {
+    createPage(sourceDir, 'categoriesPage')
+  }
+
+  // 生成标签页
+  if (themeConfig.tagsPage !== false) {
+    createPage(sourceDir, 'tagsPage')
+  }
+  
 
   // resolve algolia
   const isAlgoliaSearch = (

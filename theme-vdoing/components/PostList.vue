@@ -1,5 +1,5 @@
 <template>
-  <div class="post-list">
+  <div class="post-list" ref="postList">
 
     <div class="post card-box" :class="item.frontmatter.sticky && 'iconfont icon-zhiding'" v-for="item in sortPosts" :key="item.key">
       <div class="title-wrapper">
@@ -48,13 +48,46 @@
 
 <script>
 export default {
+  props: {
+    currentPage: {
+      type: Number,
+      default: 1
+    },
+    perPage: {
+      type: Number,
+      default: 10
+    }
+  },
   data() {
     return {
-      sortPosts: {}
+      sortPosts: [],
+      postListOffsetTop: 0
     }
   },
   created() {
-    this.sortPosts = this.$sortPosts.slice(0,1)
+    this.setPosts()
+  },
+  mounted() {
+    this.postListOffsetTop = this.getElementToPageTop(this.$refs.postList) - 90
+  },
+  watch: {
+    currentPage() {
+      window.scrollTo({ top: this.postListOffsetTop }) // behavior: 'smooth'
+      this.setPosts()
+    }
+  },
+  methods: {
+    setPosts() {
+      const currentPage = this.currentPage
+      const perPage = this.perPage
+      this.sortPosts = this.$sortPosts.slice((currentPage-1)*perPage, currentPage*perPage)
+    },
+    getElementToPageTop(el) {
+      if(el.parentElement) {
+        return this.getElementToPageTop(el.parentElement) + el.offsetTop
+      }
+      return el.offsetTop
+    }
   }
 }
 </script>

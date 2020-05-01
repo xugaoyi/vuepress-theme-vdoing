@@ -1,5 +1,5 @@
 <template>
-  <div class="pagation">
+  <div class="pagination">
     <span class="card-box prev iconfont icon-jiantou-zuo"
      :class="{disabled: currentPage === 1}"
      @click="goPrex()"
@@ -7,10 +7,23 @@
       上一页
     </span>
 
-    <div class="pagation-list">
+    <!-- 分页在5页及以下时 -->
+    <div class="pagination-list" v-if="pages <= 5">
+      <span class="card-box"
+       v-for="item in pages"
+       :key="item"
+       :class="{active: currentPage === item}"
+       @click="goIndex(item)"
+      >
+        {{item}}
+      </span>
+    </div>
+    <!-- 分页在5页以上 -->
+    <div class="pagination-list" v-else>
       <!-- 一号位 -->
       <span class="card-box"
        :class="{active: currentPage === 1}"
+       @click="goIndex(1)"
       >
         1
       </span>
@@ -22,6 +35,7 @@
       <span class="card-box"
        v-else
        :class="{active: currentPage === 2}"
+       @click="goIndex(2)"
        >
         2
       </span>
@@ -29,28 +43,29 @@
       <!-- 三号位 -->
       <span class="card-box"
        :class="{active: currentPage >= 3 && currentPage <= (pages - 2)}"
+       @click="goIndex(threeNum())"
       >
         {{ threeNum() }}
       </span>
 
       <!-- 四号位 -->
       <span class="disabled"
-       v-if="currentPage < (pages - 2) "
+       v-if="currentPage < (pages - 2)"
       >
         ...
       </span>
       <span class="card-box"
        v-else
        :class="{active: currentPage === pages-1}"
+       @click="goIndex(pages-1)"
       >
-        {{pages-1}}
+        {{ pages-1 }}
       </span>
 
       <!-- 五号位 -->
       <span class="card-box"
-       v-if="pages >= 5"
        :class="{active: currentPage === pages}"
-       @click="goPrex"
+       @click="goIndex(pages)"
       >
         {{pages}}
       </span>
@@ -70,7 +85,7 @@ export default {
   props: {
     total: { // 总长度
       type: Number,
-      default: 120
+      default: 10
     },
     perPage: { // 每页长
       type: Number,
@@ -86,50 +101,46 @@ export default {
       return Math.ceil(this.total / this.perPage)
     }
   },
-  watch: {
-    currentPage() {
-      console.log(this.currentPage) // 测试
-    }
-  },
   methods: {
-    threeNum() { // 三号位数字计算
+    threeNum() { // 三号位页码计算
       let num = 3
       const currentPage = this.currentPage
-
+      const pages = this.pages
       if (currentPage < 3) {
         num = 3
-      } else if (currentPage > (this.pages - 3)) {
-        num = this.pages - 2
+      } else if (currentPage > (pages - 3)) {
+        num = pages - 2
       } else {
         num = currentPage
       }
-       
       return num
     },
     goPrex() {
-      
       let currentPage = this.currentPage
       if (currentPage > 1) {
-        --this.currentPage // 测试
-        this.emit(--currentPage)
+        this.handleEmit(--currentPage)
       }
     },
     goNext() {
       let currentPage = this.currentPage
       if (currentPage < this.pages) {
-        ++this.currentPage // 测试
-        this.emit(++currentPage)
+        this.handleEmit(++currentPage)
       }
     },
-    emit (id) {
-      this.$emit('getCurrentPage', id)
+    goIndex(i) {
+      if (i !== this.currentPage) {
+        this.handleEmit(i)
+      }
+    },
+    handleEmit (i) {
+      this.$emit('getCurrentPage', i)
     }
   }
 }
 </script>
 
 <style lang='stylus'>
-.pagation
+.pagination
   position relative
   height 60px
   text-align center
@@ -158,13 +169,13 @@ export default {
       &::before
         float right 
         margin-left .3rem
-  .pagation-list
+  .pagination-list
     span
       display inline-block
       width 2.5rem
       height 2.5rem
       line-height 2.5rem
-      margin-top .3rem
+      margin .3rem
       &.active
         background $accentColor
         color var(--bg)
