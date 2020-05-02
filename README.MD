@@ -20,6 +20,8 @@
 
 温馨提示：目前并非稳定版，因此功能和文档可能会有调整。欢迎star持续关注，一定会有惊喜哟🎉
 
+> <https://b.xugaoyi.com/> ←此版本正在开发和测试中，源码未发布，敬请期待！
+
 ## 初衷
 
 这个主题的初衷是打造一个 `结构化` 与 `碎片化` 并存的个人`知识库`。[详情](https://github.com/xugaoyi/vuepress-theme-vdoing/issues/339)
