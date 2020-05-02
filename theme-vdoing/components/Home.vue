@@ -71,7 +71,11 @@
       </template>
       <template #mainRight>
         <BloggerBar  v-if="$themeConfig.blogger" />
-        <CategoriesBar :categoriesData="$categoriesAndTags.categories" v-if="$categoriesAndTags.categories.length" />
+        <CategoriesBar
+          v-if="$categoriesAndTags.categories.length"
+          :categoriesData="$categoriesAndTags.categories"
+          :length="10"
+        />
         <TagsBar :tagsData="$categoriesAndTags.tags" v-if="$categoriesAndTags.tags.length" />
       </template>
     </MainLayout>

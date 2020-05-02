@@ -53,4 +53,25 @@ export default {
 <style lang='stylus'>
 @require '../styles/custom-page.styl'
 
+.categories-page
+  .categories-wrapper 
+    position sticky
+    top ($navbarHeight + .9rem)
+    max-height calc(100vh - 10rem)
+    min-height 4.2rem
+    .categories
+      padding-right .5rem
+      max-height calc(100vh - 12rem)
+      min-height 2.2rem
+      overflow-y auto
+      transition all .2s
+      &::-webkit-scrollbar-track-piece
+        background-color:rgba(0,0,0,.05)
+      &::-webkit-scrollbar-thumb:vertical
+        background-color:rgba(0,0,0,.15)
+      &:hover
+        &::-webkit-scrollbar-track-piece
+          background-color:rgba(0,0,0,.1)
+        &::-webkit-scrollbar-thumb:vertical
+          background-color:rgba(0,0,0,.25)
 </style>

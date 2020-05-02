@@ -23,14 +23,14 @@
             {{ item.frontmatter.date.split(' ')[0]}}
           </span>
           <span title="分类" class="iconfont icon-wenjian" v-if="item.frontmatter.categories">
-            <a href="javascript:;" v-for="(c, index) in item.frontmatter.categories" :key="index">
+            <router-link :to="`/categories/?key=${c}`" v-for="(c, index) in item.frontmatter.categories" :key="index">
               {{c}}
-            </a>
+            </router-link>
           </span>
           <span title="标签" class="iconfont icon-biaoqian tags" v-if="item.frontmatter.tags && item.frontmatter.tags[0]">
-            <a href="javascript:;" v-for="(t, index) in item.frontmatter.tags" :key="index">
+            <router-link :to="`/tags/?key=${t}`" v-for="(t, index) in item.frontmatter.tags" :key="index">
               {{t}}
-            </a>
+            </router-link>
           </span>
         </div>
       </div>
