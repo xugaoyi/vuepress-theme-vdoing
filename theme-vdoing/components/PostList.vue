@@ -94,8 +94,11 @@ export default {
 
 <style lang='stylus'>
 .post-list
+  margin-bottom 4rem
   .post
     position relative
+    padding 1rem 1.5rem
+    margin-bottom 0.9rem
     &::before
       position absolute
       top -1px

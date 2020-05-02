@@ -28,6 +28,8 @@ export default {
 
 <style lang='stylus'>
 .categories-wrapper 
+  position sticky
+  top ($navbarHeight + .9rem)
   .title
     color var(--textColor)
     opacity .8

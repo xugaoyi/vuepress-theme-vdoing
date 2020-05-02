@@ -61,7 +61,8 @@ module.exports = [
     items: [
       {text: '分类', link: '/categories/'},
       {text: '标签', link: '/tags/'},
-      {text: '时间轴', link: '/timeline/'},
+      {text: '归档', link: '/archives/'},
+      {text: '时间轴(准备弃用)', link: '/timeline/'},
     ]
   }
 ]

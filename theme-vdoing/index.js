@@ -38,6 +38,10 @@ module.exports = (options, ctx) => {
     createPage(sourceDir, 'tagsPage')
   }
   
+  // 生成归档页
+  if (themeConfig.archivesPage !== false) {
+    createPage(sourceDir, 'archivesPage')
+  }
 
   // resolve algolia
   const isAlgoliaSearch = (

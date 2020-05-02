@@ -53,9 +53,9 @@
     </div>
     <!-- banner块 e -->
 
-    <div class="main-wrapper">
 
-      <div class="main-left">
+    <MainLayout>
+      <template #mainLeft>
         <PostList
          :currentPage="currentPage"
          :perPage="perPage"
@@ -68,16 +68,32 @@
           v-if="Math.ceil(total / perPage) > 1"
         />
         <!-- <Content class="theme-vdoing-content custom card-box" /> -->
-      </div>
-
-      <div class="main-right">
+      </template>
+      <template #mainRight>
         <BloggerBar  v-if="$themeConfig.blogger" />
         <CategoriesBar :categoriesData="$categoriesAndTags.categories" v-if="$categoriesAndTags.categories.length" />
         <TagsBar :tagsData="$categoriesAndTags.tags" v-if="$categoriesAndTags.tags.length" />
+      </template>
+    </MainLayout>
+
+
+
+    <!-- <div class="main-wrapper">
+
+      <div class="main-left">
+        
       </div>
-    </div>
-    
-    <Footer />
+
+      <div class="main-right">
+        
+      </div>
+    </div> -->
+
+
+
+
+
+
   </div>
 </template>
 
@@ -85,12 +101,12 @@
 import NavLink from "@theme/components/NavLink";
 import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
+import MainLayout from '@theme/components/MainLayout'
 import PostList from '@theme/components/PostList'
 import Pagination from '@theme/components/Pagination'
 import BloggerBar from '@theme/components/BloggerBar'
 import CategoriesBar from '@theme/components/CategoriesBar'
 import TagsBar from '@theme/components/TagsBar'
-import Footer from '@theme/components/Footer'
 
 const MOBILE_DESKTOP_BREAKPOINT = 720 // refer to config.styl
 
@@ -110,7 +126,7 @@ export default {
       currentPage: 1// 当前页
     }
   },
-  components: { NavLink, PostList, BloggerBar, CategoriesBar, TagsBar, Pagination, Footer },
+  components: { NavLink, MainLayout, PostList, BloggerBar, CategoriesBar, TagsBar, Pagination },
   created() {
     this.total = this.$sortPosts.length
   },
@@ -328,25 +344,8 @@ export default {
           &.active
             background #517EA9
 
-  .main-wrapper
-    margin 2rem auto
-    max-width $homePageWidth
-    position relative
-    display flex
-    .main-left
-      flex 1
-      > *
-        margin-bottom 4rem
-      .post-list .card-box,.theme-vdoing-content.card-box
-        padding 1rem 1.5rem
-        margin-bottom .9rem
-      .home-content
-        padding 1rem 1.5rem 0
-    .main-right
-      width 280px
-      .card-box
-        margin 0 0 .9rem .9rem
-        padding .95rem
+  // .main-wrapper
+    // margin 2rem auto
       
   .footer
     background none

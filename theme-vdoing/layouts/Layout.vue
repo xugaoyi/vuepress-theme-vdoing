@@ -39,6 +39,9 @@
     <!-- 标签页 -->
     <TagsPage v-else-if="$page.frontmatter.tagsPage"/>
 
+    <!-- 归档页 -->
+    <ArchivesPage v-else-if="$page.frontmatter.archivesPage"/>
+
     <!-- 文章页或其他页 -->
     <Page
       v-else
@@ -54,6 +57,8 @@
       />
     </Page>
 
+    <Footer />
+
     <Buttons 
       ref="buttons"
       @toggle-theme-mode="toggleThemeMode"
@@ -67,8 +72,10 @@ import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import CategoriesPage from '@theme/components/CategoriesPage.vue'
 import TagsPage from '@theme/components/TagsPage.vue'
+import ArchivesPage from '@theme/components/ArchivesPage.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import Buttons from '@theme/components/Buttons.vue'
+import Footer from '@theme/components/Footer'
 import { resolveSidebarItems } from '../util'
 import storage from 'good-storage' // 本地存储
 import _ from 'lodash'
@@ -76,7 +83,7 @@ import _ from 'lodash'
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 
 export default {
-  components: { Home, Navbar, Page, CategoriesPage, TagsPage, Sidebar, Buttons },
+  components: { Home, Navbar, Page, CategoriesPage, TagsPage, ArchivesPage, Sidebar, Footer, Buttons },
 
   data () {
     return {

@@ -31,7 +31,6 @@
       <slot name="bottom" />
     </main>
   
-    <Footer />
   </div>
 </template>
 
@@ -42,7 +41,6 @@ import ArticleInfo from './ArticleInfo.vue'
 import Catalogue from './Catalogue.vue'
 import UpdateArticle from './UpdateArticle.vue'
 import Timeline from './Timeline.vue'
-import Footer from './Footer.vue'
 import RightMenu from './RightMenu.vue'
 
 export default {
@@ -58,7 +56,7 @@ export default {
     }
   },
   props: ['sidebarItems'],
-  components: { PageEdit, PageNav, ArticleInfo, Catalogue, UpdateArticle, Timeline, Footer, RightMenu},
+  components: { PageEdit, PageNav, ArticleInfo, Catalogue, UpdateArticle, Timeline, RightMenu},
   created() {
     this.updateBarConfig = this.$themeConfig.updateBar
 

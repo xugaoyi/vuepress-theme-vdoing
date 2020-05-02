@@ -1,7 +1,7 @@
 <template>
-  <div class="custom-page tags-page">
+  <div class="custom-page archives-page">
     <div class="theme-vdoing-wrapper">
-      标签页
+      归档页
     </div>
   </div>
 </template>
