@@ -273,3 +273,10 @@ export function getTimeNum (post) {
 export function compareDate (a, b) {
   return getTimeNum(b) - getTimeNum(a)
 }
+
+// 将特殊符号编码（应用于url）
+export function encodeUrl(str) {
+  str = str + ''
+  str = str.replace(/ |((?=[\x21-\x7e]+)[^A-Za-z0-9])/g, '-')
+  return str
+}

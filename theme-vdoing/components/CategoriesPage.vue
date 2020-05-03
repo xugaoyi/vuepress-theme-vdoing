@@ -5,6 +5,7 @@
         <PostList
           :currentPage="currentPage"
           :perPage="perPage"
+          :category="category"
         />
         <Pagination
           :total="total"
@@ -18,6 +19,7 @@
         <CategoriesBar
           v-if="$categoriesAndTags.categories.length"
           :categoriesData="$categoriesAndTags.categories"
+          :category="category"
         />
       </template>
     </MainLayout>
@@ -33,20 +35,39 @@ import CategoriesBar from '@theme/components/CategoriesBar'
 export default {
   data(){
     return {
+      category: '',
       total: 0, // 总长
       perPage: 10, // 每页长
       currentPage: 1// 当前页
     }
   },
   components: { MainLayout, PostList, Pagination, CategoriesBar },
-  created() {
-    this.total = this.$sortPosts.length
+  beforeMount() {
+    const category = this.$route.query.category
+    if (category) {
+      this.category = category
+      this.total = this.$groupPosts.categories[category].length
+    } else {
+      this.total = this.$sortPosts.length
+    }
   },
   methods: {
     handlePagination(i) { // 分页
       this.currentPage = i
     }
   },
+  watch: {
+    $route() {
+      this.category = this.$route.query.category
+      if (this.category) {
+        this.total = this.$groupPosts.categories[this.category].length
+      } else {
+        this.total = this.$sortPosts.length
+      }
+      this.currentPage = 1
+
+    }
+  }
 }
 </script>
 

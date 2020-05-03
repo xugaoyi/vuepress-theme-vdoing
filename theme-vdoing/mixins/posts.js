@@ -12,7 +12,7 @@ export default {
       return sortPostsByDate(this.$filterPosts)
     },
     $groupPosts() { // 按分类和标签分组的文章数据
-      return groupPosts(this.$sortPostsByDate)
+      return groupPosts(this.$sortPosts)
     },
     $categoriesAndTags() { // 所有分类和标签数据
       return categoriesAndTags(this.$groupPosts)

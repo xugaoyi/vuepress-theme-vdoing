@@ -1,4 +1,4 @@
-import { type, compareDate } from './index'
+import { type, compareDate, encodeUrl } from './index'
 
 /**
  * 过滤非文章页
@@ -56,20 +56,22 @@ export function groupPosts(posts) {
     if (type(categories) === 'array') {
       categories.forEach(item => {
         if (item) { // 分类值是有效的
-          if (!categoriesObj[item]) {
-            categoriesObj[item] = []
+          const encodeItem = encodeUrl(item)
+          if (!categoriesObj[encodeItem]) {
+            categoriesObj[encodeItem] = []
           }
-          categoriesObj[item].push(posts[i])
+          categoriesObj[encodeItem].push(posts[i])
         }
       })
     }
     if (type(tags) === 'array') {
       tags.forEach(item => {
         if (item) { // 标签值是有效的
-          if (!tagsObj[item]) {
-            tagsObj[item] = []
+          const encodeItem = encodeUrl(item)
+          if (!tagsObj[encodeItem]) {
+            tagsObj[encodeItem] = []
           }
-          tagsObj[item].push(posts[i])
+          tagsObj[encodeItem].push(posts[i])
         }
       })
     }

@@ -5,7 +5,12 @@
     </router-link>
 
     <div class="categories">
-      <router-link :to="`/categories/?key=${item.key}`" v-for="(item, index) in categories" :key="index">
+      <router-link
+        :to="`/categories/?category=${item.key}`"
+        v-for="(item, index) in categories"
+        :key="index"
+        :class="{active: item.key === category}"
+      >
         {{item.key}}
         <span>({{item.length}})</span>
       </router-link>
@@ -19,6 +24,10 @@
 <script>
 export default {
   props: {
+    category: {
+      type: String,
+      default: ''
+    },
     categoriesData: {
       type: Array,
       default: []
@@ -35,7 +44,6 @@ export default {
       } else {
         return this.categoriesData.slice(0, this.length)
       }
-      
     }
   }
 }
@@ -53,13 +61,20 @@ export default {
     margin-top .6rem
     a
       display block
-      padding .25rem 0
+      padding .25rem .25rem .25rem 0
       color var(--textColor)
       opacity .8
       font-size .95rem
       position relative
+      transition all .3s
       &:hover
         color $accentColor
+        padding-left .4rem
       span 
         float right 
+      &.active
+        background $accentColor
+        color var(--bg)
+        padding-left .8rem
+        border-radius 3px
 </style>

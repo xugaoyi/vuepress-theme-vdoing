@@ -1,54 +1,66 @@
 <template>
   <div class="post-list" ref="postList">
 
-    <div class="post card-box" :class="item.frontmatter.sticky && 'iconfont icon-zhiding'" v-for="item in sortPosts" :key="item.key">
-      <div class="title-wrapper">
-        <h2>
-          <router-link :to="item.path">{{item.title}}</router-link>
-        </h2>
-        <div class="article-info">
-          <a title="作者" class="iconfont icon-touxiang" target="_blank"
-           v-if="item.author && item.author.href"
-           :href="item.author.href"
-          >
-            {{ item.author.name ? item.author.name : item.author }}
-          </a>
-          <span title="作者" class="iconfont icon-touxiang"
-            v-else-if="item.author"
-          >
-            {{ item.author.name ? item.author.name : item.author }}
-          </span>
+    <transition-group tag="div" name="post">
+      <div class="post card-box" :class="item.frontmatter.sticky && 'iconfont icon-zhiding'" v-for="item in sortPosts" :key="item.key">
+        <div class="title-wrapper">
+          <h2>
+            <router-link :to="item.path">{{item.title}}</router-link>
+          </h2>
+          <div class="article-info">
+            <a title="作者" class="iconfont icon-touxiang" target="_blank"
+            v-if="item.author && item.author.href"
+            :href="item.author.href"
+            >
+              {{ item.author.name ? item.author.name : item.author }}
+            </a>
+            <span title="作者" class="iconfont icon-touxiang"
+              v-else-if="item.author"
+            >
+              {{ item.author.name ? item.author.name : item.author }}
+            </span>
 
-          <span title="创建时间" class="iconfont icon-riqi" v-if="item.frontmatter.date">
-            {{ item.frontmatter.date.split(' ')[0]}}
-          </span>
-          <span title="分类" class="iconfont icon-wenjian" v-if="item.frontmatter.categories">
-            <router-link :to="`/categories/?key=${c}`" v-for="(c, index) in item.frontmatter.categories" :key="index">
-              {{c}}
-            </router-link>
-          </span>
-          <span title="标签" class="iconfont icon-biaoqian tags" v-if="item.frontmatter.tags && item.frontmatter.tags[0]">
-            <router-link :to="`/tags/?key=${t}`" v-for="(t, index) in item.frontmatter.tags" :key="index">
-              {{t}}
-            </router-link>
-          </span>
+            <span title="创建时间" class="iconfont icon-riqi" v-if="item.frontmatter.date">
+              {{ item.frontmatter.date.split(' ')[0]}}
+            </span>
+            <span title="分类" class="iconfont icon-wenjian" v-if="item.frontmatter.categories">
+              <router-link :to="`/categories/?category=${encodeUrl(c)}`" v-for="(c, index) in item.frontmatter.categories" :key="index">
+                {{c}}
+              </router-link>
+            </span>
+            <span title="标签" class="iconfont icon-biaoqian tags" v-if="item.frontmatter.tags && item.frontmatter.tags[0]">
+              <router-link :to="`/tags/?tag=${encodeUrl(t)}`" v-for="(t, index) in item.frontmatter.tags" :key="index">
+                {{t}}
+              </router-link>
+            </span>
+          </div>
+        </div>
+        <div class="excerpt-wrapper" v-if="item.excerpt">
+          <div class="excerpt" v-html="item.excerpt">
+          </div>
+          <router-link :to="item.path" class="readmore iconfont icon-jiantou-you">
+            阅读全文
+          </router-link>
         </div>
       </div>
-      <div class="excerpt-wrapper" v-if="item.excerpt">
-        <div class="excerpt" v-html="item.excerpt">
-        </div>
-        <router-link :to="item.path" class="readmore iconfont icon-jiantou-you">
-          阅读全文
-        </router-link>
-      </div>
-    </div>
-
+    </transition-group>
   </div>
 </template>
 
 <script>
+import encodeMixin from '../mixins/encodeUrl'
+  
 export default {
+  mixins: [encodeMixin],
   props: {
+    category: {
+      type: String,
+      default: ''
+    },
+    tag: {
+      type: String,
+      default: ''
+    },
     currentPage: {
       type: Number,
       default: 1
@@ -74,16 +86,36 @@ export default {
     currentPage() {
       window.scrollTo({ top: this.postListOffsetTop }) // behavior: 'smooth'
       this.setPosts()
+    },
+    category() {
+      this.setPosts()
+    },
+    tag() {
+      this.setPosts()
     }
   },
   methods: {
     setPosts() {
       const currentPage = this.currentPage
       const perPage = this.perPage
-      this.sortPosts = this.$sortPosts.slice((currentPage-1)*perPage, currentPage*perPage)
+      
+      let posts = []
+      if (this.category) {
+        posts = this.$groupPosts.categories[this.category]
+      } else {
+        posts = this.$sortPosts
+      }
+
+      if (this.tag) {
+        posts = this.$groupPosts.tags[this.tag]
+      } else {
+        posts = this.$sortPosts
+      }
+
+      this.sortPosts = posts.slice((currentPage-1)*perPage, currentPage*perPage)
     },
     getElementToPageTop(el) {
-      if(el.parentElement) {
+      if(el && el.parentElement) {
         return this.getElementToPageTop(el.parentElement) + el.offsetTop
       }
       return el.offsetTop
@@ -99,6 +131,12 @@ export default {
     position relative
     padding 1rem 1.5rem
     margin-bottom 0.9rem
+    transition: all 0.3s
+    &.post-leave-active
+      display none
+    &.post-enter
+      opacity: 0
+      transform: translateX(-30px)
     &::before
       position absolute
       top -1px

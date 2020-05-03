@@ -76,27 +76,13 @@
           :categoriesData="$categoriesAndTags.categories"
           :length="10"
         />
-        <TagsBar :tagsData="$categoriesAndTags.tags" v-if="$categoriesAndTags.tags.length" />
+        <TagsBar
+          v-if="$categoriesAndTags.tags.length" 
+          :tagsData="$categoriesAndTags.tags"
+          :length="30"
+        />
       </template>
     </MainLayout>
-
-
-
-    <!-- <div class="main-wrapper">
-
-      <div class="main-left">
-        
-      </div>
-
-      <div class="main-right">
-        
-      </div>
-    </div> -->
-
-
-
-
-
 
   </div>
 </template>
