@@ -2,11 +2,11 @@
 
 .custom-page
   min-height calc(100vh - 3.6rem)
-  padding-top ($navbarHeight)
+  padding-top $navbarHeight
+  padding-bottom .9rem
+  background var(--pageBg)
   @media (min-width $cardLayout)
     min-height calc(100vh - 5.6rem)
-    padding-top $navbarHeight
-    background var(--pageBg)
   >*
     // @extend $wrapper
   .theme-vdoing-wrapper

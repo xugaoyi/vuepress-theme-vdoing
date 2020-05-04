@@ -82,7 +82,7 @@ export default {
     min-height 4.2rem
     .categories
       padding-right .5rem
-      max-height calc(100vh - 12rem)
+      max-height calc(100vh - 14rem)
       min-height 2.2rem
       overflow-y auto
       transition all .2s

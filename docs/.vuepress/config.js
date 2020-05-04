@@ -47,11 +47,11 @@ module.exports = {
     //   '图标链接1',
     //   '图标链接2'
     // ],
-    // postCategory: '随笔', // 碎片化文章（_posts文件夹内）预设生成的分类，默认'随笔'
+    // postCategory: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
 
-    // categoriesPage: false, // 是否自动生成分类页面（生成在@pages文件夹），默认true。
-    // tagsPage: false, // 是否自动生成标签页面（生成在@pages文件夹），默认true
-    // archivesPage: false, // 是否自动生成归档页面（生成在@pages文件夹），默认true
+    // category: false, // 是否打开分类功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含分类字段 2.页面中显示与分类相关的信息和模块 3.自动生成分类页面（在@pages文件夹）。如关闭，则反之。
+    // tag: false, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。
+    // archive: false, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。
 
     author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, href: String}
       name: 'Evan Xu', // 必需
@@ -85,7 +85,6 @@ module.exports = {
     footer:{ // 页脚信息
       createYear: 2019, // 博客创建年份
       copyrightInfo: 'Evan Xu | MIT License', // 博客版权信息，支持a标签
-      // footerBgImg: '/img/footer.png' // 可选的，页脚背景图，只在首页显示
     }
   },
   plugins: [ // 插件

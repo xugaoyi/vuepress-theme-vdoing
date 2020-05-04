@@ -50,8 +50,9 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
   box-sizing border-box
   font-size .85rem
   transition all .2s ease
-  @media (min-width: $cardLayout)
-    background var(--pageBg)
+  background var(--pageBg)
+  // @media (min-width: $cardLayout)
+  //   background var(--pageBg)
   a
     color #666
 

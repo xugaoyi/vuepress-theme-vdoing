@@ -4,7 +4,7 @@
      :class="{disabled: currentPage === 1}"
      @click="goPrex()"
     >
-      上一页
+      <p>上一页</p>
     </span>
 
     <!-- 分页在5页及以下时 -->
@@ -29,7 +29,10 @@
       </span>
 
       <!-- 二号位 -->
-      <span class="disabled" v-if="currentPage > 3">
+      <span class="disabled"
+       v-if="currentPage > 3"
+       @click="goPrex()"
+      >
         ...
       </span>
       <span class="card-box"
@@ -51,6 +54,7 @@
       <!-- 四号位 -->
       <span class="disabled"
        v-if="currentPage < (pages - 2)"
+       @click="goNext()"
       >
         ...
       </span>
@@ -75,7 +79,7 @@
      :class="{disabled: currentPage === pages}"
      @click="goNext()"
     >
-      下一页
+      <p>下一页</p>
     </span>
   </div>
 </template>
@@ -169,6 +173,9 @@ export default {
       &::before
         float right 
         margin-left .3rem
+    p
+      display inline
+      line-height .95rem
   .pagination-list
     span
       display inline-block
@@ -179,4 +186,35 @@ export default {
       &.active
         background $accentColor
         color var(--bg)
+
+@media (max-width: 800px)  
+  .pagination
+    > span 
+      padding 1rem 1.5rem
+      p
+        display none
+
+// 719px
+@media (max-width: $MQMobile)  
+  .pagination
+    > span // 左右按钮
+      padding .8rem 1.5rem
+    .pagination-list
+      span
+        width 2.3rem
+        height 2.3rem
+        line-height 2.3rem
+        margin .2rem
+
+@media (max-width: 460px)  
+  .pagination
+    > span // 左右按钮
+      padding .8rem 1.3rem
+    .pagination-list
+      span
+        width 2rem
+        height 2rem
+        line-height 2rem
+        margin .1rem
+        margin-top .3rem
 </style>

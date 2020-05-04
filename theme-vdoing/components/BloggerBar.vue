@@ -46,6 +46,9 @@ export default {
     width 235px
     height 235px
     overflow hidden
+    @media (max-width 900px)
+      width 205px
+      height 205px
     img
       width 100%
       height 100%

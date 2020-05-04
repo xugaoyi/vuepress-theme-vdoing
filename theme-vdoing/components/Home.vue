@@ -1,5 +1,5 @@
 <template>
-  <div class="i-body" :style="footerBgImg && `background-image: url(${footerBgImg})`">
+  <div class="i-body">
 
     <!-- banner块 s -->
     <div class="banner" :style="homeData.bgImg && `background: url(${$withBase(homeData.bgImg)}) center center / cover no-repeat`">
@@ -27,7 +27,7 @@
       </div>
 
       <!-- 移动端features块 s -->
-      <div class="slide-banner" v-if="homeData.features && homeData.features.length" v-show="isMQMobile">
+      <div class="slide-banner" v-if="homeData.features && homeData.features.length && isMQMobile">
         <div class="banner-wrapper">
           <div class="slide-banner-scroll" ref="slide">
             <div class="slide-banner-wrapper">
@@ -72,12 +72,12 @@
       <template #mainRight>
         <BloggerBar  v-if="$themeConfig.blogger" />
         <CategoriesBar
-          v-if="$categoriesAndTags.categories.length"
+          v-if="$themeConfig.category !== false && $categoriesAndTags.categories.length"
           :categoriesData="$categoriesAndTags.categories"
           :length="10"
         />
         <TagsBar
-          v-if="$categoriesAndTags.tags.length" 
+          v-if="$themeConfig.tag !== false && $categoriesAndTags.tags.length" 
           :tagsData="$categoriesAndTags.tags"
           :length="30"
         />
@@ -186,12 +186,8 @@ export default {
   computed: {
     homeData() {
       return {
-        ...this.$page.frontmatter,
-        base: this.$site.base
+        ...this.$page.frontmatter
       }
-    },
-    footerBgImg() {
-      return this.$themeConfig.footer && this.$themeConfig.footer.footerBgImg
     },
     actionLink() {
       return {
@@ -333,9 +329,6 @@ export default {
           background #2F455A
           &.active
             background #517EA9
-
-  // .main-wrapper
-    // margin 2rem auto
       
   .footer
     background none
@@ -347,47 +340,21 @@ export default {
 
 
 @media (max-width: 1025px)
-  .i-body
-    background-color var(--bg)
-    .banner .banner-conent
-      .hero
-        h1
-          font-size 2.5rem
-        .description
-          font-size 1rem
-      .feature
-        h2
-          font-size 1.1rem
-        .image_title
-          width 10rem
-          height 10rem
-
-  .home-content
-    margin 0
-    border-radius 0
+  .i-body .banner .banner-conent
+    .hero
+      h1
+        font-size 2.5rem
+      .description
+        font-size 1rem
+    .feature
+      h2
+        font-size 1.1rem
+      .image_title
+        width 10rem
+        height 10rem
   
-  .main-wrapper >*
-    box-shadow none
-  
-  
-
-@media (max-width: 765px)
- .main-wrapper .blogger-wrapper
-    width 200px
-    .avatar
-      width: 200px
-      height: 200px
-
-@media (max-width: $MQMobile) 
-  .main-wrapper
-    margin 0
-    display block
-    .blogger-wrapper
-      display none
-    .home-content
-      padding-top 1.5rem
-
-  // 719px
+// 719px
+@media (max-width: $MQMobile)  
   .banner
     .banner-conent
       .features
@@ -398,8 +365,28 @@ export default {
         max-width 100%
         padding 0 2.5rem
         margin 0 auto
+  .main-wrapper
+    margin .9rem 0
+    padding 0
+    display block
+    .main-left
+      .post-list
+        margin-bottom 3rem
+        .post
+          border-radius 0
+      .pagination
+        margin-bottom 3rem
+    .main-right
+      .blogger-wrapper
+        display none
+      .card-box
+        margin 0 0 .9rem 0
+        border-radius 0
+        width 100%
+  
+
+// 419px
 @media (max-width: $MQMobileNarrow) 
-  // 419px
   .banner-conent 
     padding-left 1.5rem
     padding-right 1.5rem

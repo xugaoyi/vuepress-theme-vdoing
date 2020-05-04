@@ -1,7 +1,7 @@
 const path = require('path')
 const setFrontmatter = require('./node_utils/setFrontmatter')
 const getSidebarData = require('./node_utils/getSidebarData')
-const createPage = require('./node_utils/createPage')
+const {createPage, deletePage} = require('./node_utils/handlePage')
 const chalk = require('chalk') // 命令行打印美化
 const log = console.log
 
@@ -28,19 +28,25 @@ module.exports = (options, ctx) => {
     }
   }
 
-  // 生成分类页
-  if (themeConfig.categoriesPage !== false) {
+  // 分类页
+  if (themeConfig.category !== false) {
     createPage(sourceDir, 'categoriesPage')
+  } else {
+    deletePage(sourceDir, 'categoriesPage')
   }
 
-  // 生成标签页
-  if (themeConfig.tagsPage !== false) {
+  // 标签页
+  if (themeConfig.tag !== false) {
     createPage(sourceDir, 'tagsPage')
+  } else {
+    deletePage(sourceDir, 'tagsPage')
   }
   
-  // 生成归档页
-  if (themeConfig.archivesPage !== false) {
+  // 归档页
+  if (themeConfig.archive !== false) {
     createPage(sourceDir, 'archivesPage')
+  } else {
+    deletePage(sourceDir, 'archivesPage')
   }
 
   // resolve algolia

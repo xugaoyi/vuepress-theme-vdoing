@@ -23,12 +23,12 @@
             <span title="创建时间" class="iconfont icon-riqi" v-if="item.frontmatter.date">
               {{ item.frontmatter.date.split(' ')[0]}}
             </span>
-            <span title="分类" class="iconfont icon-wenjian" v-if="item.frontmatter.categories">
+            <span title="分类" class="iconfont icon-wenjian" v-if="$themeConfig.category !== false && item.frontmatter.categories">
               <router-link :to="`/categories/?category=${encodeUrl(c)}`" v-for="(c, index) in item.frontmatter.categories" :key="index">
                 {{c}}
               </router-link>
             </span>
-            <span title="标签" class="iconfont icon-biaoqian tags" v-if="item.frontmatter.tags && item.frontmatter.tags[0]">
+            <span title="标签" class="iconfont icon-biaoqian tags" v-if="$themeConfig.tag !== false && item.frontmatter.tags && item.frontmatter.tags[0]">
               <router-link :to="`/tags/?tag=${encodeUrl(t)}`" v-for="(t, index) in item.frontmatter.tags" :key="index">
                 {{t}}
               </router-link>
@@ -102,13 +102,9 @@ export default {
       let posts = []
       if (this.category) {
         posts = this.$groupPosts.categories[this.category]
-      } else {
-        posts = this.$sortPosts
-      }
-
-      if (this.tag) {
+      } else if(this.tag){
         posts = this.$groupPosts.tags[this.tag]
-      } else {
+      }else {
         posts = this.$sortPosts
       }
 
@@ -136,7 +132,7 @@ export default {
       display none
     &.post-enter
       opacity: 0
-      transform: translateX(-30px)
+      transform: translateX(-20px)
     &::before
       position absolute
       top -1px
@@ -152,6 +148,9 @@ export default {
       h2
         margin .5rem 0
         border none
+        a
+          @media (max-width: $MQMobile) 
+            font-weight 400
       .article-info
         > a, > span
           opacity .7
@@ -173,10 +172,12 @@ export default {
       margin .5rem 0
       overflow hidden
       .excerpt
+        margin-bottom .3rem
         h1,h2,h3
           display none
         img
           max-height 280px
+          max-width 100%!important
           margin 0 auto
       .readmore
         float right 

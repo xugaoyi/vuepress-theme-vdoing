@@ -81,8 +81,9 @@ export default {
     max-height calc(100vh - 10rem)
     min-height 4.2rem
     .tags
-      max-height calc(100vh - 12rem)
+      max-height calc(100vh - 14rem)
       min-height 2.2rem
+      overflow-x hidden
       overflow-y auto
       transition all .2s
       &::-webkit-scrollbar-track-piece

@@ -5,8 +5,8 @@
       <OutboundLink />
     </div>
 
-    <div class="tags" v-if="tags && tags[0]">
-      <router-link to="/" v-for="(item, index) in tags" :key="index" title="标签">
+    <div class="tags" v-if="$themeConfig.tag !== false && tags && tags[0]">
+      <router-link :to="`/tags/?tag=${encodeUrl(item)}`" v-for="(item, index) in tags" :key="index" title="标签">
         #{{item}}
       </router-link>
     </div>
@@ -20,8 +20,10 @@
 <script>
 import isNil from 'lodash/isNil'
 import { endingSlashRE, outboundRE } from '../util'
+import encodeMixin from '../mixins/encodeUrl'
 
 export default {
+  mixins: [encodeMixin],
   name: 'PageEdit',
   computed: {
     tags() {
@@ -116,13 +118,14 @@ export default {
   .edit-link
     display inline-block
     float left
-    margin-right 2rem
+    margin 0 2rem .5rem 0
     a
       margin-right 0.25rem
   .tags
     float left
     a
-      margin-right .8rem
+      margin 0 .8rem .5rem 0
+      display inline-block
       color var(--textLightenColor)
       padding 0.2rem 0.7rem
       font-size 0.9em

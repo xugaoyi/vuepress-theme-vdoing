@@ -13,6 +13,8 @@
 .main-wrapper
   margin 2rem auto 0 auto
   max-width $homePageWidth
+  padding 0 .9rem
+  box-sizing border-box
   position relative
   display flex
   .main-left
@@ -23,7 +25,11 @@
     .home-content
       padding 1rem 1.5rem 0
   .main-right
-    width 280px
+    >* 
+      width 265px
+      box-sizing border-box
+      @media (max-width 900px)
+        width 235px
     .card-box
       margin 0 0 .9rem .9rem
       padding .95rem

@@ -52,11 +52,8 @@ export default {
 <style lang='stylus'>
 .categories-wrapper 
   .title
-    color var(--textColor)
-    opacity .8
+    color $accentColor
     font-size 1.2rem
-    &:hover
-      color $accentColor
   .categories
     margin-top .6rem
     a
@@ -67,6 +64,8 @@ export default {
       font-size .95rem
       position relative
       transition all .3s
+      @media (max-width: $MQMobile) 
+        font-weight 400
       &:hover
         color $accentColor
         padding-left .4rem

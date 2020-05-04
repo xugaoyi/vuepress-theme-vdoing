@@ -22,7 +22,7 @@
         <div class="date iconfont icon-riqi" title="创建时间" v-if="articleInfo.date">
           <a href="javascript:;" >{{articleInfo.date}}</a>
         </div>
-        <div class="date iconfont icon-wenjian" title="分类" v-if="!(articleInfo.classify1 && articleInfo.classify1 !== '_posts') && articleInfo.categories">
+        <div class="date iconfont icon-wenjian" title="分类" v-if="$themeConfig.category !== false && !(articleInfo.classify1 && articleInfo.classify1 !== '_posts') && articleInfo.categories">
           <a href="javascript:;" v-for="(item, index) in articleInfo.categories" :key="index">
             {{item}}
           </a>

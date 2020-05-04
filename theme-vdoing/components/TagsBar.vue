@@ -8,7 +8,7 @@
         <router-link
           :to="`/tags/?tag=${item.key}`"
           :key="index"
-          :style="getTagStyle()"
+          :style="tagStyleList[index]"
           :class="{active: item.key === tag}"
         >
           {{item.key}}
@@ -38,6 +38,16 @@ export default {
       default: 'all'
     }
   },
+  data() {
+    return {
+      tagStyleList: []
+    }
+  },
+  created() {
+    for (let i = 0, tagH = this.tags.length; i < tagH; i++) {
+      this.tagStyleList.push(this.getTagStyle())
+    }
+  },
   computed: {
     tags() {
       if (this.length === 'all') {
@@ -59,21 +69,21 @@ export default {
 <style lang='stylus'>
 .tags-wrapper 
   .title
-    color var(--textColor)
-    opacity .8
+    color $accentColor
     font-size 1.2rem
-    &:hover
-      color $accentColor
   .tags
-    padding-top .6rem
     text-align justify
+    padding .6rem .3rem .3rem .3rem
+    margin 0 -0.3rem -0.3rem -0.3rem
     a
       color var(--textColor)
       opacity .6
       font-size .95rem
       display inline-block
-      padding .2rem .2rem .2rem .1rem
-      transition all .6s
+      padding .2rem .4rem
+      transition all .4s
+      @media (max-width: $MQMobile) 
+        font-weight 400
       &:hover
         color $accentColor
         opacity 1
@@ -81,7 +91,7 @@ export default {
       &.active
         background $accentColor
         color var(--bg)
-        padding .2rem .5rem
+        // padding .2rem .5rem
         border-radius 3px
         opacity 1
         &:hover
