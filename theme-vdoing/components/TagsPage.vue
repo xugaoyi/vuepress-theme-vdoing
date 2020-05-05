@@ -2,6 +2,11 @@
   <div class="custom-page tags-page">
     <MainLayout>
       <template #mainLeft>
+        <TagsBar
+          v-if="$categoriesAndTags.tags.length"
+          :tagsData="$categoriesAndTags.tags"
+          :tag="tag"
+        />
         <PostList
           :currentPage="currentPage"
           :perPage="perPage"
@@ -72,14 +77,14 @@ export default {
 </script>
 
 <style lang='stylus'>
-@require '../styles/custom-page.styl'
-
 .tags-page
   .tags-wrapper 
     position sticky
     top ($navbarHeight + .9rem)
     max-height calc(100vh - 10rem)
     min-height 4.2rem
+    @media (max-width: $MQMobile)
+      display none
     .tags
       max-height calc(100vh - 14rem)
       min-height 2.2rem
@@ -95,5 +100,20 @@ export default {
           background-color:rgba(0,0,0,.1)
         &::-webkit-scrollbar-thumb:vertical
           background-color:rgba(0,0,0,.25)
+
+.tags-page
+  .main-left
+    .tags-wrapper
+      position relative
+      top 0
+      padding .9rem 1.5rem
+      margin-bottom .9rem
+      max-height 15rem
+      border-radius 0
+      display none
+      @media (max-width: $MQMobile)
+        display block
+      .tags
+        max-height 11.5rem
 </style>
 

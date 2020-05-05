@@ -82,8 +82,6 @@ export function groupPosts(posts) {
   }
 }
 
-
-
 /**
  * 获取所有分类和标签
  * @param {Object} groupPosts 按分类和标签分组之后的文章数据

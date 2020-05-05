@@ -2,6 +2,11 @@
   <div class="custom-page categories-page">
     <MainLayout>
       <template #mainLeft>
+        <CategoriesBar
+          v-if="$categoriesAndTags.categories.length"
+          :categoriesData="$categoriesAndTags.categories"
+          :category="category"
+        />
         <PostList
           :currentPage="currentPage"
           :perPage="perPage"
@@ -51,6 +56,17 @@ export default {
       this.total = this.$sortPosts.length
     }
   },
+  mounted() {
+    // 增强用户体验
+    const cateEl = document.querySelector('.categories')
+    if (cateEl) {
+      const activeEl = cateEl.querySelector('.active')
+      const topVal = activeEl ? activeEl.offsetTop : 0
+      setTimeout(() => {
+        cateEl.scrollTo({ top: topVal, behavior: 'smooth' })
+      }, 300)
+    }
+  },
   methods: {
     handlePagination(i) { // 分页
       this.currentPage = i
@@ -72,20 +88,21 @@ export default {
 </script>
 
 <style lang='stylus'>
-@require '../styles/custom-page.styl'
-
 .categories-page
   .categories-wrapper 
     position sticky
     top ($navbarHeight + .9rem)
     max-height calc(100vh - 10rem)
     min-height 4.2rem
+    @media (max-width: $MQMobile)
+      display none
     .categories
       padding-right .5rem
       max-height calc(100vh - 14rem)
       min-height 2.2rem
       overflow-y auto
       transition all .2s
+      position relative
       &::-webkit-scrollbar-track-piece
         background-color:rgba(0,0,0,.05)
       &::-webkit-scrollbar-thumb:vertical
@@ -95,4 +112,19 @@ export default {
           background-color:rgba(0,0,0,.1)
         &::-webkit-scrollbar-thumb:vertical
           background-color:rgba(0,0,0,.25)
+
+.categories-page
+  .main-left
+    .categories-wrapper
+      position relative
+      top 0
+      padding .9rem 1.5rem
+      margin-bottom .9rem
+      max-height 15rem
+      border-radius 0
+      display none
+      @media (max-width: $MQMobile)
+        display block
+      .categories
+        max-height 11.5rem
 </style>

@@ -123,6 +123,8 @@ export default {
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
     
+    console.log('isMQMobile:' + this.isMQMobile)
+
     window.addEventListener('resize', () => {
       this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false;
       if(this.isMQMobile && !this.slide && !this.mark){
@@ -143,6 +145,7 @@ export default {
   },
   methods: {
     init() {
+      console.log('init')
       clearTimeout(this.playTimer)
       this.slide = new BScroll(this.$refs.slide, {
         scrollX: true, // x轴滚动
@@ -159,6 +162,7 @@ export default {
         preventDefault: false
       })
 
+      console.log(this.slide)
       // user touches the slide area
       this.slide.on('beforeScrollStart', () => {
         clearTimeout(this.playTimer)

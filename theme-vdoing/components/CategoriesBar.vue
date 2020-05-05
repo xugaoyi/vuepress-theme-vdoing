@@ -58,7 +58,7 @@ export default {
     margin-top .6rem
     a
       display block
-      padding .25rem .25rem .25rem 0
+      padding .28rem .25rem .25rem 0
       color var(--textColor)
       opacity .8
       font-size .95rem
