@@ -73,7 +73,7 @@ export default {
         float right 
       &.active
         background $accentColor
-        color var(--bg)
+        color var(--mainBg)
         padding-left .8rem
         border-radius 3px
 </style>

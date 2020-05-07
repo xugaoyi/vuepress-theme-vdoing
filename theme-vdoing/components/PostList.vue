@@ -165,7 +165,7 @@ export default {
               &::before
                 content '/'
         .tags a:not(:first-child)::before
-          content ','
+          content '、'
 
     .excerpt-wrapper
       border-top 1px solid var(--borderColor)

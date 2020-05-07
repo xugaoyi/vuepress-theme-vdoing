@@ -90,7 +90,7 @@ export default {
         transform scale(1.2)
       &.active
         background $accentColor
-        color var(--bg)
+        color var(--mainBg)
         // padding .2rem .5rem
         border-radius 3px
         opacity 1

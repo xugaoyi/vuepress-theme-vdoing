@@ -1,8 +1,8 @@
 <template>
-  <div class="i-body">
+  <div class="home-wrapper">
 
     <!-- banner块 s -->
-    <div class="banner" :style="homeData.bgImg && `background: url(${$withBase(homeData.bgImg)}) center center / cover no-repeat`">
+    <div class="banner" :style="bannerBg">
       <div class="banner-conent" :style="!homeData.features && `padding-top: 7rem`">
         <header class="hero">
           <img v-if="homeData.heroImage" :src="$withBase(homeData.heroImage)" :alt="homeData.heroAlt || 'hero'" />
@@ -14,7 +14,9 @@
         </header>
 
         <!-- PC端features块 s -->
-        <div class="features" v-if="homeData.features && homeData.features.length && !isMQMobile">
+        <div class="features"
+         v-if="homeData.features && homeData.features.length && !isMQMobile"
+        >
           <div class="feature" v-for="(feature, index) in homeData.features" :key="index">
             <router-link :to="feature.link">
               <img class="image_title" :src="$withBase(feature.imgUrl)" :alt="feature.title" />
@@ -26,8 +28,12 @@
         <!-- PC端features块 e -->
       </div>
 
-      <!-- 移动端features块 s -->
-      <div class="slide-banner" v-if="homeData.features && homeData.features.length && isMQMobile">
+      <!-- 移动端features块 s --> <!-- isMQMobile放到v-if上线后会报错 -->
+      <div
+        class="slide-banner"
+        v-if="homeData.features && homeData.features.length"
+        v-show="isMQMobile"
+      > 
         <div class="banner-wrapper">
           <div class="slide-banner-scroll" ref="slide">
             <div class="slide-banner-wrapper">
@@ -122,8 +128,11 @@ export default {
   },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
-    
-    console.log('isMQMobile:' + this.isMQMobile)
+  },
+  mounted() {
+    if (this.isMQMobile) {
+      this.init()
+    }
 
     window.addEventListener('resize', () => {
       this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false;
@@ -136,16 +145,12 @@ export default {
     })
 
   },
-  mounted() {
-    this.isMQMobile && this.init()
-  },
   beforeDestroy() {
     clearTimeout(this.playTimer)
     this.slide && this.slide.destroy()
   },
   methods: {
     init() {
-      console.log('init')
       clearTimeout(this.playTimer)
       this.slide = new BScroll(this.$refs.slide, {
         scrollX: true, // x轴滚动
@@ -162,7 +167,6 @@ export default {
         preventDefault: false
       })
 
-      console.log(this.slide)
       // user touches the slide area
       this.slide.on('beforeScrollStart', () => {
         clearTimeout(this.playTimer)
@@ -188,6 +192,14 @@ export default {
   },
 
   computed: {
+    bannerBg() {
+      if (this.homeData.bannerBgImg) {
+        return `background: url(${this.$withBase(this.homeData.bannerBgImg)}) center center / cover no-repeat`
+      } else if(!this.$themeConfig.bodyBgImg){
+        // 网格纹背景
+        return 'background: rgb(40,40,45) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVFhH7c6xCQAgDAVRR9A6E4hLu4uLiWJ7tSnuQcIvr2TRYsw3/zOGGEOMIcYQY4gxxBhiDDGGGEOMIcYQY4gxxBhiDLkx52W4Gn1tuslCtHJvL54AAAAASUVORK5CYII=)'
+      }
+    },
     homeData() {
       return {
         ...this.$page.frontmatter
@@ -204,20 +216,14 @@ export default {
 </script>
 
 <style lang="stylus">
-.i-body
-  background bottom no-repeat
-  background-color var(--pageBg)
-  overflow hidden
+.home-wrapper
   .banner
     width 100%
     min-height 450px
     margin-top $navbarHeight
-    background rgb(40,40,45)
-    color #fff
+    color $bannerTextColor
     position relative
     overflow hidden
-    background-image url(../images/bg-line.png)
-    background-size 35px 35px
     .banner-conent
       max-width $homePageWidth
       margin 0px auto
@@ -242,11 +248,9 @@ export default {
           max-width 40rem
           font-size 1.2rem
           line-height 1.3
-          color #fff
         .action-button 
           display inline-block
           font-size 1.2rem
-          color #fff
           background-color $accentColor
           padding 0.8rem 1.6rem
           border-radius 4px
@@ -255,7 +259,7 @@ export default {
           border-bottom 1px solid darken($accentColor, 10%)
           &:hover 
             background-color lighten($accentColor, 10%)
-
+      // pc端features
       .features 
         padding 2rem 0
         margin-top 2.5rem
@@ -269,29 +273,26 @@ export default {
         flex-basis 30%
         max-width 30%
         text-align center
-        .image_title
-          width 11rem
-          height 11rem
-          animation heart 1.2s ease-in-out 0s infinite alternate
-          animation-play-state paused
-        h2 
-          font-weight 500
-          font-size 1.3rem
-          color #fff
-          border-bottom none
-          padding-bottom 0
-        p
-          color #fff
-          opacity 0.8
+        a
+          color lighten($bannerTextColor,10%)
+          .image_title
+            width 11rem
+            height 11rem
+            animation heart 1.2s ease-in-out 0s infinite alternate
+            animation-play-state paused
+          h2 
+            font-weight 500
+            font-size 1.3rem
+            border-bottom none
+            padding-bottom 0
+          p
+            opacity 0.8
       .feature:hover 
         .image_title 
           animation-play-state: running
         h2,p
           opacity .7
-          color var(--textLightenColor)
-        h2
-          color $accentColor
-         
+          
 
     // 移动端滑动图标
     .slide-banner
@@ -333,84 +334,80 @@ export default {
           background #2F455A
           &.active
             background #517EA9
-      
-  .footer
-    background none
 
 
 @keyframes heart
   from{transform:translate(0,0)}
   to{transform:translate(0,8px)}
 
-
+// 1025px以下
 @media (max-width: 1025px)
-  .i-body .banner .banner-conent
-    .hero
-      h1
-        font-size 2.5rem
-      .description
-        font-size 1rem
-    .feature
-      h2
-        font-size 1.1rem
-      .image_title
-        width 10rem
-        height 10rem
+  .home-wrapper
+    .banner
+      .banner-conent
+        .hero
+          h1
+            font-size 2.5rem
+          .description
+            font-size 1rem
+        .feature
+          h2
+            font-size 1.1rem
+          .image_title
+            width 10rem
+            height 10rem
   
-// 719px
+// 719px以下
 @media (max-width: $MQMobile)  
-  .banner
-    .banner-conent
-      .features
-        display none
-        flex-direction column
-        margin-top 0
-      .feature 
-        max-width 100%
-        padding 0 2.5rem
-        margin 0 auto
-  .main-wrapper
-    margin .9rem 0
-    padding 0
-    display block
-    .main-left
-      .post-list
-        margin-bottom 3rem
-        .post
+  .home-wrapper
+    .banner
+      .banner-conent
+        .features
+          display none!important
+
+    .main-wrapper
+      margin .9rem 0
+      padding 0
+      display block
+      .main-left
+        .post-list
+          margin-bottom 3rem
+          .post
+            border-radius 0
+        .pagination
+          margin-bottom 3rem
+      .main-right
+        .blogger-wrapper
+          display none
+        .card-box
+          margin 0 0 .9rem 0
           border-radius 0
-      .pagination
-        margin-bottom 3rem
-    .main-right
-      .blogger-wrapper
-        display none
-      .card-box
-        margin 0 0 .9rem 0
-        border-radius 0
-        width 100%
+          width 100%
   
 
-// 419px
+// 419px以下
 @media (max-width: $MQMobileNarrow) 
-  .banner-conent 
-    padding-left 1.5rem
-    padding-right 1.5rem
+  .home-wrapper
+    .banner-conent 
+      padding-left 1.5rem
+      padding-right 1.5rem
 
-    .hero 
-      img 
-        max-height 210px
-        margin 2rem auto 1.2rem
-      h1 
-        font-size: 2rem
-      h1, .description, .action
-        margin: 1.2rem auto
+      .hero 
+        img 
+          max-height 210px
+          margin 2rem auto 1.2rem
+        h1 
+          font-size: 2rem
+        h1, .description, .action
+          margin: 1.2rem auto
 
-      .description 
-        font-size: 1.2rem
+        .description 
+          font-size: 1.2rem
 
-      .action-button
-        font-size 1rem
-        padding 0.6rem 1.2rem
-    .feature
-      h2
-        font-size: 1.25rem
+        .action-button
+          font-size 1rem
+          padding 0.6rem 1.2rem
+      .feature
+        h2
+          font-size: 1.25rem
 </style>

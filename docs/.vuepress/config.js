@@ -40,14 +40,21 @@ module.exports = {
     // updateBar: { // 文章页中的最近更新栏（此配置和它下面的属性均是可选的）
     //   isShow: true, // 是否显示，默认true
     //   length: 3, // 显示的数量，默认3
-    //   moreArticle: '/timeline' // “更多文章”跳转的页面，默认'/timeline'
+    //   moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
     // },
     // titleBadge: false, // 文章标题前的图标是否显示，默认true
-    // titleBadgeIcons: [ // 文章标题前图标的链接，默认主题内置图标
-    //   '图标链接1',
-    //   '图标链接2'
+    // titleBadgeIcons: [ // 文章标题前图标的地址，默认主题内置图标
+    //   '图标地址1',
+    //   '图标地址2'
     // ],
-    // postCategory: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
+    bodyBgImg: [
+      'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
+      'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
+      'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
+    ], // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
+
+    
+    // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
 
     // category: false, // 是否打开分类功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含分类字段 2.页面中显示与分类相关的信息和模块 3.自动生成分类页面（在@pages文件夹）。如关闭，则反之。
     // tag: false, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。

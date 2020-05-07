@@ -11,8 +11,7 @@ module.exports = (options, ctx) => {
   const { sourceDir, themeConfig, siteConfig } = ctx
   
   // 自动设置front matter
-  const { postCategory } = themeConfig
-  setFrontmatter(sourceDir, postCategory)
+  setFrontmatter(sourceDir, themeConfig)
 
   // 自动生成结构化侧边栏
   const sidebar = themeConfig.sidebar

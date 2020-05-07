@@ -1,14 +1,23 @@
 @require './config'
 
-$mobileSidebarWidth = $sidebarWidth * 0.95
+$mobileSidebarWidth = $sidebarWidth * 0.9
 
 // narrow desktop / iPad
 @media (max-width: $MQNarrow)
   .sidebar
     font-size 15px
+    
+@media (max-width: $MQMobile)
+  .sidebar
+    width $sidebarWidth * 0.95
+
+@media (min-width: ($MQMobile + 1px)) and (max-width: $MQNarrow)
+  .sidebar
     width $mobileSidebarWidth
-  .page
-    // padding-left $mobileSidebarWidth
+  .theme-container 
+    &.sidebar-open
+      .page
+        padding-left $mobileSidebarWidth!important
 
 // wide mobile
 @media (max-width: $MQMobile)
@@ -39,7 +48,7 @@ $mobileSidebarWidth = $sidebarWidth * 0.95
       border-radius 0
 
 // 侧边栏显示隐藏的适配
-@media (min-width: ($MQMobile + 1px)) // 大于720px时
+@media (min-width: ($MQMobile + 1px)) // 720px
   .theme-container 
     &.sidebar-open
       .sidebar-mask
@@ -60,7 +69,7 @@ $mobileSidebarWidth = $sidebarWidth * 0.95
     .theme-container
       &.sidebar-open:not(.on-sidebar)
         .sidebar-button
-          $mobileSidebarWidth = $sidebarWidth * 0.75
+          $mobileSidebarWidth = $sidebarWidth * 0.7
           left $mobileSidebarWidth
   .theme-container.no-sidebar
     .sidebar-button

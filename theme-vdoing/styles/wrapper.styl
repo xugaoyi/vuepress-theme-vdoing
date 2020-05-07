@@ -3,11 +3,11 @@ $vdoing-wrapper
   margin 0 auto
   padding 1rem 2.5rem 2rem 2.5rem
   &:not(.footer)
-    @media (min-width: $cardLayout)
-      background var(--bg)
+    background var(--mainBg)
+    box-shadow 0 1px 2px 0 rgba(0,0,0,.1)
+    margin-bottom 1rem
+    @media (min-width $contentWidth + 80)
       border-radius 5px
-      box-shadow 0 1px 3px 0 rgba(0,0,30,0.05), 1px 2px 4px 0 rgba(0,0,0,0.05)
-      margin-bottom 1rem
   @media (max-width: $MQNarrow)
     padding 1rem 2rem
   @media (max-width: $MQMobileNarrow)

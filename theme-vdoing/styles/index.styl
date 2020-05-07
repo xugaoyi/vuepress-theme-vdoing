@@ -1,5 +1,5 @@
 // 引入字体图标
-@import '//at.alicdn.com/t/font_1678482_xtfy7qkoita.css'
+@import '//at.alicdn.com/t/font_1678482_zmf8syh5lx.css'
 
 @require './config'
 @require './code'
@@ -18,6 +18,7 @@ body
   -moz-osx-font-smoothing grayscale
   font-size 16px
   color $textColor
+  background var(--badyBg)
 
 // 去掉黄色边框
 a,input,button
@@ -42,9 +43,9 @@ a,input,button
 
 .card-box // 卡片
   border-radius 5px
-  background var(--bg)
-  // box-shadow 0 1px 3px 0 rgba(0,0,30,.1), 1px 2px 4px 0 rgba(0,0,0,.1)
+  background var(--mainBg)
   box-shadow 0 1px 2px 0 rgba(0,0,0,.1)
+  
 
 .blur // 模糊滤镜
   backdrop-filter saturate(200%) blur(20px)
@@ -53,9 +54,6 @@ a,input,button
   min-height calc(100vh - 3.6rem)
   padding-top $navbarHeight
   padding-bottom .9rem
-  background var(--pageBg)
-  @media (min-width $cardLayout)
-    min-height calc(100vh - 5.6rem)
   .theme-vdoing-wrapper
     margin 0 auto
 
@@ -101,7 +99,7 @@ a,input,button
   transform translateX(-100%)
   transition transform .2s
   @media (max-width: $MQMobile)
-    background-color var(--bg)
+    background-color var(--mainBg)
 
 
 {$contentClass}:not(.custom)
@@ -236,7 +234,7 @@ th, td
     word-break break-all
 
 .theme-container
-  background var(--bg)
+  // background var(--mainBg)
   color var(--textColor)
   min-height 100vh
   &.sidebar-open

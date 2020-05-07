@@ -1,6 +1,6 @@
 <template>
   <div class="right-menu-wrapper">
-    <div class="right-menu-padding">
+    <div class="right-menu-margin">
       <div class="right-menu-content">
         <div
             :class="['right-menu-item', 'level'+item.level, { active: item.slug === hashText }]"
@@ -52,8 +52,8 @@ export default {
   position sticky
   top 0
   font-size .9rem
-  .right-menu-padding
-    padding-top ($navbarHeight + 1rem)
+  .right-menu-margin
+    margin-top ($navbarHeight + 1rem)
   .right-menu-content
     max-height 80vh
     position relative
@@ -81,4 +81,17 @@ export default {
         width ($rightMenuWidth - 30px)
         &:hover
           color $accentColor
+
+.have-body-img 
+  .right-menu-wrapper
+    .right-menu-margin
+      padding .3rem 0
+      background var(--sidebarBg)
+      border-radius 5px
+      .right-menu-item
+        border-color transparent
+        &.active
+          border-left .2rem solid $accentColor
+        &:hover
+          border-left .2rem solid $accentColor
 </style>

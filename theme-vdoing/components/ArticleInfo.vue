@@ -23,9 +23,9 @@
           <a href="javascript:;" >{{articleInfo.date}}</a>
         </div>
         <div class="date iconfont icon-wenjian" title="分类" v-if="$themeConfig.category !== false && !(articleInfo.classify1 && articleInfo.classify1 !== '_posts') && articleInfo.categories">
-          <a href="javascript:;" v-for="(item, index) in articleInfo.categories" :key="index">
+          <router-link :to="`/categories/?category=${item}`" v-for="(item, index) in articleInfo.categories" :key="index">
             {{item}}
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
@@ -89,7 +89,6 @@ export default {
   @extend $wrapper
   position: relative
   z-index: 1
-  margin-top .5rem
   color #888
   .articleInfo
     overflow hidden

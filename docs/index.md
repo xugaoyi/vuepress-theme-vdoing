@@ -2,7 +2,7 @@
 home: true
 heroText: Evan's blog
 tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
-# bgImg: /img/bg.jpeg # 可选的，如未配置则显示网格纹背景
+# bannerBgImg: /img/bg.jpeg # 可选的，如未配置此项且未配置body背景图时则默认显示网格纹背景
 
 features: # 可选的
   - title: 前端

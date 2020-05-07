@@ -185,7 +185,7 @@ export default {
       margin .3rem
       &.active
         background $accentColor
-        color var(--bg)
+        color var(--mainBg)
 
 @media (max-width: 800px)  
   .pagination

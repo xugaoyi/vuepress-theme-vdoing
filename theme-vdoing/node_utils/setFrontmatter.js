@@ -13,7 +13,12 @@ const PREFIX = '/pages/'
 /**
  * 给.md文件设置frontmatter(标题、日期、永久链接)
  */
-function setFrontmatter(sourceDir, postCategory = '随笔') {
+function setFrontmatter(sourceDir, themeConfig) {
+
+  const isCategory = themeConfig.category
+  const isTag = themeConfig.tag
+  const categoryText = themeConfig.categoryText || '随笔'
+
   const files = readFileList(sourceDir); // 读取所有md文件数据
 
   files.forEach(file => {
@@ -27,20 +32,24 @@ function setFrontmatter(sourceDir, postCategory = '随笔') {
       const dateStr = dateFormat(stat.birthtime);// 文件的创建时间
 
      
-      const categories = getCategories(file, postCategory)
-// 注意下面这个字符串的格式会映射到文件
-const newData = `---
+      const categories = getCategories(file, categoryText)
+
+// 注意下面这些反引号字符串的格式会映射到文件
+const cateStr = isCategory === false ? '' : `
+categories: 
+  - ${categories[0]}${categories[1] ? '\r\n  - '+ categories[1] : ''}`;
+
+const tagsStr = isTag === false ? '' : `
+tags: 
+  - `;
+
+const fmData = `---
 title: ${file.name}
 date: ${dateStr}
-permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsidebar: auto' : ''}
-categories: 
-  - ${categories[0]}${categories[1] ? '\r\n  - '+ categories[1] : ''}
-tags: 
-  - 
----
-\r\n${fileMatterObj.content}`;
-      
-      fs.writeFileSync(file.filePath, newData); // 写入
+permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsidebar: auto' : ''}${cateStr}${tagsStr}
+---`;
+
+      fs.writeFileSync(file.filePath, `${fmData}\r\n${fileMatterObj.content}`); // 写入
       log(chalk.blue('tip ') + chalk.green(`write frontmatter(写入frontmatter)：${file.filePath} `))
 
     } else { // 已有FrontMatter
@@ -70,12 +79,12 @@ tags:
       }
 
       if ( !matterData.hasOwnProperty('pageComponent') && matterData.article !== false ) { // 是文章页才添加分类和标签
-        if (!matterData.hasOwnProperty('categories')) { // 分类
-          matterData.categories = getCategories(file, postCategory)
+        if (isCategory !== false && !matterData.hasOwnProperty('categories')) { // 分类
+          matterData.categories = getCategories(file, categoryText)
           mark = true;
         }
   
-        if (!matterData.hasOwnProperty('tags')) { // 标签
+        if (isTag !== false && !matterData.hasOwnProperty('tags')) { // 标签
           matterData.tags = [''];
           mark = true;
         }
@@ -95,7 +104,7 @@ tags:
 }
 
 // 获取分类数据
-function getCategories(file, postCategory) {
+function getCategories(file, categoryText) {
   let categories = []
 
   if (file.filePath.indexOf('_posts') === -1) { // 不在_posts文件夹
@@ -106,7 +115,7 @@ function getCategories(file, postCategory) {
     }
     categories.push(filePathArr[filePathArr.length - 2].split('.').pop()) // 获取分类2
   } else {
-    categories.push(postCategory)
+    categories.push(categoryText)
   }
   return categories
 }

@@ -57,12 +57,11 @@ module.exports = [
   },
   {
     text: '索引',
-    link: '/timeline/',
+    link: '/archives/',
     items: [
       {text: '分类', link: '/categories/'},
       {text: '标签', link: '/tags/'},
       {text: '归档', link: '/archives/'},
-      {text: '时间轴(准备弃用)', link: '/timeline/'},
     ]
   }
 ]

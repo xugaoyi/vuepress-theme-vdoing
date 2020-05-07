@@ -212,7 +212,7 @@ export default {
         position absolute
         bottom 0rem
         right 1.5rem
-        background var(--bg)
+        background var(--mainBg)
         border 1px solid var(--borderColor)
         width 120px
         border-radius 6px
