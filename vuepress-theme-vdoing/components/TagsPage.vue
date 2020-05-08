@@ -55,6 +55,9 @@ export default {
     } else {
       this.total = this.$sortPosts.length
     }
+    if (this.$route.query.p) {
+      this.currentPage = Number(this.$route.query.p)
+    }
   },
   methods: {
     handlePagination(i) { // 分页
@@ -62,7 +65,7 @@ export default {
     }
   },
   watch: {
-    $route() {
+    '$route.query.tag'() {
       this.tag = this.$route.query.tag
       if (this.tag) {
         this.total = this.$groupPosts.tags[this.tag].length

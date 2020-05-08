@@ -85,8 +85,7 @@ export default {
     .article-title
       border-bottom 1px solid var(--borderColor)
       font-size 1.3rem
-      // font-weight bold
-      padding 1rem 0 .5rem 1rem
+      padding 1rem
       a 
         font-size 1.2rem
         color $accentColor

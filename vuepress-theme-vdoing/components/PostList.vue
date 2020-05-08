@@ -80,11 +80,19 @@ export default {
     this.setPosts()
   },
   mounted() {
-    this.postListOffsetTop = this.getElementToPageTop(this.$refs.postList) - 90
+    // this.postListOffsetTop = this.getElementToPageTop(this.$refs.postList) - 240
   },
   watch: {
     currentPage() {
-      window.scrollTo({ top: this.postListOffsetTop }) // behavior: 'smooth'
+      this.$router.push({
+        query: {
+          ...this.$route.query,
+          p: this.currentPage
+        }
+      })
+      // setTimeout(() => {
+      //   window.scrollTo({ top: this.postListOffsetTop }) // behavior: 'smooth'
+      // },0)
       this.setPosts()
     },
     category() {
@@ -110,12 +118,12 @@ export default {
 
       this.sortPosts = posts.slice((currentPage-1)*perPage, currentPage*perPage)
     },
-    getElementToPageTop(el) {
-      if(el && el.parentElement) {
-        return this.getElementToPageTop(el.parentElement) + el.offsetTop
-      }
-      return el.offsetTop
-    }
+    // getElementToPageTop(el) {
+    //   if(el && el.parentElement) {
+    //     return this.getElementToPageTop(el.parentElement) + el.offsetTop
+    //   }
+    //   return el.offsetTop
+    // }
   }
 }
 </script>

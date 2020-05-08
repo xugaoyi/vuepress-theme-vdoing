@@ -19,6 +19,7 @@
   display flex
   .main-left
     flex 1
+    width 100%
     .theme-vdoing-content.card-box
       padding 1rem 1.5rem
       margin-bottom .9rem
@@ -33,4 +34,25 @@
     .card-box
       margin 0 0 .9rem .9rem
       padding .95rem
+
+// 719px以下
+@media (max-width: $MQMobile) 
+  .main-wrapper
+    margin .9rem 0
+    padding 0
+    display block
+    .main-left
+      .post-list
+        margin-bottom 3rem
+        .post
+          border-radius 0
+      .pagination
+        margin-bottom 3rem
+    .main-right
+      .blogger-wrapper
+        display none
+      .card-box
+        margin 0 0 .9rem 0
+        border-radius 0
+        width 100%
 </style>

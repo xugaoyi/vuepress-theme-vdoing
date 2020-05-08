@@ -55,6 +55,9 @@ export default {
     } else {
       this.total = this.$sortPosts.length
     }
+    if (this.$route.query.p) {
+      this.currentPage = Number(this.$route.query.p)
+    }
   },
   mounted() {
     // 增强用户体验
@@ -73,7 +76,7 @@ export default {
     }
   },
   watch: {
-    $route() {
+    '$route.query.category'() {
       this.category = this.$route.query.category
       if (this.category) {
         this.total = this.$groupPosts.categories[this.category].length

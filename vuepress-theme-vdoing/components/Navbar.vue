@@ -108,7 +108,6 @@ $navbar-horizontal-padding = 1.5rem
   .links
     padding-left 1.5rem
     box-sizing border-box
-    // background-color white
     white-space nowrap
     font-size 0.9rem
     position absolute
@@ -122,6 +121,12 @@ $navbar-horizontal-padding = 1.5rem
 .hide-navbar
     .navbar
       transform translateY(-100%)
+
+// 959
+@media (max-width: $MQNarrow)
+  .navbar
+    .site-name
+      display none
 
 @media (max-width: $MQMobile)
   .navbar

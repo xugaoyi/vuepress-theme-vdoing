@@ -135,6 +135,12 @@ export default {
   .repo-link
     margin-left 1.5rem
 
+// 959
+@media (max-width: $MQNarrow)
+  .nav-links
+    .nav-item
+      margin-left 1.2rem
+
 @media (max-width: $MQMobile)
   .nav-links
     .nav-item, .repo-link

@@ -198,15 +198,15 @@ export default {
 @media (max-width: $MQMobile)  
   .pagination
     > span // 左右按钮
-      padding .8rem 1.5rem
+      padding .9rem 1.5rem
     .pagination-list
       span
         width 2.3rem
         height 2.3rem
         line-height 2.3rem
-        margin .2rem
+        margin .25rem
 
-@media (max-width: 460px)  
+@media (max-width: 390px)  
   .pagination
     > span // 左右按钮
       padding .8rem 1.3rem

@@ -1,5 +1,5 @@
 <template>
-  <div class="body-bg" :style="`background-image: url(${bgImg})`"></div>
+  <div class="body-bg" :style="`background: url(${bgImg}) center center / cover no-repeat`"></div>
 </template>
 
 <script>
@@ -40,6 +40,5 @@ export default {
   z-index -999999
   height 100vh
   width 100vw
-  background-size 100% auto
   transition  background .5s
 </style>

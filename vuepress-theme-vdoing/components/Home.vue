@@ -2,7 +2,7 @@
   <div class="home-wrapper">
 
     <!-- banner块 s -->
-    <div class="banner" :style="bannerBg">
+    <div class="banner" :style="bannerBg" v-if="showBanner">
       <div class="banner-conent" :style="!homeData.features && `padding-top: 7rem`">
         <header class="hero">
           <img v-if="homeData.heroImage" :src="$withBase(homeData.heroImage)" :alt="homeData.heroAlt || 'hero'" />
@@ -19,7 +19,7 @@
         >
           <div class="feature" v-for="(feature, index) in homeData.features" :key="index">
             <router-link :to="feature.link">
-              <img class="image_title" :src="$withBase(feature.imgUrl)" :alt="feature.title" />
+              <img class="feature-img" :src="$withBase(feature.imgUrl)" :alt="feature.title" />
               <h2>{{ feature.title }}</h2>
               <p>{{ feature.details }}</p>
             </router-link>
@@ -39,7 +39,7 @@
             <div class="slide-banner-wrapper">
               <div class="slide-item" v-for="(feature, index) in homeData.features" :key="index">
                 <router-link :to="feature.link">
-                  <img class="image_title" :src="$withBase(feature.imgUrl)" :alt="feature.title" />
+                  <img class="feature-img" :src="$withBase(feature.imgUrl)" :alt="feature.title" />
                   <h2>{{ feature.title }}</h2>
                   <p>{{ feature.details }}</p>
                 </router-link>
@@ -112,6 +112,7 @@ export default {
   data(){
     return {
       isMQMobile: false,
+
       slide: null,
       currentPageIndex: 0,
       playTimer: 0,
@@ -128,6 +129,11 @@ export default {
   },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
+    
+    if (this.$route.query.p) {
+      this.currentPage = Number(this.$route.query.p)
+    }
+
   },
   mounted() {
     if (this.isMQMobile) {
@@ -148,6 +154,13 @@ export default {
   beforeDestroy() {
     clearTimeout(this.playTimer)
     this.slide && this.slide.destroy()
+  },
+  watch: {
+    '$route.query.p'() {
+      if(!this.$route.query.p){
+        this.currentPage = 1
+      }
+    }
   },
   methods: {
     init() {
@@ -188,10 +201,18 @@ export default {
     },
     handlePagination(i) { // 分页
       this.currentPage = i
-    }
+    },
+    getScrollTop () {
+      return window.pageYOffset
+        || document.documentElement.scrollTop
+        || document.body.scrollTop
+    },
   },
 
   computed: {
+    showBanner() { // 当分页不在第一页时隐藏banner栏
+      return this.$route.query.p && this.$route.query.p != 1 ? false : true
+    },
     bannerBg() {
       if (this.homeData.bannerBgImg) {
         return `background: url(${this.$withBase(this.homeData.bannerBgImg)}) center center / cover no-repeat`
@@ -275,7 +296,7 @@ export default {
         text-align center
         a
           color lighten($bannerTextColor,10%)
-          .image_title
+          .feature-img
             width 11rem
             height 11rem
             animation heart 1.2s ease-in-out 0s infinite alternate
@@ -288,7 +309,7 @@ export default {
           p
             opacity 0.8
       .feature:hover 
-        .image_title 
+        .feature-img 
           animation-play-state: running
         h2,p
           opacity .7
@@ -309,17 +330,16 @@ export default {
           height 300px
           width 100%
           text-align center
-          .image_title
-            width: 10rem;
-            height: 10rem;
-          h2
-            font-size: 1.1rem;
-            color: #fff;
-            font-weight: 500;
-            border-bottom: none;
-            padding-bottom: 0;
-          p
-            color: #b0b6be;
+          a 
+            color lighten($bannerTextColor,10%)
+            .feature-img
+              width 10rem
+              height 10rem
+            h2
+              font-size 1.1rem
+              font-weight 500
+              border-bottom none
+              padding-bottom 0
       .docs-wrapper
         position absolute
         bottom 25px
@@ -331,10 +351,16 @@ export default {
           width 8px
           height 8px
           border-radius 50%
-          background #2F455A
+          background var(--textColor)
+          opacity .9
           &.active
-            background #517EA9
-
+            opacity .5
+  
+  // 分页不在第一页时，隐藏banner栏
+  .main-wrapper
+    margin-top ($navbarHeight + .9rem)
+  .banner + *
+    margin-top 2rem
 
 @keyframes heart
   from{transform:translate(0,0)}
@@ -351,11 +377,12 @@ export default {
           .description
             font-size 1rem
         .feature
-          h2
-            font-size 1.1rem
-          .image_title
-            width 10rem
-            height 10rem
+          a
+            h2
+              font-size 1.1rem
+            .feature-img
+              width 9rem
+              height 9rem
   
 // 719px以下
 @media (max-width: $MQMobile)  
@@ -364,26 +391,6 @@ export default {
       .banner-conent
         .features
           display none!important
-
-    .main-wrapper
-      margin .9rem 0
-      padding 0
-      display block
-      .main-left
-        .post-list
-          margin-bottom 3rem
-          .post
-            border-radius 0
-        .pagination
-          margin-bottom 3rem
-      .main-right
-        .blogger-wrapper
-          display none
-        .card-box
-          margin 0 0 .9rem 0
-          border-radius 0
-          width 100%
-  
 
 // 419px以下
 @media (max-width: $MQMobileNarrow) 
