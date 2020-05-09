@@ -2,7 +2,7 @@
   <div class="home-wrapper">
 
     <!-- banner块 s -->
-    <div class="banner" :style="bannerBg" v-if="showBanner">
+    <div class="banner" :class="{'hide-banner': !showBanner}" :style="bannerBg">
       <div class="banner-conent" :style="!homeData.features && `padding-top: 7rem`">
         <header class="hero">
           <img v-if="homeData.heroImage" :src="$withBase(homeData.heroImage)" :alt="homeData.heroAlt || 'hero'" />
@@ -62,19 +62,32 @@
 
     <MainLayout>
       <template #mainLeft>
-        <PostList
-         :currentPage="currentPage"
-         :perPage="perPage"
+
+        <!-- 简约版文章列表 -->
+        <UpdateArticle
+          class="card-box"
+          v-if="homeData.simplePostList"
+          :length="5"
         />
-        <Pagination
-          :total="total"
-          :perPage="perPage"
+        
+        <!-- 详情版文章列表 -->
+        <template v-else>
+          <PostList
           :currentPage="currentPage"
-          @getCurrentPage="handlePagination"
-          v-if="Math.ceil(total / perPage) > 1"
-        />
-        <!-- <Content class="theme-vdoing-content custom card-box" /> -->
+          :perPage="perPage"
+          />
+          <Pagination
+            :total="total"
+            :perPage="perPage"
+            :currentPage="currentPage"
+            @getCurrentPage="handlePagination"
+            v-if="Math.ceil(total / perPage) > 1"
+          />
+        </template>
+
+        <Content class="theme-vdoing-content custom card-box"/>
       </template>
+
       <template #mainRight>
         <BloggerBar  v-if="$themeConfig.blogger" />
         <CategoriesBar
@@ -99,6 +112,7 @@ import BScroll from "@better-scroll/core"
 import Slide from "@better-scroll/slide"
 import MainLayout from '@theme/components/MainLayout'
 import PostList from '@theme/components/PostList'
+import UpdateArticle from '@theme/components/UpdateArticle'
 import Pagination from '@theme/components/Pagination'
 import BloggerBar from '@theme/components/BloggerBar'
 import CategoriesBar from '@theme/components/CategoriesBar'
@@ -123,7 +137,7 @@ export default {
       currentPage: 1// 当前页
     }
   },
-  components: { NavLink, MainLayout, PostList, BloggerBar, CategoriesBar, TagsBar, Pagination },
+  components: { NavLink, MainLayout, PostList, UpdateArticle, BloggerBar, CategoriesBar, TagsBar, Pagination },
   created() {
     this.total = this.$sortPosts.length
   },
@@ -136,7 +150,7 @@ export default {
 
   },
   mounted() {
-    if (this.isMQMobile) {
+    if (this.isMQMobile && (!this.$route.query.p || this.$route.query.p == 1)) {
       this.init()
     }
 
@@ -159,6 +173,15 @@ export default {
     '$route.query.p'() {
       if(!this.$route.query.p){
         this.currentPage = 1
+      } else {
+        this.currentPage = Number(this.$route.query.p)
+      }
+
+      if (this.currentPage === 1 && this.isMQMobile) {
+        setTimeout(() => {
+          this.slide && this.slide.destroy()
+          this.init()
+        }, 0)
       }
     }
   },
@@ -211,7 +234,7 @@ export default {
 
   computed: {
     showBanner() { // 当分页不在第一页时隐藏banner栏
-      return this.$route.query.p && this.$route.query.p != 1 ? false : true
+      return this.$route.query.p && this.$route.query.p != 1 && this.homeData.simplePostList !== true ? false : true
     },
     bannerBg() {
       if (this.homeData.bannerBgImg) {
@@ -312,7 +335,7 @@ export default {
         .feature-img 
           animation-play-state: running
         h2,p
-          opacity .7
+          color $accentColor
           
 
     // 移动端滑动图标
@@ -358,9 +381,22 @@ export default {
   
   // 分页不在第一页时，隐藏banner栏
   .main-wrapper
-    margin-top ($navbarHeight + .9rem)
-  .banner + *
     margin-top 2rem
+  .banner.hide-banner
+    display none
+    & + .main-wrapper
+       margin-top ($navbarHeight + .9rem)
+
+  .main-wrapper   
+    .main-left 
+      .card-box
+        margin-bottom .9rem
+      .pagination
+        margin-bottom 4rem
+      .theme-vdoing-content
+        padding 0rem 2rem
+        &>:first-child
+          padding-top 2rem
 
 @keyframes heart
   from{transform:translate(0,0)}

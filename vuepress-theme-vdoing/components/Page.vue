@@ -23,10 +23,10 @@
       </div>
 
       <UpdateArticle
-        :length="updateBarConfig && updateBarConfig.length || 3"
+        :length="3"
         :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
         v-if="isShowUpdateBar"
-        />
+      />
 
       <slot name="bottom" />
     </main>
@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     isShowUpdateBar() {
-      return this.updateBarConfig && this.updateBarConfig.isShow === false ? false : true 
+      return this.updateBarConfig && this.updateBarConfig.showToArticle === false ? false : true 
     },
     showTitle() {
       return !this.$frontmatter.pageComponent

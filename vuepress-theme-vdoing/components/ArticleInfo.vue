@@ -7,10 +7,12 @@
         </li>
         <li>
           <router-link v-if="articleInfo.cataloguePermalink" :to="articleInfo.cataloguePermalink" :title="articleInfo.classify1+'-目录页'">{{articleInfo.classify1}}</router-link>
+          <router-link  v-else-if="$themeConfig.category !== false" :to="`/categories/?category=${articleInfo.classify1}`" title="分类">{{articleInfo.classify1}}</router-link>
           <span v-else>{{ articleInfo.classify1 }}</span>
         </li>
         <li v-if="articleInfo.classify2">
           <router-link v-if="articleInfo.cataloguePermalink" :to="articleInfo.cataloguePermalink + '/#' + encodeUrl(articleInfo.classify2)" :title="articleInfo.classify1+'#'+articleInfo.classify2">{{articleInfo.classify2}}</router-link>
+          <router-link  v-else-if="$themeConfig.category !== false" :to="`/categories/?category=${articleInfo.classify2}`" title="分类">{{articleInfo.classify2}}</router-link>
           <span v-else>{{articleInfo.classify2}}</span>
         </li>
       </ul>

@@ -84,12 +84,15 @@ export default {
   },
   watch: {
     currentPage() {
-      this.$router.push({
-        query: {
-          ...this.$route.query,
-          p: this.currentPage
-        }
-      })
+
+      if (this.$route.query.p != this.currentPage) { // 此判断防止添加相同的路由信息（如浏览器回退时触发的）
+        this.$router.push({
+          query: {
+            ...this.$route.query,
+            p: this.currentPage
+          }
+        })
+      }
       // setTimeout(() => {
       //   window.scrollTo({ top: this.postListOffsetTop }) // behavior: 'smooth'
       // },0)

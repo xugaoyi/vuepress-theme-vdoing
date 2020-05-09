@@ -1,5 +1,5 @@
 <template>
-  <div :class="['article',{'no-article': isShowArticle}]">
+  <div :class="['article-list',{'no-article-list': isShowArticle}]">
     <div class="article-title">
       <router-link :to="moreArticle || '/archives/'" class="iconfont icon-shizhong">最近更新</router-link>
     </div>
@@ -75,12 +75,12 @@ export default {
 
 <style lang='stylus'>
   @require '../styles/wrapper.styl'
-  .article
+  .article-list
     @extend $wrapper
-    padding 1.8rem 2rem 0 2rem
+    padding 1rem 2rem
     @media (max-width: $MQNarrow)
-      padding 1.5rem 1.5rem 0rem 1.5rem
-    &.no-article
+      padding 1rem 1.5rem
+    &.no-article-list
       display none
     .article-title
       border-bottom 1px solid var(--borderColor)
