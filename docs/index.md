@@ -1,14 +1,17 @@
 ---
 home: true
+# heroImage: /img/logo.png
 heroText: Evan's blog
 tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
+# actionText: 立刻进入 →
+# actionLink: /img/web.png
 # bannerBgImg: /img/bg.jpeg # 可选的，如未配置此项且未配置body背景图时则默认显示网格纹背景
 
 features: # 可选的
   - title: 前端
     details: JavaScript、ES6、Vue框架等前端技术
-    link: /web/
-    imgUrl: /img/web.png
+    link: /web/ # 可选
+    imgUrl: /img/web.png # 可选
   - title: 页面
     details: html(5)/css(3)，前端页面相关技术
     link: /ui/

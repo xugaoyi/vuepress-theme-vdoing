@@ -18,8 +18,12 @@
          v-if="homeData.features && homeData.features.length && !isMQMobile"
         >
           <div class="feature" v-for="(feature, index) in homeData.features" :key="index">
-            <router-link :to="feature.link">
-              <img class="feature-img" :src="$withBase(feature.imgUrl)" :alt="feature.title" />
+            <router-link :to="feature.link ? feature.link : 'javascript:;'">
+              <img class="feature-img"
+                v-if="feature.imgUrl"
+                :src="$withBase(feature.imgUrl)"
+                :alt="feature.title"
+              />
               <h2>{{ feature.title }}</h2>
               <p>{{ feature.details }}</p>
             </router-link>
@@ -38,8 +42,12 @@
           <div class="slide-banner-scroll" ref="slide">
             <div class="slide-banner-wrapper">
               <div class="slide-item" v-for="(feature, index) in homeData.features" :key="index">
-                <router-link :to="feature.link">
-                  <img class="feature-img" :src="$withBase(feature.imgUrl)" :alt="feature.title" />
+                <router-link :to="feature.link ? feature.link : 'javascript:;'">
+                  <img class="feature-img"
+                    v-if="feature.imgUrl"
+                    :src="$withBase(feature.imgUrl)"
+                    :alt="feature.title"
+                  />
                   <h2>{{ feature.title }}</h2>
                   <p>{{ feature.details }}</p>
                 </router-link>

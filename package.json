@@ -1,5 +1,5 @@
 {
-  "name": "vuepress-theme-vdoing",
+  "name": "theme-vdoing-blog",
   "version": "1.0.0",
   "scripts": {
     "dev": "vuepress dev docs",
@@ -10,9 +10,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "chalk": "^4.0.0",
     "inquirer": "^7.1.0",
-    "json2yaml": "^1.1.0",
     "moment": "^2.25.3",
     "vuepress": "^1.4.1",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
@@ -21,12 +19,10 @@
     "vuepress-plugin-one-click-copy": "^1.0.2",
     "vuepress-plugin-thirdparty-search": "^1.0.2",
     "vuepress-plugin-zooming": "^1.1.7",
+    "vuepress-theme-vdoing": "^1.0.0-beta.3",
     "yamljs": "^0.3.0"
   },
   "dependencies": {
-    "@better-scroll/core": "^2.0.0-beta.6",
-    "@better-scroll/slide": "^2.0.0-beta.6",
-    "good-storage": "^1.1.1",
     "vuepress-plugin-comment": "^0.7.3"
   }
 }

@@ -1,5 +1,4 @@
 const nav = require('./config/nav.js');
-// const sidebar = require('./config/sidebar.js');
 
 module.exports = {
   title: "Evan's blog",
@@ -21,7 +20,8 @@ module.exports = {
   markdown: {
     lineNumbers: true // 代码行号
   },
-  theme: require.resolve('../../vuepress-theme-vdoing'), // 使用的主题
+  // theme: 'vdoing', // 使用依赖包主题
+  theme: require.resolve('../../vuepress-theme-vdoing'), // 使用本地主题
   themeConfig: { // 主题配置
     nav,
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
@@ -98,12 +98,6 @@ module.exports = {
     //   color: '#11a8cd', // 爱心颜色，默认随机色
     //   excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
     // }],
-    // [require('./plugins/title-badge'), { // h1标题徽章
-    //   // badges: [ // 替换默认的徽章图标,可选
-    //   //   'base64图片1',
-    //   //   'base64图片2',
-    //   // ]
-    // }], 
 
     ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
       thirdparty: [ // 可选，默认 []
