@@ -2,8 +2,8 @@
   <div class="home-wrapper">
 
     <!-- banner块 s -->
-    <div class="banner" :class="{'hide-banner': !showBanner}" :style="bannerBg">
-      <div class="banner-conent" :style="!homeData.features && `padding-top: 7rem`">
+    <div class="banner" :class="{'hide-banner': !showBanner}" :style="bannerBgStyle">
+      <div class="banner-conent" :style="!homeData.features && !homeData.heroImage && `padding-top: 7rem`">
         <header class="hero">
           <img v-if="homeData.heroImage" :src="$withBase(homeData.heroImage)" :alt="homeData.heroAlt || 'hero'" />
           <h1 v-if="homeData.heroText !== null" id="main-title">{{ homeData.heroText || $title || 'Hello' }}</h1>
@@ -18,7 +18,10 @@
          v-if="homeData.features && homeData.features.length && !isMQMobile"
         >
           <div class="feature" v-for="(feature, index) in homeData.features" :key="index">
-            <router-link :to="feature.link ? feature.link : 'javascript:;'">
+            <router-link
+              v-if="feature.link"
+              :to="feature.link"
+            >
               <img class="feature-img"
                 v-if="feature.imgUrl"
                 :src="$withBase(feature.imgUrl)"
@@ -27,6 +30,18 @@
               <h2>{{ feature.title }}</h2>
               <p>{{ feature.details }}</p>
             </router-link>
+            <a
+              v-else
+              href="javascript:;"
+            >
+              <img class="feature-img"
+                v-if="feature.imgUrl"
+                :src="$withBase(feature.imgUrl)"
+                :alt="feature.title"
+              />
+              <h2>{{ feature.title }}</h2>
+              <p>{{ feature.details }}</p>
+            </a>
           </div>
         </div>
         <!-- PC端features块 e -->
@@ -42,7 +57,10 @@
           <div class="slide-banner-scroll" ref="slide">
             <div class="slide-banner-wrapper">
               <div class="slide-item" v-for="(feature, index) in homeData.features" :key="index">
-                <router-link :to="feature.link ? feature.link : 'javascript:;'">
+                <router-link
+                  v-if="feature.link"
+                  :to="feature.link"
+                >
                   <img class="feature-img"
                     v-if="feature.imgUrl"
                     :src="$withBase(feature.imgUrl)"
@@ -51,6 +69,18 @@
                   <h2>{{ feature.title }}</h2>
                   <p>{{ feature.details }}</p>
                 </router-link>
+                <a
+                  v-else
+                  href="javascript:;"
+                >
+                  <img class="feature-img"
+                    v-if="feature.imgUrl"
+                    :src="$withBase(feature.imgUrl)"
+                    :alt="feature.title"
+                  />
+                  <h2>{{ feature.title }}</h2>
+                  <p>{{ feature.details }}</p>
+                </a>
               </div>
             </div>
           </div>
@@ -74,12 +104,12 @@
         <!-- 简约版文章列表 -->
         <UpdateArticle
           class="card-box"
-          v-if="homeData.simplePostList"
+          v-if="homeData.postList === 'simple'"
           :length="5"
         />
         
         <!-- 详情版文章列表 -->
-        <template v-else>
+        <template v-else-if="!homeData.postList || homeData.postList === 'detailed'">
           <PostList
           :currentPage="currentPage"
           :perPage="perPage"
@@ -242,15 +272,31 @@ export default {
 
   computed: {
     showBanner() { // 当分页不在第一页时隐藏banner栏
-      return this.$route.query.p && this.$route.query.p != 1 && this.homeData.simplePostList !== true ? false : true
+      return this.$route.query.p
+       && this.$route.query.p != 1
+       && (!this.homeData.postList || this.homeData.postList === 'detailed')
+       ? false : true
     },
-    bannerBg() {
-      if (this.homeData.bannerBgImg) {
-        return `background: url(${this.$withBase(this.homeData.bannerBgImg)}) center center / cover no-repeat`
-      } else if(!this.$themeConfig.bodyBgImg){
-        // 网格纹背景
-        return 'background: rgb(40,40,45) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVFhH7c6xCQAgDAVRR9A6E4hLu4uLiWJ7tSnuQcIvr2TRYsw3/zOGGEOMIcYQY4gxxBhiDDGGGEOMIcYQY4gxxBhiDLkx52W4Gn1tuslCtHJvL54AAAAASUVORK5CYII=)'
+    bannerBgStyle() {
+      let bannerBg = this.homeData.bannerBg
+      if(!bannerBg || bannerBg === 'auto') { // 默认
+        if (this.$themeConfig.bodyBgImg) { // 当有bodyBgImg时，不显示背景
+          return ''
+        } else { // 网格纹背景
+          return 'background: rgb(40,40,45) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVFhH7c6xCQAgDAVRR9A6E4hLu4uLiWJ7tSnuQcIvr2TRYsw3/zOGGEOMIcYQY4gxxBhiDDGGGEOMIcYQY4gxxBhiDLkx52W4Gn1tuslCtHJvL54AAAAASUVORK5CYII=)'
+        }
+      } else if (bannerBg === 'none') { // 无背景
+        if (this.$themeConfig.bodyBgImg) {
+          return ''
+        } else {
+          return 'background: var(--mainBg);color: var(--textColor)'
+        }
+      } else if (bannerBg.indexOf('background') > -1) { // 自定义背景样式
+        return bannerBg
+      } else if (bannerBg.indexOf('.') > -1) { // 大图
+        return `background: url(${this.$withBase(bannerBg)}) center center / cover no-repeat`
       }
+
     },
     homeData() {
       return {
@@ -287,7 +333,7 @@ export default {
         margin-top 3rem
         img
           max-width 100%
-          max-height 192px
+          max-height 240px
           display block
           margin 2rem auto 1.5rem
         h1 
@@ -300,6 +346,7 @@ export default {
           max-width 40rem
           font-size 1.2rem
           line-height 1.3
+          opacity .9
         .action-button 
           display inline-block
           font-size 1.2rem
@@ -309,6 +356,7 @@ export default {
           transition background-color 0.1s ease
           box-sizing border-box
           border-bottom 1px solid darken($accentColor, 10%)
+          color #fff
           &:hover 
             background-color lighten($accentColor, 10%)
       // pc端features
@@ -326,7 +374,8 @@ export default {
         max-width 30%
         text-align center
         a
-          color lighten($bannerTextColor,10%)
+          // color lighten($bannerTextColor,10%)
+          color inherit
           .feature-img
             width 11rem
             height 11rem
@@ -362,7 +411,8 @@ export default {
           width 100%
           text-align center
           a 
-            color lighten($bannerTextColor,10%)
+            // color lighten($bannerTextColor,10%)
+            color inherit
             .feature-img
               width 10rem
               height 10rem
@@ -403,8 +453,9 @@ export default {
         margin-bottom 4rem
       .theme-vdoing-content
         padding 0rem 2rem
+        overflow hidden
         &>:first-child
-          padding-top 2rem
+          padding-top 1rem
 
 @keyframes heart
   from{transform:translate(0,0)}

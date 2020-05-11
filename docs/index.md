@@ -1,11 +1,12 @@
 ---
 home: true
-# heroImage: /img/logo.png
+# heroImage: /img/web.png
+heroImage: https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200409124835.png
 heroText: Evan's blog
 tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
 # actionText: 立刻进入 →
-# actionLink: /img/web.png
-# bannerBgImg: /img/bg.jpeg # 可选的，如未配置此项且未配置body背景图时则默认显示网格纹背景
+# actionLink: /web/
+# bannerBg: auto # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | none => 无 | '大图地址' | background: 自定义背景样式       提示：如发现文本颜色不适应你的背景时可以到palette.styl修改$bannerTextColor变量
 
 features: # 可选的
   - title: 前端
@@ -21,11 +22,11 @@ features: # 可选的
     link: /technology/
     imgUrl: /img/other.png
 
-# 是否启用简约版文章列表：true => 显示简约版文章列表（仅标题和日期）。false => 默认的，显示详细版文章列表（包括作者、分类、标签、摘要、分页等）
-# simplePostList: true 
+# 文章列表显示方式: detailed 默认，显示详细版文章列表（包括作者、分类、标签、摘要、分页等）| simple => 显示简约版文章列表（仅标题和日期）| none 不显示文章列表
+# postList: simple
 ---
 
-<!-- 
+ 
 ## 关于
 
 ### 📚Blog
@@ -39,7 +40,7 @@ features: # 可选的
 
 </br>
 
-
+<!--
 ## 特色功能
 博客部分特色功能介绍
 
