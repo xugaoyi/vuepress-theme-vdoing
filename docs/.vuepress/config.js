@@ -34,31 +34,29 @@ module.exports = {
     editLinkText: '编辑',
 
     // 以下配置是Vdoing主题改动的和新增的配置
-    sidebar: 'structuring', // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
-
-    // sidebarOpen: false, // 初始状态是否打开侧边栏，默认true
-    // updateBar: { // 最近更新栏
-    //   showToArticle: true, // 显示到文章页底部，默认true
-    //   moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
-    // },
-    // titleBadge: false, // 文章标题前的图标是否显示，默认true
-    // titleBadgeIcons: [ // 文章标题前图标的地址，默认主题内置图标
-    //   '图标地址1',
-    //   '图标地址2'
-    // ],
+    // category: false, // 是否打开分类功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含分类字段 2.页面中显示与分类相关的信息和模块 3.自动生成分类页面（在@pages文件夹）。如关闭，则反之。
+    // tag: false, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。
+    // archive: false, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。
+    // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
     // bodyBgImg: [
     //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
     //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
     //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
     // ], // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
+    // titleBadge: false, // 文章标题前的图标是否显示，默认true
+    // titleBadgeIcons: [ // 文章标题前图标的地址，默认主题内置图标
+    //   '图标地址1',
+    //   '图标地址2'
+    // ],
 
+    sidebar: 'structuring', // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
     
-    // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
-
-    // category: false, // 是否打开分类功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含分类字段 2.页面中显示与分类相关的信息和模块 3.自动生成分类页面（在@pages文件夹）。如关闭，则反之。
-    // tag: false, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。
-    // archive: false, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。
-
+    // sidebarOpen: false, // 初始状态是否打开侧边栏，默认true
+    // updateBar: { // 最近更新栏
+    //   showToArticle: true, // 显示到文章页底部，默认true
+    //   moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
+    // },
+    
     author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, href: String}
       name: 'Evan Xu', // 必需
       href: 'https://github.com/xugaoyi' // 可选的

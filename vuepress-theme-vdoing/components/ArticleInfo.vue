@@ -56,7 +56,7 @@ export default {
     getPageInfo() {
       const pageInfo = this.$page
       const { relativePath } = pageInfo
-      const { catalogue } = this.$themeConfig.sidebar
+      const { sidebar } = this.$themeConfig
 
       // 分类采用解析文件夹地址名称的方式
       const relativePathArr = relativePath.split('/')
@@ -64,7 +64,8 @@ export default {
       const classify1 = classifyArr.length > 1 ? classifyArr[1] : classifyArr[0] // 文章一级分类名称
       const classify2 = relativePathArr.length > 2 ? relativePathArr[1].split('.')[1] : undefined// 文章二级分类名称
 
-      const cataloguePermalink = catalogue ? catalogue[classify1] : undefined// 目录页永久链接
+      const cataloguePermalink = sidebar && sidebar.catalogue ? sidebar.catalogue[classify1] : undefined// 目录页永久链接
+      
       const author = this.$frontmatter.author || this.$themeConfig.author // 作者
       let date = (pageInfo.frontmatter.date || '').split(' ')[0] // 文章创建时间
 

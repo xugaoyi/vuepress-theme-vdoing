@@ -178,6 +178,14 @@ h1, h2, h3, h4, h5, h6
   &:hover .header-anchor
     opacity: 1
 
+
+// 没有h1标签时
+p,pre,.custom-block
+  {$contentClass}:not(.custom) > &
+      &:first-child
+        margin-top 2rem
+        
+
 h1
   font-size 1.8rem
   {$contentClass}:not(.custom) > & // 页面内容的首个h1标签隐藏

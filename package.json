@@ -11,6 +11,7 @@
   "license": "MIT",
   "devDependencies": {
     "inquirer": "^7.1.0",
+    "json2yaml": "^1.1.0",
     "moment": "^2.25.3",
     "vuepress": "^1.4.1",
     "vuepress-plugin-baidu-autopush": "^1.0.1",

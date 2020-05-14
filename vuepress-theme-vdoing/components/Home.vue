@@ -388,6 +388,7 @@ export default {
             padding-bottom 0
           p
             opacity 0.8
+            padding 0 .8rem
       .feature:hover 
         .feature-img 
           animation-play-state: running
@@ -421,6 +422,9 @@ export default {
               font-weight 500
               border-bottom none
               padding-bottom 0
+            p
+              opacity 0.8
+              padding 0 .8rem
       .docs-wrapper
         position absolute
         bottom 25px
