@@ -25,9 +25,10 @@
 4. `简洁高效`，以 Markdown 为中心的项目结构，内置自动化工具，以更少的配置完成更多的事。配合多维索引快速定位每个知识点。
 
 
+
 ## 这个主题可以做什么？
 * 案例1：[知识库兼博客站](https://xugaoyi.com/)
-* 案例2：仅知识库(暂无案例)
+* 案例2：仅知识库
 * 案例3：[仅博客站](https://xugaoyi.github.io/vdoing-demo-blog/)
 * 案例4：[文档站](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/)
 
