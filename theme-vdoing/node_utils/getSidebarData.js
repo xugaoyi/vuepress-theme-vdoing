@@ -113,7 +113,7 @@ function mapTocToSidebar(root, collapsable, prefix){
     let [order, title, type] = filename.split('.');
     order = parseInt(order, 10);
     if (isNaN(order) || order < 0) {
-      log(chalk.yellow(`warning: 该文件 "${file}" 序号出错，请填写正确的序号，序号约定请查看：https://github.com/xugaoyi/vuepress-theme-vdoing/issues/113`))
+      log(chalk.yellow(`warning: 该文件 "${file}" 序号出错，请填写正确的序号`))
       return;
     }
     if (sidebar[order]) { // 判断序号是否已经存在

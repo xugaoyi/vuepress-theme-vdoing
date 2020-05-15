@@ -20,7 +20,7 @@
     "vuepress-plugin-one-click-copy": "^1.0.2",
     "vuepress-plugin-thirdparty-search": "^1.0.2",
     "vuepress-plugin-zooming": "^1.1.7",
-    "vuepress-theme-vdoing": "file:vuepress-theme-vdoing",
+    "vuepress-theme-vdoing": "^1.0.0-beta.7",
     "yamljs": "^0.3.0"
   },
   "dependencies": {

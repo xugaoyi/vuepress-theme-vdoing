@@ -456,10 +456,12 @@ export default {
       .pagination
         margin-bottom 4rem
       .theme-vdoing-content
-        padding 0rem 2rem
-        overflow hidden
+        padding 0 2rem
+        clear:both;
         &>:first-child
-          padding-top 1rem
+          padding-top 2rem
+        &>:last-child
+          padding-bottom 2rem
 
 @keyframes heart
   from{transform:translate(0,0)}

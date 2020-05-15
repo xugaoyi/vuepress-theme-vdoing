@@ -25,7 +25,11 @@ features: # 可选的
 # postList: simple
 ---
 
- 
+
+<!-- 小熊猫 -->
+<img src="/img/panda-waving.png" class="panda no-zoom" style="width: 130px;height: 115px;opacity: 0.8;margin-bottom: -4px;padding-bottom:0;position: fixed;bottom: 0;left: 0.5rem;">
+
+ <!--
 ## 关于
 
 ### 📚Blog
@@ -39,7 +43,7 @@ features: # 可选的
 
 </br>
 
-<!--
+
 ## 特色功能
 博客部分特色功能介绍
 
@@ -76,5 +80,8 @@ features: # 可选的
 - **WeChat or QQ**: <a href="tencent://message/?uin=894072666&Site=&Menu=yesUrl" class='qq'>894072666</a>
 - **Email**: <a href="mailto:894072666@qq.com">894072666@qq.com</a>
 - **GitHub**: <https://github.com/xugaoyi>
+ 
+</br> 
+-->
 
-<img src="/img/panda-waving.png" class="panda" style="width: 250px;height: 223px;opacity: 0.85;margin-bottom: -4px;"> -->
+
