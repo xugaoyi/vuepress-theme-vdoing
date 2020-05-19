@@ -29,11 +29,11 @@
       </span>
 
       <!-- 二号位 -->
-      <span class="disabled"
+      <span class="ellipsis iconfont icon-jiantou_zuoer"
        v-if="currentPage > 3"
-       @click="goPrex()"
+       @click="goIndex(currentPage - 3)"
+       title="上三页"
       >
-        ...
       </span>
       <span class="card-box"
        v-else
@@ -52,11 +52,11 @@
       </span>
 
       <!-- 四号位 -->
-      <span class="disabled"
+      <span class="ellipsis iconfont icon-jiantou_youer"
        v-if="currentPage < (pages - 2)"
-       @click="goNext()"
+       @click="goIndex(currentPage + 3)"
+       title="下三页"
       >
-        ...
       </span>
       <span class="card-box"
        v-else
@@ -151,10 +151,11 @@ export default {
   span 
     line-height 1rem
     opacity .9
-    &:not(.disabled)
-      cursor pointer
-      &:hover
-        color $accentColor
+    cursor pointer
+    &:hover
+      color $accentColor
+    &.ellipsis
+      opacity .5
   > span
     position absolute
     top 0
