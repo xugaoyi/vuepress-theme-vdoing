@@ -74,9 +74,9 @@ export default {
 </script>
 
 <style lang='stylus'>
-  @require '../styles/wrapper.styl'
+  // @require '../styles/wrapper.styl'
   .article-list
-    @extend $wrapper
+    // @extend $wrapper
     padding 1rem 2rem
     @media (max-width: $MQNarrow)
       padding 1rem 1.5rem

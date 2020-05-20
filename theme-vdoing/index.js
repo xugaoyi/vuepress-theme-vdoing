@@ -23,7 +23,7 @@ module.exports = (options, ctx) => {
       log(chalk.blue('tip ') + chalk.green('add sidebar data. 侧边栏数据成功生成。'))
     } else {
       themeConfig.sidebar = 'auto'
-      log(chalk.yellow('warning: fail to add sidebar data. 未能添加侧边栏数据，将切换为“auto”。'))
+      log(chalk.yellow('warning: fail to add sidebar data, switch to "auto". 未能添加侧边栏数据，将切换为“auto”。'))
     }
   }
 
