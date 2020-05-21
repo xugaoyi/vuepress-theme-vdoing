@@ -87,7 +87,7 @@ module.exports = {
     },
     footer:{ // 页脚信息
       createYear: 2019, // 博客创建年份
-      copyrightInfo: 'Evan Xu | MIT License', // 博客版权信息，支持a标签
+      copyrightInfo: 'Evan Xu | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签
     }
   },
   plugins: [ // 插件
@@ -153,6 +153,14 @@ module.exports = {
     ],
     [
       'vuepress-plugin-comment', // 评论
+      // {
+      //   choosen: 'valine', 
+      //   options: {
+      //     el: '#valine-vuepress-comment',
+      //     appId: 'Your own appId',
+      //     appKey: 'Your own appKey'
+      //   }
+      // }
       {
         choosen: 'gitalk', 
         options: {

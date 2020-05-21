@@ -77,7 +77,9 @@ export default {
       _scrollTimer: null,
       _textareaEl: null,
       _recordScrollTop: null,
-      COMMENT_SELECTOR: '#vuepress-plugin-comment' // 评论区元素的选择器
+      COMMENT_SELECTOR_1: '#vuepress-plugin-comment', // 评论区元素的选择器1
+      COMMENT_SELECTOR_2: '#valine-vuepress-comment', // 评论区元素的选择器2
+      COMMENT_SELECTOR_3: '.vssue' // 评论区元素的选择器3
     }
   },
   mounted () {
@@ -88,7 +90,7 @@ export default {
       this.scrollTop = this.getScrollTop()
     }, 100))
 
-    this.handleShowCommentBut()
+    // this.handleShowCommentBut()
     window.addEventListener('load', () => {
       this.getCommentTop()
     })
@@ -129,22 +131,21 @@ export default {
 
     getCommentTop () {
       setTimeout(() => {
-        const commentEl = document.querySelector(this.COMMENT_SELECTOR)
+        let commentEl = document.querySelector(this.COMMENT_SELECTOR_1) || document.querySelector(this.COMMENT_SELECTOR_2) || document.querySelector(this.COMMENT_SELECTOR_3)
         if (commentEl) {
-          this.commentTop = commentEl.offsetTop
-        } else {
-          this.showCommentBut = false
+          this.showCommentBut = this.$frontmatter.comment !== false && this.$frontmatter.home !== true
+          this.commentTop = commentEl.offsetTop - 58
         }
       },500)
     },
 
-    handleShowCommentBut() {
-      this.showCommentBut = this.$frontmatter.comment !== false && this.$frontmatter.home !== true
-    },
+    // handleShowCommentBut() {
+    //   // this.showCommentBut = this.$frontmatter.comment !== false && this.$frontmatter.home !== true
+    // },
 
     scrollToComment() {
       window.scrollTo({ top: this.commentTop, behavior: 'smooth' })
-      this._textareaEl = document.querySelector(this.COMMENT_SELECTOR + ' textarea')
+      this._textareaEl = document.querySelector(this.COMMENT_SELECTOR_1 + ' textarea') || document.querySelector(this.COMMENT_SELECTOR_2 + ' input') || document.querySelector(this.COMMENT_SELECTOR_3 + ' textarea')
       if( this._textareaEl && this.getScrollTop() !== this._recordScrollTop) {
         document.addEventListener("scroll", this._handleListener)
       } else if (this._textareaEl && this.getScrollTop() === this._recordScrollTop) {
@@ -171,7 +172,7 @@ export default {
   },
   watch: {
     '$route.path'() {
-      this.handleShowCommentBut()
+      // this.handleShowCommentBut()
       this.getCommentTop()
     }
   }
@@ -180,8 +181,9 @@ export default {
 
 <style lang='stylus'>
   .yellowBorder
-    border: #FFE089 1px solid!important
-    box-shadow 0 0 10px #FFE089!important
+    // border: #FFE089 1px solid!important
+    border-radius 5px
+    box-shadow 0 0 15px #FFE089!important
   .buttons
     position fixed
     right 2rem
