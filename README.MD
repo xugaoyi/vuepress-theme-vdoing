@@ -49,13 +49,9 @@ npm install # or yarn install
 npm run dev # or yarn dev
 ```
 
-## 支持
-你任何形式的支持都是对我的肯定，我会坚持初心把这个项目做得更好。当然，你的支持力度越大我会越开心，哈哈😀~~
-如果你觉得这个项目对你有帮助，可以给作者打赏一杯咖啡☕
-
-| Wechat | Alipay |
-| :---: | :---: |
-| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113708.jpg" alt="Wechat QRcode" width=180>| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113707.jpg" alt="Alipay QRcode" width=180> |
+## 赞赏
+你任何形式的支持都是对我的肯定，我会坚持初心把这个项目做得更好。当然，能获得赞赏将会使我更有动力去做好这个项目😀~~
+如果你觉得这个项目对你有帮助，可以给作者打赏一杯咖啡☕ ，前往 [赞赏](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/pages/1b12ed/) 。
 
 ## 许可证
 [MIT](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE)
