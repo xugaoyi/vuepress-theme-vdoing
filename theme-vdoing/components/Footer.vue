@@ -34,14 +34,8 @@ export default {
 }
 </script>
 
-<style lang='stylus' scoped>
-$mobileSidebarWidth = $sidebarWidth * 0.82
-
-.icons
-  margin-bottom 12px
-  .iconfont
-    padding 0 10px
-    font-size 19px
+<style lang='stylus'>
+// $mobileSidebarWidth = $sidebarWidth * 0.82
 
 .footer
   padding 5rem 1.5rem 2.5rem 
@@ -50,8 +44,15 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
   box-sizing border-box
   font-size .85rem
   transition all .2s ease
+  .icons
+    margin-bottom 12px
+    .iconfont
+      padding 0 10px
+      font-size 19px
   a
-    color #666
+    color inherit
+    &:hover
+      color $accentColor
 
 @media (min-width: ($MQMobile + 1px))
   .sidebar-open .footer

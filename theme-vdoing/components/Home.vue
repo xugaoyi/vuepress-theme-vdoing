@@ -119,7 +119,7 @@
             :perPage="perPage"
             :currentPage="currentPage"
             @getCurrentPage="handlePagination"
-            v-if="Math.ceil(total / perPage) > 1"
+            v-show="Math.ceil(total / perPage) > 1"
           />
         </template>
 
@@ -182,12 +182,13 @@ export default {
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
     
+    
+  },
+  mounted() {
     if (this.$route.query.p) {
       this.currentPage = Number(this.$route.query.p)
     }
 
-  },
-  mounted() {
     if (this.isMQMobile && (!this.$route.query.p || this.$route.query.p == 1)) {
       this.init()
     }

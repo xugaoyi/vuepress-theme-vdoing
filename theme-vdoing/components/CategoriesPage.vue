@@ -17,7 +17,7 @@
           :perPage="perPage"
           :currentPage="currentPage"
           @getCurrentPage="handlePagination"
-          v-if="Math.ceil(total / perPage) > 1"
+          v-show="Math.ceil(total / perPage) > 1"
         />
       </template>
       <template #mainRight>
@@ -48,10 +48,10 @@ export default {
   },
   components: { MainLayout, PostList, Pagination, CategoriesBar },
   beforeMount() {
-    const category = this.$route.query.category
-    if (category) {
-      this.category = category
-      this.total = this.$groupPosts.categories[category].length
+    const queryCategory = this.$route.query.category
+    if (queryCategory) {
+      this.category = queryCategory
+      this.total = this.$groupPosts.categories[queryCategory].length
     } else {
       this.total = this.$sortPosts.length
     }
