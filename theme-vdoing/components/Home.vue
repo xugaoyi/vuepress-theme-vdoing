@@ -181,8 +181,6 @@ export default {
   },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
-    
-    
   },
   mounted() {
     if (this.$route.query.p) {

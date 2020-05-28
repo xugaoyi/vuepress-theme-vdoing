@@ -47,7 +47,7 @@ export default {
     }
   },
   components: { MainLayout, PostList, Pagination, TagsBar },
-  beforeMount() {
+  mounted() {
     const queryTag = this.$route.query.tag
     
     if (queryTag) {

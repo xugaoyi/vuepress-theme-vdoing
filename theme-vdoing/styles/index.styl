@@ -7,6 +7,8 @@
 @require './arrow'
 @require './wrapper'
 @require './toc'
+@require './markdown-container'
+
 
 html, body
   padding 0
@@ -56,6 +58,13 @@ a,input,button
   padding-bottom .9rem
   .theme-vdoing-wrapper
     margin 0 auto
+
+// 默认的搜索框样式重置
+body .search-box
+  input
+    background-color transparent
+    color var(--textColor)
+    border 1px solid var(--borderColor, #ccc)
 
 
 

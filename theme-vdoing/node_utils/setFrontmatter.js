@@ -109,7 +109,7 @@ function getCategories(file, categoryText) {
   let categories = []
 
   if (file.filePath.indexOf('_posts') === -1) { // 不在_posts文件夹
-    const filePathArr = file.filePath.split(path.sep)
+    const filePathArr = file.filePath.split(path.sep) // path.sep用于兼容不同系统下的路径斜杠
     const c = filePathArr[filePathArr.length - 3].split('.').pop() // 获取分类1
     if (c !== 'docs') {
       categories.push(c)

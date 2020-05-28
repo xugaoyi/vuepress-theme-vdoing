@@ -50,8 +50,12 @@ npm run dev # or yarn dev
 ```
 
 ## 赞赏
+**愿这款知识管理主题能够助你变得强大。**
 你任何形式的支持都是对我的肯定，我会坚持初心把这个项目做得更好。当然，能获得赞赏将会使我更有动力去做好这个项目😀~~
 如果你觉得这个项目对你有帮助，可以给作者打赏一杯咖啡☕ ，前往 [赞赏](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/pages/1b12ed/) 。
+
+## 致谢
+感谢为这个项目贡献过代码的朋友们 → [PR](https://github.com/xugaoyi/vuepress-theme-vdoing/pulls?q=is%3Apr+is%3Aclosed)
 
 ## 许可证
 [MIT](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE)

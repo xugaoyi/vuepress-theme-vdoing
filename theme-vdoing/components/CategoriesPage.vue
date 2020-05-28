@@ -47,7 +47,7 @@ export default {
     }
   },
   components: { MainLayout, PostList, Pagination, CategoriesBar },
-  beforeMount() {
+  mounted() {
     const queryCategory = this.$route.query.category
     if (queryCategory) {
       this.category = queryCategory
@@ -58,8 +58,7 @@ export default {
     if (this.$route.query.p) {
       this.currentPage = Number(this.$route.query.p)
     }
-  },
-  mounted() {
+
     // 增强用户体验
     const cateEl = document.querySelector('.categories')
     if (cateEl) {
