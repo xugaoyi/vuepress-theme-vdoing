@@ -56,9 +56,9 @@ module.exports = {
     //   moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
     // },
     
-    author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, href: String}
+    author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
       name: 'Evan Xu', // 必需
-      href: 'https://github.com/xugaoyi' // 可选的
+      link: 'https://github.com/xugaoyi' // 可选的
     },
     blogger:{ // 博主信息，显示在首页侧边栏
       avatar: 'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg',
