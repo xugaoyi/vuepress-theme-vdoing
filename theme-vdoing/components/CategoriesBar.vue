@@ -14,7 +14,7 @@
         {{item.key}}
         <span>({{item.length}})</span>
       </router-link>
-      <router-link to="/categories/" v-if="length !== 'all'">
+      <router-link to="/categories/" v-if="length !== 'all' && length < categoriesData.length">
         更多...
       </router-link>
     </div>

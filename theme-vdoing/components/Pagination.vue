@@ -31,8 +31,8 @@
       <!-- 二号位 -->
       <span class="ellipsis iconfont icon-jiantou_zuoer"
        v-show="currentPage > 3"
-       @click="goIndex(currentPage - 3)"
-       title="上三页"
+       @click="goIndex(currentPage - 2)"
+       title="上两页"
       />
         <!--这里没有使用v-if的原因是因为部署版本在当前页大于3时刷新页面出现了一些bug-->
       <span class="card-box"
@@ -52,8 +52,8 @@
       <!-- 四号位 -->
       <span class="ellipsis iconfont icon-jiantou_youer"
        v-show="currentPage < (pages - 2)"
-       @click="goIndex(currentPage + 3)"
-       title="下三页"
+       @click="goIndex(currentPage + 2)"
+       title="下两页"
       />
       <span class="card-box"
        v-show="currentPage >= (pages - 2)"

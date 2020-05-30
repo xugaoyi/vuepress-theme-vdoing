@@ -10,7 +10,7 @@ module.exports = {
     ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc'}],// 百度统计博主验证
     ['meta', { name: 'theme-color', content: '#11a8cd'}], // 移动浏览器主题颜色
 
-    // 不蒜子访问量统计
+    // 不蒜子访问量统计 (主题暂未使用到)
     // ['script', { src: '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async: 'async'}]
 
   ],

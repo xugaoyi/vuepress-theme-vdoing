@@ -90,7 +90,6 @@ export default {
       this.scrollTop = this.getScrollTop()
     }, 100))
 
-    // this.handleShowCommentBut()
     window.addEventListener('load', () => {
       this.getCommentTop()
     })
@@ -139,9 +138,6 @@ export default {
       },500)
     },
 
-    // handleShowCommentBut() {
-    //   // this.showCommentBut = this.$frontmatter.comment !== false && this.$frontmatter.home !== true
-    // },
 
     scrollToComment() {
       window.scrollTo({ top: this.commentTop, behavior: 'smooth' })
@@ -172,7 +168,7 @@ export default {
   },
   watch: {
     '$route.path'() {
-      // this.handleShowCommentBut()
+      this.showCommentBut = false
       this.getCommentTop()
     }
   }
