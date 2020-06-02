@@ -49,6 +49,8 @@ npm install # or yarn install
 # develop
 npm run dev # or yarn dev
 ```
+## 更新日志
+[更新日志](https://github.com/xugaoyi/vuepress-theme-vdoing/releases)
 
 ## 赞赏
 **愿这款知识管理主题能够助你变得强大。**
