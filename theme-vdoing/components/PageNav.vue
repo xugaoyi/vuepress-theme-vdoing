@@ -23,7 +23,7 @@
         @click.native="hideTooltip()"
         :data-tooltip="next.title || next.path"
       />
-      <div class="tooltip" ref="tooltip" v-show="isShowTooltip">提高学习效率的策略</div>
+      <div class="tooltip" ref="tooltip" v-show="isShowTooltip"></div>
     </div>
     
     <!-- 底部翻页按钮 -->
@@ -214,6 +214,7 @@ function flatten (items, res) {
     border-radius 3px
     position fixed
     max-width 200px
+    z-index 99
   .page-nav-centre-prev
     left 0
     &:before
