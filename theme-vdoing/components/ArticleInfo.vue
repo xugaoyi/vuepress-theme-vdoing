@@ -18,7 +18,7 @@
       </ul>
       <div class="info">
         <div class="author iconfont icon-touxiang" title="作者" v-if="articleInfo.author">
-          <a :href="articleInfo.author.href || articleInfo.author.link" v-if="articleInfo.author.href || articleInfo.author.link" target="_blank" class="beLink" title="作者">{{articleInfo.author.name}}</a>
+          <a :href="articleInfo.author.href || articleInfo.author.link" v-if="articleInfo.author.href || articleInfo.author.link && typeof(articleInfo.author.link) === 'string'" target="_blank" class="beLink" title="作者">{{articleInfo.author.name}}</a>
           <a v-else href="javascript:;">{{articleInfo.author.name || articleInfo.author}}</a>
         </div>
         <div class="date iconfont icon-riqi" title="创建时间" v-if="articleInfo.date">
