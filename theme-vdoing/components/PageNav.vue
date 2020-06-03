@@ -8,10 +8,12 @@
         :to="prev.path"
         @mouseenter.native="showTooltip($event)"
         @mousemove.native="showTooltip($event)"
-        @mouseleave.native="hideTooltip()"
-        @click.native="hideTooltip()"
-        :data-tooltip="prev.title || prev.path"
-      />
+      >
+        <div class="tooltip">
+          {{ prev.title || prev.path }}
+        </div>
+      </router-link>
+
 
       <router-link
         class="page-nav-centre page-nav-centre-next"
@@ -19,11 +21,11 @@
         :to="next.path"
         @mouseenter.native="showTooltip($event)"
         @mousemove.native="showTooltip($event)"
-        @mouseleave.native="hideTooltip()"
-        @click.native="hideTooltip()"
-        :data-tooltip="next.title || next.path"
-      />
-      <div class="tooltip" ref="tooltip" v-show="isShowTooltip"></div>
+      >
+        <div class="tooltip">
+          {{ next.title || next.path }}
+        </div>
+      </router-link>
     </div>
     
     <!-- 底部翻页按钮 -->
@@ -48,11 +50,6 @@ import isString from 'lodash/isString'
 import isNil from 'lodash/isNil'
 
 export default {
-  data() {
-    return {
-      isShowTooltip: false
-    }
-  },
   name: 'PageNav',
   props: ['sidebarItems'],
   computed: {
@@ -66,18 +63,15 @@ export default {
   },
   methods: {
     showTooltip(e) {
-      this.isShowTooltip = true
-      const tooltipEle = this.$refs.tooltip
-
-      const tooltipText = e.target.dataset.tooltip
-      if (tooltipEle.textContent !== tooltipText) {
-        tooltipEle.textContent = tooltipText
-      }
 
       const clientW = document.body.clientWidth
       const X = e.clientX
-      const tooltipEleStyle = tooltipEle.style
+      const tooltipEle = e.target.querySelector('.tooltip')
+      if (!tooltipEle) {
+        return
+      }
 
+      const tooltipEleStyle = tooltipEle.style
       if (X < clientW/2) {
         tooltipEleStyle.right = null
         tooltipEleStyle.left = X + 10 + 'px'
@@ -86,10 +80,6 @@ export default {
         tooltipEleStyle.right = clientW - X + 10 + 'px'
       }
       tooltipEleStyle.top = e.clientY + 10 + 'px'
-    },
-
-    hideTooltip() {
-      this.isShowTooltip = false
     }
   }
 }
@@ -186,18 +176,23 @@ function flatten (items, res) {
     margin-top -35px
     outline 0
     transition all .2s
-    border-radius 2px
+    border-radius 3px
+    opacity .55
+    z-index 99
     @media (max-width: 1340px)
       width 50px
     @media (max-width: 960px) 
       display none
     &:hover
       background rgba(153, 153, 153, .15)
+      opacity 1
+      .tooltip
+        display block
     &:before
       content: ""
       display block
-      width 12px
-      height 12px
+      width 10px
+      height 10px
       border-top 2px solid #999
       border-right 2px solid #999
       position absolute
@@ -206,15 +201,17 @@ function flatten (items, res) {
       bottom 0
       left 0
       margin auto
-  .tooltip
-    background rgba(0, 0, 0, .5)
-    color #fff
-    padding 4px 8px
-    font-size 13px
-    border-radius 3px
-    position fixed
-    max-width 200px
-    z-index 99
+    .tooltip
+      display none
+      background rgba(0, 0, 0, .5)
+      color #fff
+      padding 4px 8px
+      font-size 13px
+      border-radius 3px
+      position fixed
+      max-width 200px
+      z-index 99
+
   .page-nav-centre-prev
     left 0
     &:before
@@ -225,10 +222,8 @@ function flatten (items, res) {
       transform rotate(45deg)
 
 .sidebar-open .page-nav-centre-wrap .page-nav-centre-prev
-  -webkit-transform translateX($sidebarWidth)
-  transform translateX($sidebarWidth)
+  left $sidebarWidth
 .no-sidebar .page-nav-centre-wrap .page-nav-centre-prev
-  -webkit-transform translateX(0)
-  transform translateX(0)
+  left 0
 
 </style>

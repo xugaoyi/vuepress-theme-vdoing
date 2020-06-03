@@ -6,7 +6,8 @@
     "build": "vuepress build docs",
     "deploy": "bash deploy.sh",
     "editFm": "node utils/editFrontmatter.js",
-    "baiduPush": "node utils/baiduPush.js https://xugaoyi.com && bash baiduPush.sh"
+    "baiduPush": "node utils/baiduPush.js https://xugaoyi.com && bash baiduPush.sh",
+    "publish": "cd theme-vdoing && npm publish && cd ../ && npm uninstall vuepress-theme-vdoing && npm i vuepress-theme-vdoing -D"
   },
   "license": "MIT",
   "devDependencies": {
@@ -20,7 +21,7 @@
     "vuepress-plugin-one-click-copy": "^1.0.2",
     "vuepress-plugin-thirdparty-search": "^1.0.2",
     "vuepress-plugin-zooming": "^1.1.7",
-    "vuepress-theme-vdoing": "^1.1.3",
+    "vuepress-theme-vdoing": "^1.1.6",
     "yamljs": "^0.3.0"
   },
   "dependencies": {
