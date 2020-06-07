@@ -158,6 +158,7 @@ export default {
           color $accentColor
       h2
         margin .5rem 0
+        font-size 1.4rem
         border none
         a
           @media (max-width: $MQMobile) 
@@ -184,6 +185,7 @@ export default {
       overflow hidden
       .excerpt
         margin-bottom .3rem
+        font-size 0.92rem
         h1,h2,h3
           display none
         img

@@ -60,7 +60,7 @@ export default {
   methods: {
     getTagStyle() {
       const r = Math.random()
-      return r > 0.7 ? 'font-size:1.2rem;opacity: 0.8;' : r < 0.2 ? 'font-size:1rem;opacity: 0.7;' : ''
+      return r > 0.7 ? 'opacity: 0.7;' : r < 0.2 ? 'opacity: 0.6;' : ''
     }
   }
 }
@@ -69,30 +69,35 @@ export default {
 <style lang='stylus'>
 .tags-wrapper 
   .title
-    color $accentColor
+    color var(--textColor)
+    opacity 0.9
     font-size 1.2rem
   .tags
     text-align justify
     padding .6rem .3rem .3rem .3rem
     margin 0 -0.3rem -0.3rem -0.3rem
     a
-      color var(--textColor)
-      opacity .6
-      font-size .95rem
+      opacity .5
       display inline-block
       padding .2rem .4rem
       transition all .4s
+      background-color var(--textColor)
+      color var(--mainBg)
+      border-radius 3px
+      margin 0 .3rem .5rem 0
+      min-width 2rem
+      height 1rem
+      line-height 1rem
+      font-size .8rem
+      text-align center
       @media (max-width: $MQMobile) 
         font-weight 400
       &:hover
-        color $accentColor
         opacity 1
-        transform scale(1.2)
       &.active
         background $accentColor
         color var(--mainBg)
-        // padding .2rem .5rem
-        border-radius 3px
+        transform scale(1.1)
         opacity 1
         &:hover
           text-decoration none

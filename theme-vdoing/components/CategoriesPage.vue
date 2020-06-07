@@ -59,12 +59,12 @@ export default {
       this.currentPage = Number(this.$route.query.p)
     }
 
-    // 增强用户体验
+    // 滚动条定位到当前分类（增强用户体验）
     const cateEl = document.querySelector('.categories')
     if (cateEl) {
-      const activeEl = cateEl.querySelector('.active')
-      const topVal = activeEl ? activeEl.offsetTop : 0
       setTimeout(() => {
+        const activeEl = cateEl.querySelector('.active')
+        const topVal = activeEl ? activeEl.offsetTop : 0
         cateEl.scrollTo({ top: topVal, behavior: 'smooth' })
       }, 300)
     }
@@ -128,5 +128,5 @@ export default {
       @media (max-width: $MQMobile)
         display block
       .categories
-        max-height 11.5rem
+        max-height 12.3rem
 </style>

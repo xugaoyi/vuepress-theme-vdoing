@@ -312,7 +312,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .home-wrapper
   .banner
     width 100%
@@ -337,13 +337,13 @@ export default {
           margin 2rem auto 1.5rem
         h1 
           margin 0
-          font-size 3.5rem
+          font-size 3.2rem
         .description, .action 
           margin 1.5rem auto
 
         .description 
           max-width 40rem
-          font-size 1.2rem
+          font-size 1.1rem
           line-height 1.3
           opacity .9
         .action-button 
@@ -376,8 +376,8 @@ export default {
           // color lighten($bannerTextColor,10%)
           color inherit
           .feature-img
-            width 11rem
-            height 11rem
+            width 10rem
+            height 10rem
             animation heart 1.2s ease-in-out 0s infinite alternate
             animation-play-state paused
           h2 
@@ -456,7 +456,7 @@ export default {
         margin-bottom 4rem
       .theme-vdoing-content
         padding 0 2rem
-        clear:both;
+        overflow hidden
         &>:first-child
           padding-top 2rem
         &>:last-child

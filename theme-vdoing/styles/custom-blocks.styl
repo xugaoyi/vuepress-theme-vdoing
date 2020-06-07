@@ -30,4 +30,19 @@
     a
       color var(--textColor)
 
-
+// 深色模式适配
+.theme-mode-dark
+  .custom-block
+    &.warning
+      background-color rgba(255, 247, 208, .2) 
+      color darken(#ffe564, 35%)
+      .custom-block-title
+        color darken(#ffe564, 15%)
+    &.tip
+      background-color rgba(243, 245, 247, .2)
+      color darken(#42b983, 0%)
+    &.danger
+      background-color rgba(255, 230, 230, .4)
+      color darken(red, 50%)
+      a
+        color $accentColor

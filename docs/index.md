@@ -22,14 +22,14 @@ features: # 可选的
     imgUrl: /img/other.png
 
 # 文章列表显示方式: detailed 默认，显示详细版文章列表（包括作者、分类、标签、摘要、分页等）| simple => 显示简约版文章列表（仅标题和日期）| none 不显示文章列表
-# postList: simple
+# postList: detailed
 ---
 
 
 <!-- 小熊猫 -->
 <img src="/img/panda-waving.png" class="panda no-zoom" style="width: 130px;height: 115px;opacity: 0.8;margin-bottom: -4px;padding-bottom:0;position: fixed;bottom: 0;left: 0.5rem;">
 
- <!--
+<!-- 
 ## 关于
 
 ### 📚Blog
@@ -81,7 +81,7 @@ features: # 可选的
 - **Email**: <a href="mailto:894072666@qq.com">894072666@qq.com</a>
 - **GitHub**: <https://github.com/xugaoyi>
  
-</br> 
--->
+</br>  -->
+
 
 

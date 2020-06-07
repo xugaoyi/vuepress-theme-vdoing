@@ -84,6 +84,7 @@ import storage from 'good-storage' // 本地存储
 import _ from 'lodash'
 
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
+const NAVBAR_HEIGHT = 58 // 导航栏高度
 
 export default {
   components: { Home, Navbar, Page, CategoriesPage, TagsPage, ArchivesPage, Sidebar, Footer, Buttons, BodyBgImg },
@@ -195,7 +196,7 @@ export default {
     window.addEventListener('scroll', _.throttle(() => {
       if(!this.isSidebarOpen) { // 侧边栏关闭时
         p = this.getScrollTop()
-        if(t < p) { // 向下滚动
+        if(t < p && p > NAVBAR_HEIGHT) { // 向下滚动
           this.hideNavbar = true
         } else { // 向上
           this.hideNavbar = false

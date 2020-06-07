@@ -22,7 +22,7 @@
       @click="showModeBox = true"
     >
       <transition name="mode">
-        <ul class="select-box" ref="modeBox" v-show="showModeBox" @click.stop>
+        <ul class="select-box" ref="modeBox" v-show="showModeBox" @click.stop @touchstart.stop>
           <li
           v-for="item in modeList"
           :key="item.KEY"
@@ -106,6 +106,22 @@ export default {
         }
       }, 100))
     }
+
+    
+    // 移动端对类似:hover效果的处理
+    const buttons = document.querySelectorAll('.buttons .button')
+    for (let i = 0; i < buttons.length; i++) {
+      const button = buttons[i]
+      button.addEventListener('touchstart', function(){
+        button.classList.add('hover')
+      })
+      button.addEventListener('touchend', function(){
+        setTimeout(() => {
+          button.classList.remove('hover')
+        }, 150)
+      })
+    }
+    
   },
   computed: {
     showToTop () {
@@ -193,17 +209,23 @@ export default {
       height 2.2rem
       line-height 2.2rem
       border-radius 50%
-      box-shadow 0 2px 6px rgba(0,0,0,.25)
+      box-shadow 0 2px 6px rgba(0,0,0,.15)
       margin-top .9rem
       text-align center
       cursor pointer
       transition all .5s
       background var(--blurBg)
-      &:hover
+      &.hover
         background $accentColor
         box-shadow 0 0 15px $accentColor
         &:before
           color #fff
+      @media (any-hover: hover)
+        &:hover
+          background $accentColor
+          box-shadow 0 0 15px $accentColor
+          &:before
+            color #fff
       .select-box
         margin 0
         padding .8rem 0
@@ -214,7 +236,7 @@ export default {
         border 1px solid var(--borderColor)
         width 120px
         border-radius 6px
-        box-shadow 0 0 30px lighten($accentColor, 40%)
+        box-shadow 0 0 15px rgba(255,255,255,.2)
         li 
           list-style none
           line-height 2rem
