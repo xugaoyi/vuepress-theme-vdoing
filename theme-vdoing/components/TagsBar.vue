@@ -40,6 +40,7 @@ export default {
   },
   data() {
     return {
+      tagBgColor: ['#11a8cd', '#F8B26A', '#67CC86', '#E15B64', '#F47E60', '#849B87'],
       tagStyleList: []
     }
   },
@@ -59,8 +60,8 @@ export default {
   },
   methods: {
     getTagStyle() {
-      const r = Math.random()
-      return r > 0.7 ? 'opacity: 0.7;' : r < 0.2 ? 'opacity: 0.6;' : ''
+      const tagBgColor = this.tagBgColor
+      return `background: ${tagBgColor[Math.floor(Math.random() * tagBgColor.length)]};}`
     }
   }
 }
@@ -74,10 +75,10 @@ export default {
     font-size 1.2rem
   .tags
     text-align justify
-    padding .6rem .3rem .3rem .3rem
-    margin 0 -0.3rem -0.3rem -0.3rem
+    padding .6rem .5rem .5rem .5rem
+    margin 0 -0.5rem -0.5rem -0.5rem
     a
-      opacity .5
+      opacity .7
       display inline-block
       padding .2rem .4rem
       transition all .4s
@@ -95,10 +96,10 @@ export default {
       &:hover
         opacity 1
       &.active
-        background $accentColor
-        color var(--mainBg)
-        transform scale(1.1)
+        box-shadow 0 0 5px rgba(0,0,0,0.2)
+        transform scale(1.22)
         opacity 1
+        text-shadow 1px 1px 0 rgba(0,0,0,0.2)
         &:hover
           text-decoration none
 </style>
