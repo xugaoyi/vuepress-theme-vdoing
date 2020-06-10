@@ -29,7 +29,7 @@
       </span>
 
       <!-- 二号位 -->
-      <span class="ellipsis iconfont icon-jiantou_zuoer"
+      <span class="ellipsis ell-two"
        v-show="currentPage > 3"
        @click="goIndex(currentPage - 2)"
        title="上两页"
@@ -50,7 +50,7 @@
       </span>
 
       <!-- 四号位 -->
-      <span class="ellipsis iconfont icon-jiantou_youer"
+      <span class="ellipsis ell-four"
        v-show="currentPage < (pages - 2)"
        @click="goIndex(currentPage + 2)"
        title="下两页"
@@ -153,6 +153,19 @@ export default {
       color $accentColor
     &.ellipsis
       opacity .5
+      &::before
+        content '...'
+        font-size 1.2rem
+      @media (any-hover: hover)
+        &.ell-two
+          &:hover
+            &::before
+              content '«'
+        &.ell-four
+          &:hover
+            &::before
+              content '»'
+
   > span
     position absolute
     top 0

@@ -48,7 +48,7 @@ export default {
     margin-bottom 12px
     .iconfont
       padding 0 10px
-      font-size 19px
+      font-size 1.3rem
   a
     color inherit
     &:hover

@@ -75,7 +75,7 @@ export default {
     font-size 1.2rem
   .tags
     text-align justify
-    padding .6rem .5rem .5rem .5rem
+    padding .8rem .5rem .5rem .5rem
     margin 0 -0.5rem -0.5rem -0.5rem
     a
       opacity .7
@@ -96,7 +96,7 @@ export default {
       &:hover
         opacity 1
       &.active
-        box-shadow 0 0 5px rgba(0,0,0,0.2)
+        box-shadow 0 0 6px rgba(0,0,0,0.15)
         transform scale(1.22)
         opacity 1
         text-shadow 1px 1px 0 rgba(0,0,0,0.2)
