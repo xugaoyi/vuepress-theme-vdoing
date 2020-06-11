@@ -19,7 +19,7 @@
   display flex
   .main-left
     flex 1
-    width 100%
+    width 72%
     .theme-vdoing-content.card-box
       padding 1rem 1.5rem
       margin-bottom .9rem
@@ -42,6 +42,7 @@
     padding 0
     display block
     .main-left
+      width 100%
       .post-list
         margin-bottom 3rem
         .post
