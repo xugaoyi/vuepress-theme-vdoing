@@ -266,7 +266,12 @@ export function zero(d){
 
 // 获取时间的时间戳
 export function getTimeNum (post) {
-  return new Date(post.frontmatter.date || post.lastUpdated).getTime()
+  let dateStr = post.frontmatter.date || post.lastUpdated
+  let date = new Date(dateStr)
+  if (date == "Invalid Date") { // 修复new Date()在Safari下出现Invalid Date的问题
+    date = new Date(dateStr.replace(/-/g, '/'))
+  }
+  return date.getTime()
 }
 
 // 比对时间
