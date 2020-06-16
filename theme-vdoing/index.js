@@ -80,31 +80,40 @@ module.exports = (options, ctx) => {
       ['container', {
         type: 'tip',
         defaultTitle: {
-          '/': 'TIP',
-          '/zh/': '提示'
+          '/': '提示',
+          '/en/': 'TIP'
         }
       }],
       ['container', {
         type: 'warning',
         defaultTitle: {
-          '/': 'WARNING',
-          '/zh/': '注意'
+          '/': '注意',
+          '/en/': 'WARNING'
         }
       }],
       ['container', {
         type: 'danger',
         defaultTitle: {
-          '/': 'WARNING',
-          '/zh/': '警告'
+          '/': '警告',
+          '/en/': 'WARNING'
         }
+      }],
+      ['container', {
+        type: 'right',
+        defaultTitle: ''
+      }],
+      ['container', {
+        type: 'theorem',
+        before: info => `<div class="custom-block theorem"><p class="title">${info}</p>`,
+        after: '</div>'
       }],
       ['container', {
         type: 'details',
         before: info => `<details class="custom-block details">${info ? `<summary>${info}</summary>` : ''}\n`,
         after: () => '</details>\n',
         defaultTitle: {
-          '/': 'DETAILS',
-          '/zh/': '点击查看'
+          '/': '点击查看',
+          '/en/': 'DETAILS'
         }
       }],
       // 卡片列表
