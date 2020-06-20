@@ -148,6 +148,10 @@ export default {
       margin-top 1rem
       opacity .5
 
+.theme-mode-dark .archives-page .theme-vdoing-wrapper li a:hover,
+.theme-mode-read .archives-page .theme-vdoing-wrapper li a:hover
+  background var(--customBlockBg)
+
 
 .hide-navbar
   .archives-page

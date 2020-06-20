@@ -77,7 +77,7 @@ export default {
         color $accentColor
       &:hover
         color $accentColor
-        padding-left .4rem
+        padding-left .6rem
         span 
           opacity .8
       span 

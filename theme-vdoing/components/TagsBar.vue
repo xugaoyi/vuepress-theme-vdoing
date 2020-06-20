@@ -78,7 +78,7 @@ export default {
     padding .8rem .5rem .5rem .5rem
     margin 0 -0.5rem -0.5rem -0.5rem
     a
-      opacity .7
+      opacity .8
       display inline-block
       padding .2rem .4rem
       transition all .4s
@@ -95,6 +95,7 @@ export default {
         font-weight 400
       &:hover
         opacity 1
+        transform scale(1.1)
       &.active
         box-shadow 0 0 6px rgba(0,0,0,0.15)
         transform scale(1.22)
