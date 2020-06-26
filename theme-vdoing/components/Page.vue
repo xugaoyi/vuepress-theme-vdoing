@@ -84,9 +84,10 @@ export default {
 .page
   padding-bottom 2rem
   display block
-  padding-top ($navbarHeight)
-  @media (min-width $contentWidth + 80)
-    padding-top ($navbarHeight + 2rem)
+  @media (max-width  $MQMobile)
+    padding-top ($navbarHeight)
+  @media (min-width  $MQMobile)
+    padding-top ($navbarHeight + 1.5rem)
   >*
     @extend $vdoing-wrapper
 
@@ -102,15 +103,15 @@ export default {
 /**
  * 右侧菜单的自适应
  */
-@media (min-width: 720px) and (max-width: 1519px)
+@media (min-width: 720px) and (max-width: 1279px)
   .have-rightmenu
     .page 
-      padding-right 0!important
+      padding-right .8rem!important
 
-@media (max-width: 1519px)
+@media (max-width: 1279px)
   .right-menu-wrapper
     display none
-@media (min-width: 1520px)
+@media (min-width: 1280px)
   .sidebar .sidebar-sub-headers
     display none
 

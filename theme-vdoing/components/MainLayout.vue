@@ -11,7 +11,7 @@
 </template>
 <style lang="stylus">
 .main-wrapper
-  margin 2rem auto 0 auto
+  margin 1.5rem auto 0 auto
   max-width $homePageWidth
   padding 0 .9rem
   box-sizing border-box

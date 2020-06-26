@@ -106,7 +106,7 @@ export default {
     @extend $vdoing-wrapper
     position relative
     @media (min-width $contentWidth + 80)
-      margin-top 2rem!important
+      margin-top 1.5rem!important
     ul,li
       margin 0
       padding 0

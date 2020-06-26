@@ -17,7 +17,7 @@ $mobileSidebarWidth = $sidebarWidth * 0.9
   .theme-container 
     &.sidebar-open
       .page
-        padding-left $mobileSidebarWidth!important
+        padding-left ($mobileSidebarWidth + .8rem)!important
 
 // wide mobile
 @media (max-width: $MQMobile)
@@ -59,10 +59,11 @@ $mobileSidebarWidth = $sidebarWidth * 0.9
       .sidebar-button
         left $sidebarWidth
       .page
-        padding-left $sidebarWidth
+        padding-left ($sidebarWidth + .8rem)
+        padding-right .8rem
     &.have-rightmenu
       .page
-        padding-right $rightMenuWidth
+        padding-right ($rightMenuWidth + .8rem)
     &.no-sidebar
       .page
         padding-left 0!important

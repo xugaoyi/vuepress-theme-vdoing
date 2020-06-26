@@ -31,7 +31,7 @@
     display inline-block
     position fixed
     left 0
-    top $navbarHeight
+    top ($navbarHeight + 1rem)
     text-align center
     line-height 44px
     margin 5px 8px
