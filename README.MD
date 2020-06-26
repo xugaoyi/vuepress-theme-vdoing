@@ -59,7 +59,7 @@ npm run dev # or yarn dev
 如果你觉得这个项目对你有帮助，可以给作者打赏一杯咖啡☕ ，前往 [赞赏](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/pages/1b12ed/) 。
 
 ## 致谢
-感谢为这个项目贡献过代码的朋友们 → [PR](https://github.com/xugaoyi/vuepress-theme-vdoing/pulls?q=is%3Apr+is%3Aclosed)
+感谢为这个项目贡献过代码的朋友们 → [Contributors](https://github.com/xugaoyi/vuepress-theme-vdoing/graphs/contributors)
 
 ## 许可证
 [MIT](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE)

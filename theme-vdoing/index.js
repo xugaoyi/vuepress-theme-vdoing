@@ -116,6 +116,14 @@ module.exports = (options, ctx) => {
           '/en/': 'DETAILS'
         }
       }],
+
+      // 内容居中容器
+      ['container', {
+        type: 'center',
+        before: info => `<div align="center" style="text-align: center;">`,
+        after: () => '</div>'
+      }],
+
       // 卡片列表
       [
         'container',
