@@ -1,7 +1,7 @@
 <template>
   <div :class="['article-list',{'no-article-list': isShowArticle}]">
     <div class="article-title">
-      <router-link :to="moreArticle || '/archives/'" class="iconfont icon-shizhong">最近更新</router-link>
+      <router-link :to="moreArticle || '/archives/'" class="iconfont icon-bi">最近更新</router-link>
     </div>
     <div class="article-wrapper">
       <dl v-for="(item, index) in topPublishPosts" :key="index">
@@ -91,7 +91,7 @@ export default {
         color var(--textColor)
         opacity 0.9
         &:before
-          margin-right .3rem
+          margin-right .4rem
           font-size 1.1rem
     .article-wrapper
       overflow hidden
