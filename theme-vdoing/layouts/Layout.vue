@@ -186,7 +186,17 @@ export default {
     this.setBodyClass()
   },
   mounted () {
-    this.showSidebar = true // 解决移动端初始化页面时侧边栏闪现的问题
+
+    // 初始化页面时链接锚点无法跳转到指定id的解决方案
+    const hash = document.location.hash;
+    if (hash.length > 1) {
+      const id = decodeURIComponent(hash.substring(1))
+      const element = document.getElementById(id)
+      if (element) element.scrollIntoView()
+    }
+
+    // 解决移动端初始化页面时侧边栏闪现的问题
+    this.showSidebar = true 
     this.$router.afterEach(() => {
       this.isSidebarOpenOfclientWidth()
     })
