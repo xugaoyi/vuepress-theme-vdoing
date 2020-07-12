@@ -64,6 +64,11 @@ npm run dev # or yarn dev
 ## 致谢
 感谢为这个项目贡献过代码的朋友们 → [Contributors](https://github.com/xugaoyi/vuepress-theme-vdoing/graphs/contributors)
 
+## Vdoing官方交流群
+群号：694387113
+
+<img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200712122307.jpg" alt="npm" class="no-zoom" style="width:300px;">
+
 ## 许可证
 [MIT](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE)
 
