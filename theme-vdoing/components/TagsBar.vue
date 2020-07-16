@@ -61,7 +61,8 @@ export default {
   methods: {
     getTagStyle() {
       const tagBgColor = this.tagBgColor
-      return `background: ${tagBgColor[Math.floor(Math.random() * tagBgColor.length)]};}`
+      const randomColor = tagBgColor[Math.floor(Math.random() * tagBgColor.length)]
+      return `background: ${randomColor};--randomColor:${randomColor};`
     }
   }
 }
@@ -97,10 +98,9 @@ export default {
         opacity 1
         transform scale(1.1)
       &.active
-        box-shadow 0 0 6px rgba(0,0,0,0.15)
+        box-shadow: 0 5px 10px -5px var(--randomColor, rgba(0,0,0,0.15));
         transform scale(1.22)
         opacity 1
-        text-shadow 1px 1px 0 rgba(0,0,0,0.2)
         &:hover
           text-decoration none
 </style>

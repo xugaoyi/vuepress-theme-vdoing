@@ -66,7 +66,7 @@ export default {
       overflow-y auto
     .right-menu-item
       padding 4px 15px
-      border-left .2rem solid var(--borderColor)
+      border-left .15rem solid var(--borderColor)
       &.level3
         padding-left 28px
       &.active

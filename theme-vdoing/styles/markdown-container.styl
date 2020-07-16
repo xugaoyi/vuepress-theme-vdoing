@@ -1,5 +1,20 @@
 // markdown容器样式
 
+// 居中容器
+.center-container
+  text-align: center
+
+h1, h2, h3, h4, h5, h6
+  .center-container > &
+    margin-top (0.5rem - $navbarHeight)
+    padding-top ($navbarHeight + 1rem)
+    margin-bottom 0
+    a.header-anchor
+      float none
+      padding-right: 0
+      margin-left: -.9rem
+  
+
 // 普通卡片列表
 .cardListContainer
   margin .7rem 0
@@ -18,10 +33,13 @@
       color var(--textColor)
       display flex 
       box-shadow 1px 1px 2px 0 rgba(0,0,0,.06)
+      transition all .4s
       &:hover
         text-decoration none
+        box-shadow: 0 10px 20px -10px var(--randomColor, rgba(0,0,0,0.15));
+        transform: translateY(-5px)
         img 
-          transform rotate(8deg) scale(1.1, 1.1)
+          // transform rotate(8deg) scale(1.1, 1.1)
           box-shadow 3px 2px 7px rgba(0, 0, 0, 0.15)
         div p
           text-shadow 3px 2px 5px rgba(0, 0, 0, 0.15)

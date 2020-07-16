@@ -120,7 +120,7 @@ module.exports = (options, ctx) => {
       // 内容居中容器
       ['container', {
         type: 'center',
-        before: info => `<div align="center" style="text-align: center;">`,
+        before: info => `<div class="center-container">`,
         after: () => '</div>'
       }],
 
@@ -218,7 +218,7 @@ function getCardListDOM(dataList, row) {
   dataList.forEach(item => {
     listDOM += `
       <${item.link ? 'a href="' + item.link +'" target="_blank"' : 'span' } class="card-item ${ row ? 'row-' + row : '' }"
-         style="${ item.bgColor ? 'background-color:' + item.bgColor + ';': '' }${ item.textColor ? 'color:' + item.textColor + ';': '' }"
+         style="${ item.bgColor ? 'background-color:' + item.bgColor + ';--randomColor:'+ item.bgColor +';': '--randomColor: var(--bodyBg);' }${ item.textColor ? 'color:' + item.textColor + ';': '' }"
       >
         ${ item.avatar ? '<img src="'+ item.avatar +'" class="no-zoom">' : '' }
         <div>
