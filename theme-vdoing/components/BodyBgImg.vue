@@ -1,5 +1,5 @@
 <template>
-  <div class="body-bg" :style="`background: url(${bgImg}) center center / cover no-repeat`"></div>
+  <div class="body-bg" :style="`background: url(${bgImg}) center center / cover no-repeat;opacity:${opacity}`"></div>
 </template>
 
 <script>
@@ -7,11 +7,12 @@ import { type } from '../util'
 export default {
   data() {
     return {
-      bgImg: ''
+      bgImg: '',
+      opacity: 0.5
     }
   },
   created() {
-    let { bodyBgImg } = this.$themeConfig
+    let { bodyBgImg, bodyBgImgOpacity } = this.$themeConfig
 
     if (type(bodyBgImg) === 'string') {
       this.bgImg = bodyBgImg
@@ -28,6 +29,11 @@ export default {
         this.bgImg = bodyBgImg[count]
       }, 15000);
     }
+
+    if (bodyBgImgOpacity !== undefined) {
+      this.opacity = bodyBgImgOpacity
+    }
+
   }
 }
 </script>

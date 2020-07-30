@@ -3,7 +3,7 @@
     <main class="page">
       <slot name="top" />
       
-      <div class="theme-vdoing-wrapper">
+      <div :class="`theme-vdoing-wrapper ${bgStyle}`" >
         
         <ArticleInfo v-if="isArticle()" />
         <component class="theme-vdoing-content" v-if="pageComponent" :is="pageComponent" />
@@ -57,6 +57,10 @@ export default {
     this.updateBarConfig = this.$themeConfig.updateBar
   },
   computed: {
+    bgStyle(){
+      const { contentBgStyle } = this.$themeConfig
+      return contentBgStyle ? 'bg-style-' + contentBgStyle : ''
+    },
     isShowUpdateBar() {
       return this.updateBarConfig && this.updateBarConfig.showToArticle === false ? false : true 
     },
@@ -99,6 +103,33 @@ export default {
     max-width 2.2rem
     max-height 2.2rem
   
+
+.theme-vdoing-wrapper
+  --linesColor: rgba(50, 0, 0, 0.05)
+  &.bg-style-1 // 方格
+    background-image: linear-gradient(90deg, var(--linesColor) 3%, transparent 3%), linear-gradient(0deg, var(--linesColor) 3%, transparent 3%)
+    background-position: center center
+    background-size: 20px 20px
+  &.bg-style-2 // 横线
+    background-image: repeating-linear-gradient(0, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%);
+    background-size: 30px 30px
+  &.bg-style-3 // 竖线
+    background-image: repeating-linear-gradient(90deg, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%);
+    background-size: 30px 30px
+  &.bg-style-4 // 左斜线
+    background-image: repeating-linear-gradient(-45deg, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px
+  &.bg-style-5 // 右斜线
+    background-image: repeating-linear-gradient(45deg, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px
+  &.bg-style-6 // 点状
+    background-image: radial-gradient(var(--linesColor) 1px, transparent 1px);
+    background-size: 10px 10px
+
+// 背景纹适应深色模式
+.theme-mode-dark
+  .theme-vdoing-wrapper
+    --linesColor: rgba(125,125,125, 0.05)
 
 /**
  * 右侧菜单的自适应

@@ -26,6 +26,7 @@
 
 ## 上新推荐 🎉
 
+* `v1.4.x`：新增了文章内容区块的 [背景底纹配置](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/pages/a20ce8/#文章内容块的背景底纹)，可以让你的文章看起来像笔记本的风格哟~(2020.07.30)
 * `v1.2.x`：这个版本对整体的UI细节做了很多优化，比如标签栏和分类栏等 (2020.06.09)
 * `v1.1.x`：从这个版本开始主题新增了两个`超好用`、`高颜值`的Markdown容器，快去 [体验](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/pages/d0d7eb) 吧~ (2020.05.29)
 
