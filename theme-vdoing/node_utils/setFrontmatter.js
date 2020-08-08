@@ -12,7 +12,7 @@ const PREFIX = '/pages/'
 
 
 /**
- * 给.md文件设置frontmatter(标题、日期、永久链接)
+ * 给.md文件设置frontmatter(标题、日期、永久链接等数据)
  */
 function setFrontmatter(sourceDir, themeConfig) {
 
@@ -30,9 +30,7 @@ function setFrontmatter(sourceDir, themeConfig) {
 
     if (Object.keys(fileMatterObj.data).length === 0) { // 未定义FrontMatter数据
       const stat = fs.statSync(file.filePath);
-      const dateStr = dateFormat(stat.birthtime);// 文件的创建时间
-
-     
+      const dateStr = dateFormat(getBirthtime(stat));// 文件的创建时间
       const categories = getCategories(file, categoryText)
 
 // 注意下面这些反引号字符串的格式会映射到文件
@@ -65,7 +63,7 @@ permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsideba
 
       if (!matterData.hasOwnProperty('date')) { // 日期
         const stat = fs.statSync(file.filePath);
-        matterData.date = dateFormat(stat.birthtime);
+        matterData.date = dateFormat(getBirthtime(stat));
         mark = true;
       }
 
@@ -119,6 +117,12 @@ function getCategories(file, categoryText) {
     categories.push(categoryText)
   }
   return categories
+}
+
+// 获取文件创建时间
+function getBirthtime(stat){
+  // 在一些系统下无法获取birthtime属性的正确时间，使用atime代替
+  return stat.birthtime.getFullYear() != 1970 ? stat.birthtime : stat.atime
 }
 
 // 定义永久链接数据
