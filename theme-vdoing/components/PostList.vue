@@ -84,14 +84,26 @@ export default {
   },
   watch: {
     currentPage() {
-
       if (this.$route.query.p != this.currentPage) { // 此判断防止添加相同的路由信息（如浏览器回退时触发的）
+
+        console.log({
+          ...this.$route.query,
+          p: this.currentPage
+        })
+        console.log("$router", this.$router)
+        console.log('$route', this.$route)
         this.$router.push({
           query: {
             ...this.$route.query,
             p: this.currentPage
           }
-        })
+        }).then(r => {
+          console.log('then', r)
+        }).catch(e => {
+          console.log('catch', e)
+        }
+
+        )
       }
       // setTimeout(() => {
       //   window.scrollTo({ top: this.postListOffsetTop }) // behavior: 'smooth'
