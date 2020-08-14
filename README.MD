@@ -30,7 +30,7 @@
 * `v1.2.x`：这个版本对整体的UI细节做了很多优化，比如标签栏和分类栏等 (2020.06.09)
 * `v1.1.x`：从这个版本开始主题新增了两个`超好用`、`高颜值`的Markdown容器，快去 [体验](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/pages/d0d7eb) 吧~ (2020.05.29)
 
-更多上新请查阅：[更新日志](https://github.com/xugaoyi/vuepress-theme-vdoing/releases)
+更多上新请查阅：[**更新日志**](https://github.com/xugaoyi/vuepress-theme-vdoing/releases)
 
 ## 这个主题可以做什么？
 * 案例1：[知识库兼博客站](https://xugaoyi.com/)
@@ -54,16 +54,27 @@ npm install # or yarn install
 # develop
 npm run dev # or yarn dev
 ```
-## 更新日志
-[更新日志](https://github.com/xugaoyi/vuepress-theme-vdoing/releases)
 
-## 赞赏
-**愿这款知识管理主题能够助你变得强大。**
-你任何形式的支持都是对我的肯定，我会坚持初心把这个项目做得更好。当然，能获得赞赏将会使我更有动力去做好这个项目😀~~
-如果你觉得这个项目对你有帮助，可以给作者打赏一杯咖啡☕ ，前往 [赞赏](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/pages/1b12ed/) 。
+## :sparkling_heart:支持这个项目
+
+我尽己所能地进行开源，并且我尽量回复每个在使用项目时需要帮助的人。很明显，这需要时间，但你可以免费享受这些。
+然而, 如果你正在使用这个项目并感觉良好，或只是想要支持我继续开发，你可以通过如下方式支持我：
+
+- **Star** 并 分享这个项目 :rocket:
+- 保留主题 footer(页脚) 的主题链接 :D
+- 通过以下二维码 一次性捐款。 我多半会买一杯 ~~咖啡~~ 茶。:tea:
+
+谢谢！ :heart:
+
+| 微信赞赏 | 微信 | 支付宝 |
+| :---: | :---: | :---: |
+| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200523131533.jpg" alt="赞赏码" width=180> | <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113708.jpg" alt="Wechat QRcode" width=180>| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113707.jpg" alt="Alipay QRcode" width=180> |
+
 
 ## 致谢
-感谢为这个项目贡献过代码的朋友们 → [Contributors](https://github.com/xugaoyi/vuepress-theme-vdoing/graphs/contributors)
+:heart:感谢支持这个项目的朋友
+
+:heart:感谢为这个项目贡献代码的朋友 → [Contributors](https://github.com/xugaoyi/vuepress-theme-vdoing/graphs/contributors)
 
 ## Vdoing官方交流群
 群号：694387113
