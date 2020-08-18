@@ -11,7 +11,7 @@ export default {
       opacity: 0.5
     }
   },
-  created() {
+  mounted() {
     let { bodyBgImg, bodyBgImgOpacity } = this.$themeConfig
 
     if (type(bodyBgImg) === 'string') {
