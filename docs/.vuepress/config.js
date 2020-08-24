@@ -3,7 +3,7 @@ const nav = require('./config/nav.js');
 module.exports = {
   title: "Evan's blog",
   description: 'web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到页面html中
-  // base: '/vuepress-theme-vdoing/', // '/<github仓库名>/'， 默认'/' 
+  // base: '/vuepress-theme-vdoing/', // '/<github仓库名>/'， 默认'/'
   head: [ // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
     ['link', { rel: 'icon', href: '/img/favicon.ico' }], //favicons，资源放在public文件夹
     ['meta', { name: 'keywords', content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown'}],
@@ -29,12 +29,13 @@ module.exports = {
     editLinks: true, // 启用编辑
     editLinkText: '编辑',
 
-    // 以下配置是Vdoing主题改动和新增的配置
+    //*** 以下配置是Vdoing主题改动和新增的配置 ***//
+
     // category: false, // 是否打开分类功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含分类字段 2.页面中显示与分类相关的信息和模块 3.自动生成分类页面（在@pages文件夹）。如关闭，则反之。
     // tag: false, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。
     // archive: false, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。
     // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
-    
+
     // bodyBgImg: [
     //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
     //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
@@ -54,9 +55,10 @@ module.exports = {
     //   moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
     // },
     // sidebarOpen: false, // 初始状态是否打开侧边栏，默认true
-    
+    // pageButton: false, // 是否显示快捷翻页按钮，默认true
+
     sidebar: 'structuring', // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
-    
+
     author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
       name: 'xugaoyi', // 必需
       link: 'https://github.com/xugaoyi' // 可选的
@@ -159,7 +161,7 @@ module.exports = {
     [
       'vuepress-plugin-comment', // 评论
       // {
-      //   choosen: 'valine', 
+      //   choosen: 'valine',
       //   options: {
       //     el: '#valine-vuepress-comment',
       //     appId: 'qnS1jobNF7CROIQ0XYWBnVOH-gzGzoHsz',
@@ -168,7 +170,7 @@ module.exports = {
       //   }
       // },
       {
-        choosen: 'gitalk', 
+        choosen: 'gitalk',
         options: {
           clientID: 'a6e1355287947096b88b',
           clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',

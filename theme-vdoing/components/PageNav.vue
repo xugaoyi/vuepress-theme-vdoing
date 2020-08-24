@@ -1,7 +1,7 @@
 <template>
   <div class="page-nav-wapper">
     <!-- 页面中间左右翻页 -->
-    <div class="page-nav-centre-wrap" v-if="prev || next">
+    <div class="page-nav-centre-wrap" v-if="$themeConfig.pageButton !== false && (prev || next)">
       <router-link
         class="page-nav-centre page-nav-centre-prev"
         v-if="prev"
@@ -27,7 +27,7 @@
         </div>
       </router-link>
     </div>
-    
+
     <!-- 底部翻页按钮 -->
     <div class="page-nav" v-if="prev || next">
       <p class="inner">
@@ -181,7 +181,7 @@ function flatten (items, res) {
     z-index 99
     @media (max-width: 1340px)
       width 50px
-    @media (max-width: 960px) 
+    @media (max-width: 960px)
       display none
     &:hover
       background rgba(153, 153, 153, .15)
