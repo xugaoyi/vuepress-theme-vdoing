@@ -52,9 +52,8 @@ export default {
     img
       width 100%
       height 100%
-      border-radius 3px
   .icons
-    border 1px solid var(--borderColor)
+    // border 1px solid var(--borderColor)
     border-top none
     height 40px
     line-height 40px
@@ -66,6 +65,7 @@ export default {
       float left
       text-align center
       opacity .8
+
       &:hover
         color $accentColor
   .blogger
