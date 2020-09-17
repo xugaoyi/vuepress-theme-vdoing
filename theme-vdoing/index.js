@@ -128,7 +128,7 @@ module.exports = (options, ctx) => {
       [
         'container',
         {
-          type: CARD_LIST,
+          type: 'CARD_LIST',
           render:  (tokens, idx) => {
             // tokens 是整个md文件的虚拟dom结构数组
             // idx 是tokens中':::' 所在的索引，而且是当前指定type的':::'，分别有开始和结束两次的idx
@@ -145,7 +145,7 @@ module.exports = (options, ctx) => {
       [
         'container',
         {
-          type: CARD_IMG_LIST,
+          type: 'CARD_IMG_LIST',
           render:  (tokens, idx) => {
             return renderCardList(tokens, idx, CARD_IMG_LIST)
           }
