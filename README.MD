@@ -15,8 +15,9 @@
 <h2 align="center">vuepress-theme-vdoing</h2>
 
 
-
-[文档 (github源)](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/) | [文档 (国内源)](https://doc.xugaoyi.com/vuepress-theme-vdoing-doc/)  |  [效果：Evan's blog](https://xugaoyi.com/)
+* [文档 (github源)](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/)
+* [文档 (国内源)](https://doc.xugaoyi.com/vuepress-theme-vdoing-doc/)
+* [效果：Evan's blog](https://xugaoyi.com/)
 
 ## 介绍
 1. 这个主题的初衷是打造一个好用的、面向程序员的`知识管理工具`
@@ -24,13 +25,7 @@
 3. 博客功能提供一种知识的`碎片化`形态，并支持个性化博客配置。
 4. `简洁高效`，以 Markdown 为中心的项目结构。内置自动化工具，以更少的配置完成更多的事。配合多维索引快速定位每个知识点。
 
-## 上新推荐 🎉
-
-* `v1.4.x`：新增了文章内容区块的 [背景底纹配置](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/pages/a20ce8/#文章内容块的背景底纹)，可以让你的文章看起来像笔记本的风格哟~(2020.07.30)
-* `v1.2.x`：这个版本对整体的UI细节做了很多优化，比如标签栏和分类栏等 (2020.06.09)
-* `v1.1.x`：从这个版本开始主题新增了两个`超好用`、`高颜值`的Markdown容器，快去 [体验](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/pages/d0d7eb) 吧~ (2020.05.29)
-
-更多上新请查阅：[**更新日志**](https://github.com/xugaoyi/vuepress-theme-vdoing/releases)
+[**更新日志**](https://github.com/xugaoyi/vuepress-theme-vdoing/releases)
 
 ## 这个主题可以做什么？
 * 案例1：[知识库兼博客站](https://xugaoyi.com/)

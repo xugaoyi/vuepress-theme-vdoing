@@ -2,10 +2,13 @@
 package-lock.json
 node_modules
 
+#yarn
+yarn.lock
+
 # vscode
 .vscode
 
-# vuepress 
+# vuepress
 docs/.vuepress/dist
 
 # 百度链接推送
