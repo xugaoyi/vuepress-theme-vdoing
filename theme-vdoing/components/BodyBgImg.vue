@@ -1,17 +1,20 @@
 <template>
-  <div class="body-bg" :style="`background: url(${bgImg}) center center / cover no-repeat;opacity:${opacity}`"></div>
+  <div
+    class="body-bg"
+    :style="`background: url(${bgImg}) center center / cover no-repeat;opacity:${opacity}`"
+  ></div>
 </template>
 
 <script>
 import { type } from '../util'
 export default {
-  data() {
+  data () {
     return {
       bgImg: '',
       opacity: 0.5
     }
   },
-  mounted() {
+  mounted () {
     let { bodyBgImg, bodyBgImgOpacity } = this.$themeConfig
 
     if (type(bodyBgImg) === 'string') {
@@ -23,7 +26,7 @@ export default {
       this.bgImg = bodyBgImg[count]
       clearInterval(timer)
       timer = setInterval(() => {
-        if (++count >= bodyBgImg.length ) {
+        if (++count >= bodyBgImg.length) {
           count = 0
         }
         this.bgImg = bodyBgImg[count]
@@ -46,5 +49,5 @@ export default {
   z-index -999999
   height 100vh
   width 100vw
-  transition  background .5s
+  transition background 0.5s
 </style>

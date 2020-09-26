@@ -377,12 +377,11 @@ export default {
           font-size 3.2rem
         .description, .action
           margin 1.5rem auto
-
         .description
           max-width 40rem
           font-size 1.1rem
           line-height 1.3
-          opacity .9
+          opacity 0.9
         .action-button
           display inline-block
           font-size 1.2rem
@@ -424,17 +423,15 @@ export default {
             padding-bottom 0
           p
             opacity 0.8
-            padding 0 .8rem
+            padding 0 0.8rem
       .feature:hover
         .feature-img
-          animation-play-state: running
-        h2,p
+          animation-play-state running
+        h2, p
           color $accentColor
-
-
     // 移动端滑动图标
     .slide-banner
-      margin-top: 2rem;
+      margin-top 2rem
       .banner-wrapper
         position relative
       .slide-banner-scroll
@@ -460,7 +457,7 @@ export default {
               padding-bottom 0
             p
               opacity 0.8
-              padding 0 .8rem
+              padding 0 0.8rem
       .docs-wrapper
         position absolute
         bottom 25px
@@ -473,22 +470,20 @@ export default {
           height 8px
           border-radius 50%
           background var(--textColor)
-          opacity .9
+          opacity 0.9
           &.active
-            opacity .5
-
+            opacity 0.5
   // 分页不在第一页时，隐藏banner栏
   .main-wrapper
     margin-top 2rem
   .banner.hide-banner
     display none
     & + .main-wrapper
-       margin-top ($navbarHeight + .9rem)
-
+      margin-top ($navbarHeight + 0.9rem)
   .main-wrapper
     .main-left
       .card-box
-        margin-bottom .9rem
+        margin-bottom 0.9rem
       .pagination
         margin-bottom 4rem
       .theme-vdoing-content
@@ -498,13 +493,13 @@ export default {
           padding-top 2rem
         &>:last-child
           padding-bottom 2rem
-
 @keyframes heart
-  from{transform:translate(0,0)}
-  to{transform:translate(0,8px)}
-
+  from
+    transform translate(0, 0)
+  to
+    transform translate(0, 8px)
 // 1025px以下
-@media (max-width: 1025px)
+@media (max-width 1025px)
   .home-wrapper
     .banner
       .banner-conent
@@ -520,38 +515,33 @@ export default {
             .feature-img
               width 9rem
               height 9rem
-
 // 719px以下
-@media (max-width: $MQMobile)
+@media (max-width $MQMobile)
   .home-wrapper
     .banner
       .banner-conent
         .features
-          display none!important
-
+          display none !important
 // 419px以下
-@media (max-width: $MQMobileNarrow)
+@media (max-width $MQMobileNarrow)
   .home-wrapper
     .banner-conent
       padding-left 1.5rem
       padding-right 1.5rem
-
       .hero
         img
           max-height 210px
           margin 2rem auto 1.2rem
         h1
-          font-size: 2rem
+          font-size 2rem
         h1, .description, .action
-          margin: 1.2rem auto
-
+          margin 1.2rem auto
         .description
-          font-size: 1.2rem
-
+          font-size 1.2rem
         .action-button
           font-size 1rem
           padding 0.6rem 1.2rem
       .feature
         h2
-          font-size: 1.25rem
+          font-size 1.25rem
 </style>

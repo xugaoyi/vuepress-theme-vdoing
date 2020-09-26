@@ -29,18 +29,18 @@
         #bottom
       />
     </Sidebar>
-    
+
     <!-- 首页 -->
-    <Home v-if="$page.frontmatter.home"/>
+    <Home v-if="$page.frontmatter.home" />
 
     <!-- 分类页 -->
-    <CategoriesPage v-else-if="$page.frontmatter.categoriesPage"/>
+    <CategoriesPage v-else-if="$page.frontmatter.categoriesPage" />
 
     <!-- 标签页 -->
-    <TagsPage v-else-if="$page.frontmatter.tagsPage"/>
+    <TagsPage v-else-if="$page.frontmatter.tagsPage" />
 
     <!-- 归档页 -->
-    <ArchivesPage v-else-if="$page.frontmatter.archivesPage"/>
+    <ArchivesPage v-else-if="$page.frontmatter.archivesPage" />
 
     <!-- 文章页或其他页 -->
     <Page
@@ -59,7 +59,7 @@
 
     <Footer />
 
-    <Buttons 
+    <Buttons
       ref="buttons"
       @toggle-theme-mode="toggleThemeMode"
     />
@@ -97,10 +97,10 @@ export default {
       themeMode: 'light'
     }
   },
-  beforeMount(){
+  beforeMount () {
     // 引入图标库
     const social = this.$themeConfig.social
-    if(social && social.iconfontCssFile ) {
+    if (social && social.iconfontCssFile) {
       let linkElm = document.createElement("link")
       linkElm.setAttribute('rel', 'stylesheet');
       linkElm.setAttribute("type", "text/css")
@@ -109,7 +109,7 @@ export default {
     }
   },
   computed: {
-    showRightMenu() {
+    showRightMenu () {
       const { headers } = this.$page
       return (
         !this.$frontmatter.home
@@ -169,16 +169,16 @@ export default {
       ]
     }
   },
-  created() {
+  created () {
     const sidebarOpen = this.$themeConfig.sidebarOpen
     if (sidebarOpen === false) {
-      this.isSidebarOpen = sidebarOpen 
+      this.isSidebarOpen = sidebarOpen
     }
   },
-  beforeMount() {
+  beforeMount () {
     this.isSidebarOpenOfclientWidth()
     const mode = storage.get('mode') // 不放在created是因为vuepress不能在created访问浏览器api，如window
-    if(!mode || mode === 'auto') { // 当未切换过模式，或模式处于'跟随系统'时
+    if (!mode || mode === 'auto') { // 当未切换过模式，或模式处于'跟随系统'时
       this._autoMode()
     } else {
       this.themeMode = mode
@@ -196,7 +196,7 @@ export default {
     }
 
     // 解决移动端初始化页面时侧边栏闪现的问题
-    this.showSidebar = true 
+    this.showSidebar = true
     this.$router.afterEach(() => {
       this.isSidebarOpenOfclientWidth()
     })
@@ -204,30 +204,30 @@ export default {
     // 向下滚动收起导航栏
     let p = 0, t = 0;
     window.addEventListener('scroll', _.throttle(() => {
-      if(!this.isSidebarOpen) { // 侧边栏关闭时
+      if (!this.isSidebarOpen) { // 侧边栏关闭时
         p = this.getScrollTop()
-        if(t < p && p > NAVBAR_HEIGHT) { // 向下滚动
+        if (t < p && p > NAVBAR_HEIGHT) { // 向下滚动
           this.hideNavbar = true
         } else { // 向上
           this.hideNavbar = false
         }
-        setTimeout(() => {t = p},0)
+        setTimeout(() => { t = p }, 0)
       }
     }, 300))
 
   },
   watch: {
-    isSidebarOpen() {
-      if(this.isSidebarOpen) {  // 侧边栏打开时，恢复导航栏显示
+    isSidebarOpen () {
+      if (this.isSidebarOpen) {  // 侧边栏打开时，恢复导航栏显示
         this.hideNavbar = false
       }
     },
-    themeMode() {
+    themeMode () {
       this.setBodyClass()
     }
   },
   methods: {
-    setBodyClass() {
+    setBodyClass () {
       document.body.className = 'theme-mode-' + this.themeMode
     },
     getScrollTop () {
@@ -235,7 +235,7 @@ export default {
         || document.documentElement.scrollTop
         || document.body.scrollTop || 0
     },
-    isSidebarOpenOfclientWidth() {
+    isSidebarOpenOfclientWidth () {
       if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
         this.isSidebarOpen = false
       }
@@ -245,21 +245,21 @@ export default {
       this.$emit('toggle-sidebar', this.isSidebarOpen)
     },
     _autoMode () {
-      if(window.matchMedia('(prefers-color-scheme: dark)').matches){ // 系统处于深色模式
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) { // 系统处于深色模式
         this.themeMode = 'dark'
       } else {
         this.themeMode = 'light'
       }
     },
     toggleThemeMode (key) {
-      if(key === 'auto') {
+      if (key === 'auto') {
         this._autoMode()
       } else {
         this.themeMode = key
       }
       storage.set('mode', key)
     },
-    
+
     // side swipe
     onTouchStart (e) {
       this.touchStart = {

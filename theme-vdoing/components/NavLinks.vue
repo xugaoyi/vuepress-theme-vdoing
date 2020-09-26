@@ -28,7 +28,7 @@
       rel="noopener noreferrer"
     >
       {{ repoLabel }}
-      <OutboundLink/>
+      <OutboundLink />
     </a>
   </nav>
 </template>
@@ -134,19 +134,16 @@ export default {
       margin-left 0
   .repo-link
     margin-left 1.5rem
-
 // 959
-@media (max-width: $MQNarrow)
+@media (max-width $MQNarrow)
   .nav-links
     .nav-item
       margin-left 1.2rem
-
-@media (max-width: $MQMobile)
+@media (max-width $MQMobile)
   .nav-links
     .nav-item, .repo-link
       margin-left 0
-
-@media (min-width: $MQMobile)
+@media (min-width $MQMobile)
   .nav-links a
     &:hover, &.router-link-active
       color var(--textColor)

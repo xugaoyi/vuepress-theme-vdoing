@@ -8,9 +8,16 @@
       type="button"
       :aria-label="dropdownAriaLabel"
       @click="toggle"
-    > 
-      <router-link v-if="item.link" :to="item.link" class="link-title">{{ item.text }}</router-link>
-      <span class="title" v-show="!item.link">{{ item.text }}</span>
+    >
+      <router-link
+        v-if="item.link"
+        :to="item.link"
+        class="link-title"
+      >{{ item.text }}</router-link>
+      <span
+        class="title"
+        v-show="!item.link"
+      >{{ item.text }}</span>
       <span
         class="arrow"
         :class="open ? 'down' : 'right'"
@@ -44,7 +51,8 @@
                   isLastItemOfArray(subItem, item.items) &&
                   toggle()
                 "
-                :item="childSubItem"/>
+                :item="childSubItem"
+              />
             </li>
           </ul>
 
@@ -85,18 +93,18 @@ export default {
       return this.item.ariaLabel || this.item.text
     }
   },
-  beforeMount(){
+  beforeMount () {
     this.isMQMobile = window.innerWidth < 720 ? true : false;
-    
+
     window.addEventListener('resize', () => {
       this.isMQMobile = window.innerWidth < 720 ? true : false;
     })
   },
   methods: {
     toggle () {
-       if(this.isMQMobile){
-         this.open = !this.open
-       }
+      if (this.isMQMobile) {
+        this.open = !this.open
+      }
     },
 
     isLastItemOfArray (item, array) {
@@ -158,7 +166,7 @@ export default {
         &.router-link-active
           color $accentColor
           &::after
-            content ""
+            content ''
             width 0
             height 0
             border-left 5px solid $accentColor
@@ -171,8 +179,7 @@ export default {
         margin-top 0
         padding-top 0
         border-top 0
-
-@media (max-width: $MQMobile)
+@media (max-width $MQMobile)
   .dropdown-wrapper
     &.open .dropdown-title
       margin-bottom 0.5rem
@@ -182,11 +189,11 @@ export default {
       &:hover
         color $accentColor
       .link-title
-        display none 
+        display none
       .title
-        display inline-block!important
+        display inline-block !important
     .nav-dropdown
-      transition height .1s ease-out
+      transition height 0.1s ease-out
       overflow hidden
       .dropdown-item
         h4
@@ -199,12 +206,10 @@ export default {
         .dropdown-subitem
           font-size 14px
           padding-left 1rem
-
-@media (min-width: $MQMobile)
+@media (min-width $MQMobile)
   .dropdown-wrapper
     height 1.8rem
-    &:hover .nav-dropdown,
-    &.open .nav-dropdown
+    &:hover .nav-dropdown, &.open .nav-dropdown
       // override the inline style.
       display block !important
     &.open:blur
@@ -219,7 +224,7 @@ export default {
       display none
       // Avoid height shaked by clicking
       height auto !important
-      box-sizing border-box;
+      box-sizing border-box
       max-height calc(100vh - 2.7rem)
       overflow-y auto
       position absolute

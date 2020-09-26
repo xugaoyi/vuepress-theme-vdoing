@@ -22,16 +22,20 @@
       @click="showModeBox = true"
     >
       <transition name="mode">
-        <ul class="select-box" ref="modeBox" v-show="showModeBox" @click.stop @touchstart.stop>
+        <ul
+          class="select-box"
+          ref="modeBox"
+          v-show="showModeBox"
+          @click.stop
+          @touchstart.stop
+        >
           <li
-          v-for="item in modeList"
-          :key="item.KEY"
-          class="iconfont"
-          :class="[item.icon, {active: item.KEY === currentMode}]"
-          @click="toggleMode(item.KEY)"
-          >
-            {{item.name}}
-          </li>
+            v-for="item in modeList"
+            :key="item.KEY"
+            class="iconfont"
+            :class="[item.icon, {active: item.KEY === currentMode}]"
+            @click="toggleMode(item.KEY)"
+          >{{item.name}}</li>
         </ul>
       </transition>
     </div>
@@ -44,7 +48,7 @@ import storage from 'good-storage' // 本地存储
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 
 export default {
-  data() {
+  data () {
     return {
       threshold: 100,
       scrollTop: null,
@@ -101,27 +105,27 @@ export default {
         this.showModeBox = false
       }
       window.addEventListener('scroll', debounce(() => {
-        if(this.showModeBox) {
+        if (this.showModeBox) {
           this.showModeBox = false
         }
       }, 100))
     }
 
-    
+
     // 移动端对类似:hover效果的处理
     const buttons = document.querySelectorAll('.buttons .button')
     for (let i = 0; i < buttons.length; i++) {
       const button = buttons[i]
-      button.addEventListener('touchstart', function(){
+      button.addEventListener('touchstart', function () {
         button.classList.add('hover')
       })
-      button.addEventListener('touchend', function(){
+      button.addEventListener('touchend', function () {
         setTimeout(() => {
           button.classList.remove('hover')
         }, 150)
       })
     }
-    
+
   },
   computed: {
     showToTop () {
@@ -129,7 +133,7 @@ export default {
     }
   },
   methods: {
-    toggleMode(key){
+    toggleMode (key) {
       this.currentMode = key
       this.$emit('toggle-theme-mode', key)
     },
@@ -151,21 +155,21 @@ export default {
           this.showCommentBut = this.$frontmatter.comment !== false && this.$frontmatter.home !== true
           this.commentTop = commentEl.offsetTop - 58
         }
-      },500)
+      }, 500)
     },
 
 
-    scrollToComment() {
+    scrollToComment () {
       window.scrollTo({ top: this.commentTop, behavior: 'smooth' })
       this._textareaEl = document.querySelector(this.COMMENT_SELECTOR_1 + ' textarea') || document.querySelector(this.COMMENT_SELECTOR_2 + ' input') || document.querySelector(this.COMMENT_SELECTOR_3 + ' textarea')
-      if( this._textareaEl && this.getScrollTop() !== this._recordScrollTop) {
+      if (this._textareaEl && this.getScrollTop() !== this._recordScrollTop) {
         document.addEventListener("scroll", this._handleListener)
       } else if (this._textareaEl && this.getScrollTop() === this._recordScrollTop) {
         this._handleFocus()
       }
     },
 
-    _handleListener() {
+    _handleListener () {
       clearTimeout(this._scrollTimer)
       this._scrollTimer = setTimeout(() => {
         document.removeEventListener('scroll', this._handleListener)
@@ -174,7 +178,7 @@ export default {
       }, 30)
     },
 
-    _handleFocus() {
+    _handleFocus () {
       this._textareaEl.focus()
       this._textareaEl.classList.add('yellowBorder')
       setTimeout(() => {
@@ -183,7 +187,7 @@ export default {
     }
   },
   watch: {
-    '$route.path'() {
+    '$route.path' () {
       this.showCommentBut = false
       this.getCommentTop()
     }
@@ -192,69 +196,67 @@ export default {
 </script>
 
 <style lang='stylus'>
-  .yellowBorder
-    // border: #FFE089 1px solid!important
-    border-radius 5px
-    box-shadow 0 0 15px #FFE089!important
-  .buttons
-    position fixed
-    right 2rem
-    bottom 2.5rem
-    z-index 11
-    @media (max-width: $MQNarrow)
-      right 1rem
-      bottom 1.5rem
-    .button
-      width 2.2rem
-      height 2.2rem
-      line-height 2.2rem
-      border-radius 50%
-      box-shadow 0 2px 6px rgba(0,0,0,.15)
-      margin-top .9rem
-      text-align center
-      cursor pointer
-      transition all .5s
-      background var(--blurBg)
-      &.hover
+.yellowBorder
+  // border: #FFE089 1px solid!important
+  border-radius 5px
+  box-shadow 0 0 15px #FFE089 !important
+.buttons
+  position fixed
+  right 2rem
+  bottom 2.5rem
+  z-index 11
+  @media (max-width $MQNarrow)
+    right 1rem
+    bottom 1.5rem
+  .button
+    width 2.2rem
+    height 2.2rem
+    line-height 2.2rem
+    border-radius 50%
+    box-shadow 0 2px 6px rgba(0, 0, 0, 0.15)
+    margin-top 0.9rem
+    text-align center
+    cursor pointer
+    transition all 0.5s
+    background var(--blurBg)
+    &.hover
+      background $accentColor
+      box-shadow 0 0 15px $accentColor
+      &:before
+        color #fff
+    @media (any-hover hover)
+      &:hover
         background $accentColor
         box-shadow 0 0 15px $accentColor
         &:before
           color #fff
-      @media (any-hover: hover)
+    .select-box
+      margin 0
+      padding 0.8rem 0
+      position absolute
+      bottom 0rem
+      right 1.5rem
+      background var(--mainBg)
+      border 1px solid var(--borderColor)
+      width 120px
+      border-radius 6px
+      box-shadow 0 0 15px rgba(255, 255, 255, 0.2)
+      li
+        list-style none
+        line-height 2rem
+        font-size 0.95rem
         &:hover
-          background $accentColor
-          box-shadow 0 0 15px $accentColor
-          &:before
-            color #fff
-      .select-box
-        margin 0
-        padding .8rem 0
-        position absolute
-        bottom 0rem
-        right 1.5rem
-        background var(--mainBg)
-        border 1px solid var(--borderColor)
-        width 120px
-        border-radius 6px
-        box-shadow 0 0 15px rgba(255,255,255,.2)
-        li 
-          list-style none
-          line-height 2rem
-          font-size .95rem
-          &:hover
-            color $accentColor
-          &.active
-            background-color rgba(150,150,150,.2)
-            color $accentColor
-
-  .mode-enter-active, .mode-leave-active
-    transition all .3s
-  .mode-enter, .mode-leave-to
-    opacity 0
-    transform scale(.8)
-
-  .fade-enter-active, .fade-leave-active
-    transition opacity .2s
-  .fade-enter, .fade-leave-to
-    opacity 0
+          color $accentColor
+        &.active
+          background-color rgba(150, 150, 150, 0.2)
+          color $accentColor
+.mode-enter-active, .mode-leave-active
+  transition all 0.3s
+.mode-enter, .mode-leave-to
+  opacity 0
+  transform scale(0.8)
+.fade-enter-active, .fade-leave-active
+  transition opacity 0.2s
+.fade-enter, .fade-leave-to
+  opacity 0
 </style>

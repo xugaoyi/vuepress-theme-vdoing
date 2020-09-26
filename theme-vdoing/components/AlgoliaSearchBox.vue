@@ -8,7 +8,7 @@
       id="algolia-search-input"
       class="search-query"
       :placeholder="placeholder"
-    >
+    />
   </form>
 </template>
 
@@ -34,7 +34,7 @@ export default {
         import(/* webpackChunkName: "docsearch" */ 'docsearch.js/dist/cdn/docsearch.min.css')
       ]).then(([docsearch]) => {
         docsearch = docsearch.default
-        const { algoliaOptions = {}} = userOptions
+        const { algoliaOptions = {} } = userOptions
         docsearch(Object.assign(
           {},
           userOptions,
@@ -127,8 +127,7 @@ export default {
     .ds-cursor .algolia-docsearch-suggestion--content
       background-color #e7edf3 !important
       color var(--textColor)
-
-@media (min-width: $MQMobile)
+@media (min-width $MQMobile)
   .algolia-search-wrapper
     .algolia-autocomplete
       .algolia-docsearch-suggestion
@@ -144,8 +143,7 @@ export default {
           vertical-align top
         .ds-dropdown-menu
           min-width 515px !important
-
-@media (max-width: $MQMobile)
+@media (max-width $MQMobile)
   .algolia-search-wrapper
     .ds-dropdown-menu
       min-width calc(100vw - 4rem) !important
@@ -156,12 +154,11 @@ export default {
       padding 0 !important
       background white !important
     .algolia-docsearch-suggestion--subcategory-column-text:after
-      content " > "
+      content ' > '
       font-size 10px
       line-height 14.4px
       display inline-block
       width 5px
       margin -3px 3px 0
       vertical-align middle
-
 </style>

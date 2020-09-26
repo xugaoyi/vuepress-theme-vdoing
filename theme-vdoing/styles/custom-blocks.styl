@@ -4,7 +4,7 @@
     margin-bottom .2rem
   p
     margin 0
-  &.tip, &.warning, &.danger
+  &.tip, &.warning, &.danger, &.note
     padding .5rem 1.5rem
     border-left-width .5rem
     border-left-style solid
@@ -29,6 +29,10 @@
       color darken(red, 40%)
     a
       color var(--textColor)
+  &.note
+    background-color #E8F5FA
+    border-color #157BAE
+    color darken(#157BAE, 40%)
   &.right
     color var(--textColor)
     font-size 0.9rem
@@ -66,7 +70,7 @@
 .theme-mode-dark
   .custom-block
     &.warning
-      background-color rgba(255, 247, 208, .2) 
+      background-color rgba(255, 247, 208, .2)
       color darken(#ffe564, 35%)
       .custom-block-title
         color darken(#ffe564, 15%)
@@ -78,3 +82,6 @@
       color darken(red, 50%)
       a
         color $accentColor
+    &.note
+      background-color rgba(243, 245, 247, .2)
+      color darken(#157BAE, 0%)

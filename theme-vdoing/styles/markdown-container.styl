@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6
       float none
       padding-right: 0
       margin-left: -.9rem
-  
+
 
 // 普通卡片列表
 .cardListContainer
@@ -31,14 +31,14 @@ h1, h2, h3, h4, h5, h6
       background var(--bodyBg)
       border-radius 3px
       color var(--textColor)
-      display flex 
+      display flex
       box-shadow 1px 1px 2px 0 rgba(0,0,0,.06)
       transition all .4s
       &:hover
         text-decoration none
         box-shadow: 0 10px 20px -10px var(--randomColor, rgba(0,0,0,0.15));
-        transform: translateY(-5px)
-        img 
+        transform: translateY(-3px) scale(1.01, 1.01)
+        img
           // transform rotate(8deg) scale(1.1, 1.1)
           box-shadow 3px 2px 7px rgba(0, 0, 0, 0.15)
         div p
@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6
       div
         flex 1
         display inline-block
-        float right 
+        float right
         padding 1rem 0
         p
           margin 0
@@ -96,20 +96,21 @@ h1, h2, h3, h4, h5, h6
       width calc(100%/3 - 1rem)
       margin .5rem
       background var(--mainBg)
-      border 1px solid rgba(0,0,0,0.08)
+      border 1px solid rgba(0,0,0,0.1)
       box-sizing: border-box
       border-radius 3px
       overflow hidden
       color var(--textColor)
       box-shadow 2px 2px 10px rgba(0,0,0,.04)
-      display flex 
+      display flex
       flex-direction: column;
       justify-content: flex-start;
       align-items: stretch;
       align-content: stretch;
-      transition: box-shadow .3s
+      transition: all .4s
       &:hover
-        box-shadow 1px 1px 20px rgba(0,0,0,.07)
+        box-shadow 1px 1px 20px rgba(0,0,0,.1)
+        transform: translateY(-3px)
       .box-img
         overflow hidden
         position relative
@@ -119,15 +120,15 @@ h1, h2, h3, h4, h5, h6
           width 100%
           height auto
           transition: all .3s
-        &:hover
-          img
-            transform: scale(1.1, 1.1)
-            opacity .75
+        // &:hover
+        //   img
+        //     transform: scale(1.1, 1.1)
+        //     opacity .75
       a
         color var(--textColor)
         transition: color .3s
         &:hover
-          color $accentColor
+          // color $accentColor
           text-decoration none
       .box-info
         padding: .8rem 1rem
@@ -141,13 +142,13 @@ h1, h2, h3, h4, h5, h6
       .box-footer
         overflow hidden
         padding: .8rem 1rem
-        border-top:  1px solid rgba(0,0,0,0.05)
+        border-top:  1px solid rgba(0,0,0,0.1)
         img
           width 1.8rem
           height 1.8rem
           border-radius 50%
           float left
-        span 
+        span
           line-height 1.8rem
           float left
           margin-left: .6rem
@@ -168,9 +169,9 @@ h1, h2, h3, h4, h5, h6
         border-color: var(--borderColor)
         .box-footer
            border-color: var(--borderColor)
-           
+
 // 卡片列表的响应
-@media (max-width: 900px) 
+@media (max-width: 900px)
   .cardListContainer
     .card-list
       .card-item.row-4
@@ -180,7 +181,7 @@ h1, h2, h3, h4, h5, h6
       .card-item.row-4
         width calc(100%/3 - 1rem)
 
-@media (max-width: 720px) 
+@media (max-width: 720px)
   .cardListContainer
     .card-list
       .card-item.row-3, .card-item.row-4
@@ -191,8 +192,8 @@ h1, h2, h3, h4, h5, h6
     .card-list
       .card-item.row-3, .card-item.row-4
         width calc(100%/2 - 1rem)
-        
-@media (max-width: 500px) 
+
+@media (max-width: 500px)
   .cardListContainer
     .card-list
       .card-item.row-1, .card-item.row-2, .card-item.row-3, .card-item.row-4

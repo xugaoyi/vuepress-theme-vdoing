@@ -1,17 +1,33 @@
 <template>
   <div class="page-edit">
-    <div class="edit-link" v-if="editLink">
-      <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
+    <div
+      class="edit-link"
+      v-if="editLink"
+    >
+      <a
+        :href="editLink"
+        target="_blank"
+        rel="noopener noreferrer"
+      >{{ editLinkText }}</a>
       <OutboundLink />
     </div>
 
-    <div class="tags" v-if="$themeConfig.tag !== false && tags && tags[0]">
-      <router-link :to="`/tags/?tag=${encodeUrl(item)}`" v-for="(item, index) in tags" :key="index" title="标签">
-        #{{item}}
-      </router-link>
+    <div
+      class="tags"
+      v-if="$themeConfig.tag !== false && tags && tags[0]"
+    >
+      <router-link
+        :to="`/tags/?tag=${encodeURIComponent(item)}`"
+        v-for="(item, index) in tags"
+        :key="index"
+        title="标签"
+      >#{{item}}</router-link>
     </div>
 
-    <div class="last-updated" v-if="lastUpdated">
+    <div
+      class="last-updated"
+      v-if="lastUpdated"
+    >
       <span class="prefix">{{ lastUpdatedText }}:</span>
       <span class="time">{{ lastUpdated }}</span>
     </div>
@@ -20,16 +36,14 @@
 <script>
 import isNil from 'lodash/isNil'
 import { endingSlashRE, outboundRE } from '../util'
-import encodeMixin from '../mixins/encodeUrl'
 
 export default {
-  mixins: [encodeMixin],
   name: 'PageEdit',
   computed: {
-    tags() {
+    tags () {
       return this.$frontmatter.tags
     },
-    
+
     lastUpdated () {
       return this.$page.lastUpdated
     },
@@ -114,43 +128,39 @@ export default {
   padding-top 1rem
   padding-bottom 1rem
   overflow auto
-
   .edit-link
     display inline-block
     float left
-    margin 0 2rem .5rem 0
+    margin 0 2rem 0.5rem 0
     a
       margin-right 0.25rem
   .tags
     float left
     a
-      margin 0 .8rem .5rem 0
+      margin 0 0.8rem 0.5rem 0
       display inline-block
       color var(--textLightenColor)
       padding 0.2rem 0.7rem
       font-size 0.9em
-      background-color rgba(128,128,128,0.08)
+      background-color rgba(128, 128, 128, 0.08)
       border-radius 3px
-      opacity .8
-
+      opacity 0.8
   .last-updated
     float right
     font-size 0.9em
     .prefix
       font-weight 500
       color var(--textColor)
-      opacity .8
+      opacity 0.8
     .time
       font-weight 400
       color #aaa
-
-@media (max-width: $MQMobile)
+@media (max-width $MQMobile)
   .page-edit
-    .edit-link,.tags
-      margin-bottom .5rem
+    .edit-link, .tags
+      margin-bottom 0.5rem
     .last-updated
       width 100%
       font-size 0.8em
       text-align left
-
 </style>

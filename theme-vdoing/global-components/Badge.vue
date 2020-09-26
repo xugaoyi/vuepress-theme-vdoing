@@ -36,7 +36,7 @@ export default {
   &.tip, &.green
     background-color #42b983
   &.error
-    background-color #DA5961 //#f66
+    background-color #DA5961 // #f66
   &.warning, &.warn, &.yellow
     background-color darken(#ffe564, 35%)
   & + &

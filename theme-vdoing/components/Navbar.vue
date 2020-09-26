@@ -1,6 +1,6 @@
 <template>
   <header class="navbar blur">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
+    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
 
     <router-link
       :to="$localePath"
@@ -11,7 +11,7 @@
         v-if="$site.themeConfig.logo"
         :src="$withBase($site.themeConfig.logo)"
         :alt="$siteTitle"
-      >
+      />
       <span
         ref="siteName"
         class="site-name"
@@ -30,8 +30,10 @@
         v-if="isAlgoliaSearch"
         :options="algolia"
       />
-      <SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
-      <NavLinks class="can-hide"/>
+      <SearchBox
+        v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"
+      />
+      <NavLinks class="can-hide" />
     </div>
   </header>
 </template>
@@ -88,7 +90,6 @@ function css (el, property) {
 <style lang="stylus">
 $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
-
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
@@ -115,20 +116,17 @@ $navbar-horizontal-padding = 1.5rem
     top $navbar-vertical-padding
     display flex
     .search-box
-      flex: 0 0 auto
+      flex 0 0 auto
       vertical-align top
-
 .hide-navbar
-    .navbar
-      transform translateY(-100%)
-
+  .navbar
+    transform translateY(-100%)
 // 959
-@media (max-width: $MQNarrow)
+@media (max-width $MQNarrow)
   .navbar
     .site-name
       display none
-
-@media (max-width: $MQMobile)
+@media (max-width $MQMobile)
   .navbar
     padding-left 4rem
     .can-hide

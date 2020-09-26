@@ -8,7 +8,7 @@
   <a href="https://www.npmjs.com/package/vuepress-theme-vdoing"><img alt="npm" src="https://img.shields.io/npm/v/vuepress-theme-vdoing"></a>
   <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/stargazers"><img src="https://img.shields.io/github/stars/xugaoyi/vuepress-theme-vdoing?logo=ReverbNation&logoColor=rgba(255,255,255,.6)" alt="GitHub stars"></a>
 
- 
+
 
 </p>
 
@@ -16,7 +16,7 @@
 
 
 
-[文档 (github源)](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/) | [文档 (国内源)](https://doc.xugaoyi.com/vuepress-theme-vdoing-doc/)  |  [效果：Evan's blog](https://xugaoyi.com/) 
+[文档 (github源)](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/) | [文档 (国内源)](https://doc.xugaoyi.com/vuepress-theme-vdoing-doc/)  |  [效果：Evan's blog](https://xugaoyi.com/)
 
 ## 介绍
 1. 这个主题的初衷是打造一个好用的、面向程序员的`知识管理工具`
@@ -57,8 +57,7 @@ npm run dev # or yarn dev
 
 ## :sparkling_heart:支持这个项目
 
-我尽己所能地进行开源，并且我尽量回复每个在使用项目时需要帮助的人。很明显，这需要时间，但你可以免费享受这些。
-然而, 如果你正在使用这个项目并感觉良好，或只是想要支持我继续开发，你可以通过如下方式支持我：
+如果你正在使用这个项目并感觉良好，或只是想要支持我继续开发，你可以通过如下任意方式支持我：
 
 - **Star** 并 分享这个项目 :rocket:
 - 保留主题 footer(页脚) 的主题链接 :D

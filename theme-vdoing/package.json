@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-vdoing",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "Vdoing theme for VuePress. 一个基于VuePress的知识管理兼博客主题。",
   "author": {
     "name": "gaoyi(Evan) Xu"
@@ -19,7 +19,7 @@
     "@vuepress/plugin-active-header-links": "^1.2.0",
     "@vuepress/plugin-nprogress": "^1.2.0",
     "@vuepress/plugin-search": "^1.2.0",
-	  "chalk": "^4.0.0",
+    "chalk": "^4.0.0",
     "json2yaml": "^1.1.0",
     "js-yaml": "^3.13.1",
     "docsearch.js": "^2.5.2",
@@ -40,10 +40,8 @@
   ],
   "license": "MIT",
   "main": "index.js",
-  "maintainers": [
-    {
-      "name": "Evan xu",
-      "email": "894072666@qq.com"
-    }
-  ]
+  "maintainers": [{
+    "name": "Evan xu",
+    "email": "894072666@qq.com"
+  }]
 }

@@ -1,4 +1,4 @@
-import { type, compareDate, encodeUrl } from './index'
+import { type, compareDate } from './index'
 
 /**
  * 过滤非文章页
@@ -6,7 +6,7 @@ import { type, compareDate, encodeUrl } from './index'
  */
 export function filterPosts (posts) {
   posts = posts.filter(item => {
-    const { frontmatter: { pageComponent, article, home }} = item
+    const { frontmatter: { pageComponent, article, home } } = item
     return !(pageComponent || article === false || home === true) // 存在页面组件、article字段为false，以及首页
   })
   return posts
@@ -47,31 +47,29 @@ export function sortPostsByDate (posts) {
  * 按分类和标签分组
  * @param {Array} posts 按时间排序之后的文章数据
  */
-export function groupPosts(posts) {
+export function groupPosts (posts) {
   const categoriesObj = {}
   const tagsObj = {}
 
   for (let i = 0, postsL = posts.length; i < postsL; i++) {
-    const { frontmatter: { categories, tags }} = posts[i]
+    const { frontmatter: { categories, tags } } = posts[i]
     if (type(categories) === 'array') {
       categories.forEach(item => {
         if (item) { // 分类值是有效的
-          const encodeItem = encodeUrl(item)
-          if (!categoriesObj[encodeItem]) {
-            categoriesObj[encodeItem] = []
+          if (!categoriesObj[item]) {
+            categoriesObj[item] = []
           }
-          categoriesObj[encodeItem].push(posts[i])
+          categoriesObj[item].push(posts[i])
         }
       })
     }
     if (type(tags) === 'array') {
       tags.forEach(item => {
         if (item) { // 标签值是有效的
-          const encodeItem = encodeUrl(item)
-          if (!tagsObj[encodeItem]) {
-            tagsObj[encodeItem] = []
+          if (!tagsObj[item]) {
+            tagsObj[item] = []
           }
-          tagsObj[encodeItem].push(posts[i])
+          tagsObj[item].push(posts[i])
         }
       })
     }
@@ -86,18 +84,18 @@ export function groupPosts(posts) {
  * 获取所有分类和标签
  * @param {Object} groupPosts 按分类和标签分组之后的文章数据
  */
-export function categoriesAndTags(groupPosts) {
+export function categoriesAndTags (groupPosts) {
   const categoriesArr = []
   const tagsArr = []
 
-  for(let key in groupPosts.categories) {
+  for (let key in groupPosts.categories) {
     categoriesArr.push({
       key,
       length: groupPosts.categories[key].length
     })
   }
 
-  for(let key in groupPosts.tags) {
+  for (let key in groupPosts.tags) {
     tagsArr.push({
       key,
       length: groupPosts.tags[key].length

@@ -1,11 +1,17 @@
 <template>
   <aside class="sidebar">
-    <div class="blogger" v-if="blogger">
-      <img :src="blogger.avatar">
+    <div
+      class="blogger"
+      v-if="blogger"
+    >
+      <img :src="blogger.avatar" />
       <div class="blogger-info">
         <h3>{{blogger.name}}</h3>
 
-        <div class="icons" v-if="blogger.social">
+        <div
+          class="icons"
+          v-if="blogger.social"
+        >
           <a
             :href="item.link"
             :title="item.title"
@@ -13,18 +19,18 @@
             v-for="(item, index) in blogger.social.icons"
             :key="index"
             target="_blank"
-          >
-          </a>
+          ></a>
         </div>
-        <span v-else>
-          {{blogger.slogan}}
-        </span>
+        <span v-else>{{blogger.slogan}}</span>
       </div>
     </div>
-    <NavLinks/>
-    <slot name="top"/>
-    <SidebarLinks :depth="0" :items="items"/>
-    <slot name="bottom"/>
+    <NavLinks />
+    <slot name="top" />
+    <SidebarLinks
+      :depth="0"
+      :items="items"
+    />
+    <slot name="bottom" />
   </aside>
 </template>
 
@@ -38,9 +44,9 @@ export default {
   components: { SidebarLinks, NavLinks },
 
   props: ['items'],
-  
+
   computed: {
-    blogger() {
+    blogger () {
       return this.$themeConfig.blogger
     }
   }
@@ -73,7 +79,7 @@ export default {
       line-height 1.7
       font-weight bold
     & > li:not(:first-child)
-      margin-top .75rem
+      margin-top 0.75rem
   .blogger
     display none
     border-bottom 1px solid var(--borderColor)
@@ -81,17 +87,17 @@ export default {
       width 60px
       height 60px
       border-radius 5px
-      margin .75rem 1rem
+      margin 0.75rem 1rem
     .blogger-info
       flex 1
       h3
-        margin .95rem 0 .7rem
+        margin 0.95rem 0 0.7rem
         font-size 1.1rem
       .icons .iconfont
         font-size 1.2rem
-        padding-right .6rem
+        padding-right 0.6rem
         color #777
-@media (max-width: $MQMobile)
+@media (max-width $MQMobile)
   .sidebar
     .blogger
       display flex

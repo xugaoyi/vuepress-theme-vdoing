@@ -4,27 +4,45 @@
       <img :src="$withBase(pageData.imgUrl)" />
       <dl class="column-info">
         <dt class="title">{{pageData.title}}</dt>
-        <dd class="description" v-html="pageData.description"></dd>
+        <dd
+          class="description"
+          v-html="pageData.description"
+        ></dd>
       </dl>
     </div>
-    <div class="catalogue-wrapper" v-if="isStructuring">
+    <div
+      class="catalogue-wrapper"
+      v-if="isStructuring"
+    >
       <div class="catalogue-title">目录</div>
       <div class="catalogue-content">
         <template v-for="(item, index) in getCatalogueList()">
-          <dl v-if="type(item) === 'array'" :key="index" class="inline">
+          <dl
+            v-if="type(item) === 'array'"
+            :key="index"
+            class="inline"
+          >
             <dt>
               <router-link :to="item[2]">{{`${index+1}. ${item[1]}`}}</router-link>
             </dt>
           </dl>
-          <dl v-else-if="type(item) === 'object'" :key="index">
-            <dt :id="anchorText = encodeUrl(item.title)">
-              <a :href="`#${anchorText}`" class="header-anchor">#</a>
+          <dl
+            v-else-if="type(item) === 'object'"
+            :key="index"
+          >
+            <dt :id="anchorText = item.title">
+              <a
+                :href="`#${anchorText}`"
+                class="header-anchor"
+              >#</a>
               {{`${index+1}. ${item.title}`}}
             </dt>
             <dd>
-              <router-link :to="s[2]" v-for="(s, i) in item.children" :key="i">
-                {{`${index+1}-${i+1}. ${s[1]}`}}
-              </router-link>
+              <router-link
+                :to="s[2]"
+                v-for="(s, i) in item.children"
+                :key="i"
+              >{{`${index+1}-${i+1}. ${s[1]}`}}</router-link>
             </dd>
           </dl>
         </template>
@@ -34,16 +52,14 @@
 </template>
 
 <script>
-import encodeMixin from '../mixins/encodeUrl'
 export default {
-  mixins: [encodeMixin],
-  data() {
+  data () {
     return {
       pageData: null,
       isStructuring: true
     }
   },
-  created() {
+  created () {
     this.getPageData()
 
     const sidebar = this.$themeConfig.sidebar
@@ -53,7 +69,7 @@ export default {
     }
   },
   methods: {
-    getPageData() {
+    getPageData () {
       const pageComponent = this.$frontmatter.pageComponent
       if (pageComponent && pageComponent.data) {
         this.pageData = {
@@ -64,23 +80,23 @@ export default {
         console.error('请在front matter中设置pageComponent和pageComponent.data数据')
       }
     },
-    getCatalogueList() {
+    getCatalogueList () {
       const { sidebar } = this.$site.themeConfig
       const key = this.$frontmatter.pageComponent.data.key
       const catalogueList = sidebar[`/${key}/`]
 
-      if(!catalogueList) {
+      if (!catalogueList) {
         console.error('未获取到目录数据，请查看front matter中设置的key是否正确。')
       }
 
       return catalogueList
     },
-    type(o) { // 数据类型检查
+    type (o) { // 数据类型检查
       return Object.prototype.toString.call(o).match(/\[object (.*?)\]/)[1].toLowerCase()
     }
   },
   watch: {
-    '$route.path'() {
+    '$route.path' () {
       this.getPageData()
     }
   }
@@ -88,7 +104,7 @@ export default {
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-dl,dd
+dl, dd
   margin 0
 .column-wrapper
   margin-top 1rem
@@ -105,8 +121,8 @@ dl,dd
       font-size 1.6rem
     .description
       color var(--textColor)
-      opacity .8
-      margin .5rem 0
+      opacity 0.8
+      margin 0.5rem 0
 .catalogue-wrapper
   .catalogue-title
     font-size 1.45rem
@@ -118,7 +134,7 @@ dl,dd
         display inline-block
         width 50%
         margin-bottom 1rem
-        @media (max-width: $MQMobileNarrow)
+        @media (max-width $MQMobileNarrow)
           width 100%
         a
           width 100%
@@ -131,11 +147,11 @@ dl,dd
         &:hover .header-anchor
           opacity 1
       dd
-        margin-top .7rem
+        margin-top 0.7rem
       a:not(.header-anchor)
-        margin-bottom .5rem
+        margin-bottom 0.5rem
         display inline-block
         width 50%
-        @media (max-width: $MQMobileNarrow)
+        @media (max-width $MQMobileNarrow)
           width 100%
 </style>

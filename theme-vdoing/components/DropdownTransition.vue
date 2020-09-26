@@ -5,7 +5,7 @@
     @after-enter="unsetHeight"
     @before-leave="setHeight"
   >
-    <slot/>
+    <slot />
   </transition>
 </template>
 
@@ -29,5 +29,4 @@ export default {
 <style lang="stylus">
 .dropdown-enter, .dropdown-leave-to
   height 0 !important
-
 </style>

@@ -38,7 +38,7 @@ import Pagination from '@theme/components/Pagination'
 import CategoriesBar from '@theme/components/CategoriesBar'
 
 export default {
-  data(){
+  data () {
     return {
       category: '',
       total: 0, // 总长
@@ -47,7 +47,7 @@ export default {
     }
   },
   components: { MainLayout, PostList, Pagination, CategoriesBar },
-  mounted() {
+  mounted () {
     const queryCategory = this.$route.query.category
     if (queryCategory) {
       this.category = queryCategory
@@ -70,12 +70,12 @@ export default {
     }
   },
   methods: {
-    handlePagination(i) { // 分页
+    handlePagination (i) { // 分页
       this.currentPage = i
     }
   },
   watch: {
-    '$route.query.category'() {
+    '$route.query.category' () {
       this.category = this.$route.query.category
       if (this.category) {
         this.total = this.$groupPosts.categories[this.category].length
@@ -91,41 +91,40 @@ export default {
 
 <style lang='stylus'>
 .categories-page
-  .categories-wrapper 
+  .categories-wrapper
     position sticky
-    top ($navbarHeight + .9rem)
+    top ($navbarHeight + 0.9rem)
     max-height calc(100vh - 10rem)
     min-height 4.2rem
-    @media (max-width: $MQMobile)
+    @media (max-width $MQMobile)
       display none
     .categories
-      padding-right .5rem
+      padding-right 0.5rem
       max-height calc(100vh - 14rem)
       min-height 2.2rem
       overflow-y auto
-      transition all .2s
+      transition all 0.2s
       position relative
       &::-webkit-scrollbar-track-piece
-        background-color:rgba(0,0,0,.05)
+        background-color rgba(0, 0, 0, 0.05)
       &::-webkit-scrollbar-thumb:vertical
-        background-color:rgba(0,0,0,.15)
+        background-color rgba(0, 0, 0, 0.15)
       &:hover
         &::-webkit-scrollbar-track-piece
-          background-color:rgba(0,0,0,.1)
+          background-color rgba(0, 0, 0, 0.1)
         &::-webkit-scrollbar-thumb:vertical
-          background-color:rgba(0,0,0,.25)
-
+          background-color rgba(0, 0, 0, 0.25)
 .categories-page
   .main-left
     .categories-wrapper
       position relative
       top 0
-      padding .9rem 1.5rem
-      margin-bottom .9rem
+      padding 0.9rem 1.5rem
+      margin-bottom 0.9rem
       max-height 15rem
       border-radius 0
       display none
-      @media (max-width: $MQMobile)
+      @media (max-width $MQMobile)
         display block
       .categories
         max-height 12.3rem

@@ -1,7 +1,10 @@
 <template>
   <div class="page-nav-wapper">
     <!-- 页面中间左右翻页 -->
-    <div class="page-nav-centre-wrap" v-if="$themeConfig.pageButton !== false && (prev || next)">
+    <div
+      class="page-nav-centre-wrap"
+      v-if="$themeConfig.pageButton !== false && (prev || next)"
+    >
       <router-link
         class="page-nav-centre page-nav-centre-prev"
         v-if="prev"
@@ -9,11 +12,8 @@
         @mouseenter.native="showTooltip($event)"
         @mousemove.native="showTooltip($event)"
       >
-        <div class="tooltip">
-          {{ prev.title || prev.path }}
-        </div>
+        <div class="tooltip">{{ prev.title || prev.path }}</div>
       </router-link>
-
 
       <router-link
         class="page-nav-centre page-nav-centre-next"
@@ -22,23 +22,36 @@
         @mouseenter.native="showTooltip($event)"
         @mousemove.native="showTooltip($event)"
       >
-        <div class="tooltip">
-          {{ next.title || next.path }}
-        </div>
+        <div class="tooltip">{{ next.title || next.path }}</div>
       </router-link>
     </div>
 
     <!-- 底部翻页按钮 -->
-    <div class="page-nav" v-if="prev || next">
+    <div
+      class="page-nav"
+      v-if="prev || next"
+    >
       <p class="inner">
-        <span v-if="prev" class="prev">
+        <span
+          v-if="prev"
+          class="prev"
+        >
           ←
-          <router-link v-if="prev" class="prev" :to="prev.path">{{ prev.title || prev.path }}</router-link>
+          <router-link
+            v-if="prev"
+            class="prev"
+            :to="prev.path"
+          >{{ prev.title || prev.path }}</router-link>
         </span>
 
-        <span v-if="next" class="next">
-          <router-link v-if="next" :to="next.path">{{ next.title || next.path }}</router-link>
-          →
+        <span
+          v-if="next"
+          class="next"
+        >
+          <router-link
+            v-if="next"
+            :to="next.path"
+          >{{ next.title || next.path }}</router-link>→
         </span>
       </p>
     </div>
@@ -62,7 +75,7 @@ export default {
     }
   },
   methods: {
-    showTooltip(e) {
+    showTooltip (e) {
 
       const clientW = document.body.clientWidth
       const X = e.clientX
@@ -72,7 +85,7 @@ export default {
       }
 
       const tooltipEleStyle = tooltipEle.style
-      if (X < clientW/2) {
+      if (X < clientW / 2) {
         tooltipEleStyle.right = null
         tooltipEleStyle.left = X + 10 + 'px'
       } else {
@@ -165,8 +178,6 @@ function flatten (items, res) {
     overflow auto // clear float
   .next
     float right
-
-
 .page-nav-centre-wrap
   .page-nav-centre
     position fixed
@@ -175,21 +186,21 @@ function flatten (items, res) {
     height 70px
     margin-top -35px
     outline 0
-    transition all .2s
+    transition all 0.2s
     border-radius 3px
-    opacity .55
+    opacity 0.55
     z-index 99
-    @media (max-width: 1340px)
+    @media (max-width 1340px)
       width 50px
-    @media (max-width: 960px)
+    @media (max-width 960px)
       display none
     &:hover
-      background rgba(153, 153, 153, .15)
+      background rgba(153, 153, 153, 0.15)
       opacity 1
       .tooltip
         display block
     &:before
-      content: ""
+      content ''
       display block
       width 10px
       height 10px
@@ -203,7 +214,7 @@ function flatten (items, res) {
       margin auto
     .tooltip
       display none
-      background rgba(0, 0, 0, .5)
+      background rgba(0, 0, 0, 0.5)
       color #fff
       padding 4px 8px
       font-size 13px
@@ -211,19 +222,16 @@ function flatten (items, res) {
       position fixed
       max-width 200px
       z-index 99
-
   .page-nav-centre-prev
     left 0
     &:before
       transform rotate(-135deg)
   .page-nav-centre-next
-    right: 0
+    right 0
     &:before
       transform rotate(45deg)
-
 .sidebar-open .page-nav-centre-wrap .page-nav-centre-prev
   left $sidebarWidth
 .no-sidebar .page-nav-centre-wrap .page-nav-centre-prev
   left 0
-
 </style>

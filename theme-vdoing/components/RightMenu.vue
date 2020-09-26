@@ -3,12 +3,12 @@
     <div class="right-menu-margin">
       <div class="right-menu-content">
         <div
-            :class="['right-menu-item', 'level'+item.level, { active: item.slug === hashText }]"
-            v-for="(item, i) in headers"
-            :key="i"
-          >
-            <a :href="'#'+item.slug">{{item.title}}</a>
-          </div>
+          :class="['right-menu-item', 'level'+item.level, { active: item.slug === hashText }]"
+          v-for="(item, i) in headers"
+          :key="i"
+        >
+          <a :href="'#'+item.slug">{{item.title}}</a>
+        </div>
       </div>
     </div>
   </div>
@@ -16,27 +16,27 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       headers: [],
       hashText: ''
     }
   },
-  mounted() {
+  mounted () {
     this.getHeadersData()
     this.getHashText()
   },
   watch: {
-    $route() {
+    $route () {
       this.headers = this.$page.headers
       this.getHashText()
     }
   },
   methods: {
-    getHeadersData() {
+    getHeadersData () {
       this.headers = this.$page.headers
     },
-    getHashText() {
+    getHashText () {
       this.hashText = decodeURIComponent(window.location.hash.slice(1))
     }
   }
@@ -44,14 +44,13 @@ export default {
 </script>
 
 <style lang='stylus'>
-
 .right-menu-wrapper
   width $rightMenuWidth
-  float right 
+  float right
   margin-right -($rightMenuWidth + 60px)
   position sticky
   top 0
-  font-size .9rem
+  font-size 0.9rem
   .right-menu-margin
     margin-top ($navbarHeight + 1rem)
   .right-menu-content
@@ -61,12 +60,12 @@ export default {
     &::-webkit-scrollbar-track-piece
       background none
     &::-webkit-scrollbar-thumb:vertical
-      background-color hsla(0,0%,49%,.3)
+      background-color hsla(0, 0%, 49%, 0.3)
     &:hover
       overflow-y auto
     .right-menu-item
       padding 4px 15px
-      border-left .15rem solid var(--borderColor)
+      border-left 0.15rem solid var(--borderColor)
       &.level3
         padding-left 28px
       &.active
@@ -81,17 +80,16 @@ export default {
         width ($rightMenuWidth - 30px)
         &:hover
           color $accentColor
-
-.have-body-img 
+.have-body-img
   .right-menu-wrapper
     .right-menu-margin
-      padding .3rem 0
+      padding 0.3rem 0
       background var(--sidebarBg)
       border-radius 5px
       .right-menu-item
         border-color transparent
         &.active
-          border-left .2rem solid $accentColor
+          border-left 0.2rem solid $accentColor
         &:hover
-          border-left .2rem solid $accentColor
+          border-left 0.2rem solid $accentColor
 </style>

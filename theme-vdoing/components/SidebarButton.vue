@@ -1,7 +1,21 @@
 <template>
-  <div class="sidebar-button" @click="$emit('toggle-sidebar')" title="目录">
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512">
-      <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class=""></path>
+  <div
+    class="sidebar-button"
+    @click="$emit('toggle-sidebar')"
+    title="目录"
+  >
+    <svg
+      class="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="img"
+      viewBox="0 0 448 512"
+    >
+      <path
+        fill="currentColor"
+        d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
+        class
+      />
     </svg>
   </div>
 </template>
@@ -16,14 +30,13 @@
   padding 0.6rem
   top 0.6rem
   left 1rem
-  @media (max-width: $MQMobile)
+  @media (max-width $MQMobile)
     display block
   .icon
     display block
     width 1.25rem
     height 1.25rem
-
-@media (min-width: ($MQMobile + 1px))
+@media (min-width ($MQMobile + 1px))
   $mobileSidebarWidth = $sidebarWidth * 0.82
   .sidebar-button
     width 40px
@@ -38,7 +51,7 @@
     color #888
     border-radius 50%
     padding 0
-    transition left  .2s ease
+    transition left 0.2s ease
     &:hover
       background $accentColor
       color #fff

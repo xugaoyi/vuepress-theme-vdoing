@@ -23,8 +23,8 @@
       <span
         class="arrow"
         v-if="collapsable"
-        :class="open ? 'down' : 'right'">
-      </span>
+        :class="open ? 'down' : 'right'"
+      ></span>
     </router-link>
 
     <p
@@ -37,8 +37,8 @@
       <span
         class="arrow"
         v-if="collapsable"
-        :class="open ? 'down' : 'right'">
-      </span>
+        :class="open ? 'down' : 'right'"
+      ></span>
     </p>
 
     <DropdownTransition>
@@ -90,15 +90,14 @@ export default {
     & > .sidebar-group-items
       padding-left 1rem
       & > li > .sidebar-link
-        font-size: 0.95em;
+        font-size 0.95em
         border-left none
   &.depth-2
     & > .sidebar-heading
       border-left none
-
 .sidebar-heading
   color var(--textColor)
-  transition color .15s ease
+  transition color 0.15s ease
   cursor pointer
   font-size 1.1em
   font-weight bold
@@ -121,9 +120,8 @@ export default {
       border-left-color $accentColor
     &:hover
       color $accentColor
-
 .sidebar-group-items
-  transition height .1s ease-out
+  transition height 0.1s ease-out
   font-size 0.95em
   overflow hidden
 </style>

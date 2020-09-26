@@ -13,7 +13,7 @@
 .main-wrapper
   margin 1.5rem auto 0 auto
   max-width $homePageWidth
-  padding 0 .9rem
+  padding 0 0.9rem
   box-sizing border-box
   position relative
   display flex
@@ -22,23 +22,22 @@
     width 72%
     .theme-vdoing-content.card-box
       padding 1rem 1.5rem
-      margin-bottom .9rem
+      margin-bottom 0.9rem
     .home-content
       padding 1rem 1.5rem 0
   .main-right
-    >* 
+    >*
       width 265px
       box-sizing border-box
       @media (max-width 900px)
         width 235px
     .card-box
-      margin 0 0 .9rem .9rem
-      padding .95rem
-
+      margin 0 0 0.9rem 0.9rem
+      padding 0.95rem
 // 719px以下
-@media (max-width: $MQMobile) 
+@media (max-width $MQMobile)
   .main-wrapper
-    margin .9rem 0
+    margin 0.9rem 0
     padding 0
     display block
     .main-left
@@ -53,7 +52,7 @@
       .blogger-wrapper
         display none
       .card-box
-        margin 0 0 .9rem 0
+        margin 0 0 0.9rem 0
         border-radius 0
         width 100%
 </style>

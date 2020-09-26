@@ -174,7 +174,7 @@ module.exports = {
         options: {
           clientID: 'a6e1355287947096b88b',
           clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
-          repo: 'vuepress-theme-vdoing', // GitHub 仓库
+          repo: 'blog-gitalk-comment', // GitHub 仓库
           owner: 'xugaoyi', // GitHub仓库所有者
           admin: ['xugaoyi'], // 对仓库有写权限的人
           // distractionFreeMode: true,
