@@ -81,6 +81,7 @@ export default {
     }
   },
   mounted () {
+    this.modeObserver()
     this.currentMode = storage.get('mode') || 'auto'
 
     this.scrollTop = this.getScrollTop()
@@ -112,6 +113,12 @@ export default {
     }
   },
   methods: {
+    modeObserver () {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const newColorScheme = e.matches ? 'dark' : 'light'
+        this.$emit('toggle-theme-mode', newColorScheme)
+      })
+    },
     toggleMode(key){
       this.currentMode = key
       this.$emit('toggle-theme-mode', key)
