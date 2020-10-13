@@ -9,7 +9,7 @@
     </div>
     <div
       class="icons"
-      v-if="social"
+      v-if="social && social.icons && social.icons.length"
     >
       <a
         v-for="(item, index) in social.icons"

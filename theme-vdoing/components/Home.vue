@@ -143,7 +143,7 @@
         <UpdateArticle
           class="card-box"
           v-if="homeData.postList === 'simple'"
-          :length="5"
+          :length="homeData.simplePostListLength || 10"
         />
 
         <!-- 详情版文章列表 -->

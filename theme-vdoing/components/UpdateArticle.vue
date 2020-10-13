@@ -111,7 +111,7 @@ export default {
       display flex
       padding 8px 0
       margin 0
-      height 50px
+      height 45px
       width 100%
       dd
         font-size 1.1rem
@@ -119,7 +119,7 @@ export default {
         width 50px
         text-align center
         margin 0
-        line-height 50px
+        line-height 45px
       dt
         flex 1
         display flex
@@ -127,7 +127,7 @@ export default {
           color var(--textColor)
           flex 1
           display flex
-          height 50px
+          height 45px
           align-items center
           font-weight normal
           div
@@ -147,5 +147,5 @@ export default {
           color #999
           text-align right
           font-size 0.9rem
-          line-height 50px
+          line-height 45px
 </style>
