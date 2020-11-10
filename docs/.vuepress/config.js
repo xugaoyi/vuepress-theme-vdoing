@@ -191,7 +191,7 @@ module.exports = {
       {
         transformer: (timestamp, lang) => {
           const moment = require('moment') // https://momentjs.com/
-          return moment(timestamp).format('YYYY/MM/DD, H:MM:SS');
+          return moment(timestamp).format('YYYY/MM/DD, hh:mm:ss');
         }
       }
     ]
