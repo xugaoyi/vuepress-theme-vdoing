@@ -28,30 +28,60 @@ function setFrontmatter (sourceDir, themeConfig) {
     // fileMatterObj => {content:'剔除frontmatter后的文件内容字符串', data:{<frontmatter对象>}, ...}
     const fileMatterObj = matter(dataStr);
 
-    if (Object.keys(fileMatterObj.data).length === 0) { // 未定义FrontMatter数据
-      const stat = fs.statSync(file.filePath);
-      const dateStr = dateFormat(getBirthtime(stat));// 文件的创建时间
-      const categories = getCategories(file, categoryText)
+    if (Object.keys(fileMatterObj.data).length === 0) {
+                                                        // 未定义FrontMatter数据
+                                                        const stat = fs.statSync(file.filePath)
+                                                        const dateStr = dateFormat(
+                                                          getBirthtime(stat)
+                                                        ) // 文件的创建时间
+                                                        const categories = getCategories(
+                                                          file,
+                                                          categoryText
+                                                        )
 
-      // 注意下面这些反引号字符串的格式会映射到文件
-      const cateStr = isCategory === false ? '' : `
-categories:
-  - ${categories[0]}${categories[1] ? '\r\n  - ' + categories[1] : ''}`;
+                                                        let cateLabelStr = ''
+                                                        categories.forEach(((item)) => {
+                                                          cateLabelStr += '\r\n  - ' + item
+                                                        })
 
-      const tagsStr = isTag === false ? '' : `
+                                                        let cateStr = ''
+                                                        if (!(isCategory === false)) {
+                                                          cateStr = '\r\ncategories:' + cateLabelStr
+                                                        }
+
+                                                        // 注意下面这些反引号字符串的格式会映射到文件
+                                                        //       const cateStr = isCategory === false ? '' : `
+                                                        // categories:
+                                                        //   - ${categories[0]}${categories[1] ? '\r\n  - ' + categories[1] : ''}`;
+
+                                                        const tagsStr =
+                                                          isTag === false
+                                                            ? ''
+                                                            : `
 tags:
-  - `;
+  - `
 
-      const fmData = `---
+                                                        const fmData = `---
 title: ${file.name}
 date: ${dateStr}
-permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsidebar: auto' : ''}${cateStr}${tagsStr}
----`;
+permalink: ${getPermalink()}${
+                                                          file.filePath.indexOf('_posts') > -1
+                                                            ? '\r\nsidebar: auto'
+                                                            : ''
+                                                        }${cateStr}${tagsStr}
+---`
 
-      fs.writeFileSync(file.filePath, `${fmData}\r\n${fileMatterObj.content}`); // 写入
-      log(chalk.blue('tip ') + chalk.green(`write frontmatter(写入frontmatter)：${file.filePath} `))
-
-    } else { // 已有FrontMatter
+                                                        fs.writeFileSync(
+                                                          file.filePath,
+                                                          `${fmData}\r\n${fileMatterObj.content}`
+                                                        ) // 写入
+                                                        log(
+                                                          chalk.blue('tip ') +
+                                                            chalk.green(
+                                                              `write frontmatter(写入frontmatter)：${file.filePath} `
+                                                            )
+                                                        )
+                                                      } else { // 已有FrontMatter
       const matterData = fileMatterObj.data;
       let mark = false;
 
@@ -106,13 +136,17 @@ permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsideba
 function getCategories (file, categoryText) {
   let categories = []
 
-  if (file.filePath.indexOf('_posts') === -1) { // 不在_posts文件夹
-    const filePathArr = file.filePath.split(path.sep) // path.sep用于兼容不同系统下的路径斜杠
-    const c = filePathArr[filePathArr.length - 3].split('.').pop() // 获取分类1
-    if (c !== 'docs') {
-      categories.push(c)
+  if (file.filePath.indexOf('_posts') === -1) {
+    // 不在_posts文件夹
+    let filePathArr = file.filePath.split(path.sep) // path.sep用于兼容不同系统下的路径斜杠
+    filePathArr.pop()
+
+    let ind = filePathArr.indexOf('docs')
+    if (ind !== -1) {
+      while (filePathArr[++ind] !== undefined) {
+        categories.push(filePathArr[ind].split('.').pop()) // 获取分类
+      }
     }
-    categories.push(filePathArr[filePathArr.length - 2].split('.').pop()) // 获取分类2
   } else {
     categories.push(categoryText)
   }

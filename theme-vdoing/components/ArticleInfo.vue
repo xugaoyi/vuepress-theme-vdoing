@@ -38,6 +38,19 @@
           >{{articleInfo.classify2}}</router-link>
           <span v-else>{{articleInfo.classify2}}</span>
         </li>
+        <li v-if="articleInfo.classify3">
+          <router-link
+            v-if="articleInfo.cataloguePermalink"
+            :to="articleInfo.cataloguePermalink + '/#' + articleInfo.classify3"
+            :title="articleInfo.classify1+'#'+articleInfo.classify3"
+          >{{articleInfo.classify3}}</router-link>
+          <router-link
+            v-else-if="$themeConfig.category !== false"
+            :to="`/categories/?category=${encodeURIComponent(articleInfo.classify3)}`"
+            title="分类"
+          >{{articleInfo.classify3}}</router-link>
+          <span v-else>{{articleInfo.classify3}}</span>
+        </li>
       </ul>
       <div class="info">
         <div
@@ -103,9 +116,11 @@ export default {
 
       // 分类采用解析文件夹地址名称的方式
       const relativePathArr = relativePath.split('/')
+
       const classifyArr = relativePathArr[0].split('.')
       const classify1 = classifyArr.length > 1 ? classifyArr[1] : classifyArr[0] // 文章一级分类名称
       const classify2 = relativePathArr.length > 2 ? relativePathArr[1].split('.')[1] : undefined// 文章二级分类名称
+      const classify3 = relativePathArr.length > 3 ? relativePathArr[2].split('.')[1] : undefined// 文章三级分类名称
 
       const cataloguePermalink = sidebar && sidebar.catalogue ? sidebar.catalogue[classify1] : undefined// 目录页永久链接
 
@@ -119,6 +134,7 @@ export default {
         date,
         classify1,
         classify2,
+        classify3,
         cataloguePermalink,
         author,
         categories
