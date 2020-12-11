@@ -118,7 +118,6 @@ export default {
       if (!catalogueList) {
         console.error('未获取到目录数据，请查看front matter中设置的key是否正确。')
       }
-      console.log(catalogueList)
       return catalogueList
     },
     type (o) { // 数据类型检查
@@ -186,11 +185,11 @@ dl, dd
           width 100%
       .sub-cat-wrap
         margin 5px 0 8px 0
-        font-size .9rem
+        font-size .95rem
         .sub-title
           margin-top -($navbarHeight)
           padding-top $navbarHeight
-          margin-bottom 5px
+          margin-bottom 6px
           font-size 1rem
         &:hover
           .header-anchor

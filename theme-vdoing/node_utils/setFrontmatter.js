@@ -28,60 +28,45 @@ function setFrontmatter (sourceDir, themeConfig) {
     // fileMatterObj => {content:'剔除frontmatter后的文件内容字符串', data:{<frontmatter对象>}, ...}
     const fileMatterObj = matter(dataStr);
 
-    if (Object.keys(fileMatterObj.data).length === 0) {
-                                                        // 未定义FrontMatter数据
-                                                        const stat = fs.statSync(file.filePath)
-                                                        const dateStr = dateFormat(
-                                                          getBirthtime(stat)
-                                                        ) // 文件的创建时间
-                                                        const categories = getCategories(
-                                                          file,
-                                                          categoryText
-                                                        )
+    if (Object.keys(fileMatterObj.data).length === 0) { // 未定义FrontMatter数据
+      const stat = fs.statSync(file.filePath);
+      const dateStr = dateFormat(
+        getBirthtime(stat)
+      ); // 文件的创建时间
+      const categories = getCategories(
+        file,
+        categoryText
+      );
 
-                                                        let cateLabelStr = ''
-                                                        categories.forEach(((item)) => {
-                                                          cateLabelStr += '\r\n  - ' + item
-                                                        })
+      let cateLabelStr = '';
+      categories.forEach(item => {
+        cateLabelStr += '\r\n  - ' + item
+      });
 
-                                                        let cateStr = ''
-                                                        if (!(isCategory === false)) {
-                                                          cateStr = '\r\ncategories:' + cateLabelStr
-                                                        }
+      let cateStr = '';
+      if (!(isCategory === false)) {
+        cateStr = '\r\ncategories:' + cateLabelStr
+      };
 
-                                                        // 注意下面这些反引号字符串的格式会映射到文件
-                                                        //       const cateStr = isCategory === false ? '' : `
-                                                        // categories:
-                                                        //   - ${categories[0]}${categories[1] ? '\r\n  - ' + categories[1] : ''}`;
+        // 注意下面这些反引号字符串的格式会映射到文件
+        //       const cateStr = isCategory === false ? '' : `
+        // categories:
+        //   - ${categories[0]}${categories[1] ? '\r\n  - ' + categories[1] : ''}`;
 
-                                                        const tagsStr =
-                                                          isTag === false
-                                                            ? ''
-                                                            : `
+      const tagsStr = isTag === false ? '' : `
 tags:
-  - `
+  - `;
 
-                                                        const fmData = `---
+      const fmData = `---
 title: ${file.name}
 date: ${dateStr}
-permalink: ${getPermalink()}${
-                                                          file.filePath.indexOf('_posts') > -1
-                                                            ? '\r\nsidebar: auto'
-                                                            : ''
-                                                        }${cateStr}${tagsStr}
----`
+permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsidebar: auto' : ''}${cateStr}${tagsStr}
+---`;
 
-                                                        fs.writeFileSync(
-                                                          file.filePath,
-                                                          `${fmData}\r\n${fileMatterObj.content}`
-                                                        ) // 写入
-                                                        log(
-                                                          chalk.blue('tip ') +
-                                                            chalk.green(
-                                                              `write frontmatter(写入frontmatter)：${file.filePath} `
-                                                            )
-                                                        )
-                                                      } else { // 已有FrontMatter
+      fs.writeFileSync(file.filePath, `${fmData}\r\n${fileMatterObj.content}`); // 写入
+      log(chalk.blue('tip ') + chalk.green(`write frontmatter(写入frontmatter)：${file.filePath} `))
+
+    } else { // 已有FrontMatter
       const matterData = fileMatterObj.data;
       let mark = false;
 
