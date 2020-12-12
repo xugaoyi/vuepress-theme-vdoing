@@ -27,13 +27,14 @@
       padding 1rem 1.5rem 0
   .main-right
     >*
-      width 265px
+      width 255px
       box-sizing border-box
       @media (max-width 900px)
         width 235px
     .card-box
       margin 0 0 0.9rem 0.9rem
-      padding 0.95rem
+      padding-top 0.95rem
+      padding-bottom 0.95rem
 // 719px以下
 @media (max-width $MQMobile)
   .main-wrapper

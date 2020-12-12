@@ -51,7 +51,8 @@
     color #888
     border-radius 50%
     padding 0
-    transition left 0.2s ease
+    // transition left 0.2s ease
+    transition all .2s
     &:hover
       background $accentColor
       color #fff

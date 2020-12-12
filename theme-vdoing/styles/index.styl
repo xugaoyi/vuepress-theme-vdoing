@@ -48,7 +48,9 @@ a,input,button
   border-radius 5px
   background var(--mainBg)
   box-shadow 0 1px 2px 0 rgba(0,0,0,.1)
-  
+  transition box-shadow .5s
+  &:hover
+    box-shadow 0 1px 15px 0 rgba(0,0,0,.1)
 
 .blur // 模糊滤镜
   backdrop-filter saturate(200%) blur(20px)
@@ -195,7 +197,7 @@ p,pre,.custom-block
   {$contentClass}:not(.custom) > &
       &:first-child
         margin-top 2rem
-        
+
 
 h1
   font-size 1.8rem

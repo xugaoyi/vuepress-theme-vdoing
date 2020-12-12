@@ -71,10 +71,13 @@ export default {
 
 <style lang='stylus'>
 .tags-wrapper
+  padding 0 .95rem
   .title
     color var(--textColor)
     opacity 0.9
     font-size 1.2rem
+    &::before
+      margin-right 0.3rem
   .tags
     text-align justify
     padding 0.8rem 0.5rem 0.5rem 0.5rem

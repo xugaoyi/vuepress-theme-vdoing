@@ -176,7 +176,7 @@ export default {
       top -1px
       right 0
       font-size 2.5rem
-      color $accentColor
+      color $activeColor
       opacity 0.85
     .title-wrapper
       a

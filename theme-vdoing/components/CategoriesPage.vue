@@ -75,8 +75,8 @@ export default {
     }
   },
   watch: {
-    '$route.query.category' () {
-      this.category = this.$route.query.category
+    '$route.query.category' (category) {
+      this.category = category ? decodeURIComponent(category) : ''
       if (this.category) {
         this.total = this.$groupPosts.categories[this.category].length
       } else {

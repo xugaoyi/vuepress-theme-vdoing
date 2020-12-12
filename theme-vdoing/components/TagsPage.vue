@@ -66,8 +66,9 @@ export default {
     }
   },
   watch: {
-    '$route.query.tag' () {
-      this.tag = decodeURIComponent(this.$route.query.tag)
+    '$route.query.tag' (tag) {
+      this.tag = tag ? decodeURIComponent(tag) : ''
+
       if (this.tag) {
         this.total = this.$groupPosts.tags[this.tag].length
       } else {

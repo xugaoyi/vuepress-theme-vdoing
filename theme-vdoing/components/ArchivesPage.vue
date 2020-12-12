@@ -11,15 +11,15 @@
       <ul>
         <template v-for="(item, index) in postsList">
           <li
+              v-if="(year = getYear(index)) !== getYear(index-1)"
             class="year"
-            v-if="(year = getYear(index)) !== getYear(index-1)"
             :key="index+$sortPostsByDate.length"
           >
             <h2>{{year}}</h2>
           </li>
           <li :key="index">
             <router-link :to="item.path">
-              <span>{{ getDate(item) }}</span>
+              <i>{{ getDate(item) }}</i>
               {{item.title}}
             </router-link>
           </li>
@@ -111,32 +111,54 @@ export default {
       &.year
         position sticky
         top $navbarHeight
-        background var(--mainBg)
         z-index 1
+        width: 80px
+        margin-bottom -1.8rem
       &.year:not(:first-child)
         margin-top 3.5rem
       h2
-        margin-bottom 0.8rem
+        margin-bottom 0.5rem
         font-weight 400
         padding 0.5rem 0
+        border none
+        display inline-block
+        background var(--mainBg)
+        color $accentColor
       a
         display block
         color var(--textColor)
         transition padding 0.3s
-        padding 0.5rem 2rem
+        padding 0.4rem 1.2rem
+        margin-left 4.5rem
+        border-left 1px solid var(--borderColor)
         line-height 1.2rem
+        position: relative
         &:hover
-          padding-left 2.5rem
-          color $accentColor
+          padding-left 1.5rem
+          color $activeColor
           background #f9f9f9
+          &::before
+            transform scale(2)
+            background $activeColor
+        &::before
+          content ''
+          display block
+          width .3rem
+          height .3rem
+          border-radius 50%
+          background var(--borderColor)
+          position: absolute;
+          top .9rem
+          left -0.18rem
+          transition all .5s
         @media (max-width $contentWidth + 80)
           padding 0.5rem 1rem
           font-weight normal
           &:hover
             padding-left 1.5rem
-        span
+        i
           opacity 0.6
-          font-size 0.85rem
+          font-size 0.9rem
           font-weight 400
           margin-right 0.3rem
     .loadmore
