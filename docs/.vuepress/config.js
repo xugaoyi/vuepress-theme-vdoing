@@ -22,7 +22,7 @@ module.exports = {
     [
       'script',
       {
-        'ata-ad-client': 'ca-pub-7828333725993554',
+        'data-ad-client': 'ca-pub-7828333725993554',
         async: 'async',
         src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
       },
