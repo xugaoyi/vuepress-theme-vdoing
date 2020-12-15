@@ -133,7 +133,12 @@ function mapTocToSidebar (root, collapsable, prefix) {
       const contentStr = fs.readFileSync(file, 'utf8') // 读取md文件内容，返回字符串
       const { data } = matter(contentStr) // 解析出front matter数据
       const permalink = data.permalink || ''
-      sidebar[order] = [prefix + filename, title, permalink];  // [<路径>, <文件标题>, <永久链接>]
+      const title2 = data.title || title
+	    if (title2) {
+		    sidebar[order] = [prefix + filename, title2, permalink];  // [<路径>, <front matter.title>, <永久链接>]
+	    } else {
+		    sidebar[order] = [prefix + filename, title, permalink];  // [<路径>, <文件标题>, <永久链接>]
+	   }
 
       // 目录页和永久链接，用于给面包屑提供数据
       const pageComponent = data.pageComponent
