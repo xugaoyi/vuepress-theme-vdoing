@@ -113,10 +113,33 @@ export default {
         top $navbarHeight
         z-index 1
         width: 80px
-        margin-bottom -1.8rem
+        &+ li
+          position relative
+          &::before
+            content ''
+            display block
+            width .5rem
+            height .5rem
+            border-radius 50%
+            border 1px solid $accentColor
+            position absolute
+            left 4.25rem
+            top -2.1rem
+          a
+            position relative
+            &::after
+              content ''
+              display block
+              width 1px
+              height 1.5rem
+              background $accentColor
+              position absolute
+              left -1px
+              top -1.5rem
       &.year:not(:first-child)
         margin-top 3.5rem
       h2
+        margin-top 0
         margin-bottom 0.5rem
         font-weight 400
         padding 0.5rem 0
@@ -130,7 +153,7 @@ export default {
         transition padding 0.3s
         padding 0.4rem 1.2rem
         margin-left 4.5rem
-        border-left 1px solid var(--borderColor)
+        border-left 1px solid $accentColor
         line-height 1.2rem
         position: relative
         &:hover
@@ -146,7 +169,7 @@ export default {
           width .3rem
           height .3rem
           border-radius 50%
-          background var(--borderColor)
+          background $accentColor
           position: absolute;
           top .9rem
           left -0.18rem

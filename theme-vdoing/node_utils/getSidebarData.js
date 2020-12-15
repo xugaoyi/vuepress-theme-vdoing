@@ -88,7 +88,10 @@ function mapTocToPostSidebar (root) {
     const contentStr = fs.readFileSync(file, 'utf8') // 读取md文件内容，返回字符串
     const { data } = matter(contentStr) // 解析出front matter数据
     const permalink = data.permalink || ''
-    postSidebar.push([filename, title, permalink]);  // [<路径>, <文件标题>, <永久链接>]
+    if (data.title) {
+      title = data.title
+    }
+    postSidebar.push([filename, title, permalink]);  // [<路径>, <标题>, <永久链接>]
   })
 
   return postSidebar
@@ -102,12 +105,11 @@ function mapTocToPostSidebar (root) {
  * @param {String} prefix
  */
 
-function mapTocToSidebar (root, collapsable, prefix) {
-  prefix = prefix || '';
-  let sidebar = [];
+function mapTocToSidebar (root, collapsable, prefix = '') {
+  let sidebar = []; // 结构化文章侧边栏数据
   const files = fs.readdirSync(root); // 读取目录（文件和文件夹）,返回数组
 
-  files.forEach(filename => { // 结构化文章
+  files.forEach(filename => {
     const file = path.resolve(root, filename); // 方法：将路径或路径片段的序列解析为绝对路径
     const stat = fs.statSync(file); // 文件信息
     let [order, title, type] = filename.split('.');
@@ -133,18 +135,18 @@ function mapTocToSidebar (root, collapsable, prefix) {
       const contentStr = fs.readFileSync(file, 'utf8') // 读取md文件内容，返回字符串
       const { data } = matter(contentStr) // 解析出front matter数据
       const permalink = data.permalink || ''
-      const title2 = data.title || title
-	    if (title2) {
-		    sidebar[order] = [prefix + filename, title2, permalink];  // [<路径>, <front matter.title>, <永久链接>]
-	    } else {
-		    sidebar[order] = [prefix + filename, title, permalink];  // [<路径>, <文件标题>, <永久链接>]
-	   }
 
-      // 目录页和永久链接，用于给面包屑提供数据
-      const pageComponent = data.pageComponent
-      if (pageComponent && pageComponent.name && pageComponent.name === "Catalogue") {
+      // 目录页对应的永久链接，用于给面包屑提供链接
+      const { pageComponent } = data
+      if (pageComponent && pageComponent.name === "Catalogue") {
         catalogueData[title] = permalink
       }
+
+      if (data.title) {
+        title = data.title
+      }
+      sidebar[order] = [prefix + filename, title, permalink];  // [<路径>, <标题>, <永久链接>]
+
     }
   })
 
