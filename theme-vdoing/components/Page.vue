@@ -72,7 +72,13 @@ export default {
       return !this.$frontmatter.pageComponent
     },
     showRightMenu () {
-      return this.$page.headers && (this.$frontmatter && this.$frontmatter.sidebar && this.$frontmatter.sidebar !== false) !== false
+      const { $frontmatter, $themeConfig, $page } = this
+      const { sidebar } = $frontmatter
+      return (
+        $themeConfig.rightMenuBar !== false &&
+        $page.headers &&
+        ($frontmatter && sidebar && sidebar !== false) !== false
+      )
     },
     pageComponent () {
       return this.$frontmatter.pageComponent ? this.$frontmatter.pageComponent.name : false
@@ -138,9 +144,11 @@ export default {
     .page
       padding-right 0.8rem !important
 @media (max-width 1279px)
-  .right-menu-wrapper
-    display none
+  .have-rightmenu
+    .right-menu-wrapper
+      display none
 @media (min-width 1280px)
-  .sidebar .sidebar-sub-headers
-    display none
+  .have-rightmenu
+    .sidebar .sidebar-sub-headers
+      display none
 </style>

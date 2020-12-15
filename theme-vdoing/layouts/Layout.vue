@@ -102,6 +102,7 @@ export default {
       const { headers } = this.$page
       return (
         !this.$frontmatter.home
+        && this.$themeConfig.rightMenuBar !== false
         && headers
         && headers.length
         && this.$frontmatter.sidebar !== false

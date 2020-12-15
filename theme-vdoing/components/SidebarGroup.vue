@@ -81,12 +81,12 @@ export default {
   &.is-sub-group
     padding-left 0
     & > .sidebar-heading
-      font-size 1em
+      font-size 1.01em
       line-height 1.4
-      font-weight normal
+      font-weight bold
       padding-left 2rem
       &:not(.clickable)
-        opacity 0.5
+        // opacity 0.9
     & > .sidebar-group-items
       padding-left 1rem
       & > li > .sidebar-link
