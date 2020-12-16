@@ -14,9 +14,8 @@
 
 <h2 align="center">vuepress-theme-vdoing</h2>
 
-
+* [文档 (国内源)](https://doc.xugaoyi.com/)
 * [文档 (github源)](https://xugaoyi.github.io/vuepress-theme-vdoing-doc/)
-* [文档 (国内源)](https://doc.xugaoyi.com/vuepress-theme-vdoing-doc/)
 * [效果：Evan's blog](https://xugaoyi.com/)
 
 
@@ -65,7 +64,7 @@ npm run dev # or yarn dev
 
 期待 [VuePress v2.0](https://github.com/vuepress/vuepress-next) 以及 [VitePress](https://github.com/vuejs/vitepress) 的正式发布...
 
-届时，VuePress 1.x 编译慢的缺点将得到极大的改善。我将会视情况把主题升级至 VuePress v2.0 或 VitePress，也可能两个都升级。目前(2020.10.29)来看还需要挺长一段时间才能让大家使用上基于它们的新版本，还希望大家多多 [:sparkling_heart:支持](https://doc.xugaoyi.com/vuepress-theme-vdoing-doc/pages/1b12ed/) 哟，持续关注吧~
+届时，VuePress 1.x 编译慢的缺点将得到极大的改善。我将会视情况把主题升级至 VuePress v2.0 或 VitePress，也可能两个都升级。目前(2020.10.29)来看还需要挺长一段时间才能让大家使用上基于它们的新版本，还希望大家多多 [:sparkling_heart:支持](https://doc.xugaoyi.com/pages/1b12ed/) 哟，持续关注吧~
 
 ## :sparkling_heart:支持这个项目
 
@@ -82,7 +81,7 @@ npm run dev # or yarn dev
 | :---: | :---: | :---: |
 | <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200523131533.jpg" alt="赞赏码" width=150> | <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113708.jpg" alt="Wechat QRcode" width=150>| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113707.jpg" alt="Alipay QRcode" width=150> |
 
-二维码没有正常显示？点 [这里😎](https://doc.xugaoyi.com/vuepress-theme-vdoing-doc/pages/1b12ed/)
+二维码没有正常显示？点 [这里😎](https://doc.xugaoyi.com/pages/1b12ed/)
 
 ## 致谢
 :heart:感谢支持这个项目的朋友

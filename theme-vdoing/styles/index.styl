@@ -237,11 +237,11 @@ hr
 table
   border-collapse collapse
   margin 1rem 0
-  display: block
   overflow-x: auto
   width 100%
-  //display inline-table
-
+  display inline-table
+  @media (max-width: $MQMobile)
+    display block
 tr
   border-top 1px solid var(--borderColor)
 
@@ -251,6 +251,8 @@ tr
 th, td
   border 1px solid var(--borderColor)
   padding .6em 1em
+  @media (max-width: $MQMobile)
+    padding .3em .5em
   a
     word-break break-all
 

@@ -5,7 +5,6 @@ module.exports = {
   description:
     'web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到页面html中
   // base: '/', // '/<github仓库名>/'， 默认'/'
-  // <script data-ad-client="ca-pub-7828333725993554" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   head: [
     // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
     ['link', { rel: 'icon', href: '/img/favicon.ico' }], //favicons，资源放在public文件夹
@@ -27,6 +26,16 @@ module.exports = {
         src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
       },
     ], // 网站关联Google AdSense
+    // <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    [
+      'script',
+      {
+        'custom-element': 'amp-ad',
+        async: 'async',
+        src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js',
+      },
+    ], // AMP广告
+
     // ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'}], // 移动端阻止页面缩放
   ],
   markdown: {
