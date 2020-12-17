@@ -24,8 +24,12 @@
         <span v-else>{{blogger.slogan}}</span>
       </div>
     </div>
+
+    <!-- 移动端Nav -->
     <NavLinks />
+
     <slot name="top" />
+
     <SidebarLinks
       :depth="0"
       :items="items"
@@ -97,6 +101,13 @@ export default {
         font-size 1.2rem
         padding-right 0.6rem
         color #777
+  .sidebar-slot
+    margin-bottom: -.5rem;
+    font-size: .85rem;
+    &.sidebar-slot-top
+      padding: 1.5rem 1.5rem 0;
+    &.sidebar-slot-bottom
+      padding: 0 1.5rem 1.5rem;
 @media (max-width $MQMobile)
   .sidebar
     .blogger
