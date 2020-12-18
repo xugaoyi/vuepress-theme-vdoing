@@ -20,14 +20,20 @@
       @toggle-sidebar="toggleSidebar"
       v-show="showSidebar"
     >
-      <slot
-        name="sidebar-top"
+      <template
         #top
-      />
-      <slot
-        name="sidebar-bottom"
+        v-if="sidebarSlotTop"
+      >
+        <div class="sidebar-slot sidebar-slot-top" v-html="sidebarSlotTop"></div>
+      </template>
+      <template
         #bottom
-      />
+        v-if="sidebarSlotBottom"
+      >
+        <div class="sidebar-slot sidebar-slot-bottom" v-html="sidebarSlotBottom"></div>
+      </template>
+      <!-- <slot name="sidebar-top" #top />
+      <slot name="sidebar-bottom" #bottom /> -->
     </Sidebar>
 
     <!-- 首页 -->
@@ -47,14 +53,26 @@
       v-else
       :sidebar-items="sidebarItems"
     >
-      <slot
+      <template
+        #top
+        v-if="pageSlotTop"
+      >
+        <div class="page-slot page-slot-top" v-html="pageSlotTop"></div>
+      </template>
+      <template
+        #bottom
+        v-if="pageSlotBottom"
+      >
+        <div class="page-slot page-slot-bottom" v-html="pageSlotBottom"></div>
+      </template>
+      <!-- <slot
         name="page-top"
         #top
       />
       <slot
         name="page-bottom"
         #bottom
-      />
+      /> -->
     </Page>
 
     <Footer />
@@ -65,6 +83,21 @@
     />
 
     <BodyBgImg v-if="$themeConfig.bodyBgImg" />
+
+    <!-- 自定义html插入左右下角的小窗口 -->
+    <div class="custom-html-window custom-html-window-lb" v-if="windowLB" v-show="showWindowLB">
+      <div class="custom-wrapper">
+        <i class="close-but" @click="showWindowLB = false">×</i>
+        <div v-html="windowLB"/>
+      </div>
+    </div>
+    <div class="custom-html-window custom-html-window-rb" v-if="windowRB" v-show="showWindowRB">
+      <div class="custom-wrapper">
+        <i class="close-but" @click="showWindowRB = false">×</i>
+        <div v-html="windowRB"/>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -94,10 +127,30 @@ export default {
       hideNavbar: false,
       isSidebarOpen: true,
       showSidebar: false,
-      themeMode: 'light'
+      themeMode: 'light',
+      showWindowLB: true,
+      showWindowRB: true
     }
   },
   computed: {
+    sidebarSlotTop() {
+      return this.getHtmlStr('sidebarT')
+    },
+    sidebarSlotBottom() {
+      return this.getHtmlStr('sidebarB')
+    },
+    pageSlotTop() {
+      return this.getHtmlStr('pageT')
+    },
+    pageSlotBottom() {
+      return this.getHtmlStr('pageB')
+    },
+    windowLB() {
+      return this.getHtmlStr('windowLB')
+    },
+    windowRB() {
+      return this.getHtmlStr('windowRB')
+    },
     showRightMenu () {
       const { headers } = this.$page
       return (
@@ -186,7 +239,6 @@ export default {
     }
   },
   mounted () {
-
     // 初始化页面时链接锚点无法跳转到指定id的解决方案
     const hash = document.location.hash;
     if (hash.length > 1) {
@@ -227,6 +279,10 @@ export default {
     }
   },
   methods: {
+    getHtmlStr(module) {
+      const { htmlModules } = this.$themeConfig
+      return htmlModules ? htmlModules[module] : ''
+    },
     setBodyClass () {
       document.body.className = 'theme-mode-' + this.themeMode
     },
@@ -282,3 +338,45 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.custom-html-window
+  position fixed
+  bottom 0
+  display flex
+  overflow hidden
+  font-weight 350
+  @media (max-width 960px)
+    display none
+  .custom-wrapper
+    position relative
+    max-width 200px
+    max-height 200px
+    .close-but
+      cursor pointer
+      position: absolute
+      right: 0
+      top: 0
+      font-size 2rem
+      line-height 1.5rem
+      width 1.5rem
+      height 1.5rem
+      opacity 0
+      transition all .2s
+      &:hover
+        opacity .9
+    &:hover
+      .close-but
+          opacity .7
+  &.custom-html-window-lb
+    left 0
+    z-index 99
+    &>*
+      align-self: flex-end;
+  &.custom-html-window-rb
+    right 80px
+    z-index 10
+    justify-content: flex-end
+    &>*
+      align-self: flex-end;
+</style>
