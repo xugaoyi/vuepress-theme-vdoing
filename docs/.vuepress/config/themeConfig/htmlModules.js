@@ -10,8 +10,8 @@
  *   pageTshowMode: string, 页面顶部-显示方式：未配置默认全局；'article' => 仅文章页①； 'custom' => 仅自定义页①
  *   pageBshowMode: string, 页面底部-显示方式：未配置默认全局；'article' => 仅文章页①； 'custom' => 仅自定义页①
  *
- *   windowLB: htmlString, 全局左下角②
- *   windowRB: htmlString, 全局右下角②
+ *   windowLB: htmlString, 全局窗口左下角②
+ *   windowRB: htmlString, 全局窗口右下角②
  * }
  *
  * ①注：在.md文件front matter配置`article: false`的页面是自定义页，未配置的默认是文章页（首页除外）。
@@ -21,6 +21,7 @@
 module.exports = {
   homeSidebarB:
     `<!-- 纵向自适应 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <ins class="adsbygoogle"
         style="display:block"
         data-ad-client="ca-pub-7828333725993554"
@@ -41,6 +42,7 @@ module.exports = {
   //     </script>`,
   sidebarB:
     `<!-- 100% * 150px (可正常显示)-->
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
      <ins class="adsbygoogle"
           style="display:inline-block;width:100%;max-height:150px"
           data-ad-client="ca-pub-7828333725993554"
@@ -50,6 +52,7 @@ module.exports = {
       </script>`,
   pageT: //
     `<!-- 100% * max-120px (暂未看到效果)-->
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
      <ins class="adsbygoogle"
           style="display:inline-block;width:100%;max-height:120px"
           data-ad-client="ca-pub-7828333725993554"
@@ -60,6 +63,7 @@ module.exports = {
   // pageTshowMode: 'article',
   pageB:
     `<!-- 横向自适应 -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <ins class="adsbygoogle"
           style="display:block"
           data-ad-client="ca-pub-7828333725993554"
@@ -70,8 +74,9 @@ module.exports = {
           (adsbygoogle = window.adsbygoogle || []).push({});
       </script>`,
   // pageBshowMode: 'article',
-  // windowLB: // 遮挡部分侧边栏
+  // windowLB: // 会遮挡部分侧边栏
   //   `<!-- 固定200*200px -->
+  //     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   //     <ins class="adsbygoogle"
   //         style="display:inline-block;width:200px;height:200px"
   //         data-ad-client="ca-pub-7828333725993554"
@@ -81,6 +86,7 @@ module.exports = {
   //     </script>`,
   windowRB:
      `<!-- 固定160*160px -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <ins class="adsbygoogle"
           style="display:inline-block;width:160px;height:160px"
           data-ad-client="ca-pub-7828333725993554"
