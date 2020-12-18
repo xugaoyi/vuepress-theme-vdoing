@@ -35,7 +35,7 @@ module.exports = {
     `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- 100% * 150px (可正常显示)-->
     <ins class="adsbygoogle"
-          style="display:inline-block;width:100%;height:150px"
+          style="display:inline-block;width:100%;max-height:150px"
           data-ad-client="ca-pub-7828333725993554"
           data-ad-slot="6625304284"></ins>
       <script>
@@ -54,10 +54,10 @@ module.exports = {
           (adsbygoogle = window.adsbygoogle || []).push({});
       </script>`,
   pageT: //
-    `<!-- 100% * 90px (暂未看到效果)-->
+    `<!-- 100% * 90px (有效果)-->
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
      <ins class="adsbygoogle"
-          style="display:inline-block;width:100%;height:90px"
+          style="display:inline-block;width:100%;max-height:90px"
           data-ad-client="ca-pub-7828333725993554"
           data-ad-slot="6625304284"></ins>
       <script>
@@ -91,7 +91,7 @@ module.exports = {
      `<!-- 固定160*160px -->
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <ins class="adsbygoogle"
-          style="display:inline-block;width:160px;height:160px"
+          style="display:inline-block;max-width:160px;max-height:160px"
           data-ad-client="ca-pub-7828333725993554"
           data-ad-slot="8377369658"></ins>
       <script>
