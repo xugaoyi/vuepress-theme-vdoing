@@ -19,12 +19,4 @@ module.exports = [
       src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
     },
   ], // 网站关联Google AdSense 与 html格式广告支持
-  [
-    'script',
-    {
-      'custom-element': 'amp-ad',
-      async: 'async',
-      src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js',
-    },
-  ], // AMP格式广告支持 <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 ]
