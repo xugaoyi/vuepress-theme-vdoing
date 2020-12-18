@@ -31,30 +31,33 @@ module.exports = {
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>`,
-  // sidebarT:
-  //   `<!-- 100% * 150px (可正常显示)-->
-  //   <ins class="adsbygoogle"
-  //         style="display:inline-block;width:100%;max-height:150px"
-  //         data-ad-client="ca-pub-7828333725993554"
-  //         data-ad-slot="6625304284"></ins>
-  //     <script>
-  //         (adsbygoogle = window.adsbygoogle || []).push({});
-  //     </script>`,
-  sidebarB:
-    `<!-- 100% * 150px (可正常显示)-->
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-     <ins class="adsbygoogle"
-          style="display:inline-block;width:100%;max-height:150px"
+  sidebarT:
+    `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- 100% * 150px (可正常显示)-->
+    <ins class="adsbygoogle"
+          style="display:inline-block;width:100%;height:150px"
           data-ad-client="ca-pub-7828333725993554"
           data-ad-slot="6625304284"></ins>
       <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
       </script>`,
+  sidebarB:
+    `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- 正方形 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="3508773082"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>`,
   pageT: //
-    `<!-- 100% * max-120px (暂未看到效果)-->
+    `<!-- 100% * 90px (暂未看到效果)-->
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
      <ins class="adsbygoogle"
-          style="display:inline-block;width:100%;max-height:120px"
+          style="display:inline-block;width:100%;height:90px"
           data-ad-client="ca-pub-7828333725993554"
           data-ad-slot="6625304284"></ins>
       <script>
