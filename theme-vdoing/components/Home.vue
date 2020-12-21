@@ -499,8 +499,8 @@ export default {
           padding-bottom 2rem
     .main-right
       .custom-html-box
-        padding-left .95rem
-        padding-right .95rem
+        padding: 0;
+        overflow: hidden;
 @keyframes heart
   from
     transform translate(0, 0)
