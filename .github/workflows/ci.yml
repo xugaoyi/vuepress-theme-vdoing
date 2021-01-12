@@ -3,20 +3,20 @@ name: CI
 #on: [push]
 
 # 在master分支发生push事件时触发。
-on: 
+on:
   push:
     branches:
       - master
 
 jobs: # 工作流
   build: # 自定义名称
-    runs-on: ubuntu-latest #运行在虚拟机环境ubuntu-latest
+    runs-on: ubuntu-latest # 运行在虚拟机环境ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [12.x]
 
-    steps: # 步骤
+    steps:
       - name: Checkout # 步骤1
         uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
       - name: Use Node.js ${{ matrix.node-version }} # 步骤2
