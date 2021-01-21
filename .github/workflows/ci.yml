@@ -8,7 +8,10 @@ on:
     branches:
       - master
 
-jobs: # 工作流
+env: # 设置环境变量
+  TZ: Asia/Shanghai # 时区
+
+jobs:
   build: # 自定义名称
     runs-on: ubuntu-latest # 运行在虚拟机环境ubuntu-latest
 
