@@ -1,33 +1,23 @@
 <template>
   <div class="page-edit">
-    <div
-      class="edit-link"
-      v-if="editLink"
-    >
-      <a
-        :href="editLink"
-        target="_blank"
-        rel="noopener noreferrer"
-      >{{ editLinkText }}</a>
+    <div class="edit-link" v-if="editLink">
+      <a :href="editLink" target="_blank" rel="noopener noreferrer">{{
+        editLinkText
+      }}</a>
       <OutboundLink />
     </div>
 
-    <div
-      class="tags"
-      v-if="$themeConfig.tag !== false && tags && tags[0]"
-    >
+    <div class="tags" v-if="$themeConfig.tag !== false && tags && tags[0]">
       <router-link
         :to="`/tags/?tag=${encodeURIComponent(item)}`"
         v-for="(item, index) in tags"
         :key="index"
         title="标签"
-      >#{{item}}</router-link>
+        >#{{ item }}</router-link
+      >
     </div>
 
-    <div
-      class="last-updated"
-      v-if="lastUpdated"
-    >
+    <div class="last-updated" v-if="lastUpdated">
       <span class="prefix">{{ lastUpdatedText }}:</span>
       <span class="time">{{ lastUpdated }}</span>
     </div>
@@ -94,8 +84,8 @@ export default {
   methods: {
     createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
       const bitbucket = /bitbucket.org/
-      if (bitbucket.test(repo)) {
-        const base = outboundRE.test(docsRepo) ? docsRepo : repo
+      if (bitbucket.test(docsRepo)) {
+        const base = docsRepo
         return (
           base.replace(endingSlashRE, '')
           + `/src`
@@ -103,6 +93,18 @@ export default {
           + (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '')
           + path
           + `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
+        )
+      }
+
+      const gitlab = /gitlab.com/
+      if (gitlab.test(docsRepo)) {
+        const base = docsRepo
+        return (
+          base.replace(endingSlashRE, '')
+          + `/-/edit`
+          + `/${docsBranch}/`
+          + (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '')
+          + path
         )
       }
 

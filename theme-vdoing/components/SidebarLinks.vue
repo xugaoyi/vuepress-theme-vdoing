@@ -1,12 +1,6 @@
 <template>
-  <ul
-    class="sidebar-links"
-    v-if="items.length"
-  >
-    <li
-      v-for="(item, i) in items"
-      :key="i"
-    >
+  <ul class="sidebar-links" v-if="items.length">
+    <li v-for="(item, i) in items" :key="i">
       <SidebarGroup
         v-if="item.type === 'group'"
         :item="item"
@@ -15,11 +9,7 @@
         :depth="depth"
         @toggle="toggleGroup(i)"
       />
-      <SidebarLink
-        v-else
-        :sidebarDepth="sidebarDepth"
-        :item="item"
-      />
+      <SidebarLink v-else :sidebarDepth="sidebarDepth" :item="item" />
     </li>
   </ul>
 </template>
@@ -37,12 +27,13 @@ export default {
   props: [
     'items',
     'depth',  // depth of current sidebar links
-    'sidebarDepth' // depth of headers to be extracted
+    'sidebarDepth', // depth of headers to be extracted
+    'initialOpenGroupIndex'
   ],
 
   data () {
     return {
-      openGroupIndex: 0
+      openGroupIndex: this.initialOpenGroupIndex || 0
     }
   },
 

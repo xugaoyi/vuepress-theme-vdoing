@@ -1,5 +1,6 @@
-import postsMixin from '@theme/mixins/posts'
 
+//  注：此文件在浏览器端运行
+import postsMixin from '@theme/mixins/posts'
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
   options, // 附加到根实例的一些选项
