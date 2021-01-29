@@ -1,3 +1,10 @@
+// 解决代码选项卡无法加载的问题
+import Vue from 'vue'
+import CodeBlock from "@theme/global-components/CodeBlock.vue"
+import CodeGroup from "@theme/global-components/CodeGroup.vue"
+// Register the Vue global component
+Vue.component(CodeBlock)
+Vue.component(CodeGroup)
 
 //  注：此文件在浏览器端运行
 import postsMixin from '@theme/mixins/posts'

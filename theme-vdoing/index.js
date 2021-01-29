@@ -10,9 +10,16 @@ const log = console.log
 const CARD_LIST = 'cardList'
 const CARD_IMG_LIST = 'cardImgList'
 
+// siteConfig base 配置
+let base = ''
+
+
 // Theme API.
 module.exports = (options, ctx) => {
   const { sourceDir, themeConfig, siteConfig } = ctx
+
+  // base路径
+  base = siteConfig.base || ''
 
   // 自动设置front matter
   setFrontmatter(sourceDir, themeConfig)
@@ -227,7 +234,7 @@ function getCardListDOM (dataList, row) {
       <${item.link ? 'a href="' + item.link + '" target="_blank"' : 'span'} class="card-item ${row ? 'row-' + row : ''}"
          style="${item.bgColor ? 'background-color:' + item.bgColor + ';--randomColor:' + item.bgColor + ';' : '--randomColor: var(--bodyBg);'}${item.textColor ? 'color:' + item.textColor + ';' : ''}"
       >
-        ${item.avatar ? '<img src="' + item.avatar + '" class="no-zoom">' : ''}
+        ${item.avatar ? '<img src="' + withBase(item.avatar) + '" class="no-zoom">' : ''}
         <div>
           <p class="name">${item.name}</p>
           <p class="desc">${item.desc}</p>
@@ -247,7 +254,7 @@ function getCardImgListDOM (dataList, row) {
       <div class="card-item ${row ? 'row-' + row : ''}" >
         <a href="${item.link}" target="_blank">
           <div class="box-img">
-              <img src="${item.img}" class="no-zoom">
+              <img src="${withBase(item.img)}" class="no-zoom">
           </div>
           <div class="box-info">
               <p class="name">${item.name}</p>
@@ -255,7 +262,7 @@ function getCardImgListDOM (dataList, row) {
           </div>
 
           ${item.avatar || item.author ? `<div class="box-footer">
-              ${item.avatar ? `<img src="${item.avatar}" class="no-zoom">` : ''}
+              ${item.avatar ? `<img src="${withBase(item.avatar)}" class="no-zoom">` : ''}
               ${item.author ? `<span>${item.author}</span>` : ''}
           </div>`: ''}
         </a>
@@ -263,4 +270,13 @@ function getCardImgListDOM (dataList, row) {
     `
   })
   return listDOM
+}
+
+// 添加base路径
+function withBase (path) {
+  if (base && path.charAt(0) === '/') {
+    return base + path.slice(1);
+  } else {
+    return path;
+  }
 }

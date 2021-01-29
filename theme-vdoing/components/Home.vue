@@ -3,12 +3,14 @@
     <!-- banner块 s -->
     <div
       class="banner"
-      :class="{'hide-banner': !showBanner}"
+      :class="{ 'hide-banner': !showBanner }"
       :style="bannerBgStyle"
     >
       <div
         class="banner-conent"
-        :style="!homeData.features && !homeData.heroImage && `padding-top: 7rem`"
+        :style="
+          !homeData.features && !homeData.heroImage && `padding-top: 7rem`
+        "
       >
         <header class="hero">
           <img
@@ -16,22 +18,14 @@
             :src="$withBase(homeData.heroImage)"
             :alt="homeData.heroAlt"
           />
-          <h1
-            v-if="homeData.heroText"
-            id="main-title"
-          >{{ homeData.heroText }}</h1>
-          <p
-            v-if="homeData.tagline"
-            class="description"
-          >{{ homeData.tagline }}</p>
-          <p
-            class="action"
-            v-if="homeData.actionText && homeData.actionLink"
-          >
-            <NavLink
-              class="action-button"
-              :item="actionLink"
-            />
+          <h1 v-if="homeData.heroText" id="main-title">
+            {{ homeData.heroText }}
+          </h1>
+          <p v-if="homeData.tagline" class="description">
+            {{ homeData.tagline }}
+          </p>
+          <p class="action" v-if="homeData.actionText && homeData.actionLink">
+            <NavLink class="action-button" :item="actionLink" />
           </p>
         </header>
 
@@ -45,10 +39,7 @@
             v-for="(feature, index) in homeData.features"
             :key="index"
           >
-            <router-link
-              v-if="feature.link"
-              :to="feature.link"
-            >
+            <router-link v-if="feature.link" :to="feature.link">
               <img
                 class="feature-img"
                 v-if="feature.imgUrl"
@@ -58,10 +49,7 @@
               <h2>{{ feature.title }}</h2>
               <p>{{ feature.details }}</p>
             </router-link>
-            <a
-              v-else
-              href="javascript:;"
-            >
+            <a v-else href="javascript:;">
               <img
                 class="feature-img"
                 v-if="feature.imgUrl"
@@ -84,20 +72,14 @@
         v-show="isMQMobile"
       >
         <div class="banner-wrapper">
-          <div
-            class="slide-banner-scroll"
-            ref="slide"
-          >
+          <div class="slide-banner-scroll" ref="slide">
             <div class="slide-banner-wrapper">
               <div
                 class="slide-item"
                 v-for="(feature, index) in homeData.features"
                 :key="index"
               >
-                <router-link
-                  v-if="feature.link"
-                  :to="feature.link"
-                >
+                <router-link v-if="feature.link" :to="feature.link">
                   <img
                     class="feature-img"
                     v-if="feature.imgUrl"
@@ -107,10 +89,7 @@
                   <h2>{{ feature.title }}</h2>
                   <p>{{ feature.details }}</p>
                 </router-link>
-                <a
-                  v-else
-                  href="javascript:;"
-                >
+                <a v-else href="javascript:;">
                   <img
                     class="feature-img"
                     v-if="feature.imgUrl"
@@ -128,7 +107,7 @@
               class="doc"
               v-for="(item, index) in homeData.features.length"
               :key="index"
-              :class="{'active': currentPageIndex === index}"
+              :class="{ active: currentPageIndex === index }"
             ></span>
           </div>
         </div>
@@ -147,11 +126,10 @@
         />
 
         <!-- 详情版文章列表 -->
-        <template v-else-if="!homeData.postList || homeData.postList === 'detailed'">
-          <PostList
-            :currentPage="currentPage"
-            :perPage="perPage"
-          />
+        <template
+          v-else-if="!homeData.postList || homeData.postList === 'detailed'"
+        >
+          <PostList :currentPage="currentPage" :perPage="perPage" />
           <Pagination
             :total="total"
             :perPage="perPage"
@@ -167,7 +145,10 @@
       <template #mainRight>
         <BloggerBar v-if="$themeConfig.blogger" />
         <CategoriesBar
-          v-if="$themeConfig.category !== false && $categoriesAndTags.categories.length"
+          v-if="
+            $themeConfig.category !== false &&
+            $categoriesAndTags.categories.length
+          "
           :categoriesData="$categoriesAndTags.categories"
           :length="10"
         />
@@ -176,7 +157,11 @@
           :tagsData="$categoriesAndTags.tags"
           :length="30"
         />
-        <div class="custom-html-box card-box" v-if="homeSidebarB" v-html="homeSidebarB"></div>
+        <div
+          class="custom-html-box card-box"
+          v-if="homeSidebarB"
+          v-html="homeSidebarB"
+        ></div>
       </template>
     </MainLayout>
   </div>
@@ -214,7 +199,7 @@ export default {
     }
   },
   computed: {
-    homeSidebarB() {
+    homeSidebarB () {
       const { htmlModules } = this.$themeConfig
       return htmlModules ? htmlModules.homeSidebarB : ''
     },
@@ -499,8 +484,8 @@ export default {
           padding-bottom 2rem
     .main-right
       .custom-html-box
-        padding: 0;
-        overflow: hidden;
+        padding 0
+        overflow hidden
 @keyframes heart
   from
     transform translate(0, 0)
