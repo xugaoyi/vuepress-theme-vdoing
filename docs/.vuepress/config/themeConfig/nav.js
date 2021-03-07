@@ -29,8 +29,12 @@ module.exports = [
             link: '/note/git/',
           },
           {
-            text: '《TypeScript》笔记',
+            text: 'TypeScript笔记',
             link: '/pages/51afd6/',
+          },
+          {
+            text: 'JS设计模式总结笔记',
+            link: '/pages/4643cd/',
           },
         ],
       },
