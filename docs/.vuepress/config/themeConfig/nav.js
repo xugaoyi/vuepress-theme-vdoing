@@ -20,6 +20,7 @@ module.exports = [
           { text: '《JavaScript高级程序设计》笔记', link: '/note/js/' },
           { text: '《ES6 教程》笔记', link: '/note/es6/' },
           { text: '《Vue》笔记', link: '/note/vue/' },
+          { text: '《React》笔记', link: '/note/react/' },
           {
             text: '《TypeScript 从零实现 axios》',
             link: '/note/typescript-axios/',
