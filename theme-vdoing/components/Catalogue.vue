@@ -86,7 +86,8 @@ export default {
   data () {
     return {
       pageData: null,
-      isStructuring: true
+      isStructuring: true,
+      appointDir:{}
     }
   },
   created () {
@@ -113,8 +114,13 @@ export default {
     getCatalogueList () {
       const { sidebar } = this.$site.themeConfig
       const key = this.$frontmatter.pageComponent.data.key
-      const catalogueList = sidebar[`/${key}/`]
-
+      let keyArray = key.split('/');
+      let catalogueList = (sidebar[`/${keyArray[0]}/`]);
+      if (keyArray.length > 1) {
+        // 删除第一个元素，并修改原数组
+        keyArray.shift();
+        catalogueList = this.appointDirDeal(0, keyArray, catalogueList);
+      }
       if (!catalogueList) {
         console.error('未获取到目录数据，请查看front matter中设置的key是否正确。')
       }
@@ -122,7 +128,29 @@ export default {
     },
     type (o) { // 数据类型检查
       return Object.prototype.toString.call(o).match(/\[object (.*?)\]/)[1].toLowerCase()
-    }
+    },
+    /**
+     * 指定目录页配置处理
+     * @param index 目录数组的下标
+     * @param dirKeyArray 目录名称数组
+     * @param catalogueList 目录对象列表
+     * @returns {*}
+     */
+    appointDirDeal(index, dirKeyArray, catalogueList) {
+      let dirKey = dirKeyArray[index];
+      if (dirKey !== undefined && dirKey.indexOf(".") !== -1) {
+        dirKey = dirKey.substring(dirKey.indexOf('.') + 1);
+      }
+      for (let i = 0; i < catalogueList.length; i++) {
+        if (catalogueList[i].title === dirKey) {
+          this.appointDir = catalogueList[i];
+          if (index < dirKeyArray.length - 1) {
+            this.appointDirDeal(index + 1, dirKeyArray, catalogueList[i].children);
+          }
+        }
+      }
+      return this.appointDir.children;
+    },
   },
   watch: {
     '$route.path' () {
