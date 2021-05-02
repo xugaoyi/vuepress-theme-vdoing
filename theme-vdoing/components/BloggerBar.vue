@@ -1,29 +1,22 @@
 <template>
   <aside class="blogger-wrapper card-box">
     <div class="avatar">
-      <img
-        :src="blogger.avatar"
-        alt="头像"
-        title="我好看吗"
-      />
+      <img :src="blogger.avatar" alt="头像" title="我好看吗" />
     </div>
-    <div
-      class="icons"
-      v-if="social && social.icons && social.icons.length"
-    >
+    <div class="icons" v-if="social && social.icons && social.icons.length">
       <a
         v-for="(item, index) in social.icons"
         :key="index"
         :href="item.link"
         :title="item.title"
         :class="['iconfont', item.iconClass]"
-        :style="{width: 100/social.icons.length + '%'}"
+        :style="{ width: 100 / social.icons.length + '%' }"
         target="_blank"
       />
     </div>
     <div class="blogger">
-      <span class="name">{{blogger.name}}</span>
-      <span class="slogan">{{blogger.slogan}}</span>
+      <span class="name">{{ blogger.name }}</span>
+      <span class="slogan">{{ blogger.slogan }}</span>
     </div>
   </aside>
 </template>
@@ -45,7 +38,7 @@ export default {
 .blogger-wrapper
   height auto
   display inline-table
-  padding-top 0!important
+  padding-top 0 !important
   overflow hidden
   .avatar
     width 100%

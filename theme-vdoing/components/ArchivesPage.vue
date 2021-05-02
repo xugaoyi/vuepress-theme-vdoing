@@ -6,21 +6,21 @@
           :src="currentBadge"
           v-if="$themeConfig.titleBadge === false ? false : true"
         />
-        {{this.$page.title}}
+        {{ this.$page.title }}
       </h1>
       <ul>
         <template v-for="(item, index) in postsList">
           <li
             class="year"
-            v-if="(year = getYear(index)) !== getYear(index-1)"
-            :key="index+$sortPostsByDate.length"
+            v-if="(year = getYear(index)) !== getYear(index - 1)"
+            :key="index + $sortPostsByDate.length"
           >
-            <h2>{{year}}</h2>
+            <h2>{{ year }}</h2>
           </li>
           <li :key="index">
             <router-link :to="item.path">
               <span>{{ getDate(item) }}</span>
-              {{item.title}}
+              {{ item.title }}
             </router-link>
           </li>
         </template>

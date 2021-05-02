@@ -30,10 +30,7 @@
         </header>
 
         <!-- PC端features块 s -->
-        <div
-          class="features"
-          v-if="homeData.features && homeData.features.length && !isMQMobile"
-        >
+        <div class="features" v-if="hasFeatures && !isMQMobile">
           <div
             class="feature"
             v-for="(feature, index) in homeData.features"
@@ -66,11 +63,7 @@
 
       <!-- 移动端features块 s -->
       <!-- isMQMobile放到v-if上线后会报错 -->
-      <div
-        class="slide-banner"
-        v-if="homeData.features && homeData.features.length"
-        v-show="isMQMobile"
-      >
+      <div class="slide-banner" v-if="hasFeatures" v-show="isMQMobile">
         <div class="banner-wrapper">
           <div class="slide-banner-scroll" ref="slide">
             <div class="slide-banner-wrapper">
@@ -199,6 +192,14 @@ export default {
     }
   },
   computed: {
+    homeData () {
+      return {
+        ...this.$page.frontmatter
+      }
+    },
+    hasFeatures () {
+      return !!(this.homeData.features && this.homeData.features.length)
+    },
     homeSidebarB () {
       const { htmlModules } = this.$themeConfig
       return htmlModules ? htmlModules.homeSidebarB : ''
@@ -230,11 +231,6 @@ export default {
       }
 
     },
-    homeData () {
-      return {
-        ...this.$page.frontmatter
-      }
-    },
     actionLink () {
       return {
         link: this.homeData.actionLink,
@@ -254,20 +250,21 @@ export default {
       this.currentPage = Number(this.$route.query.p)
     }
 
-    if (this.isMQMobile && (!this.$route.query.p || this.$route.query.p == 1)) {
+    if (this.hasFeatures && this.isMQMobile && (!this.$route.query.p || this.$route.query.p == 1)) {
       this.init()
     }
 
-    window.addEventListener('resize', () => {
-      this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false;
-      if (this.isMQMobile && !this.slide && !this.mark) {
-        this.mark++
-        setTimeout(() => {
-          this.init()
-        }, 60)
-      }
-    })
-
+    if (this.hasFeatures) {
+      window.addEventListener('resize', () => {
+        this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false;
+        if (this.isMQMobile && !this.slide && !this.mark) {
+          this.mark++
+          setTimeout(() => {
+            this.init()
+          }, 60)
+        }
+      })
+    }
   },
   beforeDestroy () {
     clearTimeout(this.playTimer)
@@ -281,7 +278,7 @@ export default {
         this.currentPage = Number(this.$route.query.p)
       }
 
-      if (this.currentPage === 1 && this.isMQMobile) {
+      if (this.hasFeatures && this.currentPage === 1 && this.isMQMobile) {
         setTimeout(() => {
           this.slide && this.slide.destroy()
           this.init()
@@ -467,7 +464,7 @@ export default {
   .banner.hide-banner
     display none
     & + .main-wrapper
-      margin-top ($navbarHeight + 0.9rem)
+      margin-top: ($navbarHeight + 0.9rem)
   .main-wrapper
     margin-top 2rem
     .main-left

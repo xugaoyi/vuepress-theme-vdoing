@@ -16,8 +16,7 @@ function createSidebarData (sourceDir, collapsable) {
   const tocs = readTocs(sourceDir);
   tocs.forEach(toc => { // toc是每个目录的绝对路径
 
-    const tocArr = toc.split('\\')
-    if (tocArr[tocArr.length - 1] === '_posts') { // 碎片化文章
+    if (toc.substr(-6) === '_posts') { // 碎片化文章
 
       // 注释说明：碎片化文章不需要生成结构化侧边栏 2020.05.01
       // const sidebarArr = mapTocToPostSidebar(toc);
@@ -112,6 +111,9 @@ function mapTocToSidebar (root, collapsable, prefix = '') {
   files.forEach(filename => {
     const file = path.resolve(root, filename); // 方法：将路径或路径片段的序列解析为绝对路径
     const stat = fs.statSync(file); // 文件信息
+    if (filename === '.DS_Store') { // 过滤.DS_Store文件
+      return
+    }
     let [order, title, type] = filename.split('.');
     order = parseInt(order, 10);
     if (isNaN(order) || order < 0) {
