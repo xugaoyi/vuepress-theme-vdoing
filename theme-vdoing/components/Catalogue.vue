@@ -90,7 +90,8 @@ export default {
     },
     getCatalogueList () {
       const { sidebar } = this.$site.themeConfig
-      const key = this.$frontmatter.pageComponent.data.key
+      const { data } = this.$frontmatter.pageComponent
+      const key = data.path || data.key
       let keyArray = key.split('/');
       let catalogueList = (sidebar[`/${keyArray[0]}/`]);
       if (keyArray.length > 1) {
