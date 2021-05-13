@@ -109,7 +109,7 @@
     </div>
     <!-- banner块 e -->
 
-    <MainLayout v-if="$themeConfig.mainLayout !== false">
+    <MainLayout v-if="$themeConfig.hasMainLayout !== false">
       <template #mainLeft>
         <!-- 简约版文章列表 -->
         <UpdateArticle
