@@ -46,7 +46,7 @@
               <h2>{{ feature.title }}</h2>
               <p>{{ feature.details }}</p>
             </router-link>
-            <a v-else href="javascript:;">
+            <a v-else :href="feature.url?feature.url:'javascript:;'" :target="feature.url && '_blank'">
               <img
                 class="feature-img"
                 v-if="feature.imgUrl"
@@ -82,7 +82,7 @@
                   <h2>{{ feature.title }}</h2>
                   <p>{{ feature.details }}</p>
                 </router-link>
-                <a v-else href="javascript:;">
+                <a v-else :href="feature.url?feature.url:'javascript:;'" :target="feature.url && '_blank'">
                   <img
                     class="feature-img"
                     v-if="feature.imgUrl"
@@ -238,7 +238,7 @@ export default {
       };
     }
   },
-  components: { NavLink, MainLayout, PostList, UpdateArticle, BloggerBar, CategoriesBar, TagsBar, Pagination },
+  components: { NavLink, MainLayout, PostList, UpdateArticle, BloggerBar, CategoriesBar, TagsBar },
   created () {
     this.total = this.$sortPosts.length
   },
@@ -337,201 +337,324 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.home-wrapper
-  .banner
-    width 100%
-    min-height 450px
-    margin-top $navbarHeight
-    color $bannerTextColor
-    position relative
-    overflow hidden
-    .banner-conent
-      max-width $homePageWidth
-      margin 0px auto
-      position relative
-      z-index 1
-      overflow hidden
-      .hero
-        text-align center
-        margin-top 3rem
-        img
-          max-width 100%
-          max-height 240px
-          display block
-          margin 2rem auto 1.5rem
-        h1
-          margin 0
-          font-size 3.2rem
-        .description, .action
-          margin 1.5rem auto
-        .description
-          max-width 40rem
-          font-size 1.1rem
-          line-height 1.3
-          opacity 0.9
-        .action-button
-          display inline-block
-          font-size 1.2rem
-          background-color $accentColor
-          padding 0.8rem 1.6rem
-          border-radius 4px
-          transition background-color 0.1s ease
-          box-sizing border-box
-          border-bottom 1px solid darken($accentColor, 10%)
-          color #fff
-          &:hover
-            background-color lighten($accentColor, 10%)
+.home-wrapper {
+  .banner {
+    width: 100%;
+    min-height: 450px;
+    margin-top: $navbarHeight;
+    color: $bannerTextColor;
+    position: relative;
+    overflow: hidden;
+
+    .banner-conent {
+      max-width: $homePageWidth;
+      margin: 0px auto;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+
+      .hero {
+        text-align: center;
+        margin-top: 3rem;
+
+        img {
+          max-width: 100%;
+          max-height: 240px;
+          display: block;
+          margin: 2rem auto 1.5rem;
+        }
+
+        h1 {
+          margin: 0;
+          font-size: 3.2rem;
+        }
+
+        .description, .action {
+          margin: 1.5rem auto;
+        }
+
+        .description {
+          max-width: 40rem;
+          font-size: 1.1rem;
+          line-height: 1.3;
+          opacity: 0.9;
+        }
+
+        .action-button {
+          display: inline-block;
+          font-size: 1.2rem;
+          background-color: $accentColor;
+          padding: 0.8rem 1.6rem;
+          border-radius: 4px;
+          transition: background-color 0.1s ease;
+          box-sizing: border-box;
+          border-bottom: 1px solid darken($accentColor, 10%);
+          color: #fff;
+
+          &:hover {
+            background-color: lighten($accentColor, 10%);
+          }
+        }
+      }
+
       // pc端features
-      .features
-        padding 2rem 0
-        margin-top 2.5rem
-        display flex
-        flex-wrap wrap
-        align-items flex-start
-        align-content stretch
-        justify-content space-between
-      .feature
-        flex-grow 1
-        flex-basis 30%
-        max-width 30%
-        text-align center
-        a
+      .features {
+        padding: 2rem 0;
+        margin-top: 2.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: stretch;
+        justify-content: space-between;
+      }
+
+      .feature {
+        flex-grow: 1;
+        flex-basis: 30%;
+        max-width: 30%;
+        text-align: center;
+
+        a {
           // color lighten($bannerTextColor,10%)
-          color inherit
-          .feature-img
-            width 10rem
-            height 10rem
-            animation heart 1.2s ease-in-out 0s infinite alternate
-            animation-play-state paused
-          h2
-            font-weight 500
-            font-size 1.3rem
-            border-bottom none
-            padding-bottom 0
-          p
-            opacity 0.8
-            padding 0 0.8rem
-      .feature:hover
-        .feature-img
-          animation-play-state running
-        h2, p
-          color $accentColor
+          color: inherit;
+
+          .feature-img {
+            width: 10rem;
+            height: 10rem;
+            animation: heart 1.2s ease-in-out 0s infinite alternate;
+            animation-play-state: paused;
+          }
+
+          h2 {
+            font-weight: 500;
+            font-size: 1.3rem;
+            border-bottom: none;
+            padding-bottom: 0;
+          }
+
+          p {
+            opacity: 0.8;
+            padding: 0 0.8rem;
+          }
+        }
+      }
+
+      .feature:hover {
+        .feature-img {
+          animation-play-state: running;
+        }
+
+        h2, p {
+          color: $accentColor;
+        }
+      }
+    }
+
     // 移动端滑动图标
-    .slide-banner
-      margin-top 2rem
-      .banner-wrapper
-        position relative
-      .slide-banner-scroll
-        min-height 1px
-        overflow hidden
-      .slide-banner-wrapper
-        height 300px
-        .slide-item
-          display inline-block
-          height 300px
-          width 100%
-          text-align center
-          a
+    .slide-banner {
+      margin-top: 2rem;
+
+      .banner-wrapper {
+        position: relative;
+      }
+
+      .slide-banner-scroll {
+        min-height: 1px;
+        overflow: hidden;
+      }
+
+      .slide-banner-wrapper {
+        height: 300px;
+
+        .slide-item {
+          display: inline-block;
+          height: 300px;
+          width: 100%;
+          text-align: center;
+
+          a {
             // color lighten($bannerTextColor,10%)
-            color inherit
-            .feature-img
-              width 10rem
-              height 10rem
-            h2
-              font-size 1.1rem
-              font-weight 500
-              border-bottom none
-              padding-bottom 0
-            p
-              opacity 0.8
-              padding 0 0.8rem
-      .docs-wrapper
-        position absolute
-        bottom 25px
-        left 50%
-        transform translateX(-50%)
-        .doc
-          display inline-block
-          margin 0 4px
-          width 8px
-          height 8px
-          border-radius 50%
-          background var(--textColor)
-          opacity 0.9
-          &.active
-            opacity 0.5
+            color: inherit;
+
+            .feature-img {
+              width: 10rem;
+              height: 10rem;
+            }
+
+            h2 {
+              font-size: 1.1rem;
+              font-weight: 500;
+              border-bottom: none;
+              padding-bottom: 0;
+            }
+
+            p {
+              opacity: 0.8;
+              padding: 0 0.8rem;
+            }
+          }
+        }
+      }
+
+      .docs-wrapper {
+        position: absolute;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .doc {
+          display: inline-block;
+          margin: 0 4px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--textColor);
+          opacity: 0.9;
+
+          &.active {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
   // 分页不在第一页时，隐藏banner栏
-  .banner.hide-banner
-    display none
-    & + .main-wrapper
-      margin-top: ($navbarHeight + 0.9rem)
-  .main-wrapper
-    margin-top 2rem
-    .main-left
-      .card-box
-        margin-bottom 0.9rem
-      .pagination
-        margin-bottom 4rem
-      .theme-vdoing-content
-        padding 0 2rem
-        overflow hidden
-        &>:first-child
-          padding-top 2rem
-        &>:last-child
-          padding-bottom 2rem
-    .main-right
-      .custom-html-box
-        padding 0
-        overflow hidden
-@keyframes heart
-  from
-    transform translate(0, 0)
-  to
-    transform translate(0, 8px)
+  .banner.hide-banner {
+    display: none;
+
+    & + .main-wrapper {
+      margin-top: ($navbarHeight + 0.9rem);
+    }
+  }
+
+  .main-wrapper {
+    margin-top: 2rem;
+
+    .main-left {
+      .card-box {
+        margin-bottom: 0.9rem;
+      }
+
+      .pagination {
+        margin-bottom: 4rem;
+      }
+
+      .theme-vdoing-content {
+        padding: 0 2rem;
+        overflow: hidden;
+
+        &>:first-child {
+          padding-top: 2rem;
+        }
+
+        &>:last-child {
+          padding-bottom: 2rem;
+        }
+      }
+    }
+
+    .main-right {
+      .custom-html-box {
+        padding: 0;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+@keyframes heart {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(0, 8px);
+  }
+}
+
 // 1025px以下
-@media (max-width 1025px)
-  .home-wrapper
-    .banner
-      .banner-conent
-        .hero
-          h1
-            font-size 2.5rem
-          .description
-            font-size 1rem
-        .feature
-          a
-            h2
-              font-size 1.1rem
-            .feature-img
-              width 9rem
-              height 9rem
+@media (max-width: 1025px) {
+  .home-wrapper {
+    .banner {
+      .banner-conent {
+        .hero {
+          h1 {
+            font-size: 2.5rem;
+          }
+
+          .description {
+            font-size: 1rem;
+          }
+        }
+
+        .feature {
+          a {
+            h2 {
+              font-size: 1.1rem;
+            }
+
+            .feature-img {
+              width: 9rem;
+              height: 9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 // 719px以下
-@media (max-width $MQMobile)
-  .home-wrapper
-    .banner
-      .banner-conent
-        .features
-          display none !important
+@media (max-width: $MQMobile) {
+  .home-wrapper {
+    .banner {
+      .banner-conent {
+        .features {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
 // 419px以下
-@media (max-width $MQMobileNarrow)
-  .home-wrapper
-    .banner-conent
-      padding-left 1.5rem
-      padding-right 1.5rem
-      .hero
-        img
-          max-height 210px
-          margin 2rem auto 1.2rem
-        h1
-          font-size 2rem
-        h1, .description, .action
-          margin 1.2rem auto
-        .description
-          font-size 1.2rem
-        .action-button
-          font-size 1rem
-          padding 0.6rem 1.2rem
-      .feature
-        h2
-          font-size 1.25rem
+@media (max-width: $MQMobileNarrow) {
+  .home-wrapper {
+    .banner-conent {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+
+      .hero {
+        img {
+          max-height: 210px;
+          margin: 2rem auto 1.2rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h1, .description, .action {
+          margin: 1.2rem auto;
+        }
+
+        .description {
+          font-size: 1.2rem;
+        }
+
+        .action-button {
+          font-size: 1rem;
+          padding: 0.6rem 1.2rem;
+        }
+      }
+
+      .feature {
+        h2 {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+}
 </style>
