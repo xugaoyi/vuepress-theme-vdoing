@@ -51,16 +51,6 @@ npm run dev # or yarn dev
 ```
 ## ⚡️未来...
 
-### [VuePress-next (VuePress v2.0)](https://github.com/vuepress/vuepress-next)
-> VuePress-next with the power of Vue 3.0 and TypeScript
-
-### [VitePress](https://github.com/vuejs/vitepress)
-
-> * Uses Vue 3.
-> * Uses vite under the hood:
-> * Vue 3 tree-shaking + Rollup code splitting
->
-> VuePress' little brother, built on top of vite. It's currently under a different name so that we don't over commit to the compatibility with the current VuePress ecosystem (mostly themes and plugins). We'll see how close we can get without compromising the design goals listed above. But the overall idea is that VitePress will have a drastically more minimal theming API (preferring JavaScript APIs instead of file layout conventions) and likely no plugins (all customization is done in themes).
 
 期待 [VuePress v2.0](https://github.com/vuepress/vuepress-next) 以及 [VitePress](https://github.com/vuejs/vitepress) 的正式发布...
 
@@ -93,6 +83,12 @@ npm run dev # or yarn dev
 群号：694387113
 
 <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200712122307.jpg" alt="群号：694387113" width="200">
+
+## 公众号
+`有趣研究社`是本人对各种有趣的、好玩的、沙雕的创意和想法以在线小网站或者文章的形式表达出来，比如80、90后朋友小时候玩的小霸王游戏机：<https://game.xugaoyi.com>，还有更多好玩的等你去探索吧~
+
+<img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/blog/扫码_搜索联合传播样式-标准色版.1wp8gd1mhjhc.jpg"  style="width:370px;" />
+<!-- <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/blog/qrcode.zdqv9mlfc0g.jpg"  style="width:30%;" /> -->
 
 ## 许可证
 [MIT](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE)
