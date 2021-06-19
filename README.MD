@@ -62,7 +62,7 @@ npm run dev # or yarn dev
 
 1. *Star* 并 分享这个项目 :rocket:
 2. 保留主题 footer(页脚) 的主题链接 :D
-3. 购买前端学习类 [电子书](https://github.com/xugaoyi/blog-gitalk-comment/wiki/Front-end-Study) Ⓤⓟ 💯
+3. 关注公众号`yqyjs666`，回复`前端学习`，可获取 [前端学习资源](https://github.com/xugaoyi/blog-gitalk-comment/wiki/Front-end-Study)
 4. 轻轻点击一次页面广告 ✨
 5. 通过以下二维码 一次性捐款。 我多半会买一杯 ~~咖啡~~ 茶。:tea:
 
