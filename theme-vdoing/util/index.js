@@ -273,7 +273,7 @@ export function getTimeNum (post) {
   let dateStr = post.frontmatter.date || post.lastUpdated || new Date()
   let date = new Date(dateStr)
   if (date == "Invalid Date" && dateStr) { // 修复new Date()在Safari下出现Invalid Date的问题
-    date = new Date(dateStr?.replace(/-/g, '/'))
+    date = new Date(dateStr.replace(/-/g, '/'))
   }
   return date.getTime()
 }
@@ -286,6 +286,6 @@ export function compareDate (a, b) {
 // 将特殊符号编码（应用于url）
 export function encodeUrl (str) {
   str = str + ''
-  str = str?.replace(/ |((?=[\x21-\x7e]+)[^A-Za-z0-9])/g, '-')
+  str = str.replace(/ |((?=[\x21-\x7e]+)[^A-Za-z0-9])/g, '-')
   return str
 }
