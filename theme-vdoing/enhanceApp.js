@@ -2,9 +2,11 @@
 import Vue from 'vue'
 import CodeBlock from "@theme/global-components/CodeBlock.vue"
 import CodeGroup from "@theme/global-components/CodeGroup.vue"
+import Live2dCat from "@theme/global-components/Live2dCat.vue"
 // Register the Vue global component
 Vue.component(CodeBlock)
 Vue.component(CodeGroup)
+Vue.component(Live2dCat)
 
 //  注：此文件在浏览器端运行
 import postsMixin from '@theme/mixins/posts'
@@ -35,13 +37,13 @@ export default ({
 
 
 // 修复ISO8601时间格式为普通时间格式
-function repairUTCDate (date) {
+function repairUTCDate(date) {
   if (!(date instanceof Date)) {
     date = new Date(date)
   }
   return `${date.getUTCFullYear()}-${zero(date.getUTCMonth() + 1)}-${zero(date.getUTCDate())} ${zero(date.getUTCHours())}:${zero(date.getUTCMinutes())}:${zero(date.getUTCSeconds())}`;
 }
 // 小于10补0
-function zero (d) {
+function zero(d) {
   return d.toString().padStart(2, '0')
 }
