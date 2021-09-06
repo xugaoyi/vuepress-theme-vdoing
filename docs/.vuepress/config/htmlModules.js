@@ -20,19 +20,19 @@
 
 module.exports = {
   homeSidebarB:
-    `<div style="padding: 0.95rem">
-    <p style="
-      color: var(--textColor);
-      opacity: 0.9;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 0 0 8px 0;
-    ">公众号</p>
-    <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/blog/扫码_搜索联合传播样式-标准色版.1wp8gd1mhjhc.jpg"  style="width:100%;" />
-    <p>
-    有趣研究社，各种有趣的、好玩的、沙雕的小网站或文章，比如80、90后朋友小时候玩的<a href="https://game.xugaoyi.com" arget="_blank" >小霸王游戏机<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>,还有更多好玩的等你去探索吧~
-    </p>
-    </div>`,
+    `<!--<div style="padding: 0.95rem">-->
+<!--    <p style="-->
+<!--      color: var(&#45;&#45;textColor);-->
+<!--      opacity: 0.9;-->
+<!--      font-size: 20px;-->
+<!--      font-weight: bold;-->
+<!--      margin: 0 0 8px 0;-->
+<!--    ">公众号</p>-->
+<!--    <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/blog/扫码_搜索联合传播样式-标准色版.1wp8gd1mhjhc.jpg"  style="width:100%;" />-->
+<!--    <p>-->
+<!--    有趣研究社，各种有趣的、好玩的、沙雕的小网站或文章，比如80、90后朋友小时候玩的<a href="https://game.xugaoyi.com" arget="_blank" >小霸王游戏机<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>,还有更多好玩的等你去探索吧~-->
+<!--    </p>-->
+<!--    </div>-->`,
   // `<!-- 纵向自适应 -->
   // <ins class="adsbygoogle"
   //     style="display:block;padding: 0.95rem;"
