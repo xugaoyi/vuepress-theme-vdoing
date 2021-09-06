@@ -30,4 +30,9 @@ export default {
 .theme-code-block > pre {
   background-color: orange;
 }
+@media (max-width: 419px) {
+  .theme-code-group div[class*='language-'] {
+    margin: 0;
+  }
+}
 </style>

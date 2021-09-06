@@ -3,12 +3,14 @@
     <!-- banner块 s -->
     <div
       class="banner"
-      :class="{'hide-banner': !showBanner}"
+      :class="{ 'hide-banner': !showBanner }"
       :style="bannerBgStyle"
     >
       <div
         class="banner-conent"
-        :style="!homeData.features && !homeData.heroImage && `padding-top: 7rem`"
+        :style="
+          !homeData.features && !homeData.heroImage && `padding-top: 7rem`
+        "
       >
         <header class="hero">
           <img
@@ -16,39 +18,25 @@
             :src="$withBase(homeData.heroImage)"
             :alt="homeData.heroAlt"
           />
-          <h1
-            v-if="homeData.heroText"
-            id="main-title"
-          >{{ homeData.heroText }}</h1>
-          <p
-            v-if="homeData.tagline"
-            class="description"
-          >{{ homeData.tagline }}</p>
-          <p
-            class="action"
-            v-if="homeData.actionText && homeData.actionLink"
-          >
-            <NavLink
-              class="action-button"
-              :item="actionLink"
-            />
+          <h1 v-if="homeData.heroText" id="main-title">
+            {{ homeData.heroText }}
+          </h1>
+          <p v-if="homeData.tagline" class="description">
+            {{ homeData.tagline }}
+          </p>
+          <p class="action" v-if="homeData.actionText && homeData.actionLink">
+            <NavLink class="action-button" :item="actionLink" />
           </p>
         </header>
 
         <!-- PC端features块 s -->
-        <div
-          class="features"
-          v-if="homeData.features && homeData.features.length && !isMQMobile"
-        >
+        <div class="features" v-if="hasFeatures && !isMQMobile">
           <div
             class="feature"
             v-for="(feature, index) in homeData.features"
             :key="index"
           >
-            <router-link
-              v-if="feature.link"
-              :to="feature.link"
-            >
+            <router-link v-if="feature.link" :to="feature.link">
               <img
                 class="feature-img"
                 v-if="feature.imgUrl"
@@ -58,10 +46,7 @@
               <h2>{{ feature.title }}</h2>
               <p>{{ feature.details }}</p>
             </router-link>
-            <a
-              v-else
-              href="javascript:;"
-            >
+            <a v-else href="javascript:;">
               <img
                 class="feature-img"
                 v-if="feature.imgUrl"
@@ -78,26 +63,16 @@
 
       <!-- 移动端features块 s -->
       <!-- isMQMobile放到v-if上线后会报错 -->
-      <div
-        class="slide-banner"
-        v-if="homeData.features && homeData.features.length"
-        v-show="isMQMobile"
-      >
+      <div class="slide-banner" v-if="hasFeatures" v-show="isMQMobile">
         <div class="banner-wrapper">
-          <div
-            class="slide-banner-scroll"
-            ref="slide"
-          >
+          <div class="slide-banner-scroll" ref="slide">
             <div class="slide-banner-wrapper">
               <div
                 class="slide-item"
                 v-for="(feature, index) in homeData.features"
                 :key="index"
               >
-                <router-link
-                  v-if="feature.link"
-                  :to="feature.link"
-                >
+                <router-link v-if="feature.link" :to="feature.link">
                   <img
                     class="feature-img"
                     v-if="feature.imgUrl"
@@ -107,10 +82,7 @@
                   <h2>{{ feature.title }}</h2>
                   <p>{{ feature.details }}</p>
                 </router-link>
-                <a
-                  v-else
-                  href="javascript:;"
-                >
+                <a v-else href="javascript:;">
                   <img
                     class="feature-img"
                     v-if="feature.imgUrl"
@@ -128,7 +100,7 @@
               class="doc"
               v-for="(item, index) in homeData.features.length"
               :key="index"
-              :class="{'active': currentPageIndex === index}"
+              :class="{ active: currentPageIndex === index }"
             ></span>
           </div>
         </div>
@@ -147,11 +119,10 @@
         />
 
         <!-- 详情版文章列表 -->
-        <template v-else-if="!homeData.postList || homeData.postList === 'detailed'">
-          <PostList
-            :currentPage="currentPage"
-            :perPage="perPage"
-          />
+        <template
+          v-else-if="!homeData.postList || homeData.postList === 'detailed'"
+        >
+          <PostList :currentPage="currentPage" :perPage="perPage" />
           <Pagination
             :total="total"
             :perPage="perPage"
@@ -167,7 +138,10 @@
       <template #mainRight>
         <BloggerBar v-if="$themeConfig.blogger" />
         <CategoriesBar
-          v-if="$themeConfig.category !== false && $categoriesAndTags.categories.length"
+          v-if="
+            $themeConfig.category !== false &&
+            $categoriesAndTags.categories.length
+          "
           :categoriesData="$categoriesAndTags.categories"
           :length="10"
         />
@@ -176,7 +150,11 @@
           :tagsData="$categoriesAndTags.tags"
           :length="30"
         />
-        <div class="custom-html-box card-box" v-if="homeSidebarB" v-html="homeSidebarB"></div>
+        <div
+          class="custom-html-box card-box"
+          v-if="homeSidebarB"
+          v-html="homeSidebarB"
+        ></div>
       </template>
     </MainLayout>
   </div>
@@ -214,7 +192,15 @@ export default {
     }
   },
   computed: {
-    homeSidebarB() {
+    homeData () {
+      return {
+        ...this.$page.frontmatter
+      }
+    },
+    hasFeatures () {
+      return !!(this.homeData.features && this.homeData.features.length)
+    },
+    homeSidebarB () {
       const { htmlModules } = this.$themeConfig
       return htmlModules ? htmlModules.homeSidebarB : ''
     },
@@ -245,11 +231,6 @@ export default {
       }
 
     },
-    homeData () {
-      return {
-        ...this.$page.frontmatter
-      }
-    },
     actionLink () {
       return {
         link: this.homeData.actionLink,
@@ -269,20 +250,21 @@ export default {
       this.currentPage = Number(this.$route.query.p)
     }
 
-    if (this.isMQMobile && (!this.$route.query.p || this.$route.query.p == 1)) {
+    if (this.hasFeatures && this.isMQMobile && (!this.$route.query.p || this.$route.query.p == 1)) {
       this.init()
     }
 
-    window.addEventListener('resize', () => {
-      this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false;
-      if (this.isMQMobile && !this.slide && !this.mark) {
-        this.mark++
-        setTimeout(() => {
-          this.init()
-        }, 60)
-      }
-    })
-
+    if (this.hasFeatures) {
+      window.addEventListener('resize', () => {
+        this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false;
+        if (this.isMQMobile && !this.slide && !this.mark) {
+          this.mark++
+          setTimeout(() => {
+            this.init()
+          }, 60)
+        }
+      })
+    }
   },
   beforeDestroy () {
     clearTimeout(this.playTimer)
@@ -296,7 +278,7 @@ export default {
         this.currentPage = Number(this.$route.query.p)
       }
 
-      if (this.currentPage === 1 && this.isMQMobile) {
+      if (this.hasFeatures && this.currentPage === 1 && this.isMQMobile) {
         setTimeout(() => {
           this.slide && this.slide.destroy()
           this.init()
@@ -482,7 +464,7 @@ export default {
   .banner.hide-banner
     display none
     & + .main-wrapper
-      margin-top ($navbarHeight + 0.9rem)
+      margin-top: ($navbarHeight + 0.9rem)
   .main-wrapper
     margin-top 2rem
     .main-left
@@ -499,8 +481,8 @@ export default {
           padding-bottom 2rem
     .main-right
       .custom-html-box
-        padding: 0;
-        overflow: hidden;
+        padding 0
+        overflow hidden
 @keyframes heart
   from
     transform translate(0, 0)

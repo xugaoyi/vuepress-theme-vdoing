@@ -7,7 +7,7 @@
     "deploy": "bash deploy.sh",
     "editFm": "node utils/editFrontmatter.js",
     "baiduPush": "node utils/baiduPush.js https://xugaoyi.com && bash baiduPush.sh",
-    "publish": "cd theme-vdoing && npm publish && cd ../ && npm run updateTheme",
+    "publish": "cd ./theme-vdoing && npm publish && cd ../ && npm run updateTheme",
     "updateTheme": "npm uninstall vuepress-theme-vdoing && rm -rf node_modules && npm i && npm i vuepress-theme-vdoing -D"
   },
   "license": "MIT",
@@ -22,7 +22,7 @@
     "vuepress-plugin-one-click-copy": "^1.0.2",
     "vuepress-plugin-thirdparty-search": "^1.0.2",
     "vuepress-plugin-zooming": "^1.1.7",
-    "vuepress-theme-vdoing": "^1.8.0",
+    "vuepress-theme-vdoing": "^1.8.3",
     "yamljs": "^0.3.0"
   },
   "dependencies": {

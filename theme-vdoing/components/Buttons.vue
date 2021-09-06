@@ -33,9 +33,11 @@
             v-for="item in modeList"
             :key="item.KEY"
             class="iconfont"
-            :class="[item.icon, {active: item.KEY === currentMode}]"
+            :class="[item.icon, { active: item.KEY === currentMode }]"
             @click="toggleMode(item.KEY)"
-          >{{item.name}}</li>
+          >
+            {{ item.name }}
+          </li>
         </ul>
       </transition>
     </div>

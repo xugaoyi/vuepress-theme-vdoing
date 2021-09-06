@@ -1,34 +1,20 @@
 <template>
-  <div
-    class="dropdown-wrapper"
-    :class="{ open }"
-  >
+  <div class="dropdown-wrapper" :class="{ open }">
     <button
       class="dropdown-title"
       type="button"
       :aria-label="dropdownAriaLabel"
       @click="toggle"
     >
-      <router-link
-        v-if="item.link"
-        :to="item.link"
-        class="link-title"
-      >{{ item.text }}</router-link>
-      <span
-        class="title"
-        v-show="!item.link"
-      >{{ item.text }}</span>
-      <span
-        class="arrow"
-        :class="open ? 'down' : 'right'"
-      ></span>
+      <router-link v-if="item.link" :to="item.link" class="link-title">{{
+        item.text
+      }}</router-link>
+      <span class="title" v-show="!item.link">{{ item.text }}</span>
+      <span class="arrow" :class="open ? 'down' : 'right'"></span>
     </button>
 
     <DropdownTransition>
-      <ul
-        class="nav-dropdown"
-        v-show="open"
-      >
+      <ul class="nav-dropdown" v-show="open">
         <li
           class="dropdown-item"
           :key="subItem.link || index"
@@ -36,10 +22,7 @@
         >
           <h4 v-if="subItem.type === 'links'">{{ subItem.text }}</h4>
 
-          <ul
-            class="dropdown-subitem-wrapper"
-            v-if="subItem.type === 'links'"
-          >
+          <ul class="dropdown-subitem-wrapper" v-if="subItem.type === 'links'">
             <li
               class="dropdown-subitem"
               :key="childSubItem.link"
@@ -48,8 +31,8 @@
               <NavLink
                 @focusout="
                   isLastItemOfArray(childSubItem, subItem.items) &&
-                  isLastItemOfArray(subItem, item.items) &&
-                  toggle()
+                    isLastItemOfArray(subItem, item.items) &&
+                    toggle()
                 "
                 :item="childSubItem"
               />

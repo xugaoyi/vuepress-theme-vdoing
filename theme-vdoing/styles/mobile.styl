@@ -6,7 +6,7 @@ $mobileSidebarWidth = $sidebarWidth * 0.9
 @media (max-width: $MQNarrow)
   .sidebar
     font-size 15px
-    
+
 @media (max-width: $MQMobile)
   .sidebar
     width $sidebarWidth * 0.95
@@ -14,7 +14,7 @@ $mobileSidebarWidth = $sidebarWidth * 0.9
 @media (min-width: ($MQMobile + 1px)) and (max-width: $MQNarrow)
   .sidebar
     width $mobileSidebarWidth
-  .theme-container 
+  .theme-container
     &.sidebar-open
       .page
         padding-left ($mobileSidebarWidth + .8rem)!important
@@ -50,7 +50,7 @@ $mobileSidebarWidth = $sidebarWidth * 0.9
 
 // 侧边栏显示隐藏的适配
 @media (min-width: ($MQMobile + 1px)) // 720px
-  .theme-container 
+  .theme-container
     &.sidebar-open
       .sidebar-mask
         display: none
@@ -63,7 +63,7 @@ $mobileSidebarWidth = $sidebarWidth * 0.9
         padding-right .8rem
     &.have-rightmenu
       .page
-        padding-right ($rightMenuWidth + .8rem)
+        padding-right ($rightMenuWidth + 20rem)
     &.no-sidebar
       .page
         padding-left 0!important

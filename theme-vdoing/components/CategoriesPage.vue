@@ -93,7 +93,7 @@ export default {
 .categories-page
   .categories-wrapper
     position sticky
-    top ($navbarHeight + 0.9rem)
+    top: ($navbarHeight + 0.9rem)
     max-height calc(100vh - 10rem)
     min-height 4.2rem
     @media (max-width $MQMobile)

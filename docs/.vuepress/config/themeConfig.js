@@ -1,6 +1,6 @@
-const nav = require('./themeConfig/nav.js');
-const sidebar = require('./themeConfig/sidebar.js');
-const htmlModules = require('./themeConfig/htmlModules.js');
+const nav = require('./nav.js');
+const htmlModules = require('./htmlModules.js');
+// const sidebar = require('./sidebar.js');
 
 // 主题配置
 module.exports = {
