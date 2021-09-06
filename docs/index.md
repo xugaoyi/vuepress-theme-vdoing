@@ -11,15 +11,15 @@ features: # 可选的
   - title: 自动化
     details: UI，API，工具等自动化
     link: /web/ # 可选
-    imgUrl: /img/web.png # 可选
+    imgUrl: /img/Chart.svg # 可选
   - title: CICD
     details: Ansible, Jenkins等
     link: /ui/
-    imgUrl: /img/ui.png
+    imgUrl: /img/agreement.svg
   - title: 测试平台
     details: Flask，Vue等工具开发
     link: /technology/
-    imgUrl: /img/other.png
+    imgUrl: /img/target.svg
 
 # 文章列表显示方式: detailed 默认，显示详细版文章列表（包括作者、分类、标签、摘要、分页等）| simple => 显示简约版文章列表（仅标题和日期）| none 不显示文章列表
 # postList: detailed
