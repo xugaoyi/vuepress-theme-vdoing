@@ -10,7 +10,7 @@ npm run build
 cd docs/.vuepress/dist
 
 # deploy to github
-echo 'aisonhuang.githup.io' > CNAME
+echo 'aisonhuang.github.io' > CNAME
 echo 'aaaaaaa'
 
 if [ -z "$GITHUB_TOKEN" ]; then
