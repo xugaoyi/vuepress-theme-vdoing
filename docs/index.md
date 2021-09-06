@@ -1,23 +1,23 @@
 ---
 home: true
 # heroImage: /img/web.png
-heroText: Evan's blog
-tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
+heroText: Joan's blog
+tagline: 测试开发技术博客，学习要有三心，一信心，二决心，三恒心！
 # actionText: 立刻进入 →
 # actionLink: /web/
 # bannerBg: auto # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | none => 无 | '大图地址' | background: 自定义背景样式       提示：如发现文本颜色不适应你的背景时可以到palette.styl修改$bannerTextColor变量
 
 features: # 可选的
-  - title: 前端
-    details: JavaScript、ES6、Vue框架等前端技术
+  - title: 自动化
+    details: UI，API，工具等自动化
     link: /web/ # 可选
     imgUrl: /img/web.png # 可选
-  - title: 页面
-    details: html(5)/css(3)，前端页面相关技术
+  - title: CICD
+    details: Ansible, Jenkins等
     link: /ui/
     imgUrl: /img/ui.png
-  - title: 技术
-    details: 技术文档、教程、技巧、总结等文章
+  - title: 测试平台
+    details: Flask，Vue等工具开发
     link: /technology/
     imgUrl: /img/other.png
 
@@ -31,6 +31,7 @@ features: # 可选的
 <!-- <img src="/img/panda-waving.png" class="panda no-zoom" style="width: 130px;height: 115px;opacity: 0.8;margin-bottom: -4px;padding-bottom:0;position: fixed;bottom: 0;left: 0.5rem;z-index: 1;"> -->
 
 <!--
+
 ## 关于
 
 ### 📚Blog
@@ -78,8 +79,9 @@ features: # 可选的
 
 ## :email: 联系
 
-- **WeChat or QQ**: <a href="tencent://message/?uin=894072666&Site=&Menu=yesUrl" class='qq'>894072666</a>
-- **Email**: <a href="mailto:894072666@qq.com">894072666@qq.com</a>
-- **GitHub**: <https://github.com/xugaoyi>
+- **WeChat or QQ**: <a href="tencent://message/?uin=894072666&Site=&Menu=yesUrl" class='qq'>2391188304</a>
+- **Email**:2391188304@qq.com</a>
+- **GitHub**: <https://github.com/lsq4590578>
 
 </br>  -->
+
