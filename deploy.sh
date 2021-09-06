@@ -11,6 +11,7 @@ cd docs/.vuepress/dist
 
 # deploy to github
 echo 'aisonhuang.githup.io' > CNAME
+echo 'aaaaaaa'
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
   githubUrl=git@github.com:AisonHuang/vuepress-theme-vdoing.git
