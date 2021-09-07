@@ -28,7 +28,7 @@ jobs:
           node-version: ${{ matrix.node-version }} # 版本
       - name: run deploy.sh # 步骤3
         env: # 设置环境变量
-          GITHUB_TOKEN: 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 # toKen私密变量
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
           #CODING_TOKEN: ${{ secrets.CODING_TOKEN }}
         run: npm install && npm run deploy
 
