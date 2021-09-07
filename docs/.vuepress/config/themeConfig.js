@@ -68,7 +68,7 @@ module.exports = {
       {
         iconClass: 'icon-github',
         title: 'GitHub',
-        link: 'https://github.com/xugaoyi',
+        link: 'https://github.com/lsq4590578',
       },
       {
         iconClass: 'icon-erji',
@@ -79,7 +79,7 @@ module.exports = {
   },
   footer: {
     // 页脚信息
-    createYear: 2019, // 博客创建年份
+    createYear: 2021, // 博客创建年份
     copyrightInfo:
       'Joan Lian | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签
   },

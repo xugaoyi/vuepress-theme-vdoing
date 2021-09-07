@@ -2,12 +2,12 @@
 
 // 侧边栏
 module.exports = {
-  '/01.前端/': [
+  '/01.自动化/': [
     {
-      title: 'JavaScript',
+      title: '自动化',
       collapsable: false, //是否可折叠，可选的，默认true
       children: [
-        ['01.JavaScript/01.JavaScript中的名词概念','JavaScript中的名词概念'],
+        ['01.UI自动化/01.JavaScript中的名词概念','JavaScript中的名词概念'],
         ['01.JavaScript/02.数据类型转换','数据类型转换'],
         ['01.JavaScript/03.ES5面向对象','ES5面向对象'],
         ['01.JavaScript/04.ES6面向对象','ES6面向对象'],
