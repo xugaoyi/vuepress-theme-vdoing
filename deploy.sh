@@ -29,7 +29,7 @@ fi
 git init
 git add -A
 git commit -m "${msg}"
-git push -f $githubUrl master:lsqiong # 推送到github lsqiong分支
+git push -f $githubUrl master:lsqiong-pg # 推送到github lsqiong分支
 
 # deploy to coding pages
 # echo 'www.xugaoyi.com\nxugaoyi.com' > CNAME  # 自定义域名
