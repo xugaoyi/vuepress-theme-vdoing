@@ -42,13 +42,19 @@ module.exports = [
     ],
   },
   {
-    text: '页面',
-    link: '/ui/',
-    items: [
-      { text: 'HTML', link: '/pages/8309a5b876fc95e3/' },
-      { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
-    ],
-  },
+        text: '后台',
+        link: '/back/',
+        items: [
+            {text: '微服务', link: '/pages/4e4caa/'},
+            // {text: 'Java', link: '/pages/'},
+            {text: 'Database', link: '/pages/3ef014/'},
+            {text: 'Python', link: '/pages/f22439/'},
+            {
+                text: '学习笔记', items: [
+                    {text: '《一个人工智能的诞生》笔记', link: '/note/ai/'}]
+            }
+        ],
+    },
   {
     text: '技术',
     link: '/technology/',
