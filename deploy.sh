@@ -22,14 +22,14 @@ else
   echo 'github_token is not null'
   msg='来自github actions的自动部署'
   githubUrl=https://lsq4590578:${GITHUB_TOKEN}/lsq4590578/vuepress-theme-vdoing.git
-  echo $githubUrl
+  echo ${GITHUB_TOKEN}
   git config --global user.name "lsq4590578"
   git config --global user.email "lsq_4590578@126.com"
 fi
 git init
 git add -A
 git commit -m "${msg}"
-git push -f $githubUrl origin lsqiong # 推送到github lsqiong分支
+git push -f $githubUrl master:lsqiong # 推送到github lsqiong分支
 
 # deploy to coding pages
 # echo 'www.xugaoyi.com\nxugaoyi.com' > CNAME  # 自定义域名
