@@ -21,7 +21,7 @@ if [ -z "$GITHUB_TOKEN" ]; then
 else
   echo 'github_token is not null'
   msg='来自github actions的自动部署'
-  githubUrl=https://lsq4590578:${GITHUB_TOKEN}/lsq4590578/vuepress-theme-vdoing.git
+  githubUrl=https://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/lsq4590578/vuepress-theme-vdoing.git
   echo ${GITHUB_TOKEN}
   git config --global user.name "lsq4590578"
   git config --global user.email "lsq_4590578@126.com"
