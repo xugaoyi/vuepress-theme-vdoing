@@ -32,6 +32,3 @@ features: # 可选的
 - **WeChat or QQ**: <a href="tencent://message/?uin=894072666&Site=&Menu=yesUrl" class='qq'>2391188304</a>
 - **Email**:2391188304@qq.com</a>
 - **GitHub**: <https://github.com/lsq4590578>
-
-</br>  -->
-
