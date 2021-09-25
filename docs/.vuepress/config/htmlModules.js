@@ -2,13 +2,13 @@
  * {
  *   homeSidebarB: htmlString, 首页侧边栏底部
  *
- *   sidebarT: htmlString, 全局左侧边栏顶部
- *   sidebarB: htmlString, 全局左侧边栏底部
+ *   sidebarT: htmlString, 所有左侧边栏顶部
+ *   sidebarB: htmlString, 所有左侧边栏底部
  *
- *   pageT: htmlString, 全局页面顶部
- *   pageB: htmlString, 全局页面底部
- *   pageTshowMode: string, 页面顶部-显示方式：未配置默认全局；'article' => 仅文章页①； 'custom' => 仅自定义页①
- *   pageBshowMode: string, 页面底部-显示方式：未配置默认全局；'article' => 仅文章页①； 'custom' => 仅自定义页①
+ *   pageT: htmlString, 页面顶部
+ *   pageB: htmlString, 页面底部
+ *   pageTshowMode: string, 页面顶部-显示方式：未配置默认所有页面；'article' => 仅文章页①； 'custom' => 仅自定义页①
+ *   pageBshowMode: string, 页面底部-显示方式：未配置默认所有页面；'article' => 仅文章页①； 'custom' => 仅自定义页①
  *
  *   windowLB: htmlString, 全局窗口左下角②
  *   windowRB: htmlString, 全局窗口右下角②
@@ -30,7 +30,9 @@ module.exports = {
     ">公众号</p>
     <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/blog/扫码_搜索联合传播样式-标准色版.1wp8gd1mhjhc.jpg"  style="width:100%;" />
     <p>
-    有趣研究社，各种有趣的、好玩的、沙雕的小网站或文章，比如80、90后朋友小时候玩的<a href="https://game.xugaoyi.com" arget="_blank" >小霸王游戏机<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>,还有更多好玩的等你去探索吧~
+    有趣研究社，这里有<a href="https://game.xugaoyi.com" arget="_blank" > FC在线模拟器(小霸王) <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，还有更多好玩的等着你去探索~
+    </br></br>
+    关注公众号，回复[<b>前端资源</b>]，可获取 <a href="https://game.xugaoyi.com" arget="_blank" >前端学习资源<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>
     </p>
     </div>`,
   // `<!-- 纵向自适应 -->
