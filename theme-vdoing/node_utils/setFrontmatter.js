@@ -7,14 +7,14 @@ const readFileList = require('./modules/readFileList');
 const { type, repairDate, dateFormat } = require('./modules/fn');
 const log = console.log
 const path = require('path');
+const os = require('os');
 
 const PREFIX = '/pages/'
-
 
 /**
  * 给.md文件设置frontmatter(标题、日期、永久链接等数据)
  */
-function setFrontmatter (sourceDir, themeConfig) {
+function setFrontmatter(sourceDir, themeConfig) {
 
   const isCategory = themeConfig.category
   const isTag = themeConfig.tag
@@ -26,7 +26,7 @@ function setFrontmatter (sourceDir, themeConfig) {
     let dataStr = fs.readFileSync(file.filePath, 'utf8');// 读取每个md文件内容
 
     // fileMatterObj => {content:'剔除frontmatter后的文件内容字符串', data:{<frontmatter对象>}, ...}
-    const fileMatterObj = matter(dataStr);
+    const fileMatterObj = matter(dataStr, {});
 
     if (Object.keys(fileMatterObj.data).length === 0) { // 未定义FrontMatter数据
       const stat = fs.statSync(file.filePath);
@@ -40,18 +40,18 @@ function setFrontmatter (sourceDir, themeConfig) {
 
       let cateLabelStr = '';
       categories.forEach(item => {
-        cateLabelStr += '\r\n  - ' + item
+        cateLabelStr += os.EOL + '  - ' + item
       });
 
       let cateStr = '';
       if (!(isCategory === false)) {
-        cateStr = '\r\ncategories:' + cateLabelStr
+        cateStr = os.EOL + 'categories:' + cateLabelStr
       };
 
-        // 注意下面这些反引号字符串的格式会映射到文件
-        //       const cateStr = isCategory === false ? '' : `
-        // categories:
-        //   - ${categories[0]}${categories[1] ? '\r\n  - ' + categories[1] : ''}`;
+      // 注意下面这些反引号字符串的格式会映射到文件
+      //       const cateStr = isCategory === false ? '' : `
+      // categories:
+      //   - ${categories[0]}${categories[1] ? os.EOL + '  - ' + categories[1] : ''}`;
 
       const tagsStr = isTag === false ? '' : `
 tags:
@@ -60,10 +60,10 @@ tags:
       const fmData = `---
 title: ${file.name}
 date: ${dateStr}
-permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsidebar: auto' : ''}${cateStr}${tagsStr}
+permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? os.EOL + 'sidebar: auto' : ''}${cateStr}${tagsStr}
 ---`;
 
-      fs.writeFileSync(file.filePath, `${fmData}\r\n${fileMatterObj.content}`); // 写入
+      fs.writeFileSync(file.filePath, `${fmData}${os.EOL}${fileMatterObj.content}`); // 写入
       log(chalk.blue('tip ') + chalk.green(`write frontmatter(写入frontmatter)：${file.filePath} `))
 
     } else { // 已有FrontMatter
@@ -108,7 +108,7 @@ permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsideba
         if (matterData.date && type(matterData.date) === 'date') {
           matterData.date = repairDate(matterData.date) // 修复时间格式
         }
-        const newData = jsonToYaml.stringify(matterData).replace(/\n\s{2}/g, "\n").replace(/"/g, "") + '---\r\n' + fileMatterObj.content;
+        const newData = jsonToYaml.stringify(matterData).replace(/\n\s{2}/g, "\n").replace(/"/g, "") + '---' + os.EOL + fileMatterObj.content;
         fs.writeFileSync(file.filePath, newData); // 写入
         log(chalk.blue('tip ') + chalk.green(`write frontmatter(写入frontmatter)：${file.filePath} `))
       }
@@ -118,7 +118,7 @@ permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsideba
 }
 
 // 获取分类数据
-function getCategories (file, categoryText) {
+function getCategories(file, categoryText) {
   let categories = []
 
   if (file.filePath.indexOf('_posts') === -1) {
@@ -139,13 +139,13 @@ function getCategories (file, categoryText) {
 }
 
 // 获取文件创建时间
-function getBirthtime (stat) {
+function getBirthtime(stat) {
   // 在一些系统下无法获取birthtime属性的正确时间，使用atime代替
   return stat.birthtime.getFullYear() != 1970 ? stat.birthtime : stat.atime
 }
 
 // 定义永久链接数据
-function getPermalink () {
+function getPermalink() {
   return `${PREFIX + (Math.random() + Math.random()).toString(16).slice(2, 8)}/`
 }
 
