@@ -51,6 +51,17 @@ $mobileSidebarWidth = $sidebarWidth * 0.9
 // 侧边栏显示隐藏的适配
 @media (min-width: ($MQMobile + 1px)) // 720px
   .theme-container
+    .sidebar-hover-trigger
+      display: block
+    .sidebar-hover-trigger:hover ~ .sidebar
+      transform translateX(0)
+      z-index: 100
+
+    &:not(.sidebar-open)
+      .sidebar-hover-trigger ~ .sidebar:hover
+        transform translateX(0)
+        z-index: 100
+
     &.sidebar-open
       .sidebar-mask
         display: none
@@ -61,12 +72,24 @@ $mobileSidebarWidth = $sidebarWidth * 0.9
       .page
         padding-left ($sidebarWidth + .8rem)
         padding-right .8rem
+      .sidebar-hover-trigger
+        display: none
+
     &.have-rightmenu
       .page
         padding-right ($rightMenuWidth + 20rem)
     &.no-sidebar
       .page
         padding-left 0!important
+      .sidebar-hover-trigger
+        display: none
+
+    &.hide-navbar
+      .sidebar-hover-trigger
+        top 4.5rem
+      .sidebar
+        top 0
+
   @media (max-width: $MQNarrow)
     .theme-container
       &.sidebar-open:not(.on-sidebar)

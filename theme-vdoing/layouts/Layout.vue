@@ -15,6 +15,11 @@
       @click="toggleSidebar(false)"
     ></div>
 
+    <div
+      v-if="$themeConfig.sidebarHoverTriggerOpen !== false"
+      class="sidebar-hover-trigger"
+    ></div>
+
     <Sidebar
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
