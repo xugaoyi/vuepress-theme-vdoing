@@ -3,11 +3,15 @@
     <div class="right-menu-margin">
       <div class="right-menu-content">
         <div
-          :class="['right-menu-item', 'level'+item.level, { active: item.slug === hashText }]"
+          :class="[
+            'right-menu-item',
+            'level' + item.level,
+            { active: item.slug === hashText }
+          ]"
           v-for="(item, i) in headers"
           :key="i"
         >
-          <a :href="'#'+item.slug">{{item.title}}</a>
+          <a :href="'#' + item.slug">{{ item.title }}</a>
         </div>
       </div>
     </div>
@@ -16,27 +20,27 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       headers: [],
       hashText: ''
     }
   },
-  mounted () {
+  mounted() {
     this.getHeadersData()
     this.getHashText()
   },
   watch: {
-    $route () {
+    $route() {
       this.headers = this.$page.headers
       this.getHashText()
     }
   },
   methods: {
-    getHeadersData () {
+    getHeadersData() {
       this.headers = this.$page.headers
     },
-    getHashText () {
+    getHashText() {
       this.hashText = decodeURIComponent(window.location.hash.slice(1))
     }
   }
@@ -52,7 +56,7 @@ export default {
   top 0
   font-size 0.9rem
   .right-menu-margin
-    margin-top ($navbarHeight + 1rem)
+    margin-top: ($navbarHeight + 1rem)
   .right-menu-content
     max-height 80vh
     position relative
@@ -65,7 +69,7 @@ export default {
       overflow-y auto
     .right-menu-item
       padding 4px 15px
-      border-left 0.13rem solid var(--borderColor)
+      border-left 1px solid var(--borderColor)
       &.level3
         padding-left 28px
       &.active
@@ -77,7 +81,7 @@ export default {
         color var(--textColor)
         opacity 0.75
         display block
-        width ($rightMenuWidth - 30px)
+        width: ($rightMenuWidth - 30px)
         &:hover
           color $accentColor
 .have-body-img
