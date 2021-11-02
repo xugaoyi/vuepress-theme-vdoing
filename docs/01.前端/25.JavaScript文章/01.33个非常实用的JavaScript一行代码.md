@@ -1,0 +1,395 @@
+---
+title: 33个非常实用的JavaScript一行代码
+date: 2021-11-02 09:51:37
+permalink: /pages/a61298/
+categories:
+  - 前端
+  - JavaScript文章
+tags:
+  - JavaScript
+author: CUGGZ
+---
+
+## 一、日期处理
+
+### 1. 检察日期是否有效
+
+该方法用于检测给出的日期是否有效：
+
+```javascript
+const isDateValid = (...val) => !Number.isNaN(new Date(...val).valueOf());
+
+isDateValid("December 17, 1995 03:24:00");  // true
+复制代码
+```
+
+### 2. 计算两个日期之间的间隔
+
+该方法用于计算两个日期之间的间隔时间：
+
+```javascript
+const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
+
+dayDif(new Date("2021-11-3"), new Date("2022-2-1"))  // 90
+复制代码
+```
+
+距离过年还有90天~
+
+### 3. 查找日期位于一年中的第几天
+
+该方法用于检测给出的日期位于今年的第几天：
+
+```javascript
+const dayOfYear = (date) => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+
+dayOfYear(new Date());   // 307
+复制代码
+```
+
+2021年已经过去300多天了~
+
+### 4. 时间格式化
+
+该方法可以用于将时间转化为hour:minutes:seconds的格式：
+
+```javascript
+const timeFromDate = date => date.toTimeString().slice(0, 8);
+
+timeFromDate(new Date(2021, 11, 2, 12, 30, 0));  // 12:30:00
+timeFromDate(new Date());  // 返回当前时间 09:00:00
+复制代码
+```
+
+## 二、字符串处理
+
+### 1. 字符串首字母大写
+
+该方法用于将英文字符串的首字母大写处理：
+
+```javascript
+const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1)
+
+capitalize("hello world")  // Hello world
+复制代码
+```
+
+### 2. 翻转字符串
+
+该方法用于将一个字符串进行翻转操作，返回翻转后的字符串：
+
+```javascript
+const reverse = str => str.split('').reverse().join('');
+
+reverse('hello world');   // 'dlrow olleh'
+复制代码
+```
+
+### 3. 随机字符串
+
+该方法用于生成一个随机的字符串：
+
+```javascript
+const randomString = () => Math.random().toString(36).slice(2);
+
+randomString();
+复制代码
+```
+
+### 4. 截断字符串
+
+该方法可以从指定长度处截断字符串:
+
+```javascript
+const truncateString = (string, length) => string.length < length ? string : `${string.slice(0, length - 3)}...`;
+
+truncateString('Hi, I should be truncated because I am too loooong!', 36)   // 'Hi, I should be truncated because...'
+复制代码
+```
+
+### 5. 去除字符串中的HTML
+
+该方法用于去除字符串中的HTML元素：
+
+```javascript
+const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
+复制代码
+```
+
+## 三、数组处理
+
+### 1. 从数组中移除重复项
+
+该方法用于移除数组中的重复项：
+
+```javascript
+const removeDuplicates = (arr) => [...new Set(arr)];
+
+console.log(removeDuplicates([1, 2, 2, 3, 3, 4, 4, 5, 5, 6]));
+复制代码
+```
+
+### 2. 判断数组是否为空
+
+该方法用于判断一个数组是否为空数组，它将返回一个布尔值：
+
+```javascript
+const isNotEmpty = arr => Array.isArray(arr) && arr.length > 0;
+
+isNotEmpty([1, 2, 3]);  // true
+复制代码
+```
+
+### 3. 合并两个数组
+
+可以使用下面两个方法来合并两个数组：
+
+```javascript
+const merge = (a, b) => a.concat(b);
+
+const merge = (a, b) => [...a, ...b];
+复制代码
+```
+
+## 四、数字操作
+
+### 1. 判断一个数是奇数还是偶数
+
+该方法用于判断一个数字是奇数还是偶数：
+
+```javascript
+const isEven = num => num % 2 === 0;
+
+isEven(996);
+复制代码
+```
+
+### 2. 获得一组数的平均值
+
+```javascript
+const average = (...args) => args.reduce((a, b) => a + b) / args.length;
+
+average(1, 2, 3, 4, 5);   // 3
+复制代码
+```
+
+### 3. 获取两个整数之间的随机整数
+
+该方法用于获取两个整数之间的随机整数
+
+```javascript
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
+random(1, 50);
+复制代码
+```
+
+### 4. 指定位数四舍五入
+
+该方法用于将一个数字按照指定位进行四舍五入：
+
+```javascript
+const round = (n, d) => Number(Math.round(n + "e" + d) + "e-" + d)
+
+round(1.005, 2) //1.01
+round(1.555, 2) //1.56
+复制代码
+```
+
+## 五、颜色操作
+
+### 1. 将RGB转化为十六机制
+
+该方法可以将一个RGB的颜色值转化为16进制值：
+
+```javascript
+const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+
+rgbToHex(255, 255, 255);  // '#ffffff'
+复制代码
+```
+
+### 2. 获取随机十六进制颜色
+
+该方法用于获取一个随机的十六进制颜色值：
+
+```javascript
+const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
+
+randomHex();
+复制代码
+```
+
+## 六、浏览器操作
+
+### 1. 复制内容到剪切板
+
+该方法使用 navigator.clipboard.writeText 来实现将文本复制到剪贴板：
+
+```javascript
+const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+
+copyToClipboard("Hello World");
+复制代码
+```
+
+### 2. 清除所有cookie
+
+该方法可以通过使用 document.cookie 来访问 cookie 并清除存储在网页中的所有 cookie：
+
+```javascript
+const clearCookies = document.cookie.split(';').forEach(cookie => document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`));
+复制代码
+```
+
+### 3. 获取选中的文本
+
+该方法通过内置的 getSelection 属性获取用户选择的文本：
+
+```javascript
+const getSelectedText = () => window.getSelection().toString();
+
+getSelectedText();
+复制代码
+```
+
+### 4. 检测是否是黑暗模式
+
+该方法用于检测当前的环境是否是黑暗模式，它是一个布尔值：
+
+```javascript
+const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+
+console.log(isDarkMode)
+复制代码
+```
+
+### 5. 滚动到页面顶部
+
+该方法用于在页面中返回顶部：
+
+```javascript
+const goToTop = () => window.scrollTo(0, 0);
+
+goToTop();
+复制代码
+```
+
+### 6. 判断当前标签页是否激活
+
+该方法用于检测当前标签页是否已经激活：
+
+```javascript
+const isTabInView = () => !document.hidden;
+复制代码
+```
+
+### 7. 判断当前是否是苹果设备
+
+该方法用于检测当前的设备是否是苹果的设备：
+
+```javascript
+const isAppleDevice = () => /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+
+isAppleDevice();
+复制代码
+```
+
+### 8. 是否滚动到页面底部
+
+该方法用于判断页面是否已经底部：
+
+```javascript
+const scrolledToBottom = () => document.documentElement.clientHeight + window.scrollY >= document.documentElement.scrollHeight;
+复制代码
+```
+
+### 9. 重定向到一个URL
+
+该方法用于重定向到一个新的URL：
+
+```javascript
+const redirect = url => location.href = url
+
+redirect("https://www.google.com/")
+复制代码
+```
+
+### 10. 打开浏览器打印框
+
+该方法用于打开浏览器的打印框：
+
+```javascript
+const showPrintDialog = () => window.print()
+复制代码
+```
+
+## 七、其他操作
+
+### 1. 随机布尔值
+
+该方法可以返回一个随机的布尔值，使用Math.random()可以获得0-1的随机数，与0.5进行比较，就有一半的概率获得真值或者假值。
+
+```javascript
+const randomBoolean = () => Math.random() >= 0.5;
+
+randomBoolean();
+复制代码
+```
+
+### 2. 变量交换
+
+可以使用以下形式在不适用第三个变量的情况下，交换两个变量的值：
+
+```javascript
+[foo, bar] = [bar, foo];
+复制代码
+```
+
+### 3. 获取变量的类型
+
+该方法用于获取一个变量的类型：
+
+```javascript
+const trueTypeOf = (obj) => Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
+
+trueTypeOf('');     // string
+trueTypeOf(0);      // number
+trueTypeOf();       // undefined
+trueTypeOf(null);   // null
+trueTypeOf({});     // object
+trueTypeOf([]);     // array
+trueTypeOf(0);      // number
+trueTypeOf(() => {});  // function
+复制代码
+```
+
+### 4. 华氏度和摄氏度之间的转化
+
+该方法用于摄氏度和华氏度之间的转化：
+
+```javascript
+const celsiusToFahrenheit = (celsius) => celsius * 9/5 + 32;
+const fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5/9;
+
+celsiusToFahrenheit(15);    // 59
+celsiusToFahrenheit(0);     // 32
+celsiusToFahrenheit(-20);   // -4
+fahrenheitToCelsius(59);    // 15
+fahrenheitToCelsius(32);    // 0
+复制代码
+```
+
+### 5. 检测对象是否为空
+
+该方法用于检测一个JavaScript对象是否为空：
+
+```javascript
+const isEmpty = obj => Reflect.ownKeys(obj).length === 0 && obj.constructor === Object;
+复制代码
+```
+
+
+
+> 作者：CUGGZ
+> 链接：https://juejin.cn/post/7025771605422768159
