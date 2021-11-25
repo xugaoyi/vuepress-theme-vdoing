@@ -2,7 +2,6 @@
 title: 如何根据系统主题自动响应CSS深色模式
 date: 2020-03-31 14:06:26
 permalink: /pages/5dde351274f1e39d
-sticky: 1
 categories:
   - 页面
   - CSS
