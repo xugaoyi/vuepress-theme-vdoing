@@ -1,3 +1,4 @@
+const baiduCode = require('./config/baiduCode.js'); // 百度统计hm码
 const htmlModules = require('./config/htmlModules.js');
 
 module.exports = {
@@ -286,7 +287,7 @@ module.exports = {
     [
       'vuepress-plugin-baidu-tongji', // 百度统计 （你可以去掉）
       {
-        hm: '503f098e7e5b3a5b5d8c5fc2938af002',
+        hm: baiduCode || '503f098e7e5b3a5b5d8c5fc2938af002',
       },
     ],
     [
