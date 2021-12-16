@@ -107,7 +107,6 @@ module.exports = {
   //         (adsbygoogle = window.adsbygoogle || []).push({});
   //     </script>
   //     `,
-  windowRB: `<div style="width:100%;height:100px;color:#fff;background: #eee;">自定义模块测试</div>`,
 }
 
 
