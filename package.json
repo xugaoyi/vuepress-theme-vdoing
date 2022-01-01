@@ -15,7 +15,7 @@
     "dayjs": "^1.9.7",
     "inquirer": "^7.1.0",
     "json2yaml": "^1.1.0",
-    "vuepress": "1.8.0",
+    "vuepress": "1.9.2",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-baidu-tongji": "^1.0.1",
     "vuepress-plugin-demo-block": "^0.7.2",

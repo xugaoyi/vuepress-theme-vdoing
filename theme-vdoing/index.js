@@ -31,7 +31,7 @@ module.exports = (options, ctx) => {
     const sidebarData = getSidebarData(sourceDir, collapsable)
     if (sidebarData) {
       themeConfig.sidebar = sidebarData
-      log(chalk.blue('tip ') + chalk.green('add sidebar data. 侧边栏数据成功生成。'))
+      log(chalk.blue('tip ') + chalk.green('add sidebar data. 成功生成侧边栏数据。'))
     } else {
       themeConfig.sidebar = 'auto'
       log(chalk.yellow('warning: fail to add sidebar data, switch to "auto". 未能添加侧边栏数据，将切换为“auto”。'))
@@ -70,7 +70,7 @@ module.exports = (options, ctx) => {
   const enableSmoothScroll = themeConfig.smoothScroll === true
 
   return {
-    alias () {
+    alias() {
       return {
         '@AlgoliaSearchBox': isAlgoliaSearch
           ? path.resolve(__dirname, 'components/AlgoliaSearchBox.vue')
@@ -173,7 +173,7 @@ module.exports = (options, ctx) => {
 
 
 // 渲染md容器的卡片列表
-function renderCardList (tokens, idx, type) {
+function renderCardList(tokens, idx, type) {
   const END_TYPE = `container_${type}_close`,
     _tokens$idx = tokens[idx],
     nesting = _tokens$idx.nesting,
@@ -197,9 +197,15 @@ function renderCardList (tokens, idx, type) {
     if (yamlStr) { // 正确解析出yaml字符串后
       const dataObj = yaml.safeLoad(yamlStr) // 将yaml字符串解析成js对象
       let dataList = []
+      let config = {}
 
       if (dataObj) { // 正确解析出数据对象
-        dataList = Array.isArray(dataObj) ? dataObj : dataObj.list
+        if (Array.isArray(dataObj)) {
+          dataList = dataObj
+        } else {
+          config = dataObj.config
+          dataList = dataObj.data
+        }
       }
 
       if (dataList && dataList.length) { // 有列表数据
@@ -212,9 +218,9 @@ function renderCardList (tokens, idx, type) {
 
         let listDOM = ''
         if (type === CARD_LIST) { // 普通卡片列表
-          listDOM = getCardListDOM(dataList, row)
+          listDOM = getCardListDOM(dataList, row, config)
         } else if (type === CARD_IMG_LIST) { // 卡片图片列表
-          listDOM = getCardImgListDOM(dataList, row)
+          listDOM = getCardImgListDOM(dataList, row, config)
         }
 
         return `<div class="${type}Container"><div class="card-list">${listDOM}</div>`
@@ -227,11 +233,12 @@ function renderCardList (tokens, idx, type) {
 
 
 // 将数据解析成DOM结构 - 普通卡片列表
-function getCardListDOM (dataList, row) {
+function getCardListDOM(dataList, row, config) {
+  const { target = '_blank' } = config
   let listDOM = ''
   dataList.forEach(item => {
     listDOM += `
-      <${item.link ? 'a href="' + item.link + '" target="_blank"' : 'span'} class="card-item ${row ? 'row-' + row : ''}"
+      <${item.link ? 'a href="' + item.link + '" target="' + target + '"' : 'span'} class="card-item ${row ? 'row-' + row : ''}"
          style="${item.bgColor ? 'background-color:' + item.bgColor + ';--randomColor:' + item.bgColor + ';' : '--randomColor: var(--bodyBg);'}${item.textColor ? 'color:' + item.textColor + ';' : ''}"
       >
         ${item.avatar ? '<img src="' + withBase(item.avatar) + '" class="no-zoom">' : ''}
@@ -247,18 +254,20 @@ function getCardListDOM (dataList, row) {
 
 
 // 将数据解析成DOM结构 - 图文卡片列表
-function getCardImgListDOM (dataList, row) {
+function getCardImgListDOM(dataList, row, config) {
+  const { imgHeight = 'auto', objectFit = 'cover', lineClamp = 1, target = '_blank' } = config
+
   let listDOM = ''
   dataList.forEach(item => {
     listDOM += `
       <div class="card-item ${row ? 'row-' + row : ''}" >
-        <a href="${item.link}" target="_blank">
-          <div class="box-img">
-              <img src="${withBase(item.img)}" class="no-zoom">
+        <a href="${item.link}" target="${target}">
+          <div class="box-img" style="height: ${imgHeight}">
+              <img src="${withBase(item.img)}" class="no-zoom" style="object-fit: ${objectFit}">
           </div>
           <div class="box-info">
               <p class="name">${item.name}</p>
-              ${item.desc ? `<p class="desc">${item.desc}</p>` : ''}
+              ${item.desc ? `<p class="desc" style="line-clamp: ${lineClamp}">${item.desc}</p>` : ''}
           </div>
 
           ${item.avatar || item.author ? `<div class="box-footer">
@@ -273,7 +282,7 @@ function getCardImgListDOM (dataList, row) {
 }
 
 // 添加base路径
-function withBase (path) {
+function withBase(path) {
   if (base && path.charAt(0) === '/') {
     return base + path.slice(1);
   } else {

@@ -1,32 +1,32 @@
 <template>
-  <div :class="['article-list',{'no-article-list': isShowArticle}]">
+  <div :class="['article-list', { 'no-article-list': isShowArticle }]">
     <div class="article-title">
-      <router-link
-        :to="moreArticle || '/archives/'"
-        class="iconfont icon-bi"
-      >最近更新</router-link>
+      <router-link :to="moreArticle || '/archives/'" class="iconfont icon-bi"
+        >最近更新</router-link
+      >
     </div>
     <div class="article-wrapper">
-      <dl
-        v-for="(item, index) in topPublishPosts"
-        :key="index"
-      >
-        <dd>{{getNum(index)}}</dd>
+      <dl v-for="(item, index) in topPublishPosts" :key="index">
+        <dd>{{ getNum(index) }}</dd>
         <dt>
           <router-link :to="item.path">
-            <div>{{item.title}}</div>
+            <div>
+              {{ item.title }}
+              <span class="title-tag" v-if="item.frontmatter.titleTag">
+                {{ item.frontmatter.titleTag }}
+              </span>
+            </div>
           </router-link>
-          <span>{{getDate(item)}}</span>
+          <span class="date">{{ getDate(item) }}</span>
         </dt>
       </dl>
 
       <dl>
         <dd></dd>
         <dt>
-          <router-link
-            :to="moreArticle || '/archives/'"
-            class="more"
-          >更多文章></router-link>
+          <router-link :to="moreArticle || '/archives/'" class="more"
+            >更多文章></router-link
+          >
         </dt>
       </dl>
     </div>
@@ -44,39 +44,39 @@ export default {
     },
     moreArticle: String
   },
-  data () {
+  data() {
     return {
       posts: [],
       currentPath: ''
     }
   },
-  created () {
+  created() {
     this.posts = this.$site.pages
     this.currentPath = this.$page.path
   },
   computed: {
-    topPublishPosts () {
+    topPublishPosts() {
       return this.$sortPostsByDate ? this.$sortPostsByDate.filter(post => {
         const { path } = post
         return path !== this.currentPath
       }).slice(0, this.length) : []
 
     },
-    isShowArticle () {
+    isShowArticle() {
       const { frontmatter } = this.$page
       return !(frontmatter.article !== false)
     }
   },
   methods: {
-    getNum (index) {
+    getNum(index) {
       return index < 9 ? '0' + (index + 1) : index + 1
     },
-    getDate (item) {
+    getDate(item) {
       return item.frontmatter.date ? item.frontmatter.date.split(" ")[0].slice(5, 10) : ''
     }
   },
   watch: {
-    $route () {
+    $route() {
       this.currentPath = this.$page.path
     }
   }
@@ -137,11 +137,22 @@ export default {
             display -webkit-box
             -webkit-line-clamp 2
             -webkit-box-orient vertical
+            .title-tag
+              // height 1.1rem
+              // line-height 1.1rem
+              border 1px solid $activeColor
+              color $activeColor
+              font-size 0.8rem
+              padding 0 0.35rem
+              border-radius 0.2rem
+              margin-left 0rem
+              transform translate(0, -0.05rem)
+              display inline-block
           &:hover
             text-decoration underline
           &.more
             color $accentColor
-        span
+        .date
           width 50px
           margin-right 15px
           color #999

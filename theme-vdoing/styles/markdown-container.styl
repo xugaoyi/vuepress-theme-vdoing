@@ -114,11 +114,11 @@ h1, h2, h3, h4, h5, h6
       .box-img
         overflow hidden
         position relative
-        background #000
+        background #eee
         img
           display block
           width 100%
-          height auto
+          height 100%
           transition: all .3s
         // &:hover
         //   img
@@ -139,6 +139,11 @@ h1, h2, h3, h4, h5, h6
           opacity .8
           font-size: .9rem
           line-height: 1.1rem
+          overflow: hidden;
+          white-space: normal;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
       .box-footer
         overflow hidden
         padding: .8rem 1rem

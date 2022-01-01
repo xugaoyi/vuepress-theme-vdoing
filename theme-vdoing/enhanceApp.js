@@ -35,13 +35,13 @@ export default ({
 
 
 // 修复ISO8601时间格式为普通时间格式
-function repairUTCDate (date) {
+function repairUTCDate(date) {
   if (!(date instanceof Date)) {
     date = new Date(date)
   }
   return `${date.getUTCFullYear()}-${zero(date.getUTCMonth() + 1)}-${zero(date.getUTCDate())} ${zero(date.getUTCHours())}:${zero(date.getUTCMinutes())}:${zero(date.getUTCSeconds())}`;
 }
 // 小于10补0
-function zero (d) {
+function zero(d) {
   return d.toString().padStart(2, '0')
 }

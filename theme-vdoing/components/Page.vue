@@ -1,7 +1,6 @@
 <template>
   <div>
     <main class="page">
-
       <div :class="`theme-vdoing-wrapper ${bgStyle}`">
         <ArticleInfo v-if="isArticle()" />
         <component
@@ -12,25 +11,26 @@
 
         <div class="content-wrapper">
           <RightMenu v-if="showRightMenu" />
+
           <h1 v-if="showTitle">
             <img
               :src="currentBadge"
               v-if="$themeConfig.titleBadge === false ? false : true"
-            />
-            {{this.$page.title}}
+            />{{ this.$page.title
+            }}<span class="title-tag" v-if="$frontmatter.titleTag">{{
+              $frontmatter.titleTag
+            }}</span>
           </h1>
+
           <slot name="top" v-if="isShowSlotT" />
 
           <Content class="theme-vdoing-content" />
         </div>
-  <slot name="bottom"  v-if="isShowSlotB" />
+        <slot name="bottom" v-if="isShowSlotB" />
         <PageEdit />
-
 
         <PageNav v-bind="{ sidebarItems }" />
       </div>
-
-
 
       <UpdateArticle
         :length="3"
@@ -53,28 +53,28 @@ import TitleBadgeMixin from '../mixins/titleBadge'
 
 export default {
   mixins: [TitleBadgeMixin],
-  data () {
+  data() {
     return {
       updateBarConfig: null
     }
   },
   props: ['sidebarItems'],
   components: { PageEdit, PageNav, ArticleInfo, Catalogue, UpdateArticle, RightMenu },
-  created () {
+  created() {
     this.updateBarConfig = this.$themeConfig.updateBar
   },
   computed: {
-    bgStyle () {
+    bgStyle() {
       const { contentBgStyle } = this.$themeConfig
       return contentBgStyle ? 'bg-style-' + contentBgStyle : ''
     },
-    isShowUpdateBar () {
+    isShowUpdateBar() {
       return this.updateBarConfig && this.updateBarConfig.showToArticle === false ? false : true
     },
-    showTitle () {
+    showTitle() {
       return !this.$frontmatter.pageComponent
     },
-    showRightMenu () {
+    showRightMenu() {
       const { $frontmatter, $themeConfig, $page } = this
       const { sidebar } = $frontmatter
       return (
@@ -83,7 +83,7 @@ export default {
         ($frontmatter && sidebar && sidebar !== false) !== false
       )
     },
-    pageComponent () {
+    pageComponent() {
       return this.$frontmatter.pageComponent ? this.$frontmatter.pageComponent.name : false
     },
     isShowSlotT() {
@@ -96,16 +96,16 @@ export default {
   methods: {
     getShowStatus(prop) {
       const { htmlModules } = this.$themeConfig
-      if(!htmlModules) return false
+      if (!htmlModules) return false
       if (htmlModules[prop] === 'article') { // 仅文章页显示
         return this.isArticle()
-      } else if (htmlModules[prop] === 'custom'){ // 仅自定义页显示
+      } else if (htmlModules[prop] === 'custom') { // 仅自定义页显示
         return !(this.isArticle())
       } else { // 全部显示
         return true
       }
     },
-    isArticle () {
+    isArticle() {
       return this.$frontmatter.article !== false
     }
   }
@@ -121,16 +121,29 @@ export default {
   @media (max-width $MQMobile)
     padding-top $navbarHeight
   @media (min-width $MQMobile)
-    padding-top ($navbarHeight + 1.5rem)
+    padding-top: ($navbarHeight + 1.5rem)
   >*
     @extend $vdoing-wrapper
 .theme-vdoing-wrapper
   .content-wrapper
     position relative
-  h1 img
-    margin-bottom -0.2rem
-    max-width 2.2rem
-    max-height 2.2rem
+  h1
+    .title-tag
+      height 1.5rem
+      line-height 1.5rem
+      border 1px solid $activeColor
+      color $activeColor
+      font-size 1rem
+      padding 0 0.4rem
+      border-radius 0.2rem
+      margin-left 0.5rem
+      transform translate(0, -0.25rem)
+      display inline-block
+    img
+      margin-bottom -0.2rem
+      margin-right 0.2rem
+      max-width 2.2rem
+      max-height 2.2rem
 .theme-vdoing-wrapper
   --linesColor rgba(50, 0, 0, 0.05)
   &.bg-style-1 // 方格
