@@ -61,14 +61,14 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       pageData: null,
       isStructuring: true,
       appointDir: {}
     }
   },
-  created () {
+  created() {
     this.getPageData()
     const sidebar = this.$themeConfig.sidebar
     if (!sidebar || sidebar === 'auto') {
@@ -77,7 +77,7 @@ export default {
     }
   },
   methods: {
-    getPageData () {
+    getPageData() {
       const pageComponent = this.$frontmatter.pageComponent
       if (pageComponent && pageComponent.data) {
         this.pageData = {
@@ -88,7 +88,7 @@ export default {
         console.error('请在front matter中设置pageComponent和pageComponent.data数据')
       }
     },
-    getCatalogueList () {
+    getCatalogueList() {
       const { sidebar } = this.$site.themeConfig
       const { data } = this.$frontmatter.pageComponent
       const key = data.path || data.key
@@ -104,7 +104,7 @@ export default {
       }
       return catalogueList
     },
-    type (o) { // 数据类型检查
+    type(o) { // 数据类型检查
       return Object.prototype.toString.call(o).match(/\[object (.*?)\]/)[1].toLowerCase()
     },
     /**
@@ -114,7 +114,7 @@ export default {
      * @param catalogueList 目录对象列表
      * @returns {*}
      */
-    appointDirDeal (index, dirKeyArray, catalogueList) {
+    appointDirDeal(index, dirKeyArray, catalogueList) {
       let dirKey = dirKeyArray[index];
       if (dirKey !== undefined && dirKey.indexOf(".") !== -1) {
         dirKey = dirKey.substring(dirKey.indexOf('.') + 1);
@@ -131,7 +131,7 @@ export default {
     },
   },
   watch: {
-    '$route.path' () {
+    '$route.path'() {
       this.getPageData()
     }
   }

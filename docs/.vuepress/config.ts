@@ -7,14 +7,17 @@ import baiduCode from './config/baiduCode' // 百度统计hm码
 import htmlModules from './config/htmlModules' // 自定义插入的html块
 
 
-
-
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
   // theme: 'vdoing', // 使用npm包主题
   theme: resolve(__dirname, '../../theme-vdoing'), // 使用本地主题
 
-  title: "Evan's blog",
-  description: 'web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github等技术文章。',
+  locales: {
+    '/': {
+      lang: 'zh-CN',
+      title: "Evan's blog",
+      description: 'web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github等技术文章。',
+    }
+  },
   // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
 
   // 主题配置
@@ -148,25 +151,24 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // pageButton: false, // 是否显示快捷翻页按钮，默认true
 
     // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | <自定义>    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
-    // @ts-ignore
     sidebar: 'structuring',
 
-    // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
+    // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
     author: {
       name: 'xugaoyi', // 必需
       link: 'https://github.com/xugaoyi', // 可选的
     },
 
-    // 博主信息，显示在首页侧边栏
+    // 博主信息 (显示在首页侧边栏)
     blogger: {
       avatar: 'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg',
       name: 'Evan Xu',
       slogan: '前端界的小学生',
     },
 
-    // 社交图标，显示于博主信息栏和页脚栏。内置图标：https://doc.xugaoyi.com/pages/a20ce8/#social
+    // 社交图标 (显示于博主信息栏和页脚栏。内置图标：https://doc.xugaoyi.com/pages/a20ce8/#social)
     social: {
-      // iconfontCssFile: '//at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css', // 可选，阿里图标库在线css文件地址，对于主题没有的图标可自己添加
+      // iconfontCssFile: '//at.alicdn.com/t/xxx.css', // 可选，阿里图标库在线css文件地址，对于主题没有的图标可自己添加。阿里图片库：https://www.iconfont.cn/
       icons: [
         {
           iconClass: 'icon-youjian',
@@ -190,10 +192,10 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     footer: {
       createYear: 2019, // 博客创建年份
       copyrightInfo:
-        'Evan Xu | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签
+        'Evan Xu | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签或换行标签</br>
     },
 
-    // 插入hmtl(广告)模块
+    // 自定义hmtl(广告)模块
     htmlModules
   },
 

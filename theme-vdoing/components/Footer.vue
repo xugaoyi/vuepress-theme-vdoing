@@ -1,9 +1,6 @@
 <template>
   <div class="footer">
-    <div
-      class="icons"
-      v-if="social && social.icons"
-    >
+    <div class="icons" v-if="social && social.icons">
       <a
         :href="item.link"
         :title="item.title"
@@ -20,12 +17,11 @@
       href="https://github.com/xugaoyi/vuepress-theme-vdoing"
       target="_blank"
       title="本站主题"
-    >Vdoing</a>
+      >Vdoing</a
+    >
     <template v-if="footer">
       | Copyright © {{ footer.createYear }}-{{ new Date().getFullYear() }}
-      <span
-        v-html="footer.copyrightInfo"
-      ></span>
+      <span v-html="footer.copyrightInfo"></span>
     </template>
   </div>
 </template>
@@ -33,10 +29,10 @@
 <script>
 export default {
   computed: {
-    social () {
+    social() {
       return this.$themeConfig.social
     },
-    footer () {
+    footer() {
       return this.$themeConfig.footer
     }
   }
@@ -52,6 +48,8 @@ export default {
   box-sizing border-box
   font-size 0.85rem
   transition all 0.2s ease
+  > span
+    line-height 1.5rem
   .icons
     margin-bottom 12px
     .iconfont
@@ -64,10 +62,10 @@ export default {
 @media (min-width ($MQMobile + 1px))
   .sidebar-open .footer
     width auto
-    padding-left ($sidebarWidth + 1.5rem)
+    padding-left: ($sidebarWidth + 1.5rem)
 @media (min-width 1520px)
   .have-rightmenu .footer
-    padding-right ($rightMenuWidth + 1.5rem)
+    padding-right: ($rightMenuWidth + 1.5rem)
 .no-sidebar .footer
   width auto
   padding-left 1.5rem
