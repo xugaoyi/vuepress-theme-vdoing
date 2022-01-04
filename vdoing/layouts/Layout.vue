@@ -200,7 +200,8 @@ export default {
           'sidebar-open': this.isSidebarOpen,
           'no-sidebar': !this.shouldShowSidebar,
           'have-rightmenu': this.showRightMenu,
-          'have-body-img': this.$themeConfig.bodyBgImg
+          'have-body-img': this.$themeConfig.bodyBgImg,
+          'only-sidebarItem': this.sidebarItems.length === 1 && this.sidebarItems[0].type === 'page', // 左侧边栏只有一项时
         },
         // 'theme-mode-' + this.themeMode,
         userPageClass

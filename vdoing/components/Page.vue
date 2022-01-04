@@ -184,4 +184,24 @@ export default {
   .have-rightmenu
     .sidebar .sidebar-sub-headers
       display none
+// 左侧边栏只有一项且没有右侧边栏时
+.theme-container.only-sidebarItem:not(.have-rightmenu)
+  .sidebar, .sidebar-button
+    display none
+  @media (min-width ($MQMobile + 1px))
+    .page
+      padding-left 0.8rem !important
+  @media (max-width $MQMobile)
+    .page
+      padding-left 0rem !important
+    .sidebar, .sidebar-button
+      display block
+// 左侧边栏只有一项且有右侧边栏时
+.theme-container.only-sidebarItem.have-rightmenu
+  @media (min-width 720px) and (max-width 1279px)
+    .sidebar, .sidebar-button
+      display block
+  @media (min-width 1280px)
+    .sidebar, .sidebar-button
+      display none
 </style>
