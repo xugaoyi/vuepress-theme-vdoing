@@ -178,6 +178,7 @@ export default {
         !frontmatter.home
         && frontmatter.sidebar !== false
         && this.sidebarItems.length
+        && frontmatter.showSidebar !== false
       )
     },
 
