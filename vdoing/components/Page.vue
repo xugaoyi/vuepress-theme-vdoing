@@ -184,4 +184,7 @@ export default {
   .have-rightmenu
     .sidebar .sidebar-sub-headers
       display none
+  .only-sidebarItem
+    .sidebar, .sidebar-button
+      display none
 </style>

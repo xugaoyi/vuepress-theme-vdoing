@@ -178,7 +178,6 @@ export default {
         !frontmatter.home
         && frontmatter.sidebar !== false
         && this.sidebarItems.length
-        && frontmatter.showSidebar !== false
       )
     },
 
@@ -200,7 +199,8 @@ export default {
           'sidebar-open': this.isSidebarOpen,
           'no-sidebar': !this.shouldShowSidebar,
           'have-rightmenu': this.showRightMenu,
-          'have-body-img': this.$themeConfig.bodyBgImg
+          'have-body-img': this.$themeConfig.bodyBgImg,
+          'only-sidebarItem': this.sidebarItems.length === 1, // 左侧边栏只有一项时
         },
         // 'theme-mode-' + this.themeMode,
         userPageClass
@@ -209,8 +209,8 @@ export default {
   },
   created() {
     const sidebarOpen = this.$themeConfig.sidebarOpen
-    if (sidebarOpen === false) {
-      this.isSidebarOpen = sidebarOpen
+    if (sidebarOpen === false || this.sidebarItems.length === 1) {
+      this.isSidebarOpen = false
     }
   },
   beforeMount() {
