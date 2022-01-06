@@ -320,4 +320,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       },
     },
   },
+
+  markdown: {
+    lineNumbers: true
+  }
 })
