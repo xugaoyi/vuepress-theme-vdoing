@@ -283,6 +283,7 @@ function getCardImgListDOM(dataList, row, config) {
 
 // 添加base路径
 function withBase(path) {
+  if (!path) return '';
   if (base && path.charAt(0) === '/') {
     return base + path.slice(1);
   } else {

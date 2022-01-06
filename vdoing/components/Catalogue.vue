@@ -1,7 +1,7 @@
 <template>
   <div class="theme-vdoing-content">
     <div class="column-wrapper">
-      <img :src="$withBase(pageData.imgUrl)" />
+      <img v-if="pageData.imgUrl" :src="$withBase(pageData.imgUrl)" />
       <dl class="column-info">
         <dt class="title">{{ pageData.title }}</dt>
         <dd class="description" v-html="pageData.description"></dd>
