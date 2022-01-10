@@ -267,7 +267,7 @@ function getCardImgListDOM(dataList, row, config) {
           </div>
           <div class="box-info">
               <p class="name">${item.name}</p>
-              ${item.desc ? `<p class="desc" style="line-clamp: ${lineClamp}">${item.desc}</p>` : ''}
+              ${item.desc ? `<p class="desc" style="-webkit-line-clamp: ${lineClamp}">${item.desc}</p>` : ''}
           </div>
 
           ${item.avatar || item.author ? `<div class="box-footer">
