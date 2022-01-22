@@ -1,7 +1,7 @@
 ---
 name: 提交疑问
 about: 提交你的疑问
-title: "[提问]: [FEATURE NAME]"
+title: "[提问]: "
 labels: 提问
 ---
 
