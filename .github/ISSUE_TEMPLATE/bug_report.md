@@ -1,7 +1,8 @@
 ---
 name: 报告bug
 about: 创建一个报告来帮助我们改进
-label: bug
+title: "[bug]: [FEATURE NAME]"
+labels: bug
 ---
 
 <!--请按照模板填写，否则此issue将可能被关闭-->
