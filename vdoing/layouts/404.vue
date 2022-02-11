@@ -8,23 +8,10 @@
   </div>
 </template>
 
-<script>
-const msgs = [
-  `这里什么都没有。`,
-  `我是谁？我在哪？`,
-  `这是一个Four-Oh-Four.`,
-  `看来我们的链接坏掉了~`
-]
 
-export default {
-  methods: {
-    getMsg () {
-      return msgs[Math.floor(Math.random() * msgs.length)]
-    }
-  }
-}
-</script>
-
+<script type="text/javascript" src="https://www.qq.com/404/search_children.js"
+charset="utf-8" homePageUrl=""
+homePageName="回到我的主页">
 <style lang="stylus" scoped>
 .theme-vdoing-content
   margin 3rem auto
