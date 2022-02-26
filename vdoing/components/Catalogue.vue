@@ -13,13 +13,12 @@
         <template v-for="(item, index) in getCatalogueList()">
           <dl v-if="type(item) === 'array'" :key="index" class="inline">
             <dt>
-              <router-link :to="item[2]">{{
-                `${index + 1}. ${item[1]}` 
-              }}
-                <span class="title-tag" v-if="getTitleTag(item[2])">
-                  {{ getTitleTag(item[2]) }}
+              <router-link :to="item[2]"
+                >{{ `${index + 1}. ${item[1]}` }}
+                <span class="title-tag" v-if="item[3]">
+                  {{ item[3] }}
                 </span>
-              </router-link> 
+              </router-link>
             </dt>
           </dl>
           <dl v-else-if="type(item) === 'object'" :key="index">
@@ -32,11 +31,10 @@
               <!-- 二级目录 -->
               <template v-for="(c, i) in item.children">
                 <template v-if="type(c) === 'array'">
-                  <router-link :to="c[2]" :key="i">{{
-                    `${index + 1}-${i + 1}. ${c[1]}`
-                  }}
-                    <span class="title-tag" v-if="getTitleTag(c[2])">
-                      {{ getTitleTag(c[2]) }}
+                  <router-link :to="c[2]" :key="i"
+                    >{{ `${index + 1}-${i + 1}. ${c[1]}` }}
+                    <span class="title-tag" v-if="c[3]">
+                      {{ c[3] }}
                     </span>
                   </router-link>
                 </template>
@@ -56,8 +54,8 @@
                     :key="`${index + 1}-${i + 1}-${ii + 1}`"
                   >
                     {{ `${index + 1}-${i + 1}-${ii + 1}. ${cc[1]}` }}
-                    <span class="title-tag" v-if="getTitleTag(cc[2])">
-                      {{ getTitleTag(cc[2]) }}
+                    <span class="title-tag" v-if="cc[3]">
+                      {{ cc[3] }}
                     </span>
                   </router-link>
                 </div>
@@ -88,19 +86,6 @@ export default {
     }
   },
   methods: {
-    /**
-     * 获取标题标记
-     */
-    getTitleTag(path){
-      const pages = this.$site.pages;
-      for (let i = 0; i < pages.length; i++) {
-        let titleTag = pages[i].frontmatter.titleTag
-        if(pages[i].path === path && titleTag !== undefined){
-          return titleTag;
-        }
-      }
-      return false;
-    },
     getPageData() {
       const pageComponent = this.$frontmatter.pageComponent
       if (pageComponent && pageComponent.data) {

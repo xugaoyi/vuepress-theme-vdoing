@@ -1,10 +1,12 @@
+/**
+ * 提示：如您想使用JS版本的配置文件可参考：https://github.com/xugaoyi/vuepress-theme-vdoing/tree/a2f03e993dd2f2a3afdc57cf72adfc6f1b6b0c32/docs/.vuepress
+ */
 import { resolve } from 'path'
 import { defineConfig4CustomTheme } from 'vuepress/config'
 import { VdoingThemeConfig } from 'vuepress-theme-vdoing/types'
 import dayjs from 'dayjs'
 import baiduCode from './config/baiduCode' // 百度统计hm码
 import htmlModules from './config/htmlModules' // 自定义插入的html块
-
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
   theme: 'vdoing', // 使用npm包主题

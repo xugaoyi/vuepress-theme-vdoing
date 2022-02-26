@@ -86,11 +86,15 @@ function mapTocToPostSidebar(root) {
 
     const contentStr = fs.readFileSync(file, 'utf8') // 读取md文件内容，返回字符串
     const { data } = matter(contentStr, {}) // 解析出front matter数据
-    const permalink = data.permalink || ''
+    const { permalink = '', titleTag = '' } = data || {}
     if (data.title) {
       title = data.title
     }
-    postSidebar.push([filename, title, permalink]);  // [<路径>, <标题>, <永久链接>]
+    const item = [filename, title, permalink]
+    if (titleTag) {
+      item.push(titleTag)
+    }
+    postSidebar.push(item);  // [<路径>, <标题>, <永久链接>, <?标题标签>]
   })
 
   return postSidebar
@@ -136,7 +140,7 @@ function mapTocToSidebar(root, collapsable, prefix = '') {
       }
       const contentStr = fs.readFileSync(file, 'utf8') // 读取md文件内容，返回字符串
       const { data } = matter(contentStr, {}) // 解析出front matter数据
-      const permalink = data.permalink || ''
+      const { permalink = '', titleTag = '' } = data || {}
 
       // 目录页对应的永久链接，用于给面包屑提供链接
       const { pageComponent } = data
@@ -147,7 +151,9 @@ function mapTocToSidebar(root, collapsable, prefix = '') {
       if (data.title) {
         title = data.title
       }
-      sidebar[order] = [prefix + filename, title, permalink];  // [<路径>, <标题>, <永久链接>]
+      const item = [prefix + filename, title, permalink]
+      if (titleTag) item.push(titleTag)
+      sidebar[order] = item;  // [<路径>, <标题>, <永久链接>, <?标题标签>]
 
     }
   })
