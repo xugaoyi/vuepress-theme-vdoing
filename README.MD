@@ -77,16 +77,23 @@ npm run dev # or yarn dev
 
 :heart:感谢为这个项目贡献代码的朋友 → [Contributors](https://github.com/xugaoyi/vuepress-theme-vdoing/graphs/contributors)
 
-## Vdoing官方交流群
-群号：694387113
+## 交流群
 
-<img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200712122307.jpg" alt="群号：694387113" width="200">
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">
+        <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store2@master/img/mmqrcode1646409021986.5m4pb5hehz80.png" class="no-zoom" style="width:120px;margin: 10px;">
+        <p>vdoing微信群(添加我的微信进群)</p>
+      </td>
+      <td align="center" valign="middle">
+        <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/qq.3ugglfuuwz00.webp" alt="群号: 694387113" class="no-zoom" style="width:120px;margin: 10px;">
+        <p>vdoing QQ群(已满): 694387113</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-## 公众号
-`有趣研究社`是本人对各种有趣的、好玩的、沙雕的创意和想法以在线小网站或者文章的形式表达出来，比如80、90后朋友小时候玩的小霸王游戏机：<https://game.xugaoyi.com>，还有更多好玩的等你去探索吧~
-
-<img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/blog/扫码_搜索联合传播样式-标准色版.1wp8gd1mhjhc.jpg"  style="width:370px;" />
-<!-- <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/blog/qrcode.zdqv9mlfc0g.jpg"  style="width:30%;" /> -->
 
 ## 许可证
 [MIT](https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE)
