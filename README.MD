@@ -88,7 +88,7 @@ npm run dev # or yarn dev
       </td>
       <td align="center" valign="middle">
         <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/qq.3ugglfuuwz00.webp" alt="群号: 694387113" class="no-zoom" style="width:120px;margin: 10px;">
-        <p>vdoing QQ群(已满): 694387113</p>
+        <p>vdoing QQ群: 694387113</p>
       </td>
     </tr>
   </tbody>
