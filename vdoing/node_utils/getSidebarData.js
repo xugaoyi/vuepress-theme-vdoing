@@ -11,7 +11,7 @@ let catalogueData = {}; // 目录页数据
  * @param {String} sourceDir .md文件所在源目录(一般是docs目录)
  * @param {Boolean} collapsable  是否可折叠
  */
-function createSidebarData(sourceDir, collapsable) {
+function createSidebarData(sourceDir, collapsable, reverse) {
   const sidebarData = {};
   const tocs = readTocs(sourceDir);
   tocs.forEach(toc => { // toc是每个目录的绝对路径
@@ -23,7 +23,7 @@ function createSidebarData(sourceDir, collapsable) {
       // sidebarData[`/${path.basename(toc)}/`] = sidebarArr
 
     } else {
-      const sidebarObj = mapTocToSidebar(toc, collapsable);
+      const sidebarObj = mapTocToSidebar(toc, collapsable, reverse);
       if (!sidebarObj.sidebar.length) {
         log(chalk.yellow(`warning: 该目录 "${toc}" 内部没有任何文件或文件序号出错，将忽略生成对应侧边栏`))
         return;
@@ -108,7 +108,7 @@ function mapTocToPostSidebar(root) {
  * @param {String} prefix
  */
 
-function mapTocToSidebar(root, collapsable, prefix = '') {
+function mapTocToSidebar(root, collapsable, reverse, prefix = '') {
   let sidebar = []; // 结构化文章侧边栏数据
   const files = fs.readdirSync(root); // 读取目录（文件和文件夹）,返回数组
 
@@ -154,6 +154,10 @@ function mapTocToSidebar(root, collapsable, prefix = '') {
       const item = [prefix + filename, title, permalink]
       if (titleTag) item.push(titleTag)
       sidebar[order] = item;  // [<路径>, <标题>, <永久链接>, <?标题标签>]
+
+      if (reverse) {
+        sidebar.reverse()
+      }
 
     }
   })

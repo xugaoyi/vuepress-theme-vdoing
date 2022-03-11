@@ -93,7 +93,7 @@ export interface VdoingThemeConfig extends NoSidebar4DefaultThemeConfig {
    */
   sidebar?:
   | 'structuring'
-  | { mode: 'structuring', collapsable: Boolean }
+  | { mode: "structuring", collapsable: Boolean, reverse?: Boolean }
   | DefaultThemeConfig['sidebar']
 
   /**

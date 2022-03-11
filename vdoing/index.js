@@ -28,7 +28,8 @@ module.exports = (options, ctx) => {
   const sidebar = themeConfig.sidebar
   if (sidebar === 'structuring' || sidebar && sidebar.mode === 'structuring') {
     const collapsable = themeConfig.sidebar.collapsable === false ? false : true
-    const sidebarData = getSidebarData(sourceDir, collapsable)
+    const reverse = themeConfig.sidebar.reverse === true ? true : false
+    const sidebarData = getSidebarData(sourceDir, collapsable, reverse)
     if (sidebarData) {
       themeConfig.sidebar = sidebarData
       log(chalk.blue('tip ') + chalk.green('add sidebar data. 成功生成侧边栏数据。'))
