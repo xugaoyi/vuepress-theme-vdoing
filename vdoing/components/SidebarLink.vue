@@ -6,7 +6,7 @@ export default {
 
   props: ['item', 'sidebarDepth'],
 
-  render (h,
+  render(h,
     {
       parent: {
         $page,
@@ -54,7 +54,7 @@ export default {
   }
 }
 
-function renderLink (h, to, text, active) {
+function renderLink(h, to, text, active) {
   return h('router-link', {
     props: {
       to,
@@ -68,18 +68,18 @@ function renderLink (h, to, text, active) {
   }, text)
 }
 
-function renderChildren (h, children, path, route, maxDepth, depth = 1) {
+function renderChildren(h, children, path, route, maxDepth, depth = 1) {
   if (!children || depth > maxDepth) return null
   return h('ul', { class: 'sidebar-sub-headers' }, children.map(c => {
     const active = isActive(route, path + '#' + c.slug)
-    return h('li', { class: 'sidebar-sub-header' }, [
+    return h('li', { class: 'sidebar-sub-header level' + c.level }, [
       renderLink(h, path + '#' + c.slug, c.title, active),
       renderChildren(h, c.children, path, route, maxDepth, depth + 1)
     ])
   }))
 }
 
-function renderExternal (h, to, text) {
+function renderExternal(h, to, text) {
   return h('a', {
     attrs: {
       href: to,
@@ -97,6 +97,12 @@ function renderExternal (h, to, text) {
 .sidebar .sidebar-sub-headers
   padding-left 1rem
   font-size 0.95em
+  .level4
+    padding-left 0.2rem
+  .level5
+    padding-left 0.4rem
+  .level6
+    padding-left 0.6rem
 a.sidebar-link
   font-size 1em
   font-weight 400
