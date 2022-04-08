@@ -93,12 +93,18 @@ export default {
       // 分类采用解析文件夹地址名称的方式 (即使关闭分类功能也可以正确跳转目录页)
       const relativePathArr = relativePath.split('/')
 
-      const classifyArr = relativePathArr[0].split('.')
+      // const classifyArr = relativePathArr[0].split('.')
 
       relativePathArr.forEach((item, index) => {
         const nameArr = item.split('.')
+
         if (index !== relativePathArr.length - 1) {
-          this.classifyList.push(nameArr[1] || nameArr[0] || '')
+          if (nameArr === 1) {
+            this.classifyList.push(nameArr[0])
+          } else {
+            const firstDotIndex = item.indexOf('.');
+            this.classifyList.push(item.substring(firstDotIndex + 1) || '')
+          }
         }
       })
 

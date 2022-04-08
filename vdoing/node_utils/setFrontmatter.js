@@ -129,7 +129,10 @@ function getCategories(file, categoryText) {
     let ind = filePathArr.indexOf('docs')
     if (ind !== -1) {
       while (filePathArr[++ind] !== undefined) {
-        categories.push(filePathArr[ind].split('.').pop()) // 获取分类
+        const item = filePathArr[ind]
+        const firstDotIndex = item.indexOf('.');
+        categories.push(item.substring(firstDotIndex + 1) || '') // 获取分类
+        // categories.push(filePathArr[ind].split('.').pop()) // 获取分类
       }
     }
   } else {
