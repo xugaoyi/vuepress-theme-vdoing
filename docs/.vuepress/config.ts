@@ -7,10 +7,11 @@ import { VdoingThemeConfig } from 'vuepress-theme-vdoing/types'
 import dayjs from 'dayjs'
 import baiduCode from './config/baiduCode' // 百度统计hm码
 import htmlModules from './config/htmlModules' // 自定义插入的html块
+import catalogueLink from "./config/catalogueLink";
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
-  theme: 'vdoing', // 使用npm包主题
-  // theme: resolve(__dirname, '../../vdoing'), // 使用本地主题
+  // theme: 'vdoing', // 使用npm包主题
+  theme: resolve(__dirname, '../../vdoing'), // 使用本地主题
 
   locales: {
     '/': {
@@ -23,6 +24,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
   // 主题配置
   themeConfig: {
+    catalogueLink,
     // 导航配置
     nav: [
       { text: '首页', link: '/' },

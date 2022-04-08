@@ -64,14 +64,18 @@
           </dl>
         </template>
       </div>
+      <CatalogueLink v-if="isCatalogueLink"/>
     </div>
   </div>
 </template>
 
 <script>
+import CatalogueLink from './CatalogueLink'
 export default {
+  components: {CatalogueLink},
   data() {
     return {
+      isCatalogueLink: false,
       pageData: null,
       isStructuring: true,
       appointDir: {}
@@ -87,6 +91,7 @@ export default {
   },
   methods: {
     getPageData() {
+      this.isCatalogueLink = false
       const pageComponent = this.$frontmatter.pageComponent
       if (pageComponent && pageComponent.data) {
         this.pageData = {
@@ -101,6 +106,10 @@ export default {
       const { sidebar } = this.$site.themeConfig
       const { data } = this.$frontmatter.pageComponent
       const key = data.path || data.key
+      if (key.toLowerCase() == 'CatalogueLink'.toLowerCase()) {
+        this.isCatalogueLink = true
+        return
+      }
       let keyArray = key.split('/');
       let catalogueList = (sidebar[`/${keyArray[0]}/`]);
       if (keyArray.length > 1) {
