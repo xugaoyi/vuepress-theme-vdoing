@@ -301,3 +301,10 @@ th, td
       padding-left 0
 
 @require 'mobile.styl'
+
+// 打印时的样式
+@media print
+  .navbar,.sidebar,.buttons
+    display: none
+  .page
+    padding-top: 0 !important
