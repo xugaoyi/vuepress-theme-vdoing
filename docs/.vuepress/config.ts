@@ -9,8 +9,8 @@ import baiduCode from './config/baiduCode' // 百度统计hm码
 import htmlModules from './config/htmlModules' // 自定义插入的html块
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
-  theme: 'vdoing', // 使用npm包主题
-  // theme: resolve(__dirname, '../../vdoing'), // 使用本地主题
+  // theme: 'vdoing', // 使用npm主题包
+  theme: resolve(__dirname, '../../vdoing'), // 使用本地主题包
 
   locales: {
     '/': {
@@ -194,6 +194,23 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       createYear: 2019, // 博客创建年份
       copyrightInfo:
         'Evan Xu | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签或换行标签</br>
+    },
+
+    // 扩展自动生成frontmatter。 (不会覆盖已有的数据，仅在相应属性不存在时才会自动添加)
+    extendFrontmatter: {
+      test1: false,
+      test2: 1,
+      test3: '字符串',
+      test4: [
+        1, 2, 3
+      ],
+      test5: {
+        prop: 'abc',
+        prop2: [{
+          child: true,
+        }]
+      },
+      test6: 1.9
     },
 
     // 自定义hmtl(广告)模块
