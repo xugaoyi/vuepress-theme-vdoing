@@ -132,6 +132,14 @@ export interface VdoingThemeConfig extends NoSidebar4DefaultThemeConfig {
   }
 
   /**
+   * 扩展自动生成frontmatter。
+   * 说明：当md文件的frontmatter不存在相应的字段时将自动添加。不会覆盖已有的数据。
+   */
+  extendFrontmatter?: {
+    [key: string]: any
+  }
+
+  /**
    * 自定义hmtl(广告)模块
    * @see: https://doc.xugaoyi.com/pages/a20ce8/#htmlmodules
    */
