@@ -238,7 +238,7 @@ function getCardListDOM(dataList, row, config) {
   let listDOM = ''
   dataList.forEach(item => {
     listDOM += `
-      <${item.link ? 'a href="' + item.link + '" target="' + target + '"' : 'span'} class="card-item ${row ? 'row-' + row : ''}"
+      <${item.link ? 'a href="' + withBase(item.link) + '" target="' + target + '"' : 'span'} class="card-item ${row ? 'row-' + row : ''}"
          style="${item.bgColor ? 'background-color:' + item.bgColor + ';--randomColor:' + item.bgColor + ';' : '--randomColor: var(--bodyBg);'}${item.textColor ? 'color:' + item.textColor + ';' : ''}"
       >
         ${item.avatar ? '<img src="' + withBase(item.avatar) + '" class="no-zoom">' : ''}
@@ -261,7 +261,7 @@ function getCardImgListDOM(dataList, row, config) {
   dataList.forEach(item => {
     listDOM += `
       <div class="card-item ${row ? 'row-' + row : ''}" >
-        <a href="${item.link}" target="${target}">
+        <a href="${withBase(item.link)}" target="${target}">
           <div class="box-img" style="height: ${imgHeight}">
               <img src="${withBase(item.img)}" class="no-zoom" style="object-fit: ${objectFit}">
           </div>
