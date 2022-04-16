@@ -148,6 +148,8 @@ export default {
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
+.theme-vdoing-content
+  margin-bottom $navbarHeight
 .title-tag
   // height 1.1rem
   // line-height 1.1rem
