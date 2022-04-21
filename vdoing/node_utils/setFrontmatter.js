@@ -15,7 +15,7 @@ const PREFIX = '/pages/'
  * 给.md文件设置frontmatter(标题、日期、永久链接等数据)
  */
 function setFrontmatter(sourceDir, themeConfig) {
-  const { isCategory, isTag, categoryText = '随笔', extendFrontmatter } = themeConfig
+  const { category: isCategory, tag: isTag, categoryText = '随笔', extendFrontmatter } = themeConfig
   const files = readFileList(sourceDir) // 读取所有md文件数据
   // 扩展自定义生成frontmatter
   const extendFrontmatterStr = extendFrontmatter ?
