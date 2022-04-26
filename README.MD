@@ -13,8 +13,9 @@
 
 <h2 align="center">vuepress-theme-vdoing</h2>
 
-* [文档 (国内源)](https://doc.xugaoyi.com/)
-* [效果：Evan's blog](https://xugaoyi.com/)
+ [文档](https://doc.xugaoyi.com/)  |
+ [效果](https://xugaoyi.com/)  |
+ [本仓库的gitee镜像](https://gitee.com/xugaoyi/vuepress-theme-vdoing)
 
 
 ## 介绍
