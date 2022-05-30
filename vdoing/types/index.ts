@@ -43,6 +43,13 @@ export interface VdoingThemeConfig extends NoSidebar4DefaultThemeConfig {
    */
   bodyBgImgOpacity?: 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1;
 
+
+  /**
+   * body当多张背景图时，设置切换时间，默认15s
+   * @default 15
+   */
+  bodyBgImgInterval?: number;
+
   /**
    * 是否显示文章标题前的图标
    * @default true
