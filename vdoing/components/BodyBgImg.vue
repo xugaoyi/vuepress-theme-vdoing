@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted () {
-    let { bodyBgImg, bodyBgImgOpacity } = this.$themeConfig
+    let { bodyBgImg, bodyBgImgOpacity,bodyBgImgInterval = 15 } = this.$themeConfig
 
     if (type(bodyBgImg) === 'string') {
       this.bgImg = bodyBgImg
@@ -30,7 +30,7 @@ export default {
           count = 0
         }
         this.bgImg = bodyBgImg[count]
-      }, 15000);
+      }, bodyBgImgInterval * 1000);
     }
 
     if (bodyBgImgOpacity !== undefined) {
