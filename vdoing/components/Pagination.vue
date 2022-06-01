@@ -2,36 +2,32 @@
   <div class="pagination">
     <span
       class="card-box prev iconfont icon-jiantou-zuo"
-      :class="{disabled: currentPage === 1}"
+      :class="{ disabled: currentPage === 1 }"
       @click="goPrex()"
     >
       <p>上一页</p>
     </span>
 
     <!-- 分页在5页及以下时 -->
-    <div
-      class="pagination-list"
-      v-if="pages <= 5"
-    >
+    <div class="pagination-list" v-if="pages <= 5">
       <span
         class="card-box"
         v-for="item in pages"
         :key="item"
-        :class="{active: currentPage === item}"
+        :class="{ active: currentPage === item }"
         @click="goIndex(item)"
-      >{{item}}</span>
+        >{{ item }}</span
+      >
     </div>
     <!-- 分页在5页以上 -->
-    <div
-      class="pagination-list"
-      v-else
-    >
+    <div class="pagination-list" v-else>
       <!-- 一号位 -->
       <span
         class="card-box"
-        :class="{active: currentPage === 1}"
+        :class="{ active: currentPage === 1 }"
         @click="goIndex(1)"
-      >1</span>
+        >1</span
+      >
 
       <!-- 二号位 -->
       <span
@@ -44,42 +40,46 @@
       <span
         class="card-box"
         v-show="currentPage <= 3"
-        :class="{active: currentPage === 2}"
+        :class="{ active: currentPage === 2 }"
         @click="goIndex(2)"
-      >2</span>
+        >2</span
+      >
 
       <!-- 三号位 -->
       <span
         class="card-box"
-        :class="{active: currentPage >= 3 && currentPage <= (pages - 2)}"
+        :class="{ active: currentPage >= 3 && currentPage <= pages - 2 }"
         @click="goIndex(threeNum())"
-      >{{ threeNum() }}</span>
+        >{{ threeNum() }}</span
+      >
 
       <!-- 四号位 -->
       <span
         class="ellipsis ell-four"
-        v-show="currentPage < (pages - 2)"
+        v-show="currentPage < pages - 2"
         @click="goIndex(currentPage + 2)"
         title="下两页"
       />
       <span
         class="card-box"
-        v-show="currentPage >= (pages - 2)"
-        :class="{active: currentPage === pages-1}"
-        @click="goIndex(pages-1)"
-      >{{ pages-1 }}</span>
+        v-show="currentPage >= pages - 2"
+        :class="{ active: currentPage === pages - 1 }"
+        @click="goIndex(pages - 1)"
+        >{{ pages - 1 }}</span
+      >
 
       <!-- 五号位 -->
       <span
         class="card-box"
-        :class="{active: currentPage === pages}"
+        :class="{ active: currentPage === pages }"
         @click="goIndex(pages)"
-      >{{pages}}</span>
+        >{{ pages }}</span
+      >
     </div>
 
     <span
       class="card-box next iconfont icon-jiantou-you"
-      :class="{disabled: currentPage === pages}"
+      :class="{ disabled: currentPage === pages }"
       @click="goNext()"
     >
       <p>下一页</p>
@@ -104,12 +104,12 @@ export default {
     }
   },
   computed: {
-    pages () { // 总页数
+    pages() { // 总页数
       return Math.ceil(this.total / this.perPage)
     }
   },
   methods: {
-    threeNum () { // 三号位页码计算
+    threeNum() { // 三号位页码计算
       let num = 3
       const currentPage = this.currentPage
       const pages = this.pages
@@ -122,24 +122,24 @@ export default {
       }
       return num
     },
-    goPrex () {
+    goPrex() {
       let currentPage = this.currentPage
       if (currentPage > 1) {
         this.handleEmit(--currentPage)
       }
     },
-    goNext () {
+    goNext() {
       let currentPage = this.currentPage
       if (currentPage < this.pages) {
         this.handleEmit(++currentPage)
       }
     },
-    goIndex (i) {
+    goIndex(i) {
       if (i !== this.currentPage) {
         this.handleEmit(i)
       }
     },
-    handleEmit (i) {
+    handleEmit(i) {
       this.$emit('getCurrentPage', i)
     }
   }
@@ -151,6 +151,9 @@ export default {
   position relative
   height 60px
   text-align center
+  @media (max-width 720px)
+    margin-left 1px
+    margin-right 1px
   span
     line-height 1rem
     opacity 0.9
@@ -176,16 +179,20 @@ export default {
     top 0
     padding 1rem 1.2rem
     font-size 0.95rem
+    &::before
+      font-size 0.4rem
     &.disabled
       color rgba(125, 125, 125, 0.5)
     &.prev
       left 0
-      border-top-right-radius 32px
-      border-bottom-right-radius 32px
+      // border-top-right-radius 32px
+      // border-bottom-right-radius 32px
+      &::before
+        margin-right 0.3rem
     &.next
       right 0
-      border-top-left-radius 32px
-      border-bottom-left-radius 32px
+      // border-top-left-radius 32px
+      // border-bottom-left-radius 32px
       &::before
         float right
         margin-left 0.3rem

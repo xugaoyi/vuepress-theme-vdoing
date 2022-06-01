@@ -8,14 +8,14 @@
 <script>
 import { type } from '../util'
 export default {
-  data () {
+  data() {
     return {
       bgImg: '',
       opacity: 0.5
     }
   },
-  mounted () {
-    let { bodyBgImg, bodyBgImgOpacity,bodyBgImgInterval = 15 } = this.$themeConfig
+  mounted() {
+    let { bodyBgImg, bodyBgImgOpacity, bodyBgImgInterval = 15 } = this.$themeConfig
 
     if (type(bodyBgImg) === 'string') {
       this.bgImg = bodyBgImg
@@ -30,6 +30,12 @@ export default {
           count = 0
         }
         this.bgImg = bodyBgImg[count]
+
+        // 预加载下一张图片
+        if (bodyBgImg[count + 1]) {
+          const img = new Image()
+          img.src = bodyBgImg[count + 1]
+        }
       }, bodyBgImgInterval * 1000);
     }
 

@@ -38,7 +38,7 @@ import Pagination from '@theme/components/Pagination'
 import CategoriesBar from '@theme/components/CategoriesBar'
 
 export default {
-  data () {
+  data() {
     return {
       category: '',
       total: 0, // 总长
@@ -47,7 +47,7 @@ export default {
     }
   },
   components: { MainLayout, PostList, Pagination, CategoriesBar },
-  mounted () {
+  mounted() {
     const queryCategory = this.$route.query.category
     if (queryCategory) {
       this.category = queryCategory
@@ -70,12 +70,12 @@ export default {
     }
   },
   methods: {
-    handlePagination (i) { // 分页
+    handlePagination(i) { // 分页
       this.currentPage = i
     }
   },
   watch: {
-    '$route.query.category' (category) {
+    '$route.query.category'(category) {
       this.category = category ? decodeURIComponent(category) : ''
       if (this.category) {
         this.total = this.$groupPosts.categories[this.category].length
@@ -128,4 +128,13 @@ export default {
         display block
       .categories
         max-height 12.3rem
+.theme-style-line
+  .categories-page
+    .main-left
+      .categories-wrapper
+        @media (max-width $MQMobile)
+          margin-top -0.91rem
+          margin-bottom -1px
+          padding 0.9rem 0.2rem
+          padding-bottom 0.5rem
 </style>

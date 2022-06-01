@@ -49,6 +49,10 @@ export default {
 </script>
 
 <style lang='stylus'>
+.theme-style-line
+  .right-menu-wrapper
+    .right-menu-margin
+      border-left 1px solid var(--borderColor)
 .right-menu-wrapper
   width $rightMenuWidth
   float right
@@ -56,7 +60,7 @@ export default {
   // margin-top -($navbarHeight *2 + 1.5rem)
   position sticky
   top 0
-  font-size 0.75rem
+  font-size 0.8rem
   .right-menu-margin
     margin-top: ($navbarHeight + 1rem)
     border-radius 3px

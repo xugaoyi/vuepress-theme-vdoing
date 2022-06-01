@@ -32,6 +32,12 @@ export interface VdoingThemeConfig extends NoSidebar4DefaultThemeConfig {
   categoryText?: string;
 
   /**
+   * 页面风格
+   * @default 'card'
+   */
+  pageStyle?: 'card' | 'line';
+
+  /**
    * body背景大图链接。单张图片 string | 多张图片 string[], 多张图片时每隔15秒换一张。
    * @default ''
    */

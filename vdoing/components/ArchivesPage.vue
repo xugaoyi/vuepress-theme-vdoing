@@ -123,6 +123,11 @@ export default {
 <style lang='stylus'>
 @require '../styles/wrapper.styl'
 
+.theme-style-line
+  .archives-page .theme-vdoing-wrapper
+    box-shadow 0 0
+    // border 1px solid var(--borderColor)
+    // border-radius 5px
 .archives-page
   .theme-vdoing-wrapper
     @extend $vdoing-wrapper

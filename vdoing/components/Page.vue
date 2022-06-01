@@ -3,6 +3,7 @@
     <main class="page">
       <div :class="`theme-vdoing-wrapper ${bgStyle}`">
         <ArticleInfo v-if="isArticle()" />
+        <div v-else class="placeholder" />
         <component
           class="theme-vdoing-content"
           v-if="pageComponent"
@@ -124,6 +125,16 @@ export default {
     padding-top: ($navbarHeight + 1.5rem)
   >*
     @extend $vdoing-wrapper
+.theme-style-line
+  .page
+    @media (min-width $MQMobile)
+      padding-top $navbarHeight
+    &>*
+      &:not(.footer)
+        box-shadow 0 0
+    .placeholder
+      @media (min-width 720px)
+        height 1.2rem
 .theme-vdoing-wrapper
   .content-wrapper
     position relative

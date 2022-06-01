@@ -47,10 +47,18 @@ a,input,button
 .card-box // 卡片
   border-radius 5px
   background var(--mainBg)
-  box-shadow 0 1px 2px 0 rgba(0,0,0,.1)
+  box-shadow 0px 0px 4px 0 rgba(0,0,0,.1)
   transition box-shadow .5s
   &:hover
     box-shadow 0 1px 15px 0 rgba(0,0,0,.1)
+
+.theme-style-line
+  @media (max-width: 719px)
+    margin-left: -1px;
+    margin-right: -1px;
+  .card-box
+    box-shadow 0 0
+    border: 1px solid var(--borderColor)
 
 .blur // 模糊滤镜
   backdrop-filter saturate(200%) blur(20px)
@@ -210,7 +218,7 @@ p,pre,.custom-block
 
 
 h1
-  font-size 1.8rem
+  font-size 1.9rem
   {$contentClass}:not(.custom) > & // 页面内容的首个h1标签隐藏
     &:first-child
       display none

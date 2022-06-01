@@ -469,12 +469,13 @@ export default {
     margin-top 2rem
     .main-left
       .card-box
-        margin-bottom 0.9rem
+        margin-bottom 2rem
       .pagination
-        margin-bottom 4rem
+        margin-bottom 3rem
       .theme-vdoing-content
         padding 0 2rem
         overflow hidden
+        border none
         &>:first-child
           padding-top 2rem
         &>:last-child
@@ -534,4 +535,8 @@ export default {
       .feature
         h2
           font-size 1.25rem
+.theme-style-line
+  .main-wrapper
+    @media (max-width 719px)
+      margin-top -1px
 </style>

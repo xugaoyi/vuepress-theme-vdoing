@@ -262,7 +262,6 @@ export default {
         setTimeout(() => { t = p }, 0)
       }
     }, 300))
-
   },
   watch: {
     isSidebarOpen() {
@@ -280,7 +279,9 @@ export default {
       return htmlModules ? htmlModules[module] : ''
     },
     setBodyClass() {
-      document.body.className = 'theme-mode-' + this.themeMode
+      let { pageStyle = 'card', bodyBgImg } = this.$themeConfig
+      if (pageStyle !== 'card' && pageStyle !== 'line' || bodyBgImg) { pageStyle = 'card' }
+      document.body.className = `theme-mode-${this.themeMode} theme-style-${pageStyle}`
     },
     getScrollTop() {
       return window.pageYOffset

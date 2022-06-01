@@ -140,6 +140,10 @@ export default {
 <style lang='stylus' scoped>
 @require '../styles/wrapper.styl'
 
+.theme-style-line
+  .articleInfo-wrap
+    .articleInfo
+      padding-top 0.5rem
 .articleInfo-wrap
   @extend $wrapper
   position relative

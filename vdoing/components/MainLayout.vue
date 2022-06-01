@@ -32,7 +32,7 @@
       @media (max-width 900px)
         width 235px
     .card-box
-      margin 0 0 0.9rem 0.9rem
+      margin 0 0 0.8rem 0.8rem
       padding-top 0.95rem
       padding-bottom 0.95rem
 // 719px以下
@@ -56,4 +56,9 @@
         margin 0 0 0.9rem 0
         border-radius 0
         width 100%
+  .theme-style-line
+    .main-wrapper
+      .main-right
+        .card-box
+          margin -1px 0 0 0
 </style>
