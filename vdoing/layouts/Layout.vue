@@ -121,7 +121,7 @@ export default {
       hideNavbar: false,
       isSidebarOpen: true,
       showSidebar: false,
-      themeMode: 'light',
+      themeMode: 'auto',
       showWindowLB: true,
       showWindowRB: true
     }
@@ -203,7 +203,6 @@ export default {
           'have-body-img': this.$themeConfig.bodyBgImg,
           'only-sidebarItem': this.sidebarItems.length === 1 && this.sidebarItems[0].type === 'page', // 左侧边栏只有一项时
         },
-        // 'theme-mode-' + this.themeMode,
         userPageClass
       ]
     }
@@ -217,7 +216,11 @@ export default {
   beforeMount() {
     this.isSidebarOpenOfclientWidth()
     const mode = storage.get('mode') // 不放在created是因为vuepress不能在created访问浏览器api，如window
-    if (!mode || mode === 'auto') { // 当未切换过模式，或模式处于'跟随系统'时
+    const { defaultMode } = this.$themeConfig
+
+    if (defaultMode && defaultMode !== 'auto' && !mode ) {
+      this.themeMode = defaultMode
+    } else if(!mode || mode === 'auto' || defaultMode === 'auto') { // 当未切换过模式，或模式处于'跟随系统'时
       this._autoMode()
     } else {
       this.themeMode = mode

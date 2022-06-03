@@ -102,6 +102,12 @@ export interface VdoingThemeConfig extends NoSidebar4DefaultThemeConfig {
   pageButton?: boolean;
 
   /**
+   * 默认外观模式
+   * @default 'auto'
+   */
+  defaultMode?: 'auto' | 'light' | 'dark' | 'read';
+
+  /**
    * 侧边栏配置
    */
   sidebar?:
