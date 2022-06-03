@@ -1,8 +1,8 @@
 <template>
-  <div class="post-list card-box" ref="postList">
+  <div class="post-list" ref="postList">
     <transition-group tag="div" name="post">
       <div
-        class="post"
+        class="post card-box"
         :class="item.frontmatter.sticky && 'iconfont icon-zhiding'"
         v-for="item in sortPosts"
         :key="item.key"
@@ -165,13 +165,13 @@ export default {
 
 <style lang='stylus'>
 .post-list
-  margin-bottom 4rem
+  margin-bottom 3rem
   .post
     position relative
     padding 1rem 1.5rem
-    // margin-bottom 0.9rem
+    margin-bottom 0.8rem
     transition all 0.3s
-    border-bottom 1px solid var(--borderColor)
+    // border-bottom 1px solid var(--borderColor)
     &:last-child
       border-bottom none
     &.post-leave-active
@@ -249,12 +249,12 @@ export default {
 .theme-style-line
   .post-list
     border 1px solid var(--borderColor)
-    // border-bottom none
+    border-bottom none
     border-radius 5px
     overflow hidden
     .post
-      // margin-bottom 0
-      // border none
-      // border-bottom 1px solid var(--borderColor)
-      // border-radius 0
+      margin-bottom 0
+      border none
+      border-bottom 1px solid var(--borderColor)
+      border-radius 0
 </style>
