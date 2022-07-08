@@ -143,7 +143,16 @@ function getCategories(file, categoryText) {
       }
     }
   } else {
-    categories.push(categoryText)
+    // 碎片化文章的分类生成
+    const matchResult = file.filePath.match(/_posts\/(\S*)\//);
+    const resultStr = matchResult ? matchResult[1] : ''
+    const resultArr = resultStr.split('/').filter(Boolean)
+
+    if (resultArr.length) {
+      categories.push(...resultArr)
+    } else {
+      categories.push(categoryText)
+    }
   }
   return categories
 }
