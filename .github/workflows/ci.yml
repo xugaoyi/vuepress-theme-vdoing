@@ -9,7 +9,7 @@ on:
       - master
 
 env: # 设置环境变量
-  TZ: Asia/Shanghai # 时区（设置时区可使页面中的`最近更新时间`使用时区时间）
+  TZ: Asia/Shanghai # 时区（设置时区可使页面中的`最近更新时间`使用该时区时间）
 
 jobs:
   build: # 自定义名称
@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
 
     steps:
       - name: Checkout # 步骤1
@@ -26,16 +26,17 @@ jobs:
         uses: actions/setup-node@v1 # 作用：安装nodejs
         with:
           node-version: ${{ matrix.node-version }} # 版本
-      - name: build-commit-push # 步骤3
+      - name: build-and-deploy # 步骤3
         run: |
           remote_addr=`git remote get-url --push origin`
           commit_info=`git describe --all --always --long`
           user_name=`git log -1 --pretty=format:'%an'`
           user_email=`git log -1 --pretty=format:'%ae'`
-          npm install
-          npm run build
+          deploy_branch=gh-pages
+          yarn
+          yarn build
           cd docs/.vuepress/dist
-          git config --global init.defaultBranch hp-pages
+          git config --global init.defaultBranch $deploy_branch
           git init
           git config user.name ${user_name}
           git config user.email ${user_email}
@@ -44,7 +45,6 @@ jobs:
           remote_addr=`echo $remote_addr | awk -F'://' '{print $2}'`
           remote_addr=https://${user_name}:${{secrets.GITHUB_TOKEN}}@${remote_addr}
           git remote add origin ${remote_addr}
-          git push origin HEAD:gh-pages --force # 推送到github gh-pages分支
+          git push origin HEAD:$deploy_branch --force # 推送到github $deploy_branch分支
 
-      # 如只提交到github pages可以使用github-pages-deploy-action，详见: https://github.com/JamesIves/github-pages-deploy-action
-      
+      # 只提交到github pages也可以使用github-pages-deploy-action，详见: https://github.com/JamesIves/github-pages-deploy-action
