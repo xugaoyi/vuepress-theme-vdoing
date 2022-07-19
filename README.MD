@@ -84,7 +84,7 @@ npm run dev # or yarn dev
   <tbody>
     <tr>
       <td align="center" valign="middle">
-        <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store2@master/img/mmqrcode1646409021986.5m4pb5hehz80.png" class="no-zoom" style="width:120px;margin: 10px;">
+        <img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/SaV6d0YfaAS0naAeQWibGVkSt6DxSaqGxdkJaeEqoJJ6M1NV1kq9aUqE3lGo7BuroTAoMg4rgibIIay1ibfvqXEiaA/0?wx_fmt=jpeg" class="no-zoom" style="width:120px;margin: 10px;">
         <p>vdoing微信群(添加我微信备注"加群")</p>
       </td>
       <td align="center" valign="middle">
