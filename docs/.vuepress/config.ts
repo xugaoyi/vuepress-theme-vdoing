@@ -15,8 +15,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: "Evan's blog",
-      description: 'web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github等技术文章。',
+      title: "Dragon's blog",
+      description: 'Java后端技术博客,专注后端学习与总结。Java,Spring,SpringBoot,Dubbo,Mybatis,Docker,git,github等技术文章。',
     }
   },
   // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
@@ -27,17 +27,17 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '前端',
+        text: '后端',
         link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           // 说明：以下所有link的值只是在相应md文件头部定义的永久链接（不是什么特殊编码）。另外，注意结尾是有斜杠的
           {
-            text: '前端文章',
+            text: '后端文章',
             items: [
-              { text: 'JavaScript', link: '/pages/8143cc480faf9a11/' },
+              { text: 'Java', link: '/pages/8143cc480faf9a11/' },
             ],
           },
-          {
+          /*{
             text: '学习笔记',
             items: [
               { text: '《JavaScript教程》', link: '/note/javascript/' },
@@ -62,17 +62,17 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
                 link: '/pages/4643cd/',
               },
             ],
-          },
+          },*/
         ],
       },
-      {
+      /*{
         text: '页面',
         link: '/ui/',
         items: [
           { text: 'HTML', link: '/pages/8309a5b876fc95e3/' },
           { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
         ],
-      },
+      },*/
       {
         text: '技术',
         link: '/technology/',
@@ -83,7 +83,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: '博客搭建', link: '/pages/41f87d890d0a02af/' },
         ],
       },
-      {
+      /*{
         text: '更多',
         link: '/more/',
         items: [
@@ -93,9 +93,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: '实用技巧', link: '/pages/baaa02/' },
           { text: '友情链接', link: '/friends/' },
         ],
-      },
+      },*/
       { text: '关于', link: '/about/' },
-      {
+      /*{
         text: '收藏',
         link: '/pages/beb6c0bd8a66cea6/',
         // items: [
@@ -103,7 +103,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         //   { text: '资源', link: '/pages/eee83a9211a70f9d/' },
         //   { text: 'Vue资源', link: '/pages/12df8ace52d493f6/' },
         // ],
-      },
+      },*/
       {
         text: '索引',
         link: '/archives/',
@@ -170,8 +170,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // 博主信息 (显示在首页侧边栏)
     blogger: {
       avatar: 'https://fastly.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg',
-      name: 'Evan Xu',
-      slogan: '前端界的小学生',
+      name: 'Dragon',
+      slogan: '后端界的小学生',
     },
 
     // 社交图标 (显示于博主信息栏和页脚栏。内置图标：https://doc.xugaoyi.com/pages/a20ce8/#social)
@@ -186,7 +186,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         {
           iconClass: 'icon-github',
           title: 'GitHub',
-          link: 'https://github.com/xugaoyi',
+          link: 'https://github.com/mr-dragon',
         },
         {
           iconClass: 'icon-erji',
@@ -198,16 +198,16 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 页脚信息
     footer: {
-      createYear: 2019, // 博客创建年份
+      createYear: 2022, // 博客创建年份
       copyrightInfo:
-        'Evan Xu | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签或换行标签</br>
+        'Evan Xu | <a href="https://github.com/mr-dragon/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签或换行标签</br>
     },
 
     // 扩展自动生成frontmatter。（当md文件的frontmatter不存在相应的字段时将自动添加。不会覆盖已有的数据。）
     extendFrontmatter: {
       author: {
-        name: 'xugaoyi',
-        link: 'https://github.com/xugaoyi'
+        name: 'Dragon',
+        link: 'https://github.com/mr-dragon'
       }
     },
 
