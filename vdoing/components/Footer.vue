@@ -22,6 +22,8 @@
     <template v-if="footer">
       | Copyright © {{ footer.createYear }}-{{ new Date().getFullYear() }}
       <span v-html="footer.copyrightInfo"></span>
+      |
+      <a v-if="footer.miitBeian" target="_blank" href="https://beian.miit.gov.cn">{{footer.miitBeian}}</a>
     </template>
   </div>
 </template>
