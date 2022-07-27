@@ -116,6 +116,9 @@
           class="card-box"
           v-if="homeData.postList === 'simple'"
           :length="homeData.simplePostListLength || 10"
+          :moreArticle="
+            $themeConfig.updateBar && $themeConfig.updateBar.moreArticle
+          "
         />
 
         <!-- 详情版文章列表 -->
