@@ -2,8 +2,8 @@
   "name": "theme-vdoing-blog",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "dev": "node --max_old_space_size=4096 ./node_modules/vuepress/cli.js dev docs",
+    "build": "node --max_old_space_size=4096 ./node_modules/vuepress/cli.js build docs",
     "deploy": "bash deploy.sh",
     "editFm": "node utils/editFrontmatter.js",
     "baiduPush": "node utils/baiduPush.js https://xugaoyi.com && bash baiduPush.sh",
@@ -22,9 +22,10 @@
     "vuepress-plugin-demo-block": "^0.7.2",
     "vuepress-plugin-fulltext-search": "^2.2.1",
     "vuepress-plugin-one-click-copy": "^1.0.2",
+    "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-plugin-thirdparty-search": "^1.0.2",
     "vuepress-plugin-zooming": "^1.1.7",
-    "vuepress-theme-vdoing": "^1.12.7",
+    "vuepress-theme-vdoing": "^1.12.8",
     "yamljs": "^0.3.0"
   }
 }

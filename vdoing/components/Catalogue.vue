@@ -206,15 +206,15 @@ dl, dd
       dd
         margin-top 0.7rem
         margin-left 1rem
-      a:not(.header-anchor)
-        margin-bottom 0.5rem
-        display inline-block
-        width 50%
-        &:hover
-          color $activeColor
-          text-decoration none
-        @media (max-width $MQMobileNarrow)
-          width 100%
+        a:not(.header-anchor)
+          margin-bottom 0.5rem
+          display inline-block
+          width 50%
+          &:hover
+            color $activeColor
+            text-decoration none
+          @media (max-width 720px)
+            width 100%
       .sub-cat-wrap
         margin 5px 0 8px 0
         font-size 0.95rem
