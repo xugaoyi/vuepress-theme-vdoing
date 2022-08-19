@@ -99,12 +99,16 @@ export default {
     @media (max-width $MQMobile)
       display none
     .categories
-      padding-right 0.5rem
+      // padding-right 0.3rem
       max-height calc(100vh - 14rem)
       min-height 2.2rem
       overflow-y auto
       transition all 0.2s
       position relative
+      a
+        padding-right 1.8rem
+        span
+          right 0.4rem
       &::-webkit-scrollbar-track-piece
         background-color rgba(0, 0, 0, 0.05)
       &::-webkit-scrollbar-thumb:vertical

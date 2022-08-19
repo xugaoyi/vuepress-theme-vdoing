@@ -44,7 +44,7 @@ export default {
     }
   },
   computed: {
-    categories () {
+    categories() {
       if (this.length === 'all') {
         return this.categoriesData
       } else {
@@ -68,7 +68,7 @@ export default {
     margin-top 0.6rem
     a
       display block
-      padding 8px 0.95rem 7px 0.95rem
+      padding 8px 2.4rem 7px 0.95rem
       color var(--textColor)
       opacity 0.8
       font-size 0.95rem
@@ -91,7 +91,7 @@ export default {
         span
           opacity 0.8
       span
-        float right
+        // float right
         background-color var(--textColor)
         color var(--mainBg)
         border-radius 8px
@@ -99,10 +99,13 @@ export default {
         min-width 1rem
         height 1rem
         line-height 1rem
-        font-size 0.6rem
+        font-size 12px
         text-align center
         opacity 0.6
         transition opacity 0.3s
+        position absolute
+        right 0.95rem
+        top 8px
       &.active
         background $accentColor
         color var(--mainBg)
