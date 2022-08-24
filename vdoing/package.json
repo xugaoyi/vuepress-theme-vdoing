@@ -48,5 +48,8 @@
   },
   "devDependencies": {
     "@vuepress/types": "^1.9.5"
+  },
+  "engines": {
+    "node": ">=14.17.0"
   }
 }
