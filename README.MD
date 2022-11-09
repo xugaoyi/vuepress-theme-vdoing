@@ -21,7 +21,7 @@
   赞助商
 </p>
 <p align="center">
-<a href="http://apifox.cn/a103xugaoyi" target="_blank"><img src="./docs/.vuepress/public/img/Apifox-860x320.png" alt="npm" class="no-zoom" style="width: 400px;border-radius: 2px;"></a>
+<a href="http://apifox.cn/a103xugaoyi" target="_blank"><img src="https://cdn.staticaly.com/gh/xugaoyi/blog-gitalk-comment@master/img/Apifox-860x320.ic7tz1417sw.png" alt="赞助商" style="width: 400px;border-radius: 2px;"></a>
 </p>
 
 ## 介绍
