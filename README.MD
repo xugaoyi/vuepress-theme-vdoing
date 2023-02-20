@@ -1,4 +1,4 @@
-<p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="180" src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200409124835.png" alt="logo"></a></p>
+<p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="180" src="https://cdn.staticaly.com/gh/xugaoyi/image_store/blog/20200409124835.png" alt="logo"></a></p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/vuepress-theme-vdoing"><img alt="npm" src="https://img.shields.io/npm/v/vuepress-theme-vdoing"></a>
@@ -79,7 +79,7 @@ npm run dev # or yarn dev
 
 | 微信赞赏 | 微信 | 支付宝 |
 | :---: | :---: | :---: |
-| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200523131533.jpg" alt="赞赏码" width=150> | <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113708.jpg" alt="Wechat QRcode" width=150>| <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200410113707.jpg" alt="Alipay QRcode" width=150> |
+| <img src="https://cdn.staticaly.com/gh/xugaoyi/image_store/blog/20200523131533.jpg" alt="赞赏码" width=150> | <img src="https://cdn.staticaly.com/gh/xugaoyi/image_store/blog/20200410113708.jpg" alt="Wechat QRcode" width=150>| <img src="https://cdn.staticaly.com/gh/xugaoyi/image_store/blog/20200410113707.jpg" alt="Alipay QRcode" width=150> |
 
 二维码没有正常显示？点 [这里😎](https://doc.xugaoyi.com/pages/1b12ed/)
 
@@ -98,7 +98,7 @@ npm run dev # or yarn dev
         <p>vdoing微信群(添加我微信备注"加群")</p>
       </td>
       <td align="center" valign="middle">
-        <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/qq.3ugglfuuwz00.webp" alt="群号: 694387113" class="no-zoom" style="width:120px;margin: 10px;">
+        <img src="https://cdn.staticaly.com/gh/xugaoyi/image_store@master/qq.3ugglfuuwz00.webp" alt="群号: 694387113" class="no-zoom" style="width:120px;margin: 10px;">
         <p>vdoing QQ群: 694387113</p>
       </td>
     </tr>
