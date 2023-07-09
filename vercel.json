@@ -1,7 +1,16 @@
 {
   "headers": [
     {
-      "source": "/assets/*/(.*)",
+      "source": "/assets/js/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/css/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
