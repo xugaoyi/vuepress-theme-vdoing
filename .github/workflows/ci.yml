@@ -17,13 +17,13 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [18.x]
 
     steps:
       - name: Checkout # 步骤1
         uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
       - name: Use Node.js ${{ matrix.node-version }} # 步骤2
-        uses: actions/setup-node@v1 # 作用：安装nodejs
+        uses: actions/setup-node@v3 # 作用：安装nodejs
         with:
           node-version: ${{ matrix.node-version }} # 版本
       - name: Build-and-deploy # 步骤3
@@ -46,5 +46,3 @@ jobs:
           remote_addr=https://${user_name}:${{secrets.GITHUB_TOKEN}}@${remote_addr}
           git remote add origin ${remote_addr}
           git push origin HEAD:$deploy_branch --force # 推送到github $deploy_branch分支
-
-      # 只提交到github pages也可以使用github-pages-deploy-action，详见: https://github.com/JamesIves/github-pages-deploy-action
